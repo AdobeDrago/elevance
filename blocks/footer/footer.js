@@ -1,20 +1,33 @@
-import { getMetadata } from '../../scripts/aem.js';
-import { loadFragment } from '../fragment/fragment.js';
-
 /**
- * loads and decorates the footer
+ * Loads and decorates the footer.
+ *
+ * Content-first: all footer copy and links live in content/footer.plain.html.
+ * This module fetches that fragment (metadata-independent dual fetch) and
+ * renders it — it never hardcodes footer copy.
+ *
+ * Dual fetch:
+ *   1. /content/footer.plain.html  — localhost / aem up
+ *   2. /footer.plain.html          — DA/EDS production (served at site root)
+ * Deriving the path from the footer metadata value is a trap: a page whose
+ * footer meta is /content/footer makes both attempts resolve to the same path
+ * and 404 on DA/EDS preview + publish.
  * @param {Element} block The footer block element
  */
 export default async function decorate(block) {
-  // load footer as fragment
-  const footerMeta = getMetadata('footer');
-  const footerPath = footerMeta ? new URL(footerMeta, window.location).pathname : '/footer';
-  const fragment = await loadFragment(footerPath);
+  let resp = await fetch('/content/footer.plain.html');
+  if (!resp.ok) resp = await fetch('/footer.plain.html');
 
-  // decorate footer DOM
   block.textContent = '';
   const footer = document.createElement('div');
-  while (fragment.firstElementChild) footer.append(fragment.firstElementChild);
+  if (resp.ok) footer.innerHTML = await resp.text();
+
+  // Tag the two top-level sections so the CSS can lay them out:
+  // first = contact/links row, second = legal block.
+  const sections = [...footer.children];
+  const classes = ['footer-links', 'footer-legal'];
+  sections.forEach((section, i) => {
+    if (classes[i]) section.classList.add(classes[i]);
+  });
 
   block.append(footer);
 }

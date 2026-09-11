@@ -1,5 +1,32 @@
 import { fetchPlaceholders, getMetadata } from '../../scripts/aem.js';
-import { loadFragment } from '../fragment/fragment.js';
+
+/**
+ * Loads the nav fragment using a metadata-independent dual fetch:
+ *   1. /content/nav.plain.html  — localhost / aem up
+ *   2. /nav.plain.html          — DA/EDS production (served at site root)
+ * Deriving the path from the nav metadata value is a trap: a page whose nav
+ * meta is /content/nav makes both attempts resolve to the same path and 404
+ * on DA/EDS preview + publish.
+ * @returns {Element} a container holding the fetched nav sections
+ */
+async function loadNavFragment() {
+  let resp = await fetch('/content/nav.plain.html');
+  if (!resp.ok) resp = await fetch('/nav.plain.html');
+  const container = document.createElement('div');
+  if (resp.ok) container.innerHTML = await resp.text();
+  // Reproduce EDS decoration: wrap each top-level section's content in a
+  // .default-content-wrapper so the header CSS/JS selectors resolve the same
+  // way whether loaded here or via the standard fragment pipeline.
+  [...container.children].forEach((section) => {
+    if (!section.querySelector(':scope > .default-content-wrapper')) {
+      const wrapper = document.createElement('div');
+      wrapper.className = 'default-content-wrapper';
+      while (section.firstChild) wrapper.append(section.firstChild);
+      section.append(wrapper);
+    }
+  });
+  return container;
+}
 
 // media query match that indicates mobile/tablet width
 const isDesktop = window.matchMedia('(min-width: 900px)');
@@ -173,10 +200,8 @@ async function buildBreadcrumbs() {
  * @param {Element} block The header block element
  */
 export default async function decorate(block) {
-  // load nav as fragment
-  const navMeta = getMetadata('nav');
-  const navPath = navMeta ? new URL(navMeta, window.location).pathname : '/nav';
-  const fragment = await loadFragment(navPath);
+  // load nav as fragment (metadata-independent dual fetch: /content first, root fallback)
+  const fragment = await loadNavFragment();
 
   // decorate nav DOM
   block.textContent = '';
