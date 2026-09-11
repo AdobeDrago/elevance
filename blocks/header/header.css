@@ -114,9 +114,16 @@ header nav .nav-sections .default-content-wrapper > ul > li > ul a:any-link {
 
   /* desktop: reset the mobile accordion resets back to inline dropdown styling */
   header nav .nav-sections .default-content-wrapper > ul > li {
+    width: max-content;
     padding: 0;
     border-bottom: 0;
     text-indent: 0;
+  }
+
+  /* dropdown items reserve room on the right for the caret so it sits
+     beside the label (not floated to a stretched li edge) */
+  header nav .nav-sections .default-content-wrapper > ul > li.nav-drop {
+    padding-right: 16px;
   }
 
   header nav .nav-sections a:any-link {
@@ -260,6 +267,13 @@ header nav .nav-sections ul {
   font-size: var(--body-font-size-s);
 }
 
+/* Document Authoring wraps each nav label in a block-level <p>; render it
+   inline so dropdown carets sit beside the label and tools stay on one row. */
+header nav .nav-sections .default-content-wrapper > ul > li > p {
+  display: inline;
+  margin: 0;
+}
+
 /* stylelint-disable-next-line no-descending-specificity */
 header nav .nav-sections ul > li {
   font-weight: 500;
@@ -331,13 +345,26 @@ header nav .nav-sections ul > li > ul > li {
   header nav .nav-sections .default-content-wrapper > ul > li[aria-expanded='true'] > ul {
     display: block;
     position: absolute;
-    left: -24px;
-    width: 200px;
+    left: -16px;
+    width: max-content;
+    min-width: 200px;
+    max-width: 340px;
     top: 150%;
     padding: 16px;
     background-color: var(--light-color);
-    white-space: initial;
+    white-space: normal;
+    box-shadow: 0 4px 12px rgb(0 0 0 / 12%);
     z-index: 1;
+  }
+
+  /* dropdown items: let long labels wrap within the panel width */
+  header nav .nav-sections .default-content-wrapper > ul > li[aria-expanded='true'] > ul li {
+    width: auto;
+  }
+
+  header nav .nav-sections .default-content-wrapper > ul > li[aria-expanded='true'] > ul a:any-link {
+    display: block;
+    white-space: normal;
   }
 
   header nav .nav-sections .default-content-wrapper > ul > li > ul::before {
@@ -352,6 +379,7 @@ header nav .nav-sections ul > li > ul > li {
     border-bottom: 8px solid var(--light-color);
   }
 
+  /* stylelint-disable-next-line no-descending-specificity */
   header nav .nav-sections .default-content-wrapper > ul > li > ul > li {
     padding: 8px 0;
   }
@@ -387,6 +415,7 @@ header nav .nav-brand .default-content-wrapper {
   gap: 16px;
 }
 
+/* stylelint-disable-next-line no-descending-specificity */
 header nav .nav-brand p:last-child {
   padding-left: 16px;
   border-left: 1px solid var(--brand-border);
@@ -430,7 +459,9 @@ header nav .nav-tools .default-content-wrapper {
 
 /* stylelint-disable-next-line no-descending-specificity */
 header nav .nav-tools p {
+  margin: 0;
   color: var(--text-color);
+  white-space: nowrap;
 }
 
 /* stylelint-disable-next-line no-descending-specificity */
