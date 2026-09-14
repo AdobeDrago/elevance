@@ -10,8 +10,8 @@ import { fetchPlaceholders, getMetadata } from '../../scripts/aem.js';
  * @returns {Element} a container holding the fetched nav sections
  */
 async function loadNavFragment() {
-  let resp = await fetch('/content/nav.plain.html');
-  if (!resp.ok) resp = await fetch('/nav.plain.html');
+    let resp = await fetch(`${getMetadata('nav')}.plain.html`);
+  if (!resp.ok) resp = await fetch('/content/nav.plain.html' ||'/nav.plain.html');
   const container = document.createElement('div');
   if (resp.ok) container.innerHTML = await resp.text();
   // Reproduce EDS decoration: wrap each top-level section's content in a

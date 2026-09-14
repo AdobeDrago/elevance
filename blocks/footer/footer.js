@@ -1,3 +1,4 @@
+import { getMetadata } from '../../scripts/aem.js';
 /**
  * Loads and decorates the footer.
  *
@@ -14,9 +15,8 @@
  * @param {Element} block The footer block element
  */
 export default async function decorate(block) {
-  let resp = await fetch('/content/footer.plain.html');
-  if (!resp.ok) resp = await fetch('/footer.plain.html');
-
+  let resp = await fetch(`${getMetadata('footer')}.plain.html`);
+  if (!resp.ok) resp = await fetch('/content/footer.plain.html' || '/footer.plain.html');
   block.textContent = '';
   const footer = document.createElement('div');
   if (resp.ok) footer.innerHTML = await resp.text();
