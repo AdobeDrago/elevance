@@ -145,7 +145,7 @@
 
         <div class="notice info">
           <svg class="notice-icon" width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8zm6.5-.25A.75.75 0 017.25 7h1a.75.75 0 01.75.75v2.75h.25a.75.75 0 010 1.5h-2a.75.75 0 010-1.5h.25v-2h-.25a.75.75 0 01-.75-.75zM8 6a1 1 0 100-2 1 1 0 000 2z"/></svg>
-          <span><strong>Status.</strong> Both sites are bot-protected during setup and share one block library (the AEM Block Collection baseline). The <code class="code-inline">elevance-nc</code> site covers the North Carolina provider content; <code class="code-inline">elevance</code> covers the remaining sites. Per-page migrations reuse existing blocks first, adding styling variants as new page types are brought over. Header/navigation is deferred on the first import pass.</span>
+          <span><strong>Status.</strong> Both sites are bot-protected during setup and share one block library (the AEM Block Collection baseline). Current DA mapping: <code class="code-inline">elevance</code> &rarr; GRS provider (<code class="code-inline">provider.bluemedadvgrhs.com/grs-provider</code>) and <code class="code-inline">elevance-nc</code> &rarr; Healthy Blue NC provider (<code class="code-inline">provider.healthybluenc.com/north-carolina-provider</code>). Other source sites are not yet assigned to a DA site. Per-page migrations reuse existing blocks first, adding styling variants as new page types are brought over. Header/navigation is deferred on the first import pass.</span>
         </div>
       </section>
 
@@ -187,8 +187,8 @@
               <svg viewBox="0 0 16 16" fill="currentColor"><path d="M2 8a1 1 0 011-1h10a1 1 0 010 2H3a1 1 0 01-1-1z"/></svg>
             </span>
             <span class="check-body">
-              <span class="check-title">Healthy Blue NC provider &mdash; full site</span>
-              <span class="check-note">Migrate <code class="code-inline">provider.healthybluenc.com/north-carolina-provider/home</code> and its sections, inclusive of the 3 API calls: search, form index, and drug lookup.</span>
+              <span class="check-title">Healthy Blue NC provider &mdash; full site <span class="nav-status ns-progress">elevance-nc</span></span>
+              <span class="check-note">Migrate <code class="code-inline">provider.healthybluenc.com/north-carolina-provider</code> and its sections onto the <code class="code-inline">elevance-nc</code> site, inclusive of the 3 API calls: search, form index, and drug lookup. <strong>Search will be mocked up</strong> against this site as part of this pass.</span>
             </span>
           </li>
           <li class="check-item">
@@ -230,13 +230,14 @@
           <thead><tr><th>Site</th><th>Base URL</th><th>EDS site</th><th>Pages</th></tr></thead>
           <tbody>
             <tr><td>GRS Provider</td><td><code class="code-inline">provider.bluemedadvgrhs.com/grs-provider</code></td><td><code class="code-inline">elevance</code></td><td>8</td></tr>
-            <tr><td>Anthem California Medicaid</td><td><code class="code-inline">mss.anthem.com/california-medicaid</code></td><td><code class="code-inline">elevance</code></td><td>9</td></tr>
+            <tr><td>Anthem California Medicaid</td><td><code class="code-inline">mss.anthem.com/california-medicaid</code></td><td>TBD</td><td>9</td></tr>
             <tr><td>Healthy Blue NC Provider</td><td><code class="code-inline">provider.healthybluenc.com/north-carolina-provider</code></td><td><code class="code-inline">elevance-nc</code></td><td>~55</td></tr>
+            <tr><td>Simply Healthcare (FL DSNP)</td><td><code class="code-inline">choose.simplyhealthcareplans.com/medicare/shp/fl/dsnp/dual-plans/index</code></td><td>TBD</td><td>1</td></tr>
           </tbody>
         </table>
         <div class="notice info">
           <svg class="notice-icon" width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8zm6.5-.25A.75.75 0 017.25 7h1a.75.75 0 01.75.75v2.75h.25a.75.75 0 010 1.5h-2a.75.75 0 010-1.5h.25v-2h-.25a.75.75 0 01-.75-.75zM8 6a1 1 0 100-2 1 1 0 000 2z"/></svg>
-          <span><strong>Note.</strong> The Healthy Blue NC provider site is the primary sprint target. The full page list (privacy/terms, claims, patient care, pharmacy, training, and more) is captured in the team's shared URL inventory.</span>
+          <span><strong>Note.</strong> The Healthy Blue NC provider site is the primary sprint target. The full page list (privacy/terms, claims, patient care, pharmacy, training, and more) is captured in the team's shared URL inventory. The Simply Healthcare DSNP dual-plans page is a single page and requires a <strong>dynamic phone number</strong> (varies by context) rather than a hard-coded value.</span>
         </div>
       </section>
 
