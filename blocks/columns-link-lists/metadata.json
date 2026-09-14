@@ -1,0 +1,10 @@
+{
+  "variantName": "columns-link-lists",
+  "baseBlock": "columns",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": "Two side-by-side columns, each holding a vertical list of chevron/arrow links separated by thin dividers.",
+  "contentPattern": "One row with two cells; each cell holds a list of links.",
+  "usage": "Provider tools & resources link directory shown as two balanced columns.",
+  "options": [],
+  "memberVariantIds": ["columns-link-lists"]
+}

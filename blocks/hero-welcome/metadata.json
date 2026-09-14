@@ -1,0 +1,10 @@
+{
+  "variantName": "hero-welcome",
+  "baseBlock": "hero",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": "Full-bleed background photograph spanning the section width with a solid content card overlaid on the left. Card holds a large welcome heading, an intro paragraph, a subheading, supporting paragraphs, and a phone/contact block.",
+  "contentPattern": "Row 1: background image (picture). Row 2: card content (heading + paragraphs + contact info).",
+  "usage": "Page-opening welcome hero where introductory copy is layered over a lifestyle photo.",
+  "options": [],
+  "memberVariantIds": ["hero-welcome"]
+}

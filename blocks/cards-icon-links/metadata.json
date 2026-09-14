@@ -1,0 +1,10 @@
+{
+  "variantName": "cards-icon-links",
+  "baseBlock": "cards",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": "A single light-grey horizontal bar holding a row of icon + text-label links (e.g. Launch Availity, Prior Authorization, Claims & Disputes, Forms, Training Academy). Icons sit inline to the left of each label.",
+  "contentPattern": "One row per link. Each row has an icon cell (picture/icon) and a label cell (linked text).",
+  "usage": "Quick-action link bar shown directly beneath a hero.",
+  "options": [],
+  "memberVariantIds": ["cards-icon-links"]
+}

@@ -4,33 +4,40 @@
   },
   "templates": [
     {
-      "name": "grs-provider",
+      "name": "north-carolina-provider",
       "urls": [
-        "https://provider.bluemedadvgrhs.com/grs-provider/"
+        "https://provider.healthybluenc.com/north-carolina-provider/home"
       ],
-      "representativeUrl": "https://provider.bluemedadvgrhs.com/grs-provider/",
-      "description": "Blue Medicare Advantage provider portal landing page: welcome hero, quick-action cards, Availity access columns, and default-content sections for provider news, tools & resources, and a join-network CTA.",
-      "urlPattern": "/*",
+      "representativeUrl": "https://provider.healthybluenc.com/north-carolina-provider/home",
+      "description": "Healthy Blue NC Medicaid provider portal home page: welcome hero over a lifestyle photo, an icon-link quick-action bar, default-content sections for provider news / Medicaid expansion / Availity access / email sign-up, a featured-resources cards grid, a two-column tools & resources link directory, a join-network CTA, and accreditation seals.",
+      "urlPattern": "/north-carolina-provider/*",
       "blocks": [
         {
-          "name": "hero",
+          "name": "hero-welcome",
           "instances": [
-            "body > main > div.container.home_page > section.wide_image",
-            ".wide_image"
+            ".wide_image",
+            "body > main > div.container.home_page > section.wide_image"
           ]
         },
         {
-          "name": "cards",
+          "name": "cards-icon-links",
           "instances": [
-            "#main > div.content_container > section.information_links",
-            ".information_links"
+            ".information_links",
+            "#main > div.content_container > section.information_links"
           ]
         },
         {
-          "name": "columns",
+          "name": "cards-featured",
           "instances": [
-            "#main > div.content_container > section.availity-section",
-            ".availity-section"
+            ".content_column_3",
+            "#main > div.content_container > section.content_column_3"
+          ]
+        },
+        {
+          "name": "columns-link-lists",
+          "instances": [
+            ".tools_resources",
+            "#main > div.content_container > section.center.tools_resources"
           ]
         }
       ],
@@ -44,73 +51,129 @@
           ],
           "style": null,
           "blocks": [
-            "hero"
+            "hero-welcome"
           ],
           "defaultContent": []
         },
         {
           "id": "rc3",
-          "name": "Quick-action links",
+          "name": "Quick-action icon links",
           "selector": [
             ".information_links",
             "#main > div.content_container > section.information_links"
           ],
-          "style": null,
+          "style": "grey",
           "blocks": [
-            "cards"
+            "cards-icon-links"
           ],
           "defaultContent": []
         },
         {
           "id": "rc4",
-          "name": "Availity access",
-          "selector": [
-            ".availity-section",
-            "#main > div.content_container > section.center.content_column_2.with_coloredHmePage.availity-section.no-top-space_bfr.no-top-space"
-          ],
-          "style": null,
-          "blocks": [
-            "columns"
-          ],
-          "defaultContent": []
-        },
-        {
-          "id": "rc5",
           "name": "Provider News",
           "selector": [
-            ".gray-div",
-            "#main > div.content_container > section.center.content_column_2.gray-div"
+            ".content_column_1:nth-of-type(2)",
+            "#main > div.content_container > section.content_column_1:nth-of-type(2)"
           ],
           "style": null,
           "blocks": [],
           "defaultContent": [
-            "#main > div.content_container > section.center.content_column_2.gray-div"
+            "#main > div.content_container > section.content_column_1:nth-of-type(2)"
+          ]
+        },
+        {
+          "id": "rc5",
+          "name": "Medicaid Expansion Tools and Resources",
+          "selector": [
+            ".content_column_1:nth-of-type(3)",
+            "#main > div.content_container > section.content_column_1:nth-of-type(3)"
+          ],
+          "style": "grey",
+          "blocks": [],
+          "defaultContent": [
+            "#main > div.content_container > section.content_column_1:nth-of-type(3)"
           ]
         },
         {
           "id": "rc6",
+          "name": "Availity access",
+          "selector": [
+            ".content_column_1:nth-of-type(4)",
+            "#main > div.content_container > section.content_column_1:nth-of-type(4)"
+          ],
+          "style": null,
+          "blocks": [],
+          "defaultContent": [
+            "#main > div.content_container > section.content_column_1:nth-of-type(4)"
+          ]
+        },
+        {
+          "id": "rc7",
+          "name": "Email sign-up CTA",
+          "selector": [
+            ".content_column_1:nth-of-type(5)",
+            "#main > div.content_container > section.content_column_1:nth-of-type(5)"
+          ],
+          "style": "grey",
+          "blocks": [],
+          "defaultContent": [
+            "#main > div.content_container > section.content_column_1:nth-of-type(5)"
+          ]
+        },
+        {
+          "id": "rc8",
+          "name": "Featured resources",
+          "selector": [
+            ".content_column_3",
+            "#main > div.content_container > section.content_column_3"
+          ],
+          "style": null,
+          "blocks": [
+            "cards-featured"
+          ],
+          "defaultContent": [
+            "#main > div.content_container > section.content_column_3"
+          ]
+        },
+        {
+          "id": "rc9",
           "name": "Provider tools & resources",
           "selector": [
             ".tools_resources",
             "#main > div.content_container > section.center.tools_resources"
           ],
           "style": null,
-          "blocks": [],
+          "blocks": [
+            "columns-link-lists"
+          ],
           "defaultContent": [
             "#main > div.content_container > section.center.tools_resources"
           ]
         },
         {
-          "id": "rc7",
+          "id": "rc10",
           "name": "Join network CTA",
           "selector": [
             ".call_to_action",
             "#main > div.content_container > section.call_to_action"
           ],
-          "style": null,
+          "style": "grey",
           "blocks": [],
           "defaultContent": [
             "#main > div.content_container > section.call_to_action"
+          ]
+        },
+        {
+          "id": "rc11",
+          "name": "Accreditation seals",
+          "selector": [
+            ".content_column_1:nth-of-type(9)",
+            "#main > div.content_container > section.content_column_1:nth-of-type(9)"
+          ],
+          "style": null,
+          "blocks": [],
+          "defaultContent": [
+            "#main > div.content_container > section.content_column_1:nth-of-type(9)"
           ]
         }
       ]

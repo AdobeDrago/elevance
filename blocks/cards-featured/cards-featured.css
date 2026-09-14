@@ -1,0 +1,119 @@
+/*
+ * cards-featured — grid of photo + text feature cards.
+ * Values extracted from source computed styles:
+ *   https://provider.healthybluenc.com/north-carolina-provider/home  .content_column_3
+ * Repoless multi-site: ALL selectors scoped under body.north-carolina.
+ */
+
+body.north-carolina .cards-featured > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: start;
+  gap: 40px;
+}
+
+body.north-carolina .cards-featured > ul > li {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--background-color);
+}
+
+/* --- image (top of card) --- */
+body.north-carolina .cards-featured .cards-featured-card-image {
+  line-height: 0;
+}
+
+body.north-carolina .cards-featured .cards-featured-card-image img {
+  width: 100%;
+  aspect-ratio: 550 / 324;
+  object-fit: cover;
+}
+
+/* --- text body --- */
+body.north-carolina .cards-featured .cards-featured-card-body {
+  margin-top: 40px;
+}
+
+body.north-carolina .cards-featured .cards-featured-card-body > *:first-child {
+  margin-top: 0;
+}
+
+body.north-carolina .cards-featured .cards-featured-card-body h3 {
+  margin: 0;
+  font-family: var(--heading-font-family);
+  font-size: 28px;
+  font-weight: 300;
+  line-height: 34px;
+  color: var(--heading-color);
+}
+
+body.north-carolina .cards-featured .cards-featured-card-body p {
+  margin: 20px 0 0;
+  font-family: var(--body-font-family);
+  font-size: 14px;
+  line-height: 22px;
+  color: var(--text-color);
+}
+
+/* --- arrow link (EDS auto-decorates <p><a> into p.button-container > a.button;
+       reset it back to the source's underlined text link + chevron) --- */
+body.north-carolina .cards-featured .cards-featured-card-body p.button-container {
+  margin: 35px 0 0;
+}
+
+body.north-carolina .cards-featured .cards-featured-card-body a.button:any-link {
+  display: inline;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  font-family: var(--body-font-family);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.3;
+  white-space: normal;
+  text-align: left;
+  text-overflow: clip;
+  color: var(--link-color);
+  text-decoration: underline;
+}
+
+body.north-carolina .cards-featured .cards-featured-card-body a.button:any-link:hover,
+body.north-carolina .cards-featured .cards-featured-card-body a.button:any-link:focus {
+  background: none;
+  color: var(--link-hover-color);
+  text-decoration: underline;
+}
+
+/* chevron-right after the link text (replaces source fa-chevron-right icon) */
+body.north-carolina .cards-featured .cards-featured-card-body a.button:any-link::after {
+  content: '';
+  display: inline-block;
+  width: 0.45em;
+  height: 0.45em;
+  margin-left: 0.5em;
+  border-top: 2px solid currentcolor;
+  border-right: 2px solid currentcolor;
+  transform: rotate(45deg);
+  vertical-align: middle;
+}
+
+/* --- responsive: 3 columns on desktop, source column gap ~70px --- */
+@media (width >= 600px) {
+  body.north-carolina .cards-featured > ul {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 70px;
+  }
+}
+
+@media (width >= 900px) {
+  body.north-carolina .cards-featured > ul {
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 70px;
+  }
+}
