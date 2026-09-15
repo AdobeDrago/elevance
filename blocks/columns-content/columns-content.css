@@ -1,0 +1,30 @@
+/*
+ * columns-content — structural layout only, scoped to body.north-carolina.
+ * Prose content columns: stacked on mobile, side-by-side on desktop.
+ */
+
+body.north-carolina .columns-content > div {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+body.north-carolina .columns-content img {
+  width: 100%;
+}
+
+body.north-carolina .columns-content .columns-content-col > *:first-child {
+  margin-top: 0;
+}
+
+@media (width >= 900px) {
+  body.north-carolina .columns-content > div {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 48px;
+  }
+
+  body.north-carolina .columns-content .columns-content-col {
+    flex: 1;
+  }
+}

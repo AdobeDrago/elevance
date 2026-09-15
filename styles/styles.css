@@ -226,3 +226,35 @@ main .section.highlight {
   margin: 0;
   padding: 40px 0;
 }
+
+/*
+ * north-carolina — base style overrides (repoless multi-site).
+ * Scoped to body.north-carolina so they never affect other sites.
+ * Source: https://provider.healthybluenc.com/north-carolina-provider/home
+ */
+
+body.north-carolina {
+  font-size: var(--body-font-size-xs);
+}
+
+body.north-carolina h1,
+body.north-carolina h2,
+body.north-carolina h3,
+body.north-carolina h4,
+body.north-carolina h5,
+body.north-carolina h6 {
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--heading-color);
+}
+
+body.north-carolina h1 { font-weight: 400; }
+body.north-carolina h2 { font-weight: 400; }
+body.north-carolina h3 { font-weight: 300; }
+body.north-carolina h4 { font-weight: 700; }
+
+body.north-carolina p,
+body.north-carolina li {
+  font-size: var(--body-font-size-xs);
+  line-height: 1.57;
+}

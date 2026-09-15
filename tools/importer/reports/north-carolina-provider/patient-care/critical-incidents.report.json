@@ -1,0 +1,11 @@
+{
+  "status": "success",
+  "url": "https://provider.healthybluenc.com/north-carolina-provider/patient-care/critical-incidents",
+  "path": "north-carolina-provider/patient-care/critical-incidents",
+  "timestamp": "2026-09-15T18:41:58.989Z",
+  "title": "Critical Incidents",
+  "template": "nc-provider-interior",
+  "blocks": [
+    "columns-link-lists"
+  ]
+}

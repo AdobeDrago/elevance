@@ -4,33 +4,173 @@
   },
   "templates": [
     {
-      "name": "grs-provider",
+      "name": "nc-provider-interior",
       "urls": [
-        "https://provider.bluemedadvgrhs.com/grs-provider/"
+        "https://provider.healthybluenc.com/north-carolina-provider/archives",
+        "https://provider.healthybluenc.com/north-carolina-provider/behavioral-health",
+        "https://provider.healthybluenc.com/north-carolina-provider/benefits-partners",
+        "https://provider.healthybluenc.com/north-carolina-provider/care-management",
+        "https://provider.healthybluenc.com/north-carolina-provider/claims",
+        "https://provider.healthybluenc.com/north-carolina-provider/claims-submissions-and-disputes",
+        "https://provider.healthybluenc.com/north-carolina-provider/cme",
+        "https://provider.healthybluenc.com/north-carolina-provider/communications",
+        "https://provider.healthybluenc.com/north-carolina-provider/contact-us",
+        "https://provider.healthybluenc.com/north-carolina-provider/early-periodic-screening-diagnostic-treatment",
+        "https://provider.healthybluenc.com/north-carolina-provider/electronic-data-interchange",
+        "https://provider.healthybluenc.com/north-carolina-provider/eligibility-provider-reports",
+        "https://provider.healthybluenc.com/north-carolina-provider/enhanced-personal-health-care-program",
+        "https://provider.healthybluenc.com/north-carolina-provider/forms",
+        "https://provider.healthybluenc.com/north-carolina-provider/guide-to-drug-coverage-under-medical-benefit",
+        "https://provider.healthybluenc.com/north-carolina-provider/health-education",
+        "https://provider.healthybluenc.com/north-carolina-provider/join-our-network",
+        "https://provider.healthybluenc.com/north-carolina-provider/learn-about-availity",
+        "https://provider.healthybluenc.com/north-carolina-provider/manuals-and-guides",
+        "https://provider.healthybluenc.com/north-carolina-provider/maternal-child-services",
+        "https://provider.healthybluenc.com/north-carolina-provider/medical-management",
+        "https://provider.healthybluenc.com/north-carolina-provider/medical-policies-and-clinical-guidelines",
+        "https://provider.healthybluenc.com/north-carolina-provider/member-eligibility-and-pharmacy",
+        "https://provider.healthybluenc.com/north-carolina-provider/patient-care",
+        "https://provider.healthybluenc.com/north-carolina-provider/patient-care/critical-incidents",
+        "https://provider.healthybluenc.com/north-carolina-provider/pharmacy",
+        "https://provider.healthybluenc.com/north-carolina-provider/physician-administered-drug-program",
+        "https://provider.healthybluenc.com/north-carolina-provider/prior-authorization",
+        "https://provider.healthybluenc.com/north-carolina-provider/prior-authorization-lookup",
+        "https://provider.healthybluenc.com/north-carolina-provider/privacy-policies",
+        "https://provider.healthybluenc.com/north-carolina-provider/quality-management",
+        "https://provider.healthybluenc.com/north-carolina-provider/referrals",
+        "https://provider.healthybluenc.com/north-carolina-provider/reimbursement-policies",
+        "https://provider.healthybluenc.com/north-carolina-provider/reimbursement-policy-definitions",
+        "https://provider.healthybluenc.com/north-carolina-provider/reimbursement-policy-disclaimer",
+        "https://provider.healthybluenc.com/north-carolina-provider/resource-library",
+        "https://provider.healthybluenc.com/north-carolina-provider/resources",
+        "https://provider.healthybluenc.com/north-carolina-provider/rights-and-responsibilities",
+        "https://provider.healthybluenc.com/north-carolina-provider/schedules-registration",
+        "https://provider.healthybluenc.com/north-carolina-provider/serving-diverse-populations",
+        "https://provider.healthybluenc.com/north-carolina-provider/terms-of-use",
+        "https://provider.healthybluenc.com/north-carolina-provider/total-member-view",
+        "https://provider.healthybluenc.com/north-carolina-provider/training-academy",
+        "https://provider.healthybluenc.com/north-carolina-provider/training-resources",
+        "https://provider.healthybluenc.com/north-carolina-provider/condition-care",
+        "https://provider.healthybluenc.com/north-carolina-provider/hedis",
+        "https://provider.healthybluenc.com/north-carolina-provider/sbirt"
       ],
-      "representativeUrl": "https://provider.bluemedadvgrhs.com/grs-provider/",
-      "description": "Blue Medicare Advantage provider portal landing page: welcome hero, quick-action cards, Availity access columns, and default-content sections for provider news, tools & resources, and a join-network CTA.",
-      "urlPattern": "/*",
+      "representativeUrl": "https://provider.healthybluenc.com/north-carolina-provider/archives",
+      "description": "Standard interior provider content page: content body with headings, paragraphs, link/PDF lists, and occasional side content. Covers overviews, policy/guide articles, program descriptions, contact, legal, and landing pages (47 URLs). Consolidated from the former -tabbed (condition-care, hedis) and -grouped (sbirt) clusters, which introduced no new block types. Generic wrapper classes (content_column_1/2/3) are routed by content inspection at import time, not by class alone.",
       "blocks": [
         {
-          "name": "hero",
+          "name": "hero-banner",
           "instances": [
-            "body > main > div.container.home_page > section.wide_image",
-            ".wide_image"
+            ".wide_image",
+            "body > main > div.container > section.wide_image",
+            "#main > div.content_container > section.content_column_1:has(h1.subpage-header)"
           ]
         },
         {
-          "name": "cards",
+          "name": "cards-icon-links",
           "instances": [
-            "#main > div.content_container > section.information_links",
-            ".information_links"
+            ".information_links",
+            "#main > div.content_container > section.information_links"
           ]
         },
         {
-          "name": "columns",
+          "name": "cards-topics",
           "instances": [
-            "#main > div.content_container > section.availity-section",
-            ".availity-section"
+            ".content_column_3",
+            "#main > div.content_container > section.content_column_3",
+            "#main > div.content_container > section.content_column_1"
+          ]
+        },
+        {
+          "name": "cards-promo",
+          "instances": [
+            "#main > div.content_container > section.content_column_2"
+          ]
+        },
+        {
+          "name": "cards-resource-grid",
+          "instances": [
+            "#main > div.content_container > section.content_column_2"
+          ]
+        },
+        {
+          "name": "columns-content",
+          "instances": [
+            "#main > div.content_container > section.content_column_2"
+          ]
+        },
+        {
+          "name": "columns-doc-library",
+          "instances": [
+            "#main > div.content_container > section.content_column_2"
+          ]
+        },
+        {
+          "name": "columns-link-lists",
+          "instances": [
+            ".tools_resources",
+            ".center.tools_resources",
+            "#main > div.content_container > section.center.tools_resources",
+            "#main > section.center.tools_resources"
+          ]
+        },
+        {
+          "name": "accordion-doc-links",
+          "instances": [
+            ".mp-accordion",
+            "#main > div.content_container > section.center.content_column_1.mp-accordion"
+          ]
+        },
+        {
+          "name": "table-news-archive",
+          "instances": [
+            ".archive-list",
+            "#main > div.content_container > section.content_column_1:has(.archive-list, .load-more, [class*='sort'])"
+          ]
+        },
+        {
+          "name": "prior-auth-lookup",
+          "instances": [
+            ".angular-form-content",
+            "section.content_column.angular-form-content"
+          ]
+        }
+      ],
+      "urlPattern": "/north-carolina-provider/*"
+    },
+    {
+      "name": "north-carolina-provider",
+      "urls": [
+        "https://provider.healthybluenc.com/north-carolina-provider/home"
+      ],
+      "representativeUrl": "https://provider.healthybluenc.com/north-carolina-provider/home",
+      "description": "Healthy Blue NC provider home page: welcome hero, icon-link quick actions, default-content sections, featured-resources cards grid, two-column tools directory, CTA, and accreditation seals. Already migrated.",
+      "blocks": [
+        {
+          "name": "hero-welcome",
+          "instances": [
+            ".wide_image",
+            "body > main > div.container.home_page > section.wide_image"
+          ]
+        },
+        {
+          "name": "cards-icon-links",
+          "instances": [
+            ".information_links",
+            "#main > div.content_container > section.information_links"
+          ]
+        },
+        {
+          "name": "cards-featured",
+          "instances": [
+            ".content_column_3",
+            "#main > div.content_container > section.content_column_3"
+          ]
+        },
+        {
+          "name": "columns-link-lists",
+          "instances": [
+            ".tools_resources",
+            "#main > div.content_container > section.center.tools_resources"
           ]
         }
       ],
@@ -44,76 +184,133 @@
           ],
           "style": null,
           "blocks": [
-            "hero"
+            "hero-welcome"
           ],
           "defaultContent": []
         },
         {
           "id": "rc3",
-          "name": "Quick-action links",
+          "name": "Quick-action icon links",
           "selector": [
             ".information_links",
             "#main > div.content_container > section.information_links"
           ],
-          "style": null,
+          "style": "grey",
           "blocks": [
-            "cards"
+            "cards-icon-links"
           ],
           "defaultContent": []
         },
         {
           "id": "rc4",
-          "name": "Availity access",
-          "selector": [
-            ".availity-section",
-            "#main > div.content_container > section.center.content_column_2.with_coloredHmePage.availity-section.no-top-space_bfr.no-top-space"
-          ],
-          "style": null,
-          "blocks": [
-            "columns"
-          ],
-          "defaultContent": []
-        },
-        {
-          "id": "rc5",
           "name": "Provider News",
           "selector": [
-            ".gray-div",
-            "#main > div.content_container > section.center.content_column_2.gray-div"
+            ".content_column_1:nth-of-type(2)",
+            "#main > div.content_container > section.content_column_1:nth-of-type(2)"
           ],
           "style": null,
           "blocks": [],
           "defaultContent": [
-            "#main > div.content_container > section.center.content_column_2.gray-div"
+            "#main > div.content_container > section.content_column_1:nth-of-type(2)"
+          ]
+        },
+        {
+          "id": "rc5",
+          "name": "Medicaid Expansion Tools and Resources",
+          "selector": [
+            ".content_column_1:nth-of-type(3)",
+            "#main > div.content_container > section.content_column_1:nth-of-type(3)"
+          ],
+          "style": "grey",
+          "blocks": [],
+          "defaultContent": [
+            "#main > div.content_container > section.content_column_1:nth-of-type(3)"
           ]
         },
         {
           "id": "rc6",
+          "name": "Availity access",
+          "selector": [
+            ".content_column_1:nth-of-type(4)",
+            "#main > div.content_container > section.content_column_1:nth-of-type(4)"
+          ],
+          "style": null,
+          "blocks": [],
+          "defaultContent": [
+            "#main > div.content_container > section.content_column_1:nth-of-type(4)"
+          ]
+        },
+        {
+          "id": "rc7",
+          "name": "Email sign-up CTA",
+          "selector": [
+            ".content_column_1:nth-of-type(5)",
+            "#main > div.content_container > section.content_column_1:nth-of-type(5)"
+          ],
+          "style": "grey",
+          "blocks": [],
+          "defaultContent": [
+            "#main > div.content_container > section.content_column_1:nth-of-type(5)"
+          ]
+        },
+        {
+          "id": "rc8",
+          "name": "Featured resources",
+          "selector": [
+            ".content_column_3",
+            "#main > div.content_container > section.content_column_3"
+          ],
+          "style": null,
+          "blocks": [
+            "cards-featured"
+          ],
+          "defaultContent": [
+            "#main > div.content_container > section.content_column_3"
+          ]
+        },
+        {
+          "id": "rc9",
           "name": "Provider tools & resources",
           "selector": [
             ".tools_resources",
             "#main > div.content_container > section.center.tools_resources"
           ],
           "style": null,
-          "blocks": [],
+          "blocks": [
+            "columns-link-lists"
+          ],
           "defaultContent": [
             "#main > div.content_container > section.center.tools_resources"
           ]
         },
         {
-          "id": "rc7",
+          "id": "rc10",
           "name": "Join network CTA",
           "selector": [
             ".call_to_action",
             "#main > div.content_container > section.call_to_action"
           ],
-          "style": null,
+          "style": "grey",
           "blocks": [],
           "defaultContent": [
             "#main > div.content_container > section.call_to_action"
           ]
+        },
+        {
+          "id": "rc11",
+          "name": "Accreditation seals",
+          "selector": [
+            ".content_column_1:nth-of-type(9)",
+            "#main > div.content_container > section.content_column_1:nth-of-type(9)"
+          ],
+          "style": null,
+          "blocks": [],
+          "defaultContent": [
+            "#main > div.content_container > section.content_column_1:nth-of-type(9)"
+          ]
         }
-      ]
+      ],
+      "urlPattern": "/north-carolina-provider/*"
     }
   ]
 }

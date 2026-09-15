@@ -61,7 +61,9 @@ function autolinkModals(doc) {
  */
 function buildAutoBlocks(main) {
   try {
-    if (!main.querySelector('.hero')) buildHeroBlock(main);
+    // Skip the synthetic hero when an authored hero variant (e.g. hero-welcome)
+    // is already present, so it doesn't steal the h1/picture from that block.
+    if (!main.querySelector('[class^="hero"], [class*=" hero"]')) buildHeroBlock(main);
   } catch (error) {
     // eslint-disable-next-line no-console
     console.error('Auto Blocking failed', error);
@@ -176,7 +178,7 @@ async function loadLazy(doc) {
   const { hash } = window.location;
   const element = hash ? doc.getElementById(hash.substring(1)) : false;
   if (hash && element) element.scrollIntoView();
- 
+
   loadHeader(doc.querySelector('header'));
   loadFooter(doc.querySelector('footer'));
 

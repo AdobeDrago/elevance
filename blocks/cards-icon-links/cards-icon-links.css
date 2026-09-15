@@ -1,0 +1,98 @@
+/*
+ * cards-icon-links — grey horizontal bar of icon + label links.
+ * Design migrated from https://provider.healthybluenc.com/north-carolina-provider/home
+ * (.information_links). Values from source computed styles.
+ *
+ * REPOLESS MULTI-SITE: every rule is scoped under body.north-carolina.
+ *
+ * Decorated DOM:
+ *   .cards-icon-links.block > ul > li
+ *     > div.cards-icon-links-card-image > picture > img   (icon)
+ *     > div.cards-icon-links-card-body   > p > a.button   (label link)
+ */
+
+/* Grey bar — source #eee (--light-color) with 50px horizontal padding */
+body.north-carolina .cards-icon-links {
+  background-color: var(--light-color);
+  padding: 24px 50px;   /* source bar ~70px tall: 25px label padding top/bottom */
+}
+
+body.north-carolina .cards-icon-links > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 16px 32px;
+}
+
+/* each item: icon + label side by side, ~11px gap (source: 29px text margin - 18px icon) */
+body.north-carolina .cards-icon-links > ul > li {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  margin: 0;
+}
+
+/* icon cell — source icon rendered ~18px tall */
+body.north-carolina .cards-icon-links .cards-icon-links-card-image {
+  line-height: 0;
+  flex: none;
+}
+
+body.north-carolina .cards-icon-links .cards-icon-links-card-image img,
+body.north-carolina .cards-icon-links .cards-icon-links-card-image .icon img {
+  width: auto;
+  height: 22px;
+  object-fit: contain;
+}
+
+/* label cell — reset the <p> margin EDS adds */
+body.north-carolina .cards-icon-links .cards-icon-links-card-body {
+  margin: 0;
+}
+
+body.north-carolina .cards-icon-links .cards-icon-links-card-body p {
+  margin: 0;
+}
+
+/*
+ * Label link — EDS auto-decorates the standalone <p><a> into a solid blue
+ * a.button. Source is a plain bold text link, so reset the button styling.
+ * Overrides global `a.button:any-link`, so match its specificity with main scope.
+ */
+body.north-carolina main .cards-icon-links a.button:any-link {
+  display: inline;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  background-color: transparent;
+  color: var(--link-color);
+  font-family: var(--body-font-family);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 20px;
+  text-align: left;
+  text-decoration: underline;   /* source labels are underlined */
+  white-space: normal;
+  text-overflow: clip;
+}
+
+body.north-carolina main .cards-icon-links a.button:any-link:hover,
+body.north-carolina main .cards-icon-links a.button:any-link:focus {
+  background-color: transparent;
+  color: var(--link-hover-color);
+  text-decoration: underline;
+}
+
+/* Desktop — single row, evenly spaced across the bar (source: space-between) */
+@media (width >= 900px) {
+  body.north-carolina .cards-icon-links > ul {
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    gap: 16px;
+  }
+}

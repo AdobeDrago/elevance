@@ -1,0 +1,76 @@
+/*
+ * columns-link-lists — two side-by-side lists of chevron links.
+ * Design migrated from https://provider.healthybluenc.com/north-carolina-provider/home (.tools_resources)
+ * Values extracted from source computed styles.
+ *
+ * Repoless multi-site: EVERY rule is scoped under body.north-carolina.
+ */
+
+/* Row: stacked on mobile */
+body.north-carolina .columns-link-lists > div {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+body.north-carolina .columns-link-lists .columns-link-lists-col ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* List item — thin brand-blue dividers (border-top on each, border-bottom on last) */
+body.north-carolina .columns-link-lists .columns-link-lists-col li {
+  padding: 18px 0;
+  line-height: 20px;
+  border-top: 1px solid var(--link-color);
+}
+
+body.north-carolina .columns-link-lists .columns-link-lists-col li:last-child {
+  border-bottom: 1px solid var(--link-color);
+}
+
+/* Link — text left, chevron pushed to the right edge */
+body.north-carolina .columns-link-lists .columns-link-lists-col li a,
+body.north-carolina .columns-link-lists .columns-link-lists-col li a:any-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  color: var(--link-color);
+  font-family: var(--body-font-family);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 22px;
+  text-decoration: none;
+}
+
+body.north-carolina .columns-link-lists .columns-link-lists-col li a:hover,
+body.north-carolina .columns-link-lists .columns-link-lists-col li a:focus {
+  color: var(--link-hover-color);
+  text-decoration: none;
+}
+
+/* Chevron-right drawn in CSS (source used a Font Awesome icon, unavailable in EDS) */
+body.north-carolina .columns-link-lists .columns-link-lists-col li a::after {
+  content: "";
+  flex: 0 0 auto;
+  width: 8px;
+  height: 8px;
+  border-top: 2px solid currentcolor;
+  border-right: 2px solid currentcolor;
+  transform: rotate(45deg);
+}
+
+/* Desktop: two columns side by side */
+@media (width >= 900px) {
+  body.north-carolina .columns-link-lists > div {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 26px;
+  }
+
+  body.north-carolina .columns-link-lists .columns-link-lists-col {
+    flex: 1;
+  }
+}

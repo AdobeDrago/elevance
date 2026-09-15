@@ -1,0 +1,67 @@
+{
+  "variantName": "columns-link-lists",
+  "baseBlock": "columns",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": "Two side-by-side columns, each holding a vertical list of chevron/arrow links separated by thin dividers.",
+  "contentPattern": "One row with two cells; each cell holds a list of links.",
+  "usage": {
+    "raw": "Provider tools & resources link directory shown as two balanced columns.",
+    "pagesUsing": [
+      "/north-carolina-provider/claims",
+      "/north-carolina-provider/join-our-network",
+      "/north-carolina-provider/serving-diverse-populations",
+      "/north-carolina-provider/training-academy",
+      "/north-carolina-provider/reimbursement-policy-definitions",
+      "/north-carolina-provider/patient-care/critical-incidents",
+      "/north-carolina-provider/electronic-data-interchange",
+      "/north-carolina-provider/cme",
+      "/north-carolina-provider/medical-management",
+      "/north-carolina-provider/benefits-partners",
+      "/north-carolina-provider/rights-and-responsibilities"
+    ],
+    "reuseCount": 11,
+    "lastUsed": "2026-09-14T20:38:16.371397Z"
+  },
+  "options": [],
+  "memberVariantIds": [
+    "columns-link-lists"
+  ],
+  "usageTracking": {
+    "pagesUsing": [
+      "/north-carolina-provider/hedis",
+      "/north-carolina-provider/forms",
+      "/north-carolina-provider/condition-care",
+      "/north-carolina-provider/prior-authorization-lookup",
+      "/north-carolina-provider/reimbursement-policies",
+      "/north-carolina-provider/archives",
+      "/north-carolina-provider/sbirt",
+      "/north-carolina-provider/total-member-view",
+      "/north-carolina-provider/manuals-and-guides",
+      "/north-carolina-provider/communications",
+      "/north-carolina-provider/learn-about-availity",
+      "/north-carolina-provider/training-resources",
+      "/north-carolina-provider/schedules-registration",
+      "/north-carolina-provider/resource-library",
+      "/north-carolina-provider/patient-care",
+      "/north-carolina-provider/resources",
+      "/north-carolina-provider/member-eligibility-and-pharmacy",
+      "/north-carolina-provider/claims-submissions-and-disputes",
+      "/north-carolina-provider/maternal-child-services",
+      "/north-carolina-provider/guide-to-drug-coverage-under-medical-benefit",
+      "/north-carolina-provider/pharmacy",
+      "/north-carolina-provider/serving-diverse-populations",
+      "/north-carolina-provider/referrals",
+      "/north-carolina-provider/care-management",
+      "/north-carolina-provider/enhanced-personal-health-care-program",
+      "/north-carolina-provider/early-periodic-screening-diagnostic-treatment",
+      "/north-carolina-provider/prior-authorization",
+      "/north-carolina-provider/reimbursement-policy-disclaimer",
+      "/north-carolina-provider/health-education",
+      "/north-carolina-provider/physician-administered-drug-program",
+      "/north-carolina-provider/quality-management",
+      "/north-carolina-provider/eligibility-provider-reports"
+    ],
+    "reuseCount": 32,
+    "lastUsed": "2026-09-14"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "status": "success",
+  "url": "https://provider.healthybluenc.com/north-carolina-provider/training-academy",
+  "path": "north-carolina-provider/training-academy",
+  "timestamp": "2026-09-15T18:42:37.921Z",
+  "title": "Training academy | Healthy Blue",
+  "template": "nc-provider-interior",
+  "blocks": [
+    "columns-link-lists"
+  ]
+}

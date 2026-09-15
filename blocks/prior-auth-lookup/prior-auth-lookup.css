@@ -1,0 +1,103 @@
+/*
+ * prior-auth-lookup — visual design migrated from
+ * https://provider.healthybluenc.com/north-carolina-provider/prior-authorization-lookup
+ *
+ * Source is a plain vertical stack (no card/background): bold labels above
+ * each control, medium-gray bordered selects/input capped at 600px, a blue
+ * dropdown chevron, and a compact Search button.
+ *
+ * Repoless multi-site: EVERY selector scoped under body.north-carolina.
+ */
+
+body.north-carolina .prior-auth-lookup .prior-auth-lookup-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+  max-width: 600px;
+}
+
+/* Field = bold label text stacked above its control */
+body.north-carolina .prior-auth-lookup .prior-auth-lookup-field {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 20px 0 5px;
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  color: var(--text-color);
+}
+
+body.north-carolina .prior-auth-lookup .prior-auth-lookup-field select,
+body.north-carolina .prior-auth-lookup .prior-auth-lookup-field input {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 600px;
+  margin-top: 5px;
+  padding: 8px 16px;
+  border: 1px solid #666;
+  border-radius: 4px;
+  background-color: var(--background-color);
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--text-color);
+}
+
+/* Native select: replace default arrow with a brand-blue chevron */
+body.north-carolina .prior-auth-lookup .prior-auth-lookup-field select {
+  appearance: none;
+  border-radius: 3px;
+  padding-right: 40px;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill="none" stroke="%23016b95" stroke-width="2" d="M2 5l6 6 6-6"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  cursor: pointer;
+}
+
+body.north-carolina .prior-auth-lookup .prior-auth-lookup-field select:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+body.north-carolina .prior-auth-lookup .prior-auth-lookup-field input::placeholder {
+  color: #757575;
+}
+
+/* Search button — compact (auto width), sits below the input.
+   Enabled colors come from the global brand-blue button rule; here we tune
+   spacing/shape and the disabled palette to match the source. */
+body.north-carolina .prior-auth-lookup .prior-auth-lookup-search {
+  margin: 40px 0 0;
+  border-radius: 3px;
+  padding: 12px 30px;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+body.north-carolina .prior-auth-lookup .prior-auth-lookup-search:disabled,
+body.north-carolina .prior-auth-lookup .prior-auth-lookup-search:disabled:hover {
+  border-color: #b2b0b0;
+  background-color: #b2b0b0;
+  color: #d8d8d8;
+  cursor: not-allowed;
+}
+
+/* Results */
+body.north-carolina .prior-auth-lookup .prior-auth-lookup-results:not(:empty) {
+  margin-top: 24px;
+}
+
+body.north-carolina .prior-auth-lookup .prior-auth-lookup-result-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+body.north-carolina .prior-auth-lookup .prior-auth-lookup-result-list li {
+  padding: 12px 0;
+  border-top: 1px solid var(--brand-border, #dcdcdc);
+}

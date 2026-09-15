@@ -1,0 +1,88 @@
+/*
+ * hero-banner — interior-page title banner, scoped to body.north-carolina.
+ * Full-bleed banner photo stacked directly above a solid blue title bar
+ * holding the page H1. Values extracted from source computed styles:
+ *   https://provider.healthybluenc.com/north-carolina-provider/claims
+ *   - banner: section.wide_image, 350px, background cover @ 70% 50%
+ *   - title bar: h1.subpage-header, bg rgb(14,146,199), white 56px/64px 700
+ * The source title-bar blue (#0e92c7) is intentionally brighter than the
+ * brand token (--brand-blue #016b95), so it is kept as an exact literal.
+ */
+
+/* full-bleed: escape the section's max-width/padding wrapper */
+body.north-carolina .hero-banner-container {
+  margin-top: 0;
+}
+
+body.north-carolina .hero-banner-container .hero-banner-wrapper {
+  max-width: unset;
+  padding: 0;
+}
+
+body.north-carolina .hero-banner {
+  position: relative;
+  padding: 0;
+}
+
+/* banner image — full width, fixed-ratio band */
+body.north-carolina .hero-banner .hero-banner-image,
+body.north-carolina .hero-banner .hero-banner-image-inner,
+body.north-carolina .hero-banner .hero-banner-image p,
+body.north-carolina .hero-banner .hero-banner-image picture {
+  display: block;
+  width: 100%;
+  margin: 0;
+  line-height: 0;
+}
+
+body.north-carolina .hero-banner .hero-banner-image img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  object-position: 70% 50%;
+}
+
+/* solid title bar — full-bleed background, content aligned to page gutter */
+body.north-carolina .hero-banner .hero-banner-title {
+  box-sizing: border-box;
+  padding: 0;
+  background-color: rgb(14 146 199); /* #0e92c7 — exact source value */
+}
+
+body.north-carolina .hero-banner .hero-banner-title-inner {
+  box-sizing: border-box;
+  max-width: var(--content-max-width, 1080px);
+  margin: 0 auto;
+  padding: 24px;
+}
+
+body.north-carolina .hero-banner .hero-banner-title h1 {
+  margin: 0;
+  font-family: var(--heading-font-family);
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--background-color, #fff);
+  text-transform: none;
+  letter-spacing: normal;
+}
+
+/* no-image variant: title bar stands alone */
+body.north-carolina .hero-banner.no-image .hero-banner-title-inner {
+  padding-block: 32px;
+}
+
+@media (width >= 900px) {
+  body.north-carolina .hero-banner .hero-banner-image img {
+    height: 350px;
+  }
+
+  body.north-carolina .hero-banner .hero-banner-title-inner {
+    padding: 41px 32px 39px;
+  }
+
+  body.north-carolina .hero-banner .hero-banner-title h1 {
+    font-size: 56px;
+    line-height: 64px;
+  }
+}

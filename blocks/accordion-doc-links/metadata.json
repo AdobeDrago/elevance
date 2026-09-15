@@ -1,0 +1,10 @@
+{
+  "variantName": "accordion-doc-links",
+  "baseBlock": "accordion",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": "Expand/collapse accordion. Each panel header is a category title with a chevron toggle; the expanded body holds a vertical list of PDF/document links.",
+  "contentPattern": "One row per category; row cell 1 = title, row cell 2 = a list of document links.",
+  "usage": "Categorized document directories (e.g. reimbursement policies, medical policies) presented as collapsible sections.",
+  "options": [],
+  "memberVariantIds": ["accordion-doc-links"]
+}

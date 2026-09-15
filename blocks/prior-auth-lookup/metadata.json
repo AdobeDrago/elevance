@@ -1,0 +1,10 @@
+{
+  "variantName": "prior-auth-lookup",
+  "baseBlock": "prior-auth-lookup",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": "Interactive prior-authorization lookup tool: a Market select, a dependent Line of Business select, a drug/CPT/HCPCS typeahead input, a validation-gated Search button, and a dynamically rendered results area.",
+  "contentPattern": "Config rows (key | value): 'Data Source' → published JSON path; 'Markets' → market list; one row per market → its Line-of-Business options. All rows optional; the block renders a usable shell and performs client-side search when a data source is configured.",
+  "usage": "Prior-authorization requirement lookup on the prior-authorization-lookup page. Custom interactive block (NOT the boilerplate form block).",
+  "options": [],
+  "memberVariantIds": ["prior-auth-lookup"]
+}

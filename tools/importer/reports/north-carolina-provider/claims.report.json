@@ -1,0 +1,13 @@
+{
+  "status": "success",
+  "url": "https://provider.healthybluenc.com/north-carolina-provider/claims",
+  "path": "north-carolina-provider/claims",
+  "timestamp": "2026-09-15T18:41:11.230Z",
+  "title": "Claims",
+  "template": "nc-provider-interior",
+  "blocks": [
+    "hero-banner",
+    "cards-icon-links",
+    "columns-link-lists"
+  ]
+}

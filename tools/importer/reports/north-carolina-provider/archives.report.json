@@ -1,0 +1,12 @@
+{
+  "status": "success",
+  "url": "https://provider.healthybluenc.com/north-carolina-provider/archives",
+  "path": "north-carolina-provider/archives",
+  "timestamp": "2026-09-15T18:41:03.151Z",
+  "title": "Archives",
+  "template": "nc-provider-interior",
+  "blocks": [
+    "table-news-archive",
+    "columns-link-lists"
+  ]
+}

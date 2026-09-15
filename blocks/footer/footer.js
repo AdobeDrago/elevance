@@ -6,17 +6,17 @@ import { getMetadata } from '../../scripts/aem.js';
  * This module fetches that fragment (metadata-independent dual fetch) and
  * renders it — it never hardcodes footer copy.
  *
- * Dual fetch:
- *   1. /content/footer.plain.html  — localhost / aem up
- *   2. /footer.plain.html          — DA/EDS production (served at site root)
- * Deriving the path from the footer metadata value is a trap: a page whose
- * footer meta is /content/footer makes both attempts resolve to the same path
- * and 404 on DA/EDS preview + publish.
+ * Fetch order:
+ *   1. {footer-metadata}.plain.html         — DA/EDS production (served at site root)
+ *   2. /content + {footer-metadata}.plain.html — localhost / aem up (content under /content)
+ *   3. /content/footer.plain.html            — legacy default
  * @param {Element} block The footer block element
  */
 export default async function decorate(block) {
-  let resp = await fetch(`${getMetadata('footer')}.plain.html`);
-  if (!resp.ok) resp = await fetch('/content/footer.plain.html' || '/footer.plain.html');
+  const footerMeta = getMetadata('footer') || '/footer';
+  let resp = await fetch(`${footerMeta}.plain.html`);
+  if (!resp.ok) resp = await fetch(`/content${footerMeta}.plain.html`);
+  if (!resp.ok) resp = await fetch('/content/footer.plain.html');
   block.textContent = '';
   const footer = document.createElement('div');
   if (resp.ok) footer.innerHTML = await resp.text();

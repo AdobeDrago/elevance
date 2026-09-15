@@ -1,0 +1,10 @@
+{
+  "variantName": "columns-content",
+  "baseBlock": "columns",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": "Two side-by-side content columns of general prose — each holding headings, paragraphs, and link/PDF lists. Stacks vertically on mobile.",
+  "contentPattern": "One row with two cells; each cell holds rich content (heading + paragraph + optional link list).",
+  "usage": "Two-up informational content sections (e.g. side-by-side program descriptions or resource groups).",
+  "options": [],
+  "memberVariantIds": ["columns-content"]
+}

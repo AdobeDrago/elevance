@@ -1,0 +1,11 @@
+{
+  "status": "success",
+  "url": "https://provider.healthybluenc.com/north-carolina-provider/hedis",
+  "path": "north-carolina-provider/hedis",
+  "timestamp": "2026-09-15T18:42:45.168Z",
+  "title": "Healthcare Effectiveness Data and Information Set (HEDIS)",
+  "template": "nc-provider-interior",
+  "blocks": [
+    "columns-link-lists"
+  ]
+}

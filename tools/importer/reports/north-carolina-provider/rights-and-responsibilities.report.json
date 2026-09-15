@@ -1,0 +1,11 @@
+{
+  "status": "success",
+  "url": "https://provider.healthybluenc.com/north-carolina-provider/rights-and-responsibilities",
+  "path": "north-carolina-provider/rights-and-responsibilities",
+  "timestamp": "2026-09-15T18:42:26.054Z",
+  "title": "Rights and Responsibilities",
+  "template": "nc-provider-interior",
+  "blocks": [
+    "columns-link-lists"
+  ]
+}

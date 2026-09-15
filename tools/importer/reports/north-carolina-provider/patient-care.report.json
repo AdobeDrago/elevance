@@ -1,0 +1,16 @@
+{
+  "status": "success",
+  "url": "https://provider.healthybluenc.com/north-carolina-provider/patient-care",
+  "path": "north-carolina-provider/patient-care",
+  "timestamp": "2026-09-15T18:41:56.595Z",
+  "title": "Patient Care",
+  "template": "nc-provider-interior",
+  "blocks": [
+    "cards-icon-links",
+    "cards-promo",
+    "cards-promo",
+    "cards-promo",
+    "cards-promo",
+    "columns-link-lists"
+  ]
+}

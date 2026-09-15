@@ -7,6 +7,13 @@
       "contentHostUrl": "https://content.da.live/adobedrago/elevance/",
       "libraryUrl": "https://main--sta-boilerplate--aemdemos.aem.page/tools/sidekick/library.json",
       "botProtected": true
+    },
+    "elevance-nc": {
+      "libraryUrl": "https://main--sta-boilerplate--aemdemos.aem.page/tools/sidekick/library.json",
+      "previewOrg": "adobedrago",
+      "previewSite": "elevance-nc",
+      "contentHostUrl": "https://content.da.live/adobedrago/elevance-nc/",
+      "botProtected": true
     }
   }
 }

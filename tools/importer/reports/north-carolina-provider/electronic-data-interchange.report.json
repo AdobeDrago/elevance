@@ -1,0 +1,12 @@
+{
+  "status": "success",
+  "url": "https://provider.healthybluenc.com/north-carolina-provider/electronic-data-interchange",
+  "path": "north-carolina-provider/electronic-data-interchange",
+  "timestamp": "2026-09-15T18:41:24.652Z",
+  "title": "Electronic Data Interchange",
+  "template": "nc-provider-interior",
+  "blocks": [
+    "columns-content",
+    "columns-link-lists"
+  ]
+}

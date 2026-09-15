@@ -1,0 +1,11 @@
+{
+  "status": "success",
+  "url": "https://provider.healthybluenc.com/north-carolina-provider/referrals",
+  "path": "north-carolina-provider/referrals",
+  "timestamp": "2026-09-15T18:42:13.165Z",
+  "title": "Referrals",
+  "template": "nc-provider-interior",
+  "blocks": [
+    "columns-link-lists"
+  ]
+}

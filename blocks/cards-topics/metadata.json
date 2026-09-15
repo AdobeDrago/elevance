@@ -1,0 +1,10 @@
+{
+  "variantName": "cards-topics",
+  "baseBlock": "cards",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": "A row of no-image teaser cards (typically 3 across on desktop). Each card has a heading, a short descriptive paragraph, and an arrow text link. No photos or icons.",
+  "contentPattern": "One row per card; each card cell holds a heading + paragraph + link.",
+  "usage": "Related-topics / more-resources teaser grid on landing and content pages.",
+  "options": [],
+  "memberVariantIds": ["cards-topics"]
+}

@@ -10,8 +10,13 @@ import { fetchPlaceholders, getMetadata } from '../../scripts/aem.js';
  * @returns {Element} a container holding the fetched nav sections
  */
 async function loadNavFragment() {
-    let resp = await fetch(`${getMetadata('nav')}.plain.html`);
-  if (!resp.ok) resp = await fetch('/content/nav.plain.html' ||'/nav.plain.html');
+  // Production (DA/EDS) serves the fragment at the metadata path (site root).
+  // On localhost / aem up the same content is served under /content, so fall
+  // back to /content + the metadata path before the legacy root default.
+  const navMeta = getMetadata('nav') || '/nav';
+  let resp = await fetch(`${navMeta}.plain.html`);
+  if (!resp.ok) resp = await fetch(`/content${navMeta}.plain.html`);
+  if (!resp.ok) resp = await fetch('/content/nav.plain.html');
   const container = document.createElement('div');
   if (resp.ok) container.innerHTML = await resp.text();
   // Reproduce EDS decoration: wrap each top-level section's content in a

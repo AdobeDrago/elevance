@@ -1,0 +1,10 @@
+{
+  "variantName": "cards-resource-grid",
+  "baseBlock": "cards",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": "A grid (typically 2x2) of no-image cards. Each card has a heading, a short paragraph, and a solid-filled primary button CTA anchored at the bottom.",
+  "contentPattern": "One row per card; each card cell holds heading + paragraph + button link.",
+  "usage": "Resource/quick-link card grids with call-to-action buttons on landing pages.",
+  "options": [],
+  "memberVariantIds": ["cards-resource-grid"]
+}

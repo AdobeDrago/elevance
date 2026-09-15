@@ -1,0 +1,30 @@
+{
+  "variantName": "cards-icon-links",
+  "baseBlock": "cards",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": "A single light-grey horizontal bar holding a row of icon + text-label links (e.g. Launch Availity, Prior Authorization, Claims & Disputes, Forms, Training Academy). Icons sit inline to the left of each label.",
+  "contentPattern": "One row per link. Each row has an icon cell (picture/icon) and a label cell (linked text).",
+  "usage": {
+    "raw": "Quick-action link bar shown directly beneath a hero.",
+    "pagesUsing": [
+      "/north-carolina-provider/claims",
+      "/north-carolina-provider/join-our-network"
+    ],
+    "reuseCount": 2,
+    "lastUsed": "2026-09-14T20:14:23.754Z"
+  },
+  "options": [],
+  "memberVariantIds": [
+    "cards-icon-links"
+  ],
+  "usageTracking": {
+    "pagesUsing": [
+      "/north-carolina-provider/communications",
+      "/north-carolina-provider/patient-care",
+      "/north-carolina-provider/resources",
+      "/north-carolina-provider/member-eligibility-and-pharmacy"
+    ],
+    "reuseCount": 4,
+    "lastUsed": "2026-09-14"
+  }
+}
