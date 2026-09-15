@@ -1,0 +1,11 @@
+{
+  "status": "success",
+  "url": "https://provider.healthybluenc.com/north-carolina-provider/medical-policies-and-clinical-guidelines",
+  "path": "north-carolina-provider/medical-policies-and-clinical-guidelines",
+  "timestamp": "2026-09-15T18:41:52.101Z",
+  "title": "Search Medical Policies and Clinical Guidelines",
+  "template": "nc-provider-interior",
+  "blocks": [
+    "accordion-doc-links"
+  ]
+}

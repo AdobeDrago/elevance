@@ -1,0 +1,10 @@
+{
+  "variantName": "table-news-archive",
+  "baseBlock": "table",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": "A document news feed: a row of category filter tabs and a Sort By dropdown above a list of document rows (linked title + publication date). A 'Load More' button paginates the list. Filtering, sorting (Newest/Oldest/A-Z/Z-A), and pagination are client-side.",
+  "contentPattern": "One row per document with three cells: linked document title, publication date, and category. The block derives the filter tabs from the distinct category values.",
+  "usage": "Provider news / bulletin archives with filter, sort, and load-more behavior.",
+  "options": [],
+  "memberVariantIds": ["table-news-archive"]
+}

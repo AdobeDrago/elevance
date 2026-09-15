@@ -1,0 +1,10 @@
+{
+  "variantName": "hero-banner",
+  "baseBlock": "hero",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": "Interior-page title banner: an optional full-width banner photograph stacked directly above a solid brand-blue bar that holds the page H1 in white. No overlaid content card, intro copy, or contact block.",
+  "contentPattern": "Row 1: banner image (picture, optional). Row 2: page heading (H1). When no image is present, the block is a standalone solid-color title bar with the H1.",
+  "usage": "Standard page-title header used across interior provider pages.",
+  "options": [],
+  "memberVariantIds": ["hero-banner"]
+}

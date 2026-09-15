@@ -1,0 +1,12 @@
+{
+  "status": "success",
+  "url": "https://provider.healthybluenc.com/north-carolina-provider/learn-about-availity",
+  "path": "north-carolina-provider/learn-about-availity",
+  "timestamp": "2026-09-15T18:41:41.718Z",
+  "title": "Learn about Availity",
+  "template": "nc-provider-interior",
+  "blocks": [
+    "accordion-doc-links",
+    "columns-link-lists"
+  ]
+}

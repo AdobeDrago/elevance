@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "url": "https://provider.healthybluenc.com/north-carolina-provider/resources",
+  "path": "north-carolina-provider/resources",
+  "timestamp": "2026-09-15T18:42:24.394Z",
+  "title": "Provider Resources",
+  "template": "nc-provider-interior",
+  "blocks": [
+    "cards-icon-links",
+    "cards-resource-grid",
+    "cards-promo",
+    "cards-promo",
+    "columns-link-lists"
+  ]
+}

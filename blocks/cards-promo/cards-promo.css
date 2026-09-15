@@ -1,0 +1,112 @@
+/*
+ * cards-promo — full-width promo rows, photo beside text, alternating sides.
+ * Each promo is its own block (one <li>): image cell + body cell
+ * (heading + paragraph + solid button). Image side alternates per block
+ * via the .cards-promo-reverse class set in JS.
+ *
+ * Values extracted from source computed styles
+ * (provider.healthybluenc.com/.../member-eligibility-and-pharmacy,
+ * .content_column_2 rows). Repoless multi-site: every selector is scoped
+ * under body.north-carolina.
+ */
+
+body.north-carolina .cards-promo > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+body.north-carolina .cards-promo > ul > li {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+body.north-carolina .cards-promo .cards-promo-card-image {
+  line-height: 0;
+}
+
+body.north-carolina .cards-promo .cards-promo-card-image img {
+  width: 100%;
+  height: auto;
+
+  /* source image natural 550x324 (ratio ~1.698), displayed edge-to-edge */
+  aspect-ratio: 550 / 324;
+  object-fit: cover;
+}
+
+body.north-carolina .cards-promo .cards-promo-card-body > *:first-child {
+  margin-top: 0;
+}
+
+/* Heading — source h2: 43px / 50px / 700, Roboto Condensed, brand navy */
+body.north-carolina .cards-promo .cards-promo-card-body h2,
+body.north-carolina .cards-promo .cards-promo-card-body h3 {
+  margin: 0;
+  font-family: var(--heading-font-family);
+  font-weight: 700;
+  font-size: 43px;
+  line-height: 50px;
+  color: var(--heading-color);
+}
+
+/* Paragraph — source: 16px / 28px, Roboto, --text-color */
+body.north-carolina .cards-promo .cards-promo-card-body p {
+  margin: 20px 0 0;
+  font-family: var(--body-font-family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 28px;
+  color: var(--text-color);
+}
+
+/* Button — source solid CTA: 12px 30px, radius 3px, 16px/18px, weight 400 */
+body.north-carolina .cards-promo .cards-promo-card-body .button-container {
+  margin: 30px 0 0;
+}
+
+body.north-carolina .cards-promo .cards-promo-card-body a.button:any-link {
+  display: inline-block;
+  margin: 0;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 3px;
+  font-family: var(--body-font-family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 18px;
+  text-transform: none;
+  text-decoration: none;
+  background-color: var(--brand-blue);
+  color: #fff;
+}
+
+body.north-carolina .cards-promo .cards-promo-card-body a.button:hover,
+body.north-carolina .cards-promo .cards-promo-card-body a.button:focus {
+  background-color: var(--link-hover-color);
+  color: #fff;
+}
+
+@media (width >= 900px) {
+  /* Two equal columns, image beside text. Source: 525px + 70px gap + 525px
+     within a 1140px row; here scaled to the EDS 1080px content width. */
+  body.north-carolina .cards-promo > ul > li {
+    flex-direction: row;
+    align-items: center;
+    gap: 70px;
+  }
+
+  body.north-carolina .cards-promo .cards-promo-card-image,
+  body.north-carolina .cards-promo .cards-promo-card-body {
+    flex: 1;
+    min-width: 0;
+  }
+
+  /* Image side alternates per block (set in JS): reverse puts image right. */
+  body.north-carolina .cards-promo-reverse > ul > li {
+    flex-direction: row-reverse;
+  }
+}

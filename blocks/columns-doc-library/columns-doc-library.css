@@ -1,0 +1,37 @@
+/*
+ * columns-doc-library — structural layout only, scoped to body.north-carolina.
+ * Categorized document library: stacked on mobile, multi-column on desktop.
+ */
+
+body.north-carolina .columns-doc-library > div {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+body.north-carolina .columns-doc-library .columns-doc-library-col > *:first-child {
+  margin-top: 0;
+}
+
+body.north-carolina .columns-doc-library .columns-doc-library-col h3,
+body.north-carolina .columns-doc-library .columns-doc-library-col h4 {
+  font-family: var(--heading-font-family);
+  color: var(--heading-color);
+}
+
+body.north-carolina .columns-doc-library .columns-doc-library-col ul {
+  margin: 0.5em 0 1.25em;
+  padding-left: 1.25em;
+}
+
+@media (width >= 900px) {
+  body.north-carolina .columns-doc-library > div {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 48px;
+  }
+
+  body.north-carolina .columns-doc-library .columns-doc-library-col {
+    flex: 1;
+  }
+}

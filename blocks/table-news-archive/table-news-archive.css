@@ -1,0 +1,206 @@
+/*
+ * table-news-archive — filterable / sortable / paginated document news feed.
+ * Design migrated from the source archives page (cached scrape screenshot).
+ * Repoless multi-site: EVERY selector is scoped under body.north-carolina.
+ *
+ * Source layout:
+ *   [ All | Provider Newsletter | Medicaid News ]   <- full-width tab row
+ *   Sort By
+ *   [ Newest to Oldest v ]                           <- narrow select below
+ *   ------------------------------------------------
+ *   [pdf] Linked title ...............  Sep 15, 2023  <- rows w/ divider
+ *   ------------------------------------------------
+ *   [           Load More           ]                <- full-width outline btn
+ */
+
+/* red PDF icon used before each linked document title (source: red Acrobat glyph) */
+body.north-carolina .table-news-archive {
+  --tna-pdf-red: #d13239;
+}
+
+/* ---- Controls ---------------------------------------------------------- */
+body.north-carolina .table-news-archive .table-news-archive-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+
+/* ---- Filter tabs ------------------------------------------------------- */
+body.north-carolina .table-news-archive .table-news-archive-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+body.north-carolina .table-news-archive .table-news-archive-tab {
+  flex: 1 1 0;
+  min-width: 140px;
+  margin: 0;
+  padding: 14px 16px;
+  border: 1px solid var(--brand-blue, #016b95);
+  border-radius: 0;
+  background-color: #e9f2f7;
+  color: var(--brand-blue, #016b95);
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-xs, 14px);
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+  cursor: pointer;
+}
+
+body.north-carolina .table-news-archive .table-news-archive-tab:hover,
+body.north-carolina .table-news-archive .table-news-archive-tab:focus {
+  background-color: #dcebf3;
+  color: var(--brand-blue, #016b95);
+}
+
+/* active tab — solid brand-blue fill + white label + downward caret */
+body.north-carolina .table-news-archive .table-news-archive-tab[aria-selected="true"] {
+  position: relative;
+  background-color: var(--brand-blue, #016b95);
+  border-color: var(--brand-blue, #016b95);
+  color: var(--background-color, #fff);
+}
+
+body.north-carolina .table-news-archive .table-news-archive-tab[aria-selected="true"]:hover,
+body.north-carolina .table-news-archive .table-news-archive-tab[aria-selected="true"]:focus {
+  background-color: var(--brand-blue, #016b95);
+  color: var(--background-color, #fff);
+}
+
+body.north-carolina .table-news-archive .table-news-archive-tab[aria-selected="true"]::after {
+  content: "";
+  position: absolute;
+  bottom: -7px;
+  left: 50%;
+  width: 0;
+  height: 0;
+  transform: translateX(-50%);
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-top: 7px solid var(--brand-blue, #016b95);
+}
+
+/* ---- Sort By dropdown -------------------------------------------------- */
+body.north-carolina .table-news-archive .table-news-archive-sort {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: flex-start;
+  margin-top: 8px;
+}
+
+body.north-carolina .table-news-archive .table-news-archive-sort-label {
+  color: var(--heading-color, #023347);
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-xs, 14px);
+  font-weight: 700;
+}
+
+body.north-carolina .table-news-archive .table-news-archive-sort select {
+  min-width: 180px;
+  margin: 0;
+  padding: 8px 12px;
+  border: 1px solid var(--brand-border, #dcdcdc);
+  border-radius: 3px;
+  background-color: var(--background-color, #fff);
+  color: var(--text-color, #333);
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-xs, 14px);
+  cursor: pointer;
+}
+
+/* ---- Document rows ----------------------------------------------------- */
+body.north-carolina .table-news-archive .table-news-archive-list {
+  list-style: none;
+  margin: 16px 0 0;
+  padding: 0;
+}
+
+body.north-carolina .table-news-archive .table-news-archive-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 12px 0;
+  border-top: 1px solid var(--brand-border, #dcdcdc);
+}
+
+body.north-carolina .table-news-archive .table-news-archive-item:last-child {
+  border-bottom: 1px solid var(--brand-border, #dcdcdc);
+}
+
+/* linked document title — brand-blue underline + leading red PDF icon */
+body.north-carolina .table-news-archive .table-news-archive-item-title {
+  position: relative;
+  padding-left: 24px;
+  color: var(--link-color, #016b95);
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-xs, 14px);
+  font-weight: 400;
+  text-decoration: underline;
+}
+
+body.north-carolina .table-news-archive .table-news-archive-item-title:hover {
+  color: var(--link-hover-color, #01506f);
+}
+
+body.north-carolina .table-news-archive .table-news-archive-item-title::before {
+  content: "";
+  position: absolute;
+  top: 1px;
+  left: 0;
+  width: 14px;
+  height: 16px;
+  background-color: var(--tna-pdf-red);
+  mask: no-repeat center / contain
+    url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M64 0C28.7 0 0 28.7 0 64V448c0 35.3 28.7 64 64 64H320c35.3 0 64-28.7 64-64V160H256c-17.7 0-32-14.3-32-32V0H64zM256 0V128H384L256 0zM88 240H80c-13.3 0-24 10.7-24 24v96c0 13.3 10.7 24 24 24s24-10.7 24-24v-24h8c30.9 0 56-25.1 56-56s-25.1-56-56-56h-16zm16 64H104v-16h8c4.4 0 8 3.6 8 8s-3.6 8-8 8zm88-64c-13.3 0-24 10.7-24 24v96c0 13.3 10.7 24 24 24h32c30.9 0 56-25.1 56-56v-32c0-30.9-25.1-56-56-56h-32zm24 48h8c4.4 0 8 3.6 8 8v32c0 4.4-3.6 8-8 8h-8v-48z"/></svg>');
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: contain;
+}
+
+body.north-carolina .table-news-archive .table-news-archive-item-date {
+  color: var(--text-color, #333);
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-xs, 14px);
+  white-space: nowrap;
+}
+
+/* ---- Load More button — full-width outline --------------------------- */
+body.north-carolina .table-news-archive .table-news-archive-more {
+  display: block;
+  width: 100%;
+  margin: 24px 0 0;
+  padding: 16px 24px;
+  border: 1px solid var(--brand-blue, #016b95);
+  border-radius: 3px;
+  background-color: var(--background-color, #fff);
+  color: var(--brand-blue, #016b95);
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-s, 15px);
+  font-weight: 700;
+  text-align: center;
+  cursor: pointer;
+}
+
+body.north-carolina .table-news-archive .table-news-archive-more:hover,
+body.north-carolina .table-news-archive .table-news-archive-more:focus {
+  background-color: var(--brand-blue, #016b95);
+  color: var(--background-color, #fff);
+}
+
+body.north-carolina .table-news-archive .table-news-archive-more[hidden] {
+  display: none;
+}
+
+/* ---- Desktop: rows become horizontal (title left / date right) ------- */
+@media (width >= 600px) {
+  body.north-carolina .table-news-archive .table-news-archive-item {
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 24px;
+  }
+}

@@ -1,0 +1,508 @@
+{
+ "/north-carolina-provider/archives": [
+  {
+   "selector": "",
+   "raw": "",
+   "block": "table-news-archive"
+  },
+  {
+   "selector": "",
+   "raw": "",
+   "block": "columns-link-lists"
+  }
+ ],
+ "/north-carolina-provider/behavioral-health": [
+  {
+   "selector": "",
+   "raw": "",
+   "block": "columns-link-lists"
+  }
+ ],
+ "/north-carolina-provider/benefits-partners": [
+  {
+   "selector": "section.center.tools_resources",
+   "raw": "#main > section.center.tools_resources",
+   "block": "columns-link-lists"
+  }
+ ],
+ "/north-carolina-provider/care-management": [
+  {
+   "selector": "",
+   "raw": "",
+   "block": "columns-link-lists"
+  }
+ ],
+ "/north-carolina-provider/claims-submissions-and-disputes": [
+  {
+   "selector": "",
+   "raw": "",
+   "block": "columns-link-lists"
+  }
+ ],
+ "/north-carolina-provider/claims": [
+  {
+   "selector": "section.wide_image",
+   "raw": "body > main > div.container > section.wide_image",
+   "block": "hero-banner"
+  },
+  {
+   "selector": "section.information_links",
+   "raw": "#main > div.content_container > section.information_links",
+   "block": "cards-icon-links"
+  },
+  {
+   "selector": "section.content_column_3",
+   "raw": "#main > div.content_container > section.content_column_3",
+   "block": "cards-topics"
+  },
+  {
+   "selector": "section.center.tools_resources",
+   "raw": "#main > div.content_container > section.center.tools_resources",
+   "block": "columns-link-lists"
+  }
+ ],
+ "/north-carolina-provider/cme": [
+  {
+   "selector": "",
+   "raw": "",
+   "block": "hero-banner"
+  },
+  {
+   "selector": "",
+   "raw": "",
+   "block": "cards-topics"
+  },
+  {
+   "selector": "",
+   "raw": "",
+   "block": "columns-link-lists"
+  }
+ ],
+ "/north-carolina-provider/communications": [
+  {
+   "selector": "",
+   "raw": "",
+   "block": "hero-banner"
+  },
+  {
+   "selector": "",
+   "raw": "",
+   "block": "cards-icon-links"
+  },
+  {
+   "selector": "",
+   "raw": "",
+   "block": "columns-link-lists"
+  }
+ ],
+ "/north-carolina-provider/condition-care": [
+  {
+   "selector": "",
+   "raw": "",
+   "block": "columns-link-lists"
+  }
+ ],
+ "/north-carolina-provider/contact-us": [],
+ "/north-carolina-provider/patient-care/critical-incidents": [
+  {
+   "selector": "",
+   "raw": "",
+   "block": "hero-banner"
+  },
+  {
+   "selector": "",
+   "raw": "",
+   "block": "columns-link-lists"
+  }
+ ],
+ "/north-carolina-provider/early-periodic-screening-diagnostic-treatment": [
+  {
+   "selector": "section.center.tools_resources",
+   "raw": "#main > div.content_container > section.center.tools_resources",
+   "block": "columns-link-lists"
+  }
+ ],
+ "/north-carolina-provider/electronic-data-interchange": [
+  {
+   "selector": "",
+   "raw": "",
+   "block": "columns-content"
+  },
+  {
+   "selector": "",
+   "raw": "",
+   "block": "columns-link-lists"
+  }
+ ],
+ "/north-carolina-provider/eligibility-provider-reports": [
+  {
+   "selector": "",
+   "raw": "",
+   "block": "columns-link-lists"
+  }
+ ],
+ "/north-carolina-provider/enhanced-personal-health-care-program": [
+  {
+   "selector": "section.content_column_1",
+   "raw": "#main > div.content_container > section.content_column_1 > div.within_brdr > h1.subpage-header",
+   "block": "hero-banner"
+  },
+  {
+   "selector": "section.center.tools_resources",
+   "raw": "#main > div.content_container > section.center.tools_resources",
+   "block": "columns-link-lists"
+  }
+ ],
+ "/north-carolina-provider/forms": [
+  {
+   "selector": "",
+   "raw": "",
+   "block": "accordion"
+  }
+ ],
+ "/north-carolina-provider/guide-to-drug-coverage-under-medical-benefit": [
+  {
+   "selector": "section.center.tools_resources",
+   "raw": "#main > div.content_container > section.center.tools_resources",
+   "block": "columns-link-lists"
+  }
+ ],
+ "/north-carolina-provider/health-education": [
+  {
+   "selector": "",
+   "raw": "",
+   "block": "columns-link-lists"
+  }
+ ],
+ "/north-carolina-provider/hedis": [
+  {
+   "selector": "section.center.tools_resources",
+   "raw": "#main > div.content_container > section.center.tools_resources",
+   "block": "columns-link-lists"
+  }
+ ],
+ "/north-carolina-provider/join-our-network": [
+  {
+   "selector": "section.information_links",
+   "raw": "#main > div.content_container > section.information_links",
+   "block": "cards-icon-links"
+  },
+  {
+   "selector": "section.content_column_2",
+   "raw": "#main > div.content_container > section.content_column_2",
+   "block": "cards-promo"
+  },
+  {
+   "selector": "section.center.tools_resources",
+   "raw": "#main > div.content_container > section.center.tools_resources",
+   "block": "columns-link-lists"
+  }
+ ],
+ "/north-carolina-provider/learn-about-availity": [
+  {
+   "selector": "",
+   "raw": "",
+   "block": "accordion"
+  },
+  {
+   "selector": "",
+   "raw": "",
+   "block": "columns-link-lists"
+  }
+ ],
+ "/north-carolina-provider/manuals-and-guides": [
+  {
+   "selector": "",
+   "raw": "",
+   "block": "columns-link-lists"
+  }
+ ],
+ "/north-carolina-provider/maternal-child-services": [
+  {
+   "selector": "section.center.tools_resources",
+   "raw": "#main > div.content_container > section.center.tools_resources",
+   "block": "columns-link-lists"
+  }
+ ],
+ "/north-carolina-provider/medical-management": [
+  {
+   "selector": "",
+   "raw": "",
+   "block": "columns-link-lists"
+  }
+ ],
+ "/north-carolina-provider/medical-policies-and-clinical-guidelines": [
+  {
+   "selector": "section.center.content_column_1.mp-accordion.border-top-0",
+   "raw": "#main > div.content_container > section.center.content_column_1.mp-accordion.border-top-0",
+   "block": "accordion-doc-links"
+  }
+ ],
+ "/north-carolina-provider/member-eligibility-and-pharmacy": [
+  {
+   "selector": "section.information_links",
+   "raw": "#main > div.content_container > section.information_links",
+   "block": "cards-icon-links"
+  },
+  {
+   "selector": "section.content_column_2",
+   "raw": "#main > div.content_container > section.content_column_2",
+   "block": "cards-promo"
+  },
+  {
+   "selector": "section.center.tools_resources",
+   "raw": "#main > div.content_container > section.center.tools_resources",
+   "block": "columns-link-lists"
+  }
+ ],
+ "/north-carolina-provider/patient-care": [
+  {
+   "selector": "section.information_links",
+   "raw": "#main > div.content_container > section.information_links",
+   "block": "cards-icon-links"
+  },
+  {
+   "selector": "section.content_column_2",
+   "raw": "#main > div.content_container > section.content_column_2",
+   "block": "cards-promo"
+  },
+  {
+   "selector": "section.center.tools_resources",
+   "raw": "#main > div.content_container > section.center.tools_resources",
+   "block": "columns-link-lists"
+  }
+ ],
+ "/north-carolina-provider/pharmacy": [
+  {
+   "selector": "",
+   "raw": "",
+   "block": "columns-link-lists"
+  }
+ ],
+ "/north-carolina-provider/physician-administered-drug-program": [
+  {
+   "selector": "section.center.tools_resources",
+   "raw": "#main > div.content_container > section.center.tools_resources",
+   "block": "columns-link-lists"
+  }
+ ],
+ "/north-carolina-provider/prior-authorization-lookup": [
+  {
+   "selector": "",
+   "raw": "",
+   "block": "prior-auth-lookup"
+  },
+  {
+   "selector": "",
+   "raw": "",
+   "block": "columns-link-lists"
+  }
+ ],
+ "/north-carolina-provider/prior-authorization": [
+  {
+   "selector": "",
+   "raw": "",
+   "block": "columns-content"
+  },
+  {
+   "selector": "",
+   "raw": "",
+   "block": "columns-link-lists"
+  }
+ ],
+ "/north-carolina-provider/privacy-policies": [],
+ "/north-carolina-provider/quality-management": [
+  {
+   "selector": "section.content_column_1",
+   "raw": "#main > div.content_container > section.content_column_1:nth-of-type(1)",
+   "block": "hero-banner"
+  },
+  {
+   "selector": "section.center.tools_resources",
+   "raw": "#main > div.content_container > section.center.tools_resources",
+   "block": "columns-link-lists"
+  }
+ ],
+ "/north-carolina-provider/referrals": [
+  {
+   "selector": "",
+   "raw": "",
+   "block": "columns-link-lists"
+  }
+ ],
+ "/north-carolina-provider/reimbursement-policies": [
+  {
+   "selector": "",
+   "raw": "",
+   "block": "accordion-doc-links"
+  },
+  {
+   "selector": "",
+   "raw": "",
+   "block": "columns-link-lists"
+  }
+ ],
+ "/north-carolina-provider/reimbursement-policy-definitions": [
+  {
+   "selector": "section.content_column_1",
+   "raw": "section.content_column_1 h1.subpage-header",
+   "block": "hero-banner"
+  },
+  {
+   "selector": "section.center.tools_resources",
+   "raw": "section.center.tools_resources",
+   "block": "columns-link-lists"
+  }
+ ],
+ "/north-carolina-provider/reimbursement-policy-disclaimer": [
+  {
+   "selector": "section.center.tools_resources",
+   "raw": "#main > section.center.tools_resources",
+   "block": "columns-link-lists"
+  }
+ ],
+ "/north-carolina-provider/resource-library": [
+  {
+   "selector": "section.content_column_2",
+   "raw": "#main > div.content_container > section.content_column_2",
+   "block": "columns-doc-library"
+  },
+  {
+   "selector": "section.center.tools_resources",
+   "raw": "#main > div.content_container > section.center.tools_resources",
+   "block": "columns-link-lists"
+  }
+ ],
+ "/north-carolina-provider/resources": [
+  {
+   "selector": "section.information_links",
+   "raw": "#main > div.content_container > section.information_links",
+   "block": "cards-icon-links"
+  },
+  {
+   "selector": "section.content_column_2",
+   "raw": "#main > div.content_container > section.content_column_2:nth-of-type(3)",
+   "block": "cards-resource-grid"
+  },
+  {
+   "selector": "section.content_column_2",
+   "raw": "#main > div.content_container > section.content_column_2:nth-of-type(4)",
+   "block": "cards-promo"
+  },
+  {
+   "selector": "section.content_column_2",
+   "raw": "#main > div.content_container > section.content_column_2:nth-of-type(5)",
+   "block": "cards-promo"
+  },
+  {
+   "selector": "section.center.tools_resources",
+   "raw": "#main > div.content_container > section.center.tools_resources",
+   "block": "columns-link-lists"
+  }
+ ],
+ "/north-carolina-provider/rights-and-responsibilities": [
+  {
+   "selector": "",
+   "raw": "",
+   "block": "columns-link-lists"
+  }
+ ],
+ "/north-carolina-provider/sbirt": [
+  {
+   "selector": "section.content_column_2",
+   "raw": "#main > div.content_container > section.content_column_2",
+   "block": "columns-content"
+  },
+  {
+   "selector": "section.content_column_1",
+   "raw": "#main > div.content_container > section.content_column_1",
+   "block": "cards-topics"
+  },
+  {
+   "selector": "section.center.tools_resources",
+   "raw": "#main > div.content_container > section.center.tools_resources",
+   "block": "columns-link-lists"
+  }
+ ],
+ "/north-carolina-provider/schedules-registration": [
+  {
+   "selector": "section.content_column_2",
+   "raw": "#main > div.content_container > section.content_column_2",
+   "block": "columns-content"
+  },
+  {
+   "selector": "section.content_column_1",
+   "raw": "#main > div.content_container > section.content_column_1:nth-of-type(3)",
+   "block": "cards-topics"
+  },
+  {
+   "selector": "section.center.tools_resources",
+   "raw": "#main > div.content_container > section.center.tools_resources",
+   "block": "columns-link-lists"
+  }
+ ],
+ "/north-carolina-provider/serving-diverse-populations": [
+  {
+   "selector": "",
+   "raw": "",
+   "block": "hero-banner"
+  },
+  {
+   "selector": "",
+   "raw": "",
+   "block": "columns-doc-library"
+  },
+  {
+   "selector": "",
+   "raw": "",
+   "block": "cards-resource-grid"
+  },
+  {
+   "selector": "",
+   "raw": "",
+   "block": "cards-topics"
+  },
+  {
+   "selector": "",
+   "raw": "",
+   "block": "columns-link-lists"
+  }
+ ],
+ "/north-carolina-provider/terms-of-use": [],
+ "/north-carolina-provider/total-member-view": [
+  {
+   "selector": "",
+   "raw": "",
+   "block": "columns-link-lists"
+  }
+ ],
+ "/north-carolina-provider/training-academy": [
+  {
+   "selector": "section.content_column_1",
+   "raw": "#main > div.content_container > section.content_column_1:nth-of-type(1)",
+   "block": "hero-banner"
+  },
+  {
+   "selector": "section.center.tools_resources",
+   "raw": "#main > div.content_container > section.center.tools_resources",
+   "block": "columns-link-lists"
+  }
+ ],
+ "/north-carolina-provider/training-resources": [
+  {
+   "selector": "",
+   "raw": "",
+   "block": "columns-content"
+  },
+  {
+   "selector": "",
+   "raw": "",
+   "block": "columns-content"
+  },
+  {
+   "selector": "",
+   "raw": "",
+   "block": "columns-link-lists"
+  }
+ ]
+}

@@ -1,0 +1,101 @@
+/*
+ * cards-resource-grid — no-image resource cards, each ending in a solid button CTA.
+ * Source: https://provider.healthybluenc.com/north-carolina-provider/resources
+ * Repoless multi-site: EVERY selector scoped under body.north-carolina.
+ *
+ * Source cards are plain (no border, no background, no padding). Large light
+ * Roboto Condensed heading, body copy, then a solid brand-blue button.
+ * Desktop: two vertical stacks (column-fill), 70px column gap, 60px row gap.
+ */
+
+body.north-carolina .cards-resource-grid > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+body.north-carolina .cards-resource-grid > ul > li {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background-color: transparent;
+}
+
+body.north-carolina .cards-resource-grid .cards-resource-grid-card-body {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+body.north-carolina .cards-resource-grid .cards-resource-grid-card-body > *:first-child {
+  margin-top: 0;
+}
+
+body.north-carolina .cards-resource-grid .cards-resource-grid-card-body h2,
+body.north-carolina .cards-resource-grid .cards-resource-grid-card-body h3 {
+  margin: 0;
+  font-family: var(--heading-font-family);
+  font-weight: 300;
+  font-size: 36px;
+  line-height: 42px;
+  color: var(--heading-color);
+}
+
+body.north-carolina .cards-resource-grid .cards-resource-grid-card-body p {
+  margin: 20px 0 0;
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  line-height: 28px;
+  color: var(--text-color);
+}
+
+/* CTA button — solid brand blue, anchored at the bottom of each card */
+body.north-carolina .cards-resource-grid .cards-resource-grid-card-body .button-container {
+  margin: 35px 0 0;
+}
+
+body.north-carolina .cards-resource-grid .cards-resource-grid-card-body a.button:any-link {
+  margin: 0;
+  display: inline-block;
+  padding: 12px 30px;
+  border: 0;
+  border-radius: 3px;
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.25;
+  text-transform: none;
+  background-color: var(--brand-blue);
+  color: #fff;
+}
+
+body.north-carolina .cards-resource-grid .cards-resource-grid-card-body a.button:hover,
+body.north-carolina .cards-resource-grid .cards-resource-grid-card-body a.button:focus {
+  background-color: var(--link-hover-color);
+  color: #fff;
+}
+
+/* Desktop: two vertical stacks matching the source column-fill layout */
+@media (width >= 900px) {
+  body.north-carolina .cards-resource-grid > ul {
+    display: block;
+    column-count: 2;
+    column-gap: 70px;
+  }
+
+  body.north-carolina .cards-resource-grid > ul > li {
+    display: block;
+    break-inside: avoid;
+    margin-bottom: 60px;
+  }
+
+  body.north-carolina .cards-resource-grid > ul > li:last-child {
+    margin-bottom: 0;
+  }
+}

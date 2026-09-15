@@ -1,0 +1,10 @@
+{
+  "variantName": "columns-doc-library",
+  "baseBlock": "columns",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": "Categorized document library laid out in multiple columns. Each column holds category headings (h3/h4) over lists of mixed PDF-download and external links. Denser and categorized, unlike the plain chevron link directory.",
+  "contentPattern": "One row with N cells; each cell holds category headings + document/external link lists.",
+  "usage": "Large resource/document libraries (e.g. resource-library, serving-diverse-populations).",
+  "options": [],
+  "memberVariantIds": ["columns-doc-library"]
+}

@@ -1,0 +1,10 @@
+{
+  "variantName": "cards-promo",
+  "baseBlock": "cards",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": "Full-width promo rows, each pairing a photograph beside a text block (heading + paragraph + solid primary button). Rows alternate image-left / image-right down the list; stacks image-on-top on mobile.",
+  "contentPattern": "One row per promo; each row has an image cell and a body cell (heading + paragraph + button link).",
+  "usage": "Service/program promos on section landing pages (e.g. patient-care, member-eligibility).",
+  "options": [],
+  "memberVariantIds": ["cards-promo"]
+}
