@@ -514,3 +514,881 @@ header .breadcrumbs ol li[aria-current] {
     padding: 0 32px;
   }
 }
+
+/* ---- Healthy Blue North Carolina header ---- */
+
+/* stylelint-disable no-descending-specificity */
+
+body.north-carolina {
+  padding-top: 52px;
+}
+
+body.north-carolina header {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 100;
+  height: auto;
+  min-height: 52px;
+  padding: 0;
+  transform: translateY(0);
+  background-color: #044661;
+  transition: transform 180ms ease;
+  will-change: transform;
+}
+
+body.north-carolina header.is-hidden {
+  transform: translateY(-100%);
+}
+
+body.north-carolina header:focus-within {
+  transform: translateY(0);
+}
+
+body.north-carolina header .nav-wrapper {
+  border-bottom: 0;
+  background-color: #044661;
+}
+
+body.north-carolina header #nav {
+  --mobile-menu-column: 52px;
+
+  box-sizing: border-box;
+  display: grid;
+  grid-template:
+    'brand hamburger' 38px / minmax(0, 1fr) var(--mobile-menu-column);
+  gap: 0;
+  width: 100%;
+  max-width: none;
+  height: 52px;
+  min-height: 52px;
+  margin: 0;
+  padding: 10px 0 4px;
+  overflow: visible;
+  color: #8ed4ed;
+  background-color: #044661;
+  font-family: var(--body-font-family);
+}
+
+body.north-carolina header #nav.is-open {
+  grid-template:
+    'brand hamburger' 38px
+    'tools tools' 45px
+    'search search' 48px
+    'sections sections' auto / minmax(0, 1fr) var(--mobile-menu-column);
+  height: auto;
+  max-height: 100dvh;
+  min-height: 141px;
+  overflow: hidden auto;
+  overscroll-behavior: contain;
+}
+
+body.north-carolina header #nav p {
+  margin: 0;
+}
+
+body.north-carolina header #nav a:any-link {
+  color: currentcolor;
+}
+
+body.north-carolina header #nav button:focus-visible,
+body.north-carolina header #nav a:focus-visible,
+body.north-carolina header #nav input:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+/* mobile brand row */
+body.north-carolina header #nav .nav-brand {
+  grid-area: brand;
+  min-width: 0;
+  padding: 0 16px 0 20px;
+  color: #fff;
+  font-size: 12px;
+  line-height: 22px;
+}
+
+body.north-carolina header #nav .nav-brand .default-content-wrapper {
+  display: grid;
+  grid-template-columns: minmax(0, 200px) max-content;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+}
+
+body.north-carolina header #nav .nav-brand p:first-child {
+  min-width: 0;
+}
+
+body.north-carolina header #nav .nav-brand p:last-child {
+  align-self: center;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  color: #fff;
+  font-family: var(--heading-font-family);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 22px;
+  white-space: nowrap;
+}
+
+body.north-carolina header #nav .nav-brand a {
+  display: block;
+  line-height: 0;
+}
+
+body.north-carolina header #nav .nav-brand picture {
+  display: block;
+}
+
+body.north-carolina header #nav .nav-brand img {
+  display: block;
+  width: 200px;
+  max-width: 100%;
+  height: 32px;
+  object-fit: contain;
+  object-position: left center;
+}
+
+/* mobile hamburger */
+body.north-carolina header #nav .nav-hamburger {
+  grid-area: hamburger;
+  display: flex;
+  visibility: visible;
+  align-items: flex-start;
+  justify-content: flex-end;
+  width: var(--mobile-menu-column);
+  height: 38px;
+  padding: 0;
+}
+
+body.north-carolina header #nav .nav-hamburger button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  min-height: 32px;
+  margin: 3px 20px 0 0;
+  border: 1px solid #333;
+  border-radius: 0;
+  padding: 0;
+  overflow: visible;
+  color: #0e92c7;
+  background: transparent;
+  line-height: 1;
+}
+
+body.north-carolina header #nav .nav-hamburger button:hover,
+body.north-carolina header #nav .nav-hamburger button:focus {
+  color: #8ed4ed;
+  background: transparent;
+}
+
+body.north-carolina header #nav .nav-hamburger-icon,
+body.north-carolina header #nav .nav-hamburger-icon::before,
+body.north-carolina header #nav .nav-hamburger-icon::after {
+  width: 22px;
+  height: 3px;
+  border-radius: 2px;
+  background-color: currentcolor;
+}
+
+body.north-carolina header #nav .nav-hamburger-icon {
+  position: relative;
+}
+
+body.north-carolina header #nav .nav-hamburger-icon::before,
+body.north-carolina header #nav .nav-hamburger-icon::after {
+  position: absolute;
+  left: 0;
+  content: '';
+}
+
+body.north-carolina header #nav .nav-hamburger-icon::before {
+  top: -7px;
+}
+
+body.north-carolina header #nav .nav-hamburger-icon::after {
+  top: 7px;
+}
+
+body.north-carolina header #nav.is-open .nav-hamburger-icon {
+  background-color: transparent;
+}
+
+body.north-carolina header #nav.is-open .nav-hamburger-icon::before,
+body.north-carolina header #nav.is-open .nav-hamburger-icon::after {
+  top: 50%;
+  bottom: auto;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  transform-origin: center;
+  width: 25px;
+}
+
+body.north-carolina header #nav.is-open .nav-hamburger-icon::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+/* mobile utility links */
+body.north-carolina header #nav .nav-tools {
+  grid-area: tools;
+  display: none;
+  align-self: stretch;
+  padding: 0 20px;
+}
+
+body.north-carolina header #nav.is-open .nav-tools {
+  display: block;
+}
+
+body.north-carolina header #nav .nav-tools .default-content-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  height: 100%;
+}
+
+body.north-carolina header #nav .nav-tools p {
+  color: #8ed4ed;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+body.north-carolina header #nav .nav-tools p + p::before {
+  margin: 0 11px;
+  color: #8fcae9;
+  content: '|';
+}
+
+body.north-carolina header #nav .nav-tools a:any-link {
+  color: #8ed4ed;
+  font-weight: 400;
+  text-decoration: underline;
+}
+
+body.north-carolina header #nav .nav-tools a:hover {
+  color: #fff;
+}
+
+body.north-carolina header #nav .nav-text-size,
+body.north-carolina header #nav .nav-search-button {
+  display: none;
+}
+
+/* mobile search field */
+body.north-carolina header #nav .nav-search {
+  grid-area: search;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: 16px minmax(0, 1fr);
+  align-items: center;
+  width: 100%;
+  min-height: 48px;
+  padding: 0 20px;
+  color: #016b95;
+  background-color: #fafafa;
+}
+
+body.north-carolina header #nav .nav-search[hidden] {
+  display: none;
+}
+
+body.north-carolina header #nav .nav-search-icon,
+body.north-carolina header #nav .nav-search-button span {
+  position: relative;
+  display: block;
+  flex: 0 0 16px;
+  box-sizing: border-box;
+  width: 16px;
+  height: 16px;
+  border: 2px solid currentcolor;
+  border-radius: 50%;
+}
+
+body.north-carolina header #nav .nav-search-icon::after,
+body.north-carolina header #nav .nav-search-button span::after {
+  position: absolute;
+  right: -5px;
+  bottom: -3px;
+  width: 7px;
+  height: 2px;
+  transform: rotate(48deg);
+  transform-origin: left center;
+  background-color: currentcolor;
+  content: '';
+}
+
+body.north-carolina header #nav .nav-search input {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  height: 48px;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  padding: 0 0 0 18px;
+  color: #333;
+  background-color: transparent;
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  line-height: 22px;
+}
+
+body.north-carolina header #nav .nav-search input::placeholder {
+  color: #666;
+  opacity: 1;
+}
+
+body.north-carolina header #nav .nav-search-results {
+  grid-column: 1 / -1;
+  width: auto;
+  max-height: 280px;
+  margin: 0 -20px;
+  padding: 0 20px 12px 54px;
+  overflow-y: auto;
+  background-color: #fafafa;
+  list-style: none;
+}
+
+body.north-carolina header #nav .nav-search-results[hidden] {
+  display: none;
+}
+
+body.north-carolina header #nav .nav-search-results li {
+  margin: 0;
+  padding: 5px 0;
+}
+
+body.north-carolina header #nav .nav-search-results a:any-link {
+  color: #016b95;
+  font-size: 14px;
+  line-height: 20px;
+  text-decoration: underline;
+}
+
+body.north-carolina header #nav .nav-search-results a:hover {
+  color: #01506f;
+}
+
+body.north-carolina header #nav .nav-search-no-results {
+  color: #333;
+  font-size: 14px;
+}
+
+/* mobile accordion navigation */
+body.north-carolina header #nav .nav-sections {
+  grid-area: sections;
+  display: none;
+  visibility: visible;
+  align-self: stretch;
+  width: 100%;
+  min-width: 0;
+  padding: 0;
+  color: #8ed4ed;
+  background-color: #023347;
+}
+
+body.north-carolina header #nav.is-open .nav-sections {
+  display: block;
+}
+
+body.north-carolina header #nav .nav-sections .default-content-wrapper,
+body.north-carolina header #nav .nav-sections ul,
+body.north-carolina header #nav .nav-sections li {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: none;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+body.north-carolina header #nav .nav-sections ul {
+  display: block;
+  font-size: 16px;
+}
+
+body.north-carolina header #nav .nav-sections .default-content-wrapper > ul > li {
+  position: relative;
+  width: 100%;
+  border-bottom: 1px solid #0b76a1;
+  padding: 0;
+  color: #8ed4ed;
+  text-indent: 0;
+}
+
+body.north-carolina header #nav .nav-sections .nav-drop::after {
+  display: none;
+}
+
+body.north-carolina header #nav .nav-sections .nav-drop > ul::before {
+  display: none;
+}
+
+body.north-carolina header #nav .nav-sections .default-content-wrapper > ul > li:first-child {
+  border-top: 1px solid #0b76a1;
+}
+
+body.north-carolina header #nav .nav-sections .default-content-wrapper > ul > li:last-child {
+  box-shadow: -2px 9px 21px 0 rgb(0 0 0 / 75%);
+}
+
+body.north-carolina header #nav .nav-section-toggle {
+  position: relative;
+  display: block;
+  width: 100%;
+  min-height: 56px;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  padding: 16px 54px 16px 20px;
+  color: #8ed4ed;
+  background: transparent;
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: left;
+  white-space: normal;
+}
+
+body.north-carolina header #nav .nav-section-toggle:hover,
+body.north-carolina header #nav .nav-section-toggle:focus {
+  color: #fff;
+  background: transparent;
+}
+
+body.north-carolina header #nav .nav-section-toggle::after {
+  position: absolute;
+  top: 21px;
+  right: 22px;
+  width: 9px;
+  height: 9px;
+  transform: rotate(135deg);
+  border: 3px solid currentcolor;
+  border-width: 3px 3px 0 0;
+  content: '';
+}
+
+body.north-carolina header #nav .nav-section-toggle[aria-expanded='true']::after {
+  top: 26px;
+  transform: rotate(315deg);
+}
+
+body.north-carolina header #nav .nav-sections .nav-drop > ul {
+  display: none;
+  padding: 0 20px 20px;
+  background-color: #023347;
+}
+
+body.north-carolina header #nav .nav-sections .nav-drop.is-open > ul {
+  display: block;
+}
+
+body.north-carolina header #nav .nav-sections .nav-drop > ul > li {
+  padding: 5px 0;
+}
+
+body.north-carolina header #nav .nav-sections .nav-drop > ul > li:first-child {
+  padding-top: 12px;
+}
+
+body.north-carolina header #nav .nav-sections li p {
+  margin: 0;
+}
+
+body.north-carolina header #nav .nav-sections a:any-link {
+  display: block;
+  padding: 0;
+  color: #fff;
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+  text-decoration: none;
+  white-space: normal;
+}
+
+body.north-carolina header #nav .nav-sections a:hover {
+  color: #8ed4ed;
+  text-decoration: underline;
+}
+
+body.north-carolina header #nav .nav-sections .nav-drop > ul > li > ul {
+  display: block;
+  margin: 4px 0 4px 20px;
+}
+
+body.north-carolina header #nav .nav-sections .nav-drop > ul > li > ul > li {
+  padding: 2px 0;
+}
+
+body.north-carolina header #nav .nav-sections .nav-drop > ul > li > ul a:any-link {
+  font-weight: 400;
+}
+
+@media (width >= 481px) and (width < 992px) {
+  body.north-carolina {
+    padding-top: 57px;
+  }
+
+  body.north-carolina header {
+    min-height: 57px;
+  }
+
+  body.north-carolina header #nav {
+    --mobile-menu-column: 82px;
+
+    height: 57px;
+    min-height: 57px;
+    padding-top: 15px;
+  }
+
+  body.north-carolina header #nav .nav-brand {
+    padding-left: 50px;
+  }
+
+  body.north-carolina header #nav .nav-brand .default-content-wrapper {
+    grid-template-columns: minmax(0, 35vw) auto;
+  }
+
+  body.north-carolina header #nav .nav-brand img {
+    width: auto;
+    max-width: 35vw;
+  }
+
+  body.north-carolina header #nav .nav-brand p:last-child {
+    margin-top: 0;
+    font-size: 20px;
+  }
+
+  body.north-carolina header #nav .nav-hamburger button {
+    margin-top: 4px;
+    margin-right: 50px;
+  }
+
+  body.north-carolina header #nav .nav-tools {
+    padding: 0 50px;
+  }
+
+  body.north-carolina header #nav .nav-tools p {
+    font-size: 16px;
+  }
+
+  body.north-carolina header #nav .nav-search {
+    padding: 0 50px;
+  }
+
+  body.north-carolina header #nav .nav-section-toggle {
+    padding-right: 84px;
+    padding-left: 50px;
+    font-size: 18px;
+  }
+
+  body.north-carolina header #nav .nav-section-toggle::after {
+    right: 52px;
+  }
+
+  body.north-carolina header #nav .nav-sections .nav-drop > ul {
+    padding-right: 50px;
+    padding-left: 50px;
+  }
+}
+
+@media (width >= 992px) {
+  body.north-carolina {
+    padding-top: 0;
+  }
+
+  body.north-carolina header {
+    position: relative;
+    inset: auto;
+    min-height: 101px;
+    transform: none;
+    transition: none;
+    will-change: auto;
+  }
+
+  body.north-carolina header .nav-wrapper {
+    background: linear-gradient(
+      to bottom,
+      #044661 0,
+      #044661 67px,
+      #023347 67px,
+      #023347 101px,
+      #fafafa 101px,
+      #fafafa 100%
+    );
+  }
+
+  body.north-carolina header #nav,
+  body.north-carolina header #nav.is-open {
+    grid-template:
+      'brand brand' 67px
+      'sections tools' 34px
+      'search search' auto / minmax(0, 1fr) auto;
+    width: 100%;
+    max-width: 1240px;
+    height: auto;
+    max-height: none;
+    min-height: 101px;
+    margin: 0 auto;
+    padding: 0 50px;
+    overflow: visible;
+    overscroll-behavior: auto;
+    background-color: transparent;
+  }
+
+  body.north-carolina header #nav .nav-brand {
+    align-self: center;
+    width: 100%;
+    padding: 0;
+  }
+
+  body.north-carolina header #nav .nav-brand .default-content-wrapper {
+    grid-template-columns: 352px auto;
+    align-items: center;
+    gap: 24px;
+  }
+
+  body.north-carolina header #nav .nav-brand p:last-child {
+    justify-self: end;
+    margin: 0;
+    font-size: 28px;
+    line-height: 22px;
+  }
+
+  body.north-carolina header #nav .nav-brand img {
+    width: 352px;
+    max-width: none;
+    height: auto;
+  }
+
+  body.north-carolina header #nav .nav-hamburger {
+    display: none;
+    visibility: hidden;
+  }
+
+  body.north-carolina header #nav .nav-sections,
+  body.north-carolina header #nav.is-open .nav-sections {
+    grid-area: sections;
+    display: block;
+    visibility: visible;
+    align-self: stretch;
+    width: auto;
+    padding: 0;
+    white-space: nowrap;
+  }
+
+  body.north-carolina header #nav .nav-sections .default-content-wrapper,
+  body.north-carolina header #nav .nav-sections .default-content-wrapper > ul {
+    height: 100%;
+  }
+
+  body.north-carolina header #nav .nav-sections .default-content-wrapper > ul {
+    display: flex;
+    align-items: stretch;
+    gap: 28px;
+  }
+
+  body.north-carolina header #nav .nav-sections .default-content-wrapper > ul > li,
+  body.north-carolina header #nav .nav-sections .default-content-wrapper > ul > li:first-child,
+  body.north-carolina header #nav .nav-sections .default-content-wrapper > ul > li:last-child {
+    flex: 0 0 auto;
+    width: auto;
+    border: 0;
+    box-shadow: none;
+  }
+
+  body.north-carolina header #nav .nav-section-toggle {
+    width: auto;
+    min-height: 34px;
+    padding: 3px 0;
+    color: #8ed4ed;
+    font-size: 16px;
+    line-height: 28px;
+    white-space: nowrap;
+  }
+
+  body.north-carolina header #nav .nav-section-toggle[aria-expanded='true'],
+  body.north-carolina header #nav .nav-drop:hover > .nav-section-toggle,
+  body.north-carolina header #nav .nav-section-toggle:hover,
+  body.north-carolina header #nav .nav-section-toggle:focus {
+    color: #fff;
+  }
+
+  body.north-carolina header #nav .nav-section-toggle::after {
+    display: none;
+  }
+
+  body.north-carolina header #nav .nav-sections .nav-drop > ul,
+  body.north-carolina header #nav .nav-sections .nav-drop.is-open > ul {
+    position: absolute;
+    top: 34px;
+    left: 0;
+    z-index: 4;
+    display: none;
+    width: max-content;
+    min-width: 230px;
+    max-width: 400px;
+    padding: 12px 0 16px;
+    background-color: #023347;
+    box-shadow: 0 9px 16px rgb(0 0 0 / 25%);
+    white-space: normal;
+  }
+
+  body.north-carolina header #nav .nav-sections .nav-drop.is-open > ul {
+    display: block;
+  }
+
+  body.north-carolina header #nav .nav-sections .nav-drop > ul > li,
+  body.north-carolina header #nav .nav-sections .nav-drop > ul > li:first-child {
+    width: auto;
+    border-bottom: 1px solid #0b76a1;
+    padding: 7px 30px;
+  }
+
+  body.north-carolina header #nav .nav-sections .nav-drop > ul > li:first-child {
+    border-top: 0;
+  }
+
+  body.north-carolina header #nav .nav-sections .nav-drop > ul > li:last-child {
+    border-bottom: 0;
+  }
+
+  body.north-carolina header #nav .nav-sections a:any-link {
+    display: block;
+    padding: 0;
+    font-size: 14px;
+    line-height: 16px;
+  }
+
+  body.north-carolina header #nav .nav-sections .nav-drop > ul > li > ul {
+    margin: 4px 0 4px 20px;
+  }
+
+  body.north-carolina header #nav .nav-tools,
+  body.north-carolina header #nav.is-open .nav-tools {
+    grid-area: tools;
+    display: block;
+    align-self: stretch;
+    width: auto;
+    padding: 0;
+  }
+
+  body.north-carolina header #nav .nav-tools .default-content-wrapper {
+    justify-content: flex-end;
+    height: 34px;
+  }
+
+  body.north-carolina header #nav .nav-tools p {
+    margin-left: 10px;
+    border-left: 1px solid #8fcae9;
+    padding-left: 10px;
+    color: #8ed4ed;
+    font-family: var(--heading-font-family);
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 18px;
+  }
+
+  body.north-carolina header #nav .nav-tools p + p::before {
+    margin: 0;
+    content: none;
+  }
+
+  body.north-carolina header #nav .nav-text-size {
+    display: flex;
+    align-items: baseline;
+    margin-right: 9px;
+  }
+
+  body.north-carolina header #nav .nav-text-size button,
+  body.north-carolina header #nav .nav-search-button {
+    display: block;
+    width: auto;
+    min-width: 0;
+    height: 20px;
+    min-height: 0;
+    margin: 0;
+    border: 0;
+    border-radius: 0;
+    padding: 0 2px;
+    color: #8ed4ed;
+    background: transparent;
+    font-family: var(--heading-font-family);
+    font-weight: 400;
+    line-height: 20px;
+    overflow: visible;
+  }
+
+  body.north-carolina header #nav .nav-text-size button:hover,
+  body.north-carolina header #nav .nav-text-size button:focus,
+  body.north-carolina header #nav .nav-text-size button[aria-pressed='true'],
+  body.north-carolina header #nav .nav-search-button:hover,
+  body.north-carolina header #nav .nav-search-button:focus,
+  body.north-carolina header #nav .nav-search-button[aria-expanded='true'] {
+    color: #fff;
+    background: transparent;
+  }
+
+  body.north-carolina header #nav .nav-text-size-small {
+    font-size: 12px;
+  }
+
+  body.north-carolina header #nav .nav-text-size-default {
+    font-size: 14px;
+  }
+
+  body.north-carolina header #nav .nav-text-size-large {
+    font-size: 16px;
+  }
+
+  body.north-carolina header #nav .nav-search-button {
+    margin-left: 10px;
+    border-left: 1px solid #8fcae9;
+    padding: 0 4px 0 10px;
+  }
+
+  body.north-carolina header #nav .nav-search-button span {
+    width: 14px;
+    height: 14px;
+  }
+
+  body.north-carolina header #nav .nav-search {
+    position: relative;
+    left: auto;
+    grid-area: search;
+    grid-template-columns: minmax(0, 1fr);
+    width: auto;
+    min-height: 72px;
+    margin: 0 -50px;
+    padding: 12px 50px;
+    background-color: #fafafa;
+  }
+
+  body.north-carolina header #nav .nav-search-icon {
+    display: none;
+  }
+
+  body.north-carolina header #nav .nav-search input {
+    height: 40px;
+    border: 1px solid #666;
+    padding: 8px 16px;
+    background-color: #fff;
+  }
+
+  body.north-carolina header #nav .nav-search-results {
+    margin: 0;
+    padding: 8px 16px 4px;
+    border: 1px solid #666;
+    border-top: 0;
+    background-color: #fff;
+  }
+}
+
+/* stylelint-enable no-descending-specificity */
