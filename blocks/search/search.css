@@ -1,7 +1,7 @@
 /* search box */
 .search .search-box {
   display: grid;
-  grid-template-columns: auto 1fr;
+  grid-template-columns: auto 1fr auto auto;
   gap: 1ch;
   align-items: center;
 }
@@ -22,6 +22,55 @@
 
 .search .search-box input:hover {
   border: 1px solid var(--text-color);
+}
+
+.search .search-clear,
+.search .search-close {
+  min-width: 44px;
+  min-height: 44px;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  color: currentcolor;
+  background: transparent;
+}
+
+.search .search-clear::before,
+.search .search-clear::after {
+  display: block;
+  width: 18px;
+  height: 2px;
+  margin: auto;
+  transform: rotate(45deg);
+  background-color: currentcolor;
+  content: '';
+}
+
+.search .search-clear::after {
+  margin-top: -2px;
+  transform: rotate(-45deg);
+}
+
+.search .search-close {
+  display: none;
+}
+
+.search .search-status {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.search .search-results[hidden],
+.search .search-clear[hidden],
+.search .search-close[hidden] {
+  display: none;
 }
 
 /* search results */
@@ -58,9 +107,6 @@
 .search ul.search-results > li .search-result-title {
   font-size: var(--body-font-size-m);
   font-weight: normal;
-}
-
-.search ul.search-results > li .search-result-title a {
   color: currentcolor;
   text-decoration: none;
 }
@@ -105,7 +151,7 @@
   padding: unset;
 }
 
-.search.minimal ul.search-results > li .search-result-title a {
+.search.minimal ul.search-results > li .search-result-title {
   color: var(--link-color);
 }
 
@@ -114,8 +160,8 @@
   background-color: unset;
 }
 
-.search.minimal ul.search-results > li > a:hover a,
-.search.minimal ul.search-results > li > a:focus a {
+.search.minimal ul.search-results > li > a:hover .search-result-title,
+.search.minimal ul.search-results > li > a:focus .search-result-title {
   text-decoration: underline;
   color: var(--link-hover-color);
 }
@@ -134,4 +180,339 @@
   height: 24px;
   width: 24px;
   border-radius: 50%;
+}
+
+/* Healthy Blue North Carolina site search */
+body.north-carolina main > .section.search-container {
+  margin: 0;
+}
+
+body.north-carolina main > .section.search-container > .search-wrapper {
+  max-width: none;
+  padding: 0;
+}
+
+body.north-carolina .search {
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 24px 0;
+  background-color: #fafafa;
+  color: #333;
+}
+
+body.north-carolina .search .search-box {
+  position: relative;
+  box-sizing: border-box;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0;
+  align-items: center;
+  width: calc(100% - 60px);
+  max-width: 1140px;
+  height: 46px;
+  margin: 0 auto;
+  background-color: transparent;
+}
+
+body.north-carolina .search .search-box .icon-search {
+  position: absolute;
+  top: 15px;
+  left: 16px;
+  z-index: 1;
+  display: block;
+  box-sizing: border-box;
+  width: 15px;
+  height: 15px;
+  margin: 0;
+  border: 2px solid #016b95;
+  border-radius: 50%;
+}
+
+body.north-carolina .search .search-box .icon-search::after {
+  position: absolute;
+  right: -6px;
+  bottom: -4px;
+  width: 7px;
+  height: 2px;
+  transform: rotate(45deg);
+  transform-origin: left center;
+  background-color: #016b95;
+  content: '';
+}
+
+body.north-carolina .search .search-box .icon-search img {
+  display: none;
+}
+
+body.north-carolina .search .search-box input {
+  grid-column: 1;
+  height: 44px;
+  margin: 0;
+  border: 1px solid #666;
+  border-radius: 0;
+  padding: 8px 50px 8px 52px;
+  color: #333;
+  background-color: #fff;
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  line-height: 22px;
+  appearance: none;
+}
+
+body.north-carolina .search .search-box input:hover,
+body.north-carolina .search .search-box input:focus {
+  border: 1px solid #016b95;
+  outline: 1px solid #016b95;
+  outline-offset: -2px;
+}
+
+body.north-carolina .search .search-box input::placeholder {
+  color: #666;
+  opacity: 1;
+}
+
+body.north-carolina .search .search-box input::-webkit-search-cancel-button {
+  appearance: none;
+}
+
+body.north-carolina .search .search-clear {
+  position: absolute;
+  top: 1px;
+  right: 0;
+  z-index: 1;
+  width: 44px;
+  height: 44px;
+  color: #016b95;
+  background-color: transparent;
+}
+
+body.north-carolina .search .search-clear:hover,
+body.north-carolina .search .search-clear:focus {
+  color: #01506f;
+  background-color: transparent;
+}
+
+body.north-carolina .search .search-clear:focus-visible {
+  outline: 2px solid #016b95;
+  outline-offset: -4px;
+}
+
+body.north-carolina .search.overlay .search-clear {
+  right: 44px;
+}
+
+body.north-carolina .search.overlay .search-close {
+  position: relative;
+  display: grid;
+  grid-column: 2;
+  place-items: center;
+  width: 44px;
+  height: 46px;
+  color: #016b95;
+  background-color: transparent;
+}
+
+body.north-carolina .search.overlay .search-close::before {
+  display: block;
+  box-sizing: border-box;
+  width: 18px;
+  height: 18px;
+  border: 1px solid currentcolor;
+  border-radius: 50%;
+  background:
+    linear-gradient(45deg, transparent 46%, currentcolor 47% 53%, transparent 54%),
+    linear-gradient(-45deg, transparent 46%, currentcolor 47% 53%, transparent 54%);
+  content: '';
+}
+
+body.north-carolina .search.overlay .search-close:hover,
+body.north-carolina .search.overlay .search-close:focus {
+  color: #01506f;
+  background-color: transparent;
+}
+
+body.north-carolina .search.overlay .search-close:focus-visible {
+  outline: 2px solid #016b95;
+  outline-offset: -4px;
+}
+
+body.north-carolina .search ul.search-results {
+  box-sizing: border-box;
+  display: block;
+  width: calc(100% - 60px);
+  max-width: 1140px;
+  max-height: min(420px, 60vh);
+  margin: 0 auto;
+  border: 1px solid #666;
+  border-top: 0;
+  padding: 8px 16px 12px 66px;
+  overflow-y: auto;
+  background-color: #fff;
+}
+
+body.north-carolina .search ul.search-results[hidden],
+body.north-carolina .search .search-clear[hidden] {
+  display: none;
+}
+
+body.north-carolina .search ul.search-results > li {
+  margin: 0;
+  border: 0;
+  padding: 5px 0;
+}
+
+body.north-carolina .search ul.search-results > li > a {
+  color: #016b95;
+  background-color: transparent;
+  font-size: 16px;
+  line-height: 22px;
+  text-decoration: underline;
+}
+
+body.north-carolina .search ul.search-results > li > a:hover,
+body.north-carolina .search ul.search-results > li > a:focus {
+  color: #01506f;
+  text-decoration: underline;
+}
+
+body.north-carolina .search ul.search-results > li > a:focus-visible {
+  outline: 2px solid #016b95;
+  outline-offset: 2px;
+}
+
+body.north-carolina .search ul.search-results .search-result-image,
+body.north-carolina .search ul.search-results p {
+  display: none;
+}
+
+body.north-carolina .search ul.search-results .search-result-title {
+  margin: 0;
+  padding: 0;
+  color: currentcolor;
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 22px;
+}
+
+body.north-carolina .search ul.search-results mark {
+  color: inherit;
+  background-color: #dff3fa;
+}
+
+body.north-carolina .search ul.search-results.no-results {
+  margin: 0 auto;
+  padding-left: 66px;
+  color: #333;
+}
+
+body.north-carolina .search.overlay ul.search-results,
+body.north-carolina .search.overlay ul.search-results.no-results {
+  width: calc(100% - 104px);
+  max-width: 1096px;
+  margin-right: auto;
+  margin-left: max(30px, calc((100% - 1140px) / 2));
+}
+
+body.north-carolina header #nav > .search {
+  grid-area: search;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 48px;
+  padding: 0 20px;
+}
+
+body.north-carolina header #nav > .search[hidden] {
+  display: none;
+}
+
+body.north-carolina header #nav > .search .search-box {
+  width: 100%;
+  max-width: none;
+  height: 48px;
+}
+
+body.north-carolina header #nav > .search .search-box .icon-search {
+  top: 16px;
+}
+
+body.north-carolina header #nav > .search .search-box input {
+  height: 48px;
+}
+
+body.north-carolina header #nav > .search.overlay .search-close {
+  display: none;
+}
+
+body.north-carolina header #nav > .search ul.search-results,
+body.north-carolina header #nav > .search ul.search-results.no-results {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+}
+
+@media (width >= 481px) and (width < 992px) {
+  body.north-carolina header #nav > .search {
+    padding-right: 50px;
+    padding-left: 50px;
+  }
+}
+
+@media (width >= 992px) {
+  body.north-carolina header #nav > .search {
+    width: auto;
+    min-height: 94px;
+    margin: 0 -50px;
+    padding: 24px 50px;
+  }
+
+  body.north-carolina header #nav > .search .search-box {
+    height: 46px;
+  }
+
+  body.north-carolina header #nav > .search .search-box .icon-search {
+    top: 15px;
+  }
+
+  body.north-carolina header #nav > .search .search-box input {
+    height: 44px;
+  }
+
+  body.north-carolina header #nav > .search.overlay .search-close {
+    display: grid;
+  }
+
+  body.north-carolina header #nav > .search.overlay ul.search-results,
+  body.north-carolina header #nav > .search.overlay ul.search-results.no-results {
+    width: calc(100% - 44px);
+    margin: 0;
+  }
+}
+
+@media (width < 600px) {
+  body.north-carolina .search {
+    padding: 16px 0;
+  }
+
+  body.north-carolina .search .search-box,
+  body.north-carolina .search ul.search-results {
+    width: calc(100% - 40px);
+  }
+
+  body.north-carolina .search.overlay ul.search-results,
+  body.north-carolina .search.overlay ul.search-results.no-results {
+    width: calc(100% - 84px);
+    margin-right: auto;
+    margin-left: 20px;
+  }
+
+  body.north-carolina .search ul.search-results {
+    padding-left: 54px;
+  }
+
+  body.north-carolina .search .search-box input,
+  body.north-carolina .search ul.search-results > li > a,
+  body.north-carolina .search ul.search-results .search-result-title {
+    font-size: 16px;
+  }
 }

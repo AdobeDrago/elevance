@@ -1,0 +1,10 @@
+{
+  "variantName": "search",
+  "baseBlock": "search",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": "Site-search field with query-index suggestions, highlighted matching text, a clear control, and an accessible results status.",
+  "contentPattern": "One optional link to a query-index JSON source. When omitted, the block searches /query-index.json on the current site.",
+  "usage": "Site search. The Healthy Blue North Carolina treatment matches the expandable search area below the primary navigation.",
+  "options": ["minimal"],
+  "memberVariantIds": ["search", "search-minimal"]
+}
