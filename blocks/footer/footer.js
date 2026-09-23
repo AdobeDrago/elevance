@@ -29,5 +29,14 @@ export default async function decorate(block) {
     if (classes[i]) section.classList.add(classes[i]);
   });
 
+  // The Healthy Blue source presents its legal copy before the link list.
+  // Keep that content order isolated to the North Carolina theme.
+  if (document.body.classList.contains('north-carolina')) {
+    const adobeReader = footer.querySelector('a[href*="get.adobe.com/reader"]');
+    adobeReader?.classList.add('adobe-reader');
+    adobeReader?.closest('p')?.classList.add('adobe-reader-container');
+    if (sections[1]) footer.prepend(sections[1]);
+  }
+
   block.append(footer);
 }
