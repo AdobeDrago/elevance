@@ -1,10 +1,9 @@
-import { fetchPlaceholders, getMetadata } from '../../scripts/aem.js';
+import { fetchPlaceholders, getMetadata, loadBlock } from '../../scripts/aem.js';
 
 const defaultDesktop = window.matchMedia('(min-width: 900px)');
 const northCarolinaDesktop = window.matchMedia('(min-width: 992px)');
 const FONT_SIZE_KEY = 'hbnc-font-size';
 const FONT_SIZES = ['small', 'default', 'large'];
-let searchIndexPromise;
 
 function isNorthCarolinaDesktopView() {
   return northCarolinaDesktop.matches;
@@ -147,17 +146,15 @@ function closeAllNavSections(navSections, except = null) {
 
 function closeSearch(nav, returnFocus = false) {
   const searchButton = nav.querySelector('.nav-search-button');
-  const searchForm = nav.querySelector('.nav-search');
-  if (!searchButton || !searchForm) return;
+  const searchBlock = nav.querySelector('.search.overlay');
+  if (!searchButton || !searchBlock) return;
 
   const wasOpen = searchButton.getAttribute('aria-expanded') === 'true';
   searchButton.setAttribute('aria-expanded', 'false');
   searchButton.setAttribute('aria-label', 'Open site search');
-  searchForm.hidden = true;
-  searchForm.setAttribute('aria-hidden', 'true');
-  const searchResults = searchForm.querySelector('.nav-search-results');
-  searchResults.replaceChildren();
-  searchResults.hidden = true;
+  searchBlock.hidden = true;
+  searchBlock.setAttribute('aria-hidden', 'true');
+  searchBlock.dispatchEvent(new CustomEvent('search:reset'));
   if (returnFocus && wasOpen) searchButton.focus();
 }
 
@@ -176,10 +173,10 @@ function setMenuExpanded(nav, navSections, expanded) {
   }
 
   if (!isNorthCarolinaDesktopView()) {
-    const searchForm = nav.querySelector('.nav-search');
-    if (searchForm) {
-      searchForm.hidden = !expanded;
-      searchForm.setAttribute('aria-hidden', expanded ? 'false' : 'true');
+    const searchBlock = nav.querySelector('.search.overlay');
+    if (searchBlock) {
+      searchBlock.hidden = !expanded;
+      searchBlock.setAttribute('aria-hidden', expanded ? 'false' : 'true');
     }
   }
 }
@@ -320,122 +317,7 @@ function createFontSizeControls() {
   return controls;
 }
 
-async function getSearchIndex(form) {
-  if (!searchIndexPromise) {
-    const navItems = Array.from(
-      form.closest('nav').querySelectorAll('.nav-sections a[href]'),
-    ).map((link) => ({
-      path: link.getAttribute('href'),
-      title: link.textContent.trim(),
-    }));
-    searchIndexPromise = fetch('/query-index.json')
-      .then((response) => (response.ok ? response.json() : { data: [] }))
-      .then((json) => [...navItems, ...(json.data || [])])
-      .catch(() => navItems)
-      .then((items) => [
-        ...new Map(items.map((item) => [item.path, item])).values(),
-      ]);
-  }
-  return searchIndexPromise;
-}
-
-function clearSearchResults(form) {
-  const results = form.querySelector('.nav-search-results');
-  results.replaceChildren();
-  results.hidden = true;
-}
-
-async function updateSearchResults(form) {
-  const input = form.querySelector('input');
-  const results = form.querySelector('.nav-search-results');
-  const query = input.value.trim().toLowerCase();
-  if (query.length < 3) {
-    clearSearchResults(form);
-    return;
-  }
-
-  form.dataset.query = query;
-  const terms = query.split(/\s+/).filter(Boolean);
-  const index = await getSearchIndex(form);
-  if (form.dataset.query !== query) return;
-
-  const matches = index
-    .filter((item) => {
-      const searchableText = [
-        item.title,
-        item.header,
-        item.description,
-        item.path,
-      ]
-        .filter(Boolean)
-        .join(' ')
-        .toLowerCase();
-      return terms.every((term) => searchableText.includes(term));
-    })
-    .slice(0, 6);
-
-  results.replaceChildren();
-  if (!matches.length) {
-    const noResults = document.createElement('li');
-    noResults.className = 'nav-search-no-results';
-    noResults.textContent = 'No results found.';
-    results.append(noResults);
-  } else {
-    matches.forEach((item) => {
-      const listItem = document.createElement('li');
-      const link = document.createElement('a');
-      link.href = item.path;
-      link.textContent = item.title || item.header || item.path;
-      listItem.append(link);
-      results.append(listItem);
-    });
-  }
-  results.hidden = false;
-}
-
-function createSearchForm() {
-  const form = document.createElement('form');
-  form.className = 'nav-search';
-  form.id = 'nav-search-panel';
-  form.setAttribute('role', 'search');
-  form.setAttribute('aria-label', 'Site search');
-  form.setAttribute('aria-hidden', 'true');
-  form.hidden = true;
-
-  const icon = document.createElement('span');
-  icon.className = 'nav-search-icon';
-  icon.setAttribute('aria-hidden', 'true');
-
-  const input = document.createElement('input');
-  input.id = 'nav-search-input';
-  input.name = 'q';
-  input.type = 'search';
-  input.placeholder = 'What are you searching for?';
-  input.setAttribute('aria-label', 'What are you searching for?');
-  input.setAttribute('autocomplete', 'off');
-  input.addEventListener('input', () => updateSearchResults(form));
-  input.addEventListener('keydown', (e) => {
-    if (e.code === 'Escape' && isNorthCarolinaDesktopView()) {
-      closeSearch(form.closest('nav'), true);
-    }
-  });
-
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const firstResult = form.querySelector('.nav-search-results a');
-    if (firstResult) window.location.assign(firstResult.href);
-    else input.focus();
-  });
-
-  const results = document.createElement('ul');
-  results.className = 'nav-search-results';
-  results.setAttribute('aria-live', 'polite');
-  results.hidden = true;
-  form.append(icon, input, results);
-  return form;
-}
-
-function decorateNorthCarolinaTools(nav, navTools, navSections) {
+async function decorateNorthCarolinaTools(nav, navTools, navSections) {
   const toolsWrapper = navTools.querySelector('.default-content-wrapper');
   if (!toolsWrapper) return;
 
@@ -447,7 +329,14 @@ function decorateNorthCarolinaTools(nav, navTools, navSections) {
   searchButton.setAttribute('aria-expanded', 'false');
   searchButton.innerHTML = '<span aria-hidden="true"></span>';
 
-  const searchForm = createSearchForm();
+  const searchBlock = document.createElement('div');
+  searchBlock.id = 'nav-search-panel';
+  searchBlock.className = 'search overlay block';
+  searchBlock.dataset.blockName = 'search';
+  searchBlock.dataset.blockStatus = 'initialized';
+  searchBlock.hidden = true;
+  searchBlock.setAttribute('aria-hidden', 'true');
+
   searchButton.addEventListener('click', () => {
     const expanded = searchButton.getAttribute('aria-expanded') === 'true';
     closeAllNavSections(navSections);
@@ -456,14 +345,34 @@ function decorateNorthCarolinaTools(nav, navTools, navSections) {
       'aria-label',
       expanded ? 'Open site search' : 'Close site search',
     );
-    searchForm.hidden = expanded;
-    searchForm.setAttribute('aria-hidden', expanded ? 'true' : 'false');
-    if (!expanded) searchForm.querySelector('input').focus();
+    searchBlock.hidden = expanded;
+    searchBlock.setAttribute('aria-hidden', expanded ? 'true' : 'false');
+    if (expanded) searchBlock.dispatchEvent(new CustomEvent('search:reset'));
+    else searchBlock.querySelector('.search-input')?.focus();
   });
 
   toolsWrapper.prepend(createFontSizeControls());
   toolsWrapper.append(searchButton);
-  nav.append(searchForm);
+  nav.append(searchBlock);
+  await loadBlock(searchBlock);
+
+  searchBlock.addEventListener('search:close', () => {
+    if (isNorthCarolinaDesktopView()) {
+      closeSearch(nav, true);
+      return;
+    }
+    setMenuExpanded(nav, navSections, false);
+    nav.querySelector('.nav-hamburger button')?.focus();
+  });
+
+  if (isNorthCarolinaDesktopView()
+    && new URL(window.location.href).searchParams.get('q')) {
+    searchButton.setAttribute('aria-expanded', 'true');
+    searchButton.setAttribute('aria-label', 'Close site search');
+    searchBlock.hidden = false;
+    searchBlock.setAttribute('aria-hidden', 'false');
+    searchBlock.querySelector('.search-input')?.focus();
+  }
 }
 
 function setupMobileHeaderVisibility(header, nav, navSections) {
@@ -738,7 +647,7 @@ export default async function decorate(block) {
   decorateNorthCarolinaNavSections(navSections);
 
   const navTools = nav.querySelector('.nav-tools');
-  if (navTools) decorateNorthCarolinaTools(nav, navTools, navSections);
+  if (navTools) await decorateNorthCarolinaTools(nav, navTools, navSections);
 
   // hamburger for mobile
   const hamburger = document.createElement('div');
