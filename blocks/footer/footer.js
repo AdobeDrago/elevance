@@ -33,8 +33,17 @@ export default async function decorate(block) {
   // Keep that content order isolated to the North Carolina theme.
   if (document.body.classList.contains('north-carolina')) {
     const adobeReader = footer.querySelector('a[href*="get.adobe.com/reader"]');
-    adobeReader?.classList.add('adobe-reader');
-    adobeReader?.closest('p')?.classList.add('adobe-reader-container');
+    if (adobeReader) {
+      const image = document.createElement('img');
+      image.src = new URL('./adobe-reader.png', import.meta.url).href;
+      image.alt = adobeReader.textContent.trim() || 'Download Adobe Reader';
+      image.width = 175;
+      image.height = 43;
+      image.classList.add('adobe-reader-image');
+      adobeReader.replaceChildren(image);
+      adobeReader.classList.add('adobe-reader');
+      adobeReader.closest('p')?.classList.add('adobe-reader-container');
+    }
     if (sections[1]) footer.prepend(sections[1]);
   }
 
