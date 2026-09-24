@@ -1,0 +1,131 @@
+/*
+ * forms-accordion — categorized library of provider forms.
+ * Design migrated from https://provider.healthybluenc.com/north-carolina-provider/forms
+ * (section.accordions of .accordion-item / .accordion-title / .accordion-content
+ * holding div.pdflist links, followed by an h2 + PCP Change Form link list).
+ * The topic toggle reuses the accordion-doc-links blue plus/minus-circle icon.
+ * Every selector is scoped under body.north-carolina (repoless multi-site).
+ */
+
+body.north-carolina .forms-accordion .forms-accordion-item-label {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  padding: 1rem 0;
+  cursor: pointer;
+  list-style: none;
+  font-family: var(--heading-font-family);
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1.5rem;
+  color: var(--heading-color);
+}
+
+body.north-carolina .forms-accordion .forms-accordion-item-label::-webkit-details-marker {
+  display: none;
+}
+
+body.north-carolina .forms-accordion .forms-accordion-item-label::marker {
+  content: '';
+  display: none;
+}
+
+/* Toggle icon — fa-plus-circle / fa-minus-circle (blue disc, white glyph),
+   swapped via the details[open] state; both icons are rendered and stacked,
+   visibility toggled with CSS so no re-render is needed on click. */
+body.north-carolina .forms-accordion .forms-accordion-item-icon {
+  position: relative;
+  flex: 0 0 auto;
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-right: 1.5rem;
+}
+
+body.north-carolina .forms-accordion .forms-accordion-item-icon .icon {
+  position: absolute;
+  inset: 0;
+}
+
+body.north-carolina .forms-accordion .forms-accordion-item-icon .icon img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+body.north-carolina .forms-accordion .forms-accordion-item-icon .icon-minus-circle {
+  display: none;
+}
+
+body.north-carolina .forms-accordion .forms-accordion-item[open] .forms-accordion-item-icon .icon-plus-circle {
+  display: none;
+}
+
+body.north-carolina .forms-accordion .forms-accordion-item[open] .forms-accordion-item-icon .icon-minus-circle {
+  display: block;
+}
+
+body.north-carolina .forms-accordion .forms-accordion-item-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1.4375rem 0 1.375rem 2rem;
+}
+
+/* Document links — small red file/PDF icon before the label, shared by the
+   accordion panels and the PCP Change Form list below them. */
+body.north-carolina .forms-accordion .forms-accordion-link {
+  position: relative;
+  display: inline-block;
+  padding-left: 1.5rem;
+  color: var(--link-color);
+  font-size: 0.9375rem;
+  line-height: 1.375rem;
+  text-decoration: none;
+}
+
+body.north-carolina .forms-accordion .forms-accordion-link:hover,
+body.north-carolina .forms-accordion .forms-accordion-link:focus {
+  color: var(--link-hover-color);
+  text-decoration: underline;
+}
+
+body.north-carolina .forms-accordion .forms-accordion-link::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.1875rem;
+  width: 0.875rem;
+  height: 1rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5 2h9l5 5v15H5z' fill='%23c8102e'/%3E%3Cpath d='M14 2v5h5z' fill='%23fff'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+body.north-carolina .forms-accordion .forms-accordion-pcp {
+  margin-top: 2.5rem;
+}
+
+body.north-carolina .forms-accordion .forms-accordion-pcp h2 {
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+body.north-carolina .forms-accordion .forms-accordion-pcp-list {
+  list-style: disc;
+  margin: 0;
+  padding: 0 0 0 1.125rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+body.north-carolina .forms-accordion .forms-accordion-pcp-list li::marker {
+  color: #c8102e;
+}
+
+@media (width >= 900px) {
+  body.north-carolina .forms-accordion .forms-accordion-item-label {
+    font-size: 1.25rem;
+  }
+}
