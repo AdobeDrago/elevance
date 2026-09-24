@@ -85,3 +85,112 @@ footer .footer-legal p:last-child {
     grid-row: 2;
   }
 }
+
+/* Healthy Blue North Carolina footer, matched to the source site. */
+body.north-carolina footer.footer-wrapper {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 22px 20px 25px 25px;
+  background: #023347;
+  color: #fff;
+  font-family: roboto, sans-serif;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+body.north-carolina footer.footer-wrapper .footer {
+  box-sizing: border-box;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+body.north-carolina footer.footer-wrapper .footer p {
+  margin: 0;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22px;
+  text-align: left;
+}
+
+body.north-carolina footer.footer-wrapper .footer-legal {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+body.north-carolina footer.footer-wrapper .footer-links {
+  display: block;
+  margin-top: 32px;
+}
+
+body.north-carolina footer.footer-wrapper .footer-links p {
+  margin: 0;
+}
+
+body.north-carolina footer.footer-wrapper .footer-legal p + p {
+  margin-top: 25px;
+}
+
+body.north-carolina footer.footer-wrapper .footer-links p + p {
+  margin-top: 10px;
+}
+
+body.north-carolina footer.footer-wrapper .footer a:any-link {
+  color: #8ed4ed;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22px;
+  text-decoration: underline;
+}
+
+body.north-carolina footer.footer-wrapper .footer a:hover,
+body.north-carolina footer.footer-wrapper .footer a:focus {
+  color: #8ed4ed;
+  text-decoration: underline;
+}
+
+body.north-carolina footer.footer-wrapper .footer-links .adobe-reader-container {
+  height: 43px;
+  margin-top: 40px;
+}
+
+body.north-carolina footer.footer-wrapper .footer-links .adobe-reader:any-link {
+  display: block;
+  width: 100%;
+  height: 43px;
+  overflow: hidden;
+  text-decoration: none;
+}
+
+body.north-carolina footer.footer-wrapper .footer-links .adobe-reader-image {
+  display: block;
+  width: 175px;
+  height: 43px;
+}
+
+@media (width >= 481px) and (width <= 800px) {
+  body.north-carolina footer.footer-wrapper {
+    padding-right: 50px;
+    padding-left: 50px;
+  }
+}
+
+@media (width >= 992px) {
+  body.north-carolina footer.footer-wrapper {
+    padding: 45px 50px 50px;
+    font-size: 16px;
+    line-height: 28px;
+  }
+
+  body.north-carolina footer.footer-wrapper .footer p {
+    font-size: 16px;
+    line-height: 28px;
+  }
+
+  body.north-carolina footer.footer-wrapper .footer a:any-link {
+    font-size: 16px;
+    line-height: 22px;
+  }
+}
