@@ -145,7 +145,7 @@ body.north-carolina .hero-welcome.no-image .hero-welcome-card {
 @media (width >= 992px) {
   body.north-carolina .hero-welcome {
     margin-top: 0;
-    padding: 60px 50px;
+    padding: 60px 32px;
   }
 
   body.north-carolina .hero-welcome .hero-welcome-bg img {
@@ -153,6 +153,7 @@ body.north-carolina .hero-welcome.no-image .hero-welcome-card {
   }
 
   body.north-carolina .hero-welcome .hero-welcome-card {
+    max-width: var(--content-max-width);
     margin-top: 0;
   }
 

@@ -83,3 +83,194 @@ body.modal-open {
 .modal dialog .section {
   padding: 0;
 }
+
+/* Healthy Blue North Carolina leaving-site confirmation dialog. */
+body.north-carolina .modal.external-link-interstitial dialog {
+  box-sizing: border-box;
+  position: fixed;
+  inset: 20px 0 auto;
+  width: calc(100vw - 30px);
+  max-width: 360px;
+  max-height: calc(100dvh - 40px);
+  margin: 0 auto;
+  padding: 32px;
+  overflow: visible;
+  border: 1px solid #016b95;
+  border-radius: 12px;
+  background: #fff;
+  color: #023347;
+}
+
+body.north-carolina .modal.external-link-interstitial dialog::backdrop {
+  background-color: rgb(0 0 0 / 50%);
+}
+
+body.north-carolina .modal.external-link-interstitial dialog .modal-content {
+  max-height: calc(100dvh - 106px);
+  margin: 0;
+  padding: 0;
+}
+
+body.north-carolina .modal.external-link-interstitial h2 {
+  margin: -5px 0 0;
+  color: #023347;
+  font-family: var(--heading-font-family);
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 34px;
+  text-align: left;
+}
+
+body.north-carolina .modal.external-link-interstitial p {
+  margin: 12px 0 0;
+  color: #023347;
+  font-family: var(--body-font-family);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 22px;
+  text-align: left;
+}
+
+body.north-carolina .modal.external-link-interstitial .external-link-interstitial-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+body.north-carolina .modal.external-link-interstitial .external-link-interstitial-continue,
+body.north-carolina .modal.external-link-interstitial .external-link-interstitial-cancel {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  margin: 0;
+  padding: 10px 25px;
+  border-radius: 4px;
+  font-family: var(--body-font-family);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+body.north-carolina .modal.external-link-interstitial .external-link-interstitial-continue:any-link {
+  border: 0;
+  background-color: #016b95;
+  color: #fff;
+}
+
+body.north-carolina .modal.external-link-interstitial .external-link-interstitial-continue:hover,
+body.north-carolina .modal.external-link-interstitial .external-link-interstitial-continue:focus {
+  background-color: #01506f;
+  color: #fff;
+  text-decoration: none;
+}
+
+body.north-carolina .modal.external-link-interstitial .external-link-interstitial-cancel {
+  border: 1px solid #0e92c7;
+  background-color: #f8f8f8;
+  color: #0e92c7;
+}
+
+body.north-carolina .modal.external-link-interstitial .external-link-interstitial-cancel:hover,
+body.north-carolina .modal.external-link-interstitial .external-link-interstitial-cancel:focus {
+  border-color: #016b95;
+  background-color: #fff;
+  color: #016b95;
+}
+
+body.north-carolina .modal.external-link-interstitial .close-button {
+  top: -14px;
+  right: -14px;
+  width: 52px;
+  height: 52px;
+  border: 2px solid #016b95;
+  border-radius: 50%;
+  background-color: #fff;
+  color: #016b95;
+}
+
+body.north-carolina .modal.external-link-interstitial .close-button:hover,
+body.north-carolina .modal.external-link-interstitial .close-button:focus {
+  border-color: #023347;
+  background-color: #fff;
+  color: #023347;
+}
+
+body.north-carolina .modal.external-link-interstitial .external-link-interstitial-continue:focus-visible,
+body.north-carolina .modal.external-link-interstitial .external-link-interstitial-cancel:focus-visible,
+body.north-carolina .modal.external-link-interstitial .close-button:focus-visible {
+  outline: 3px solid #023347;
+  outline-offset: 3px;
+}
+
+body.north-carolina .modal.external-link-interstitial .close-button .icon.icon-close::before,
+body.north-carolina .modal.external-link-interstitial .close-button .icon.icon-close::after {
+  width: 22px;
+  height: 5px;
+  border-radius: 0;
+}
+
+@media (width <= 359px) {
+  body.north-carolina .modal.external-link-interstitial .external-link-interstitial-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  body.north-carolina .modal.external-link-interstitial .external-link-interstitial-continue,
+  body.north-carolina .modal.external-link-interstitial .external-link-interstitial-cancel {
+    width: 100%;
+  }
+}
+
+@media (width >= 481px) and (width <= 800px) {
+  body.north-carolina .modal.external-link-interstitial dialog {
+    inset-block-start: 50px;
+    max-height: calc(100dvh - 100px);
+  }
+
+  body.north-carolina .modal.external-link-interstitial dialog .modal-content {
+    max-height: calc(100dvh - 166px);
+  }
+}
+
+@media (width >= 992px) {
+  body.north-carolina .modal.external-link-interstitial dialog {
+    inset-block-start: 60px;
+    width: calc(100vw - 120px);
+    max-width: 481px;
+    max-height: calc(100dvh - 120px);
+    padding: 45px 47px 36px;
+  }
+
+  body.north-carolina .modal.external-link-interstitial dialog .modal-content {
+    max-height: calc(100dvh - 203px);
+  }
+
+  body.north-carolina .modal.external-link-interstitial h2 {
+    font-size: 38px;
+    line-height: 42px;
+  }
+
+  body.north-carolina .modal.external-link-interstitial p {
+    font-size: 24px;
+    line-height: 28px;
+  }
+
+  body.north-carolina .modal.external-link-interstitial .external-link-interstitial-continue,
+  body.north-carolina .modal.external-link-interstitial .external-link-interstitial-cancel {
+    min-height: 44px;
+    padding: 12px 30px;
+    font-size: 16px;
+  }
+
+  body.north-carolina .modal.external-link-interstitial .close-button {
+    width: 56px;
+    height: 56px;
+  }
+}

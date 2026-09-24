@@ -201,6 +201,11 @@ async function loadLazy(doc) {
 
   loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);
   loadFonts();
+
+  if (doc.body.classList.contains('north-carolina')) {
+    const { default: decorateExternalLinks } = await import('./external-link-interstitial.js');
+    decorateExternalLinks(doc);
+  }
 }
 
 /**
