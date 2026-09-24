@@ -1,0 +1,105 @@
+/*
+ * cta-footer-banner — full-width call-to-action band, scoped to body.north-carolina.
+ * Heading + supporting paragraph + solid button, on a light band.
+ * Colors come from the body.north-carolina tokens in styles/brand.css;
+ * the button inherits the site-wide a.button styling from styles/styles.css.
+ */
+
+/* full-bleed: escape the section's max-width/padding wrapper */
+body.north-carolina .cta-footer-banner-container .cta-footer-banner-wrapper {
+  max-width: unset;
+  padding: 2.8125rem 3.125rem 3.125rem;
+  margin-bottom: -40px;
+  margin-top: 3.75rem;
+  background-color: var(--light-color, #eee);
+}
+
+body.north-carolina .cta-footer-banner {
+  background-color: var(--light-color, #eee);
+  margin: 0 auto;
+  max-width: 71.25rem;
+}
+
+/* For a width smaller than 993px */
+@media (width <= 992px) {
+  body.north-carolina .cta-footer-banner {
+    padding: 0;
+    max-width: unset;
+    margin: 0;
+  }
+
+  body.north-carolina .cta-footer-banner-container .cta-footer-banner-wrapper {
+    padding: 1.375rem 1.25rem 2.25rem;
+  }
+}
+
+/* For a width below 801px */
+@media (width <= 800px) {
+  body.north-carolina .cta-footer-banner-container .cta-footer-banner-wrapper {
+    padding-right: 50px;
+    padding-left: 50px;
+  }
+}
+
+/* For a width below 481px */
+@media (width <= 480px) {
+  body.north-carolina .cta-footer-banner-container .cta-footer-banner-wrapper {
+    padding-right: 20px;
+    padding-left: 25px;
+  }
+}
+
+body.north-carolina .cta-footer-banner :nth-child(2) {
+    margin-top: 1.25rem;
+}
+
+body.north-carolina .cta-footer-banner h3 {
+    margin: 0;
+    font-size: 2.1875rem;
+    line-height: 2.5rem;
+    font-weight: 700;
+}
+
+body.north-carolina .cta-footer-banner p {
+    font-size: 1rem;
+    line-height: 1.75rem;
+    font-weight: 400;
+}
+
+
+body.north-carolina .cta-footer-banner .cta-footer-banner-content {
+  box-sizing: border-box;
+  max-width: var(--content-max-width, 1080px);
+  text-align: start;
+}
+
+body.north-carolina .cta-footer-banner .cta-footer-banner-heading {
+  margin: 0 0 12px;
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-m, 22px);
+  color: var(--heading-color, #023347);
+}
+
+body.north-carolina .cta-footer-banner .cta-footer-banner-text {
+  max-width: 720px;
+  color: var(--text-color, #333);
+}
+
+body.north-carolina .cta-footer-banner .cta-footer-banner-text p {
+  font-size: 1rem;
+  line-height: 1.75rem;
+}
+
+body.north-carolina .cta-footer-banner .button-container {
+  margin: 12px 0 -18px;
+}
+
+body.north-carolina .cta-footer-banner .button-container p {
+    font-size: 1rem;
+}
+
+@media (width >= 900px) {
+  body.north-carolina .cta-footer-banner .cta-footer-banner-heading {
+    font-size: var(--heading-font-size-l, 28px);
+  }
+}
