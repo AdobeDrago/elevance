@@ -1,12 +1,13 @@
 /*
- * hero-welcome — full-bleed background photo with an overlaid translucent
- * welcome card. Values extracted from source computed styles:
- * https://provider.healthybluenc.com/north-carolina-provider/home  (.wide_image)
- *
- * Repoless multi-site: EVERY selector is scoped under body.north-carolina.
+ * Healthy Blue North Carolina welcome hero.
+ * Measurements matched to the source site's .wide_image and .welcome_content.
+ * Every rule is scoped to the North Carolina theme for repoless isolation.
  */
 
-/* let the block go full-bleed (source hero spans the viewport width) */
+body.north-carolina .hero-welcome-container {
+  margin: 0;
+}
+
 body.north-carolina .hero-welcome-container .hero-welcome-wrapper {
   max-width: unset;
   margin: 0;
@@ -16,20 +17,20 @@ body.north-carolina .hero-welcome-container .hero-welcome-wrapper {
 body.north-carolina .hero-welcome {
   position: relative;
   display: flex;
+  box-sizing: border-box;
   align-items: flex-start;
-  min-height: 320px;
-  padding: 24px;
+  min-height: 615px;
+  margin-top: -2px;
+  padding: 2px 20px 50px;
   overflow: hidden;
-
-  /* beige fallback shown behind the photo (source: rgb(239, 226, 217)) */
   background-color: #efe2d9;
 }
 
-/* background image fills the block */
 body.north-carolina .hero-welcome .hero-welcome-bg {
   position: absolute;
   inset: 0;
   z-index: 0;
+  overflow: hidden;
 }
 
 body.north-carolina .hero-welcome .hero-welcome-bg,
@@ -41,80 +42,142 @@ body.north-carolina .hero-welcome .hero-welcome-bg picture {
 }
 
 body.north-carolina .hero-welcome .hero-welcome-bg img {
-  width: 100%;
-  height: 100%;
-
-  /* source anchors the photo to the top of the block */
-  object-fit: cover;
-  object-position: top center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: block;
+  width: 172%;
+  max-width: none;
+  height: auto;
 }
 
-/* overlaid translucent content card */
 body.north-carolina .hero-welcome .hero-welcome-card {
   position: relative;
   z-index: 1;
   box-sizing: border-box;
   width: 100%;
-  margin: 0;
-  padding: 24px;
+  max-width: 1136px;
+  margin: 180px auto 0;
+}
+
+body.north-carolina .hero-welcome .hero-welcome-card-inner {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 25px;
   border: 2px solid #fff;
   border-radius: 6px;
   background-color: rgb(255 255 255 / 60%);
   color: var(--text-color);
 }
 
-body.north-carolina .hero-welcome .hero-welcome-card-inner > * {
-  margin-top: 0;
+body.north-carolina .hero-welcome .hero-welcome-card h1,
+body.north-carolina .hero-welcome .hero-welcome-card h2,
+body.north-carolina .hero-welcome .hero-welcome-card p {
+  text-align: left;
 }
 
-/* headings — Roboto Condensed, brand heading color */
 body.north-carolina .hero-welcome .hero-welcome-card h1 {
   margin: 0;
+  color: var(--heading-color);
   font-family: var(--heading-font-family);
   font-size: 28px;
   font-weight: 400;
   line-height: 32px;
-  color: var(--heading-color);
 }
 
 body.north-carolina .hero-welcome .hero-welcome-card h2 {
-  margin: 35px 0 0;
+  margin: 25px 0 0;
+  color: var(--heading-color);
   font-family: var(--heading-font-family);
   font-size: 20px;
   font-weight: 400;
   line-height: 24px;
-  color: var(--heading-color);
 }
 
-/* body copy — Roboto, 14/22 */
 body.north-carolina .hero-welcome .hero-welcome-card p {
-  margin: 20px 0 0;
+  margin: 0;
+  color: var(--text-color);
   font-family: var(--body-font-family);
   font-size: 14px;
+  font-weight: 400;
   line-height: 22px;
-  color: var(--text-color);
 }
 
-body.north-carolina .hero-welcome .hero-welcome-card a {
+body.north-carolina .hero-welcome .hero-welcome-card h2 + p {
+  margin-top: 15px;
+}
+
+body.north-carolina .hero-welcome .hero-welcome-card p + p {
+  margin-top: 25px;
+}
+
+body.north-carolina .hero-welcome .hero-welcome-card a:any-link {
   color: var(--link-color);
   font-weight: 400;
   text-decoration: underline;
 }
 
-body.north-carolina .hero-welcome .hero-welcome-card a:hover {
+body.north-carolina .hero-welcome .hero-welcome-card a:hover,
+body.north-carolina .hero-welcome .hero-welcome-card a:focus {
   color: var(--link-hover-color);
 }
 
-/* desktop */
-@media (width >= 900px) {
+body.north-carolina .hero-welcome.no-image .hero-welcome-card {
+  margin-top: 0;
+}
+
+/* The source uses a wider gutter and card padding only in the tablet range. */
+@media (width >= 481px) and (width <= 800px) {
   body.north-carolina .hero-welcome {
-    min-height: 615px;
-    padding: 60px 72px;
+    padding-right: 50px;
+    padding-left: 50px;
   }
 
   body.north-carolina .hero-welcome .hero-welcome-card {
-    width: auto;
-    max-width: 485px;
+    margin-top: 65%;
+  }
+
+  body.north-carolina .hero-welcome .hero-welcome-card-inner {
     padding: 40px;
+  }
+}
+
+@media (width >= 992px) {
+  body.north-carolina .hero-welcome {
+    margin-top: 0;
+    padding: 60px 50px;
+  }
+
+  body.north-carolina .hero-welcome .hero-welcome-bg img {
+    width: 100%;
+  }
+
+  body.north-carolina .hero-welcome .hero-welcome-card {
+    margin-top: 0;
+  }
+
+  body.north-carolina .hero-welcome .hero-welcome-card-inner {
+    width: 485px;
+    padding: 40px;
+  }
+
+  body.north-carolina .hero-welcome .hero-welcome-card h1 {
+    font-size: 32px;
+    line-height: 38px;
+  }
+
+  body.north-carolina .hero-welcome .hero-welcome-card h2 {
+    margin-top: 35px;
+    font-size: 22px;
+    line-height: 28px;
+  }
+
+  body.north-carolina .hero-welcome .hero-welcome-card p {
+    font-size: 16px;
+    line-height: 28px;
+  }
+
+  body.north-carolina .hero-welcome .hero-welcome-card h2 + p {
+    margin-top: 20px;
   }
 }
