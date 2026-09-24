@@ -100,7 +100,7 @@ body.north-carolina footer.footer-wrapper {
 
 body.north-carolina footer.footer-wrapper .footer {
   box-sizing: border-box;
-  max-width: 1140px;
+  max-width: var(--content-max-width);
   margin: 0 auto;
   padding: 0;
 }
@@ -179,7 +179,7 @@ body.north-carolina footer.footer-wrapper .footer-links .adobe-reader-image {
 
 @media (width >= 992px) {
   body.north-carolina footer.footer-wrapper {
-    padding: 45px 50px 50px;
+    padding: 45px 32px 50px;
     font-size: 16px;
     line-height: 28px;
   }

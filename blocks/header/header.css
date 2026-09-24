@@ -1132,12 +1132,12 @@ body.north-carolina header #nav .nav-sections .nav-drop > ul > li > ul a:any-lin
       'sections tools' 34px
       'search search' auto / minmax(0, 1fr) auto;
     width: 100%;
-    max-width: 1240px;
+    max-width: calc(var(--content-max-width) + 64px);
     height: auto;
     max-height: none;
     min-height: 101px;
     margin: 0 auto;
-    padding: 0 50px;
+    padding: 0 32px;
     overflow: visible;
     overscroll-behavior: auto;
     background-color: transparent;
@@ -1324,6 +1324,11 @@ body.north-carolina header #nav .nav-sections .nav-drop > ul > li > ul a:any-lin
     font-weight: 400;
     line-height: 20px;
     overflow: visible;
+  }
+
+  body.north-carolina header #nav .nav-text-size button {
+    text-decoration: underline;
+    text-underline-offset: 2px;
   }
 
   body.north-carolina header #nav .nav-text-size button:hover,
