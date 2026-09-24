@@ -6,7 +6,10 @@ Custom **hero** block.
 
 Model: `standalone`
 
-Single block table. Content: one row, one cell of content.
+Single block table with two one-column rows:
+
+1. Background image.
+2. Welcome-card content: heading, paragraphs, subheading, and contact details.
 
 ## Supported variations
 
