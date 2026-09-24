@@ -6,9 +6,9 @@
  * in sync instead of duplicating fetch/error-handling code.
  */
 
-const MOCK_SUGGESTION_DATA_URL = '/scripts/lookup-service/lookup-data/mock-suggestion-data.json';
-const MOCK_SEARCH_DATA_URL = '/scripts/lookup-service/lookup-data/mock-search-data.json';
-const MOCK_FORMS_DATA_URL = '/scripts/lookup-service/lookup-data/mock-forms-response.json';
+const MOCK_SUGGESTION_DATA_URL = '/scripts/lookup-data/mock-suggestion-data.json';
+const MOCK_SEARCH_DATA_URL = '/scripts/lookup-data/mock-search-data.json';
+const MOCK_FORMS_DATA_URL = '/scripts/lookup-data/mock-forms-response.json';
 
 const FORMS_API_URL = 'https://provider.healthybluenc.com/sites/Satellite?d=Universal&pagename=getdocuments&brand=HBNC&state=&formslibrary=gpp_formslib';
 const SUGGESTION_API_URL = 'https://provider.healthybluenc.com/sites/Satellite?d=Universal&pagename=gbdPro/PlutoServiceProxy&service=cpt&state=NC&lobCode=CFSP&procCode=%250002M%25';
