@@ -1,27 +1,94 @@
+prior-auth-lookup .prior-auth-lookup-container .result-card
 /*
  * prior-auth-lookup — visual design migrated from
  * https://provider.healthybluenc.com/north-carolina-provider/prior-authorization-lookup
  *
- * Source is a plain vertical stack (no card/background): bold labels above
- * each control, medium-gray bordered selects/input capped at 600px, a blue
- * dropdown chevron, and a compact Search button.
+ * The block's JS re-creates the source Angular widget's layout (bold labels
+ * above each control, a custom button+listbox in place of the native
+ * <select>, a plain text input, and a blue-bordered assistive panel with a
+ * light hint bar, ending in a compact Search button) using its own
+ * kebab-case classes (ps-*, search-panel, primary-btn) rather than the
+ * source's literal ant-, uxd- and camelCase ones.
  *
  * Repoless multi-site: EVERY selector scoped under body.north-carolina.
  */
 
-body.north-carolina .prior-auth-lookup .prior-auth-lookup-form {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 0;
+body.north-carolina .prior-auth-lookup .prior-auth-lookup-wrapper {
+  margin: initial;
+  margin-top: 24px;
+}
+
+body.north-carolina .prior-auth-lookup .angular-form-content {
+  display: block;
   max-width: 600px;
 }
 
-/* Field = bold label text stacked above its control */
-body.north-carolina .prior-auth-lookup .prior-auth-lookup-field {
+/* Precertification result card */
+body.north-carolina .prior-auth-lookup-container .result-card {
+  padding: 40px;
+  background-color: #eee;
+  border-radius: 4px;
+  margin-top: 24px;
+}
+
+body.north-carolina .prior-auth-lookup-container .result-card h3 {
+  position: relative;
+  margin: 0 0 32px;
+  padding-bottom: 16px;
+  font-family: var(--heading-font-family);
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--dark-color, var(--text-color));
+}
+
+body.north-carolina .prior-auth-lookup-container .result-card h3::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 48px;
+  height: 4px;
+  background-color: var(--brand-blue);
+}
+
+body.north-carolina .prior-auth-lookup-container .result-card .row {
   display: flex;
-  flex-direction: column;
-  width: 100%;
+  flex-wrap: wrap;
+  gap: 4px 40px;
+  padding: 14px 0;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+body.north-carolina .prior-auth-lookup-container .result-card .row > div:first-child {
+  flex: 0 0 200px;
+}
+
+body.north-carolina .prior-auth-lookup-container .result-card .row > div:last-child {
+  flex: 1 1 240px;
+  min-width: 0;
+  color: var(--text-color);
+}
+
+body.north-carolina .prior-auth-lookup-container .result-card .result-label {
+  margin: 0;
+  font-weight: 700;
+  color: var(--text-color);
+}
+
+body.north-carolina .prior-auth-lookup-container .result-card .carelonrx {
+  margin: 0;
+}
+
+body.north-carolina .prior-auth-lookup-container .result-card .external-link {
+  color: var(--link-color);
+  text-decoration: underline;
+}
+
+/* Field labels ("Market", "Line of Business", drug name) */
+body.north-carolina .prior-auth-lookup .angular-form-content > div > label {
+  display: block;
   margin: 20px 0 5px;
   font-family: var(--body-font-family);
   font-size: 16px;
@@ -30,74 +97,257 @@ body.north-carolina .prior-auth-lookup .prior-auth-lookup-field {
   color: var(--text-color);
 }
 
-body.north-carolina .prior-auth-lookup .prior-auth-lookup-field select,
-body.north-carolina .prior-auth-lookup .prior-auth-lookup-field input {
-  box-sizing: border-box;
+body.north-carolina .prior-auth-lookup .angular-form-content > div > label:first-child {
+  margin-top: 0;
+}
+
+/* Reset the native <fieldset>/<legend> chrome used for the custom selects */
+body.north-carolina .prior-auth-lookup .ps-select {
+  position: relative;
   width: 100%;
   max-width: 600px;
-  margin-top: 5px;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+body.north-carolina .prior-auth-lookup .ps-select legend {
+  display: none;
+}
+
+body.north-carolina .prior-auth-lookup .sr-only {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  white-space: nowrap;
+}
+
+/* Select trigger button (Market / Line of Business) */
+body.north-carolina .prior-auth-lookup .ps-button {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  width: 100%;
+  margin: 0;
   padding: 8px 16px;
   border: 1px solid #666;
-  border-radius: 4px;
+  border-radius: 3px;
   background-color: var(--background-color);
   font-family: var(--body-font-family);
   font-size: 16px;
   font-weight: 400;
   line-height: 1.4;
-  color: var(--text-color);
-}
-
-/* Native select: replace default arrow with a brand-blue chevron */
-body.north-carolina .prior-auth-lookup .prior-auth-lookup-field select {
-  appearance: none;
-  border-radius: 3px;
-  padding-right: 40px;
-  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill="none" stroke="%23016b95" stroke-width="2" d="M2 5l6 6 6-6"/></svg>');
-  background-repeat: no-repeat;
-  background-position: right 14px center;
+  color: #666;
+  text-align: left;
   cursor: pointer;
 }
 
-body.north-carolina .prior-auth-lookup .prior-auth-lookup-field select:disabled {
-  opacity: 0.55;
-  cursor: not-allowed;
+body.north-carolina .prior-auth-lookup .ps-button:focus-visible {
+  outline: 2px solid #044661;
+  outline-offset: 2px;
 }
 
-body.north-carolina .prior-auth-lookup .prior-auth-lookup-field input::placeholder {
+body.north-carolina .prior-auth-lookup .ps-active-option {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/* Chevron — the source's fa-caret-down glyph isn't available (no Font
+   Awesome loaded), so the empty span is drawn as a chevron instead. */
+body.north-carolina .prior-auth-lookup .ps-arrow {
+  flex: 0 0 auto;
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-top: -3px;
+  border-right: 2px solid var(--brand-blue);
+  border-bottom: 2px solid var(--brand-blue);
+  transform: rotate(45deg);
+}
+
+body.north-carolina .prior-auth-lookup .ps-button[aria-expanded="true"] .ps-arrow {
+  margin-top: 3px;
+  transform: rotate(-135deg);
+}
+
+/* Options popup — toggled via the .ps-dropdown[hidden] property in JS */
+body.north-carolina .prior-auth-lookup .ps-dropdown {
+  position: absolute;
+  z-index: 20;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  max-height: 260px;
+  margin: 0;
+  padding: 4px 0;
+  overflow-y: auto;
+  border: 1px solid #666;
+  border-radius: 3px;
+  background-color: var(--background-color);
+  box-shadow: 0 4px 10px rgb(0 0 0 / 15%);
+}
+
+body.north-carolina .prior-auth-lookup .ps-option {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+body.north-carolina .prior-auth-lookup .ps-label {
+  display: block;
+  padding: 8px 16px;
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  line-height: 1.4;
+  color: #666;
+  cursor: pointer;
+}
+
+body.north-carolina .prior-auth-lookup .ps-option:checked + .ps-label {
+  background-color: #044661;
+  color: #fff;
+}
+
+/* Drug name / CPT / HCPCS text field */
+body.north-carolina .prior-auth-lookup .angular-form-content .form-item {
+  width: 100%;
+  max-width: 600px;
+  margin: 0;
+}
+
+body.north-carolina .prior-auth-lookup input[type="text"] {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 8px 16px;
+  border: 1px solid #666;
+  border-radius: 3px;
+  background-color: var(--background-color);
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.4;
+  color: #666;
+}
+
+body.north-carolina .prior-auth-lookup input#prior-auth-lookup-name-1::placeholder {
+  color: #000;
+}
+
+body.north-carolina .prior-auth-lookup input[type="text"]::placeholder {
   color: #757575;
 }
 
-/* Search button — compact (auto width), sits below the input.
-   Enabled colors come from the global brand-blue button rule; here we tune
-   spacing/shape and the disabled palette to match the source. */
-body.north-carolina .prior-auth-lookup .prior-auth-lookup-search {
-  margin: 40px 0 0;
+body.north-carolina .prior-auth-lookup input[type="text"]:focus {
+  outline: none;
+  border-color: var(--brand-blue);
+  box-shadow: 0 0 0 1px var(--brand-blue);
+}
+
+/* Assistive typeahead panel that opens below the drug-name field */
+body.north-carolina .prior-auth-lookup .search-panel {
+  max-width: 600px;
+  margin-top: 10px;
+  padding-right: 57px;
+  border: 1px solid var(--brand-blue);
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 0 0 3px rgb(1 107 149 / 12%);
+}
+
+body.north-carolina .prior-auth-lookup .search-panel .form-item {
+  max-width: none;
+  padding: 8px;
+  margin: 14px 0 0 22px;
+}
+
+body.north-carolina .prior-auth-lookup .search-panel input#prior-auth-lookup-code-1 {
+  border: 1px solid var(--brand-blue);
+  border-radius: 4px;
+}
+
+body.north-carolina .prior-auth-lookup .search-panel input[type="text"] {
+  border: none;
+  border-radius: 0;
+}
+
+body.north-carolina .prior-auth-lookup .search-panel input[type="text"]:focus {
+  box-shadow: none;
+}
+
+body.north-carolina .prior-auth-lookup .search-loading {
+  margin: 0 0 18px 29px;
+  padding: 12px 16px;
+  background-color: var(--light-color);
+  color: var(--text-color);
+  font-family: var(--body-font-family);
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+body.north-carolina .prior-auth-lookup .search-suggestions:not(:empty) {
+  max-height: 220px;
+  overflow-y: auto;
+  margin-left: 15px;
+}
+
+body.north-carolina .prior-auth-lookup .search-panel input#prior-auth-lookup-code-1:focus {
+    background: url("/icons/search_blue.svg") no-repeat 98% 9px;
+}
+
+body.north-carolina .prior-auth-lookup .search-suggestion {
+  width: 100%;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  padding: 10px 16px;
+  background: none;
+  font-family: var(--body-font-family);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--text-color);
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  white-space: normal;
+  border-top: 1px solid #0B76A1;
+}
+
+body.north-carolina .prior-auth-lookup .search-suggestion .suggestion-code {
+  margin-right: 36px;
+}
+
+body.north-carolina .prior-auth-lookup .search-suggestion:hover,
+body.north-carolina .prior-auth-lookup .search-suggestion:focus {
+  background-color: var(--light-color);
+  color: var(--text-color);
+}
+
+/* Search button — compact (auto width), matches the source's grey
+   disabled state until the field has a valid value. */
+body.north-carolina .prior-auth-lookup .primary-btn {
+  margin: 20px 0 0;
   border-radius: 3px;
   padding: 12px 30px;
   font-size: 16px;
   font-weight: 400;
 }
 
-body.north-carolina .prior-auth-lookup .prior-auth-lookup-search:disabled,
-body.north-carolina .prior-auth-lookup .prior-auth-lookup-search:disabled:hover {
+body.north-carolina .prior-auth-lookup .primary-btn:disabled,
+body.north-carolina .prior-auth-lookup .primary-btn:disabled:hover {
   border-color: #b2b0b0;
   background-color: #b2b0b0;
   color: #d8d8d8;
   cursor: not-allowed;
-}
-
-/* Results */
-body.north-carolina .prior-auth-lookup .prior-auth-lookup-results:not(:empty) {
-  margin-top: 24px;
-}
-
-body.north-carolina .prior-auth-lookup .prior-auth-lookup-result-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-body.north-carolina .prior-auth-lookup .prior-auth-lookup-result-list li {
-  padding: 12px 0;
-  border-top: 1px solid var(--brand-border, #dcdcdc);
 }
