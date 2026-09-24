@@ -1,1 +1,4 @@
 helix-importer-ui
+
+# This vendored package owns its dependencies and lint lifecycle.
+plugins/experimentation/**
