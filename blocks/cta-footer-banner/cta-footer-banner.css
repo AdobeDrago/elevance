@@ -8,7 +8,7 @@
 /* full-bleed: escape the section's max-width/padding wrapper */
 body.north-carolina .cta-footer-banner-container .cta-footer-banner-wrapper {
   max-width: unset;
-  padding: 0;
+  padding: 2.8125rem 3.125rem 3.125rem;
   margin-bottom: -40px;
   margin-top: 3.75rem;
   background-color: var(--light-color, #eee);
@@ -17,9 +17,29 @@ body.north-carolina .cta-footer-banner-container .cta-footer-banner-wrapper {
 body.north-carolina .cta-footer-banner {
   background-color: var(--light-color, #eee);
   padding: 2.8125rem 3.125rem 3.25rem;
-  max-width: var(--content-max-width);
-  margin: auto;
+  margin: 0 auto;
+  max-width: 71.25rem;
 }
+
+/* For a width smaller than 992px */
+@media (width < 992px) {
+  body.north-carolina .cta-footer-banner {
+    padding: 0;
+    max-width: unset;
+    margin: 0;
+  }
+}
+
+/* For a width smaller than 480px */
+@media (width < 480px) {
+  body.north-carolina .cta-footer-banner-container .cta-footer-banner-wrapper {
+    padding-top: 1.375rem;
+    padding-right: 1.25rem;
+    padding-bottom: 2.25rem;
+    padding-left: 1.25rem;
+  }
+}
+
 
 body.north-carolina .cta-footer-banner :nth-child(2) {
     margin-top: 1.25rem;
