@@ -34,9 +34,10 @@ body.north-carolina .cta-footer-banner {
     padding-left: 1.25rem;
   }
 }
-/* For a width between 481px and 800px (matches footer.css) */
-@media (width >= 481px) and (width <= 800px) {
-  body.north-carolina footer.footer-wrapper {
+
+/* For a width below 800px */
+@media (width < 800px) {
+  body.north-carolina .cta-footer-banner-container .cta-footer-banner-wrapper {
     padding-right: 50px;
     padding-left: 50px;
   }
@@ -44,7 +45,7 @@ body.north-carolina .cta-footer-banner {
 
 /* For a width below 481px */
 @media (width < 481px) {
-  body.north-carolina footer.footer-wrapper {
+  body.north-carolina .cta-footer-banner-container .cta-footer-banner-wrapper {
     padding-right: 20px;
     padding-left: 25px;
   }
