@@ -20,8 +20,8 @@ body.north-carolina .cta-footer-banner {
   max-width: 71.25rem;
 }
 
-/* For a width smaller than 992px */
-@media (width < 992px) {
+/* For a width smaller than 993px */
+@media (max-width: 992px) {
   body.north-carolina .cta-footer-banner {
     padding: 0;
     max-width: unset;
@@ -35,8 +35,8 @@ body.north-carolina .cta-footer-banner {
   }
 }
 
-/* For a width below 800px */
-@media (width < 800px) {
+/* For a width below 801px */
+@media (max-width: 800px) {
   body.north-carolina .cta-footer-banner-container .cta-footer-banner-wrapper {
     padding-right: 50px;
     padding-left: 50px;
@@ -44,7 +44,7 @@ body.north-carolina .cta-footer-banner {
 }
 
 /* For a width below 481px */
-@media (width < 481px) {
+@media (max-width: 480px) {
   body.north-carolina .cta-footer-banner-container .cta-footer-banner-wrapper {
     padding-right: 20px;
     padding-left: 25px;
