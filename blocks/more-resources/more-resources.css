@@ -1,24 +1,18 @@
 .more-resources.block {
-  .more-resources-content {
-    display: flex;
-    align-items: top;
-    gap: 4.375rem;
-  }
-
   .more-resources-card {
     width: 100%;
   }
 
   .more-resources-card-title {
-    margin-block: 3.4375rem 0;
+    margin-block: 2.5rem 0;
   }
 
   .more-resources-card-description {
-    margin-block: 1.25rem 0;
+    margin-block: 0.9375rem 0;
   }
 
   .more-resources-card-arrow-link {
-    margin-block: 2.186rem 0;
+    margin-block: 0.5938rem 0;
 
     a {
       display: flex;
@@ -42,6 +36,28 @@
         border-right: 2px solid currentcolor;
         transform: rotate(45deg);
       }
+    }
+  }
+}
+
+@media (width >= 900px) {
+  .more-resources.block {
+    .more-resources-content {
+      display: flex;
+      align-items: top;
+      gap: 4.375rem;
+    }
+
+    .more-resources-card-title {
+      margin-block: 3.4375rem 0;
+    }
+
+    .more-resources-card-description {
+      margin-block: 1.25rem 0;
+    }
+
+    .more-resources-card-arrow-link {
+      margin-block: 2.186rem 0;
     }
   }
 }
