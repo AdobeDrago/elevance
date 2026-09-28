@@ -20,10 +20,6 @@ body.north-carolina .accordion-doc-links .accordion-doc-links-item + .accordion-
   margin-top: 1.25rem;
 }
 
-body.north-carolina .accordion-doc-links .accordion-doc-links-item:focus {
-  outline: none;
-}
-
 /* --- Title (summary) --- flex row: plus-circle icon + dark-blue label --- */
 body.north-carolina .accordion-doc-links .accordion-doc-links-item-label {
   display: flex;
@@ -37,6 +33,12 @@ body.north-carolina .accordion-doc-links .accordion-doc-links-item-label {
   font-weight: 500;
   line-height: 1.25;
   color: var(--heading-color);
+}
+
+/* Keep keyboard focus visible even while the item's sliding content is clipped. */
+body.north-carolina .accordion-doc-links .accordion-doc-links-item-label:focus-visible {
+  outline: 2px solid var(--link-color);
+  outline-offset: -2px;
 }
 
 /* Authored headings/paragraphs must not shift the text away from the icon's center. */
@@ -74,6 +76,12 @@ body.north-carolina .accordion-doc-links .accordion-doc-links-item-body {
 
 body.north-carolina .accordion-doc-links .accordion-doc-links-item-body > *:first-child {
   margin-top: 0;
+}
+
+/* Document titles must remain readable at narrow widths and high zoom. */
+body.north-carolina .accordion-doc-links .accordion-doc-links-item-body a {
+  overflow-wrap: anywhere;
+  white-space: normal;
 }
 
 /* Paragraph-authored prose and numbered instructions use the source's body typography. */

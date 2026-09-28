@@ -3,7 +3,7 @@
  * PDF/document links. Each row: label cell (category title) + body cell (link list).
  * Brand styling from body.north-carolina tokens.
  */
-function animateToggle(details, summary) {
+function animateToggle(details, summary, body) {
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   let animation;
   let expanded = details.open;
@@ -17,8 +17,13 @@ function animateToggle(details, summary) {
     expanded = animation ? !expanded : !details.open;
     animation?.cancel();
 
+    // Closing content must leave the tab order before its slide finishes.
+    if (!expanded && body?.contains(document.activeElement)) summary.focus();
+    body?.toggleAttribute('inert', !expanded);
+
     const finish = () => {
       details.open = expanded;
+      body?.removeAttribute('inert');
       details.classList.remove('is-animating');
       summary.removeAttribute('aria-expanded');
       animation = null;
@@ -58,6 +63,6 @@ export default function decorate(block) {
     details.append(summary);
     if (body) details.append(body);
     row.replaceWith(details);
-    animateToggle(details, summary);
+    animateToggle(details, summary, body);
   });
 }
