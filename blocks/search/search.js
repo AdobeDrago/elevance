@@ -8,6 +8,8 @@ import { decorateAutocomplete, hasMinimumQuery, normalizeText } from '../../scri
 import { loadSearchData, searchRecords } from '../../scripts/search-data.js';
 
 let searchInstance = 0;
+const RESULTS_PER_PAGE = 20;
+const resultStates = new WeakMap();
 
 function findNextHeading(el) {
   let precedingEl = el.parentElement?.previousElementSibling || el.parentElement?.parentElement;
@@ -107,21 +109,33 @@ function renderResult(result, searchTerms, titleTag) {
   return listItem;
 }
 
-function updateQueryParameter(value) {
+function updateQueryParameter(value, page = 1, push = false) {
   if (!window.history.replaceState) return;
   const url = new URL(window.location.href);
   if (value) url.searchParams.set('q', value);
   else url.searchParams.delete('q');
-  window.history.replaceState({}, '', url);
+  if (value && page > 1) url.searchParams.set('page', page);
+  else url.searchParams.delete('page');
+  if (url.href !== window.location.href) {
+    window.history[push ? 'pushState' : 'replaceState']({}, '', url);
+  }
+}
+
+function requestedPage() {
+  const value = new URL(window.location.href).searchParams.get('page');
+  const page = Number(value);
+  return /^[1-9]\d*$/.test(value) && Number.isSafeInteger(page) ? page : 1;
 }
 
 function clearSearchResults(block) {
+  resultStates.delete(block);
   const results = block.querySelector('.search-results');
   results.replaceChildren();
   results.classList.remove('no-results');
   results.hidden = true;
   results.setAttribute('aria-busy', 'false');
   block.querySelector('.search-status').textContent = '';
+  block.querySelector('.search-pagination').hidden = true;
 }
 
 function clearSearch(block, clearInput = false) {
@@ -140,27 +154,81 @@ function requestClose(block) {
   block.dispatchEvent(new CustomEvent('search:close', { bubbles: true }));
 }
 
-async function renderResults(block, config, filteredData, searchTerms) {
+function renderResults(block) {
+  const {
+    config, filteredData, searchTerms, page, failedSources,
+  } = resultStates.get(block);
   const results = block.querySelector('.search-results');
   const status = block.querySelector('.search-status');
-  results.replaceChildren();
+  const pagination = block.querySelector('.search-pagination');
+  const totalPages = Math.ceil(filteredData.length / RESULTS_PER_PAGE);
+  const start = (page - 1) * RESULTS_PER_PAGE;
+  const end = Math.min(start + RESULTS_PER_PAGE, filteredData.length);
+  const fragment = document.createDocumentFragment();
   results.classList.toggle('no-results', !filteredData.length);
 
   if (filteredData.length) {
-    filteredData.forEach((result) => {
-      results.append(renderResult(result, searchTerms, results.dataset.h));
+    filteredData.slice(start, end).forEach((result) => {
+      fragment.append(renderResult(result, searchTerms, results.dataset.h));
     });
     const resultLabel = filteredData.length === 1 ? 'result' : 'results';
     status.textContent = `${filteredData.length} ${resultLabel} found.`;
+    if (totalPages > 1) {
+      status.textContent += ` Showing ${start + 1}–${end}. Page ${page} of ${totalPages}.`;
+    }
   } else {
     const noResultsMessage = document.createElement('li');
     noResultsMessage.textContent = config.placeholders.searchNoResults || 'No results found.';
-    results.append(noResultsMessage);
+    fragment.append(noResultsMessage);
     status.textContent = noResultsMessage.textContent;
   }
 
+  if (failedSources) {
+    status.textContent += ' Some search sources are temporarily unavailable; results may be incomplete.';
+  }
+  results.replaceChildren(fragment);
   results.hidden = false;
   results.setAttribute('aria-busy', 'false');
+  pagination.hidden = totalPages <= 1;
+  pagination.querySelector('.search-page-label').textContent = `Page ${page} of ${totalPages || 1}`;
+  pagination.querySelector('.search-previous').disabled = page <= 1;
+  pagination.querySelector('.search-next').disabled = page >= totalPages;
+}
+
+function changeResultsPage(block, direction) {
+  const state = resultStates.get(block);
+  if (!state || block.querySelector('.search-input').value.trim() !== state.query) return;
+  const totalPages = Math.ceil(state.filteredData.length / RESULTS_PER_PAGE);
+  const nextPage = Math.max(1, Math.min(state.page + direction, totalPages));
+  if (state.page === nextPage) return;
+  state.page = nextPage;
+  updateQueryParameter(state.query, nextPage, true);
+  renderResults(block);
+  const results = block.querySelector('.search-results');
+  results.querySelector('a')?.focus({ preventScroll: true });
+  results.scrollIntoView?.({ block: 'start' });
+}
+
+function searchPagination(block, resultsId) {
+  const pagination = document.createElement('nav');
+  pagination.className = 'search-pagination';
+  pagination.setAttribute('aria-label', 'Search results pages');
+  pagination.hidden = true;
+  const label = document.createElement('span');
+  label.className = 'search-page-label';
+  const buttons = [-1, 1].map((direction) => {
+    const button = document.createElement('button');
+    const previous = direction === -1;
+    button.type = 'button';
+    button.className = previous ? 'search-previous' : 'search-next';
+    button.textContent = previous ? 'Previous' : 'Next';
+    button.setAttribute('aria-label', `${previous ? 'Previous' : 'Next'} results page`);
+    button.setAttribute('aria-controls', resultsId);
+    button.addEventListener('click', () => changeResultsPage(block, direction));
+    return button;
+  });
+  pagination.append(buttons[0], label, buttons[1]);
+  return pagination;
 }
 
 function renderSearchError(block, config) {
@@ -176,14 +244,15 @@ function renderSearchError(block, config) {
   status.textContent = message;
 }
 
-async function handleSearch(input, block, config) {
+async function handleSearch(input, block, config, page = 1) {
   const searchValue = input.value.trim();
   if (config.navigate) return;
-  updateQueryParameter(searchValue);
+  updateQueryParameter(searchValue, page);
   block.dataset.query = searchValue;
+  clearSearchResults(block);
 
   if (!hasMinimumQuery(searchValue)) {
-    clearSearchResults(block);
+    updateQueryParameter(searchValue);
     block.querySelector('.search-status').textContent = searchValue
       ? 'Enter at least three characters to search.' : '';
     return;
@@ -202,10 +271,14 @@ async function handleSearch(input, block, config) {
     renderSearchError(block, config);
     return;
   }
-  await renderResults(block, config, searchRecords(data, searchValue), searchTerms);
-  if (failedSources) {
-    block.querySelector('.search-status').textContent += ' Some search sources are temporarily unavailable; results may be incomplete.';
-  }
+  const filteredData = searchRecords(data, searchValue);
+  const totalPages = Math.ceil(filteredData.length / RESULTS_PER_PAGE);
+  const currentPage = Math.max(1, Math.min(page, totalPages));
+  resultStates.set(block, {
+    config, filteredData, searchTerms, page: currentPage, failedSources, query: searchValue,
+  });
+  updateQueryParameter(searchValue, currentPage);
+  renderResults(block);
 }
 
 function searchResultsContainer(block) {
@@ -279,6 +352,7 @@ function searchBox(block, config) {
     window.clearTimeout(debounceTimer);
     if (!hasMinimumQuery(input.value)) {
       event.preventDefault();
+      if (!config.navigate) handleSearch(input, block, config);
       input.setCustomValidity('Enter at least three characters to search.');
       input.reportValidity();
     } else if (!config.navigate) {
@@ -300,6 +374,7 @@ function searchBox(block, config) {
     clearButton.hidden = !input.value;
     window.clearTimeout(debounceTimer);
     if (!config.navigate) {
+      block.querySelector('.search-pagination').hidden = true;
       debounceTimer = window.setTimeout(() => handleSearch(input, block, config), 200);
     }
   });
@@ -313,6 +388,17 @@ function searchBox(block, config) {
     reset();
     input.focus();
   });
+
+  if (!config.navigate) {
+    window.addEventListener('popstate', () => {
+      window.clearTimeout(debounceTimer);
+      autocomplete?.close();
+      input.value = new URL(window.location.href).searchParams.get('q') || '';
+      input.setCustomValidity('');
+      clearButton.hidden = !input.value;
+      handleSearch(input, block, config, requestedPage());
+    });
+  }
 
   return box;
 }
@@ -334,6 +420,7 @@ export default async function decorate(block) {
     searchBox(block, config),
     searchStatus(),
     results,
+    searchPagination(block, results.id),
   );
 
   const query = new URL(window.location.href).searchParams.get('q');
@@ -341,7 +428,7 @@ export default async function decorate(block) {
     const input = block.querySelector('.search-input');
     input.value = query;
     block.querySelector('.search-clear').hidden = false;
-    handleSearch(input, block, config);
+    handleSearch(input, block, config, requestedPage());
   }
 
   decorateIcons(block);

@@ -27,6 +27,23 @@ Records with `noindex` are ignored. PDFs open in a new tab with a protected open
 page links use the current tab. A live status reports loading, counts, empty
 results and incomplete/unavailable sources.
 
+Results render **20 at a time**, with Previous/Next controls, a full match count,
+visible range and current page announced in the live status. The controls appear
+only when more than one page is available. Page buttons reuse the ranked matches,
+move focus to the first result and scroll the results into view. They neither
+fetch indexes again nor repeat matching and ranking. Partial-source warnings stay
+visible on every page.
+
+The selected page is shareable as `/search.html?q=care&page=2`, and browser
+Back/Forward restores it. Invalid page values fall back to page one; pages beyond
+the available matches use the final page. New queries, autocomplete selections
+and clearing search reset pagination. Page one omits the `page` parameter.
+
+This is client-side pagination: it bounds result rendering, not index downloads
+or the initial matching pass. With 1,000 matches, only 20 result entries are
+created in the document at once (98% fewer than rendering every match). The full
+ranked result array remains in memory while the query is active.
+
 Autocomplete uses titles and H1s only. It shows up to eight options, supports
 Arrow Up/Down, Enter, Escape, Tab, pointer selection and focus/blur, and maintains
 combobox/listbox ARIA state. Failure to load suggestions leaves ordinary search
