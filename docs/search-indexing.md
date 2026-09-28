@@ -27,7 +27,7 @@ Records with `noindex` are ignored. PDFs open in a new tab with a protected open
 page links use the current tab. A live status reports loading, counts, empty
 results and incomplete/unavailable sources.
 
-Results render **20 at a time**, with Previous/Next controls, a full match count,
+Results render **10 at a time**, with Previous/Next controls, a full match count,
 visible range and current page announced in the live status. The controls appear
 only when more than one page is available. Page buttons reuse the ranked matches,
 move focus to the first result and scroll the results into view. They neither
@@ -40,8 +40,8 @@ the available matches use the final page. New queries, autocomplete selections
 and clearing search reset pagination. Page one omits the `page` parameter.
 
 This is client-side pagination: it bounds result rendering, not index downloads
-or the initial matching pass. With 1,000 matches, only 20 result entries are
-created in the document at once (98% fewer than rendering every match). The full
+or the initial matching pass. With 1,000 matches, only 10 result entries are
+created in the document at once (99% fewer than rendering every match). The full
 ranked result array remains in memory while the query is active.
 
 Autocomplete uses titles and H1s only. It shows up to eight options, supports

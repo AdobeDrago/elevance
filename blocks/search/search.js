@@ -8,7 +8,7 @@ import { decorateAutocomplete, hasMinimumQuery, normalizeText } from '../../scri
 import { loadSearchData, searchRecords } from '../../scripts/search-data.js';
 
 let searchInstance = 0;
-const RESULTS_PER_PAGE = 20;
+const RESULTS_PER_PAGE = 10;
 const resultStates = new WeakMap();
 
 function findNextHeading(el) {

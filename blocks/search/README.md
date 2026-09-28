@@ -17,7 +17,7 @@ Other site themes load only their configured page index.
 - Three non-space characters and 200 ms debounce; the query stays in `?q=`.
 - AND matching across title, H1, description, body, topic, type and path.
 - Exact-title-first ranking; `noindex` records excluded; paths deduplicated.
-- Twenty results per page, with Previous/Next controls and an announced total,
+- Ten results per page, with Previous/Next controls and an announced total,
   visible range and page number. Page changes reuse the ranked matches.
 - `?q=care&page=2` opens the second page; browser Back/Forward restores the
   selected page. New queries and autocomplete selections return to page one.

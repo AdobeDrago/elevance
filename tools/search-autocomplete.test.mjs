@@ -421,11 +421,11 @@ async function paginatedSearch(t, { count = 45, url, unavailableAssets = false }
   };
 }
 
-test('pagination renders only the current 20 results and preserves ordering and link behavior', async (t) => {
+test('pagination renders only the current 10 results and preserves ordering and link behavior', async (t) => {
   const view = await paginatedSearch(t);
   const expected = view.records.map((record) => record.path);
-  assert.deepEqual(view.paths(), expected.slice(0, 20));
-  assert.match(view.status.textContent, /45 results found\. Showing 1–20\. Page 1 of 3/);
+  assert.deepEqual(view.paths(), expected.slice(0, 10));
+  assert.match(view.status.textContent, /45 results found\. Showing 1–10\. Page 1 of 5/);
   assert.equal(view.pagination.hidden, false);
   assert.equal(view.previous.disabled, true);
   assert.equal(view.next.disabled, false);
@@ -433,24 +433,30 @@ test('pagination renders only the current 20 results and preserves ordering and 
   assert.equal(view.next.getAttribute('aria-controls'), view.block.querySelector('.search-results').id);
   const fetches = view.calls.length;
   view.next.click();
-  assert.deepEqual(view.paths(), expected.slice(20, 40));
+  assert.deepEqual(view.paths(), expected.slice(10, 20));
   assert.equal(new URL(window.location).searchParams.get('page'), '2');
   assert.equal(new URL(window.location).searchParams.get('category'), 'all');
   assert.equal(window.location.hash, '#results');
   assert.equal(document.activeElement, view.block.querySelector('.search-result-link'));
-  assert.match(view.status.textContent, /Showing 21–40\. Page 2 of 3/);
+  assert.match(view.status.textContent, /Showing 11–20\. Page 2 of 5/);
+  view.next.click();
+  assert.deepEqual(view.paths(), expected.slice(20, 30));
+  assert.match(view.status.textContent, /Showing 21–30\. Page 3 of 5/);
   const pdf = view.block.querySelector('a[href$=".pdf"]');
   assert.equal(pdf.target, '_blank');
   assert.equal(pdf.rel, 'noopener noreferrer');
   assert.equal(view.block.querySelector('a[href="/care-20"]').target, '');
   view.next.click();
+  assert.deepEqual(view.paths(), expected.slice(30, 40));
+  assert.match(view.status.textContent, /Showing 31–40\. Page 4 of 5/);
+  view.next.click();
   assert.deepEqual(view.paths(), expected.slice(40));
-  assert.match(view.status.textContent, /Showing 41–45\. Page 3 of 3/);
+  assert.match(view.status.textContent, /Showing 41–45\. Page 5 of 5/);
   assert.equal(view.next.disabled, true);
   view.next.click();
-  assert.equal(new URL(window.location).searchParams.get('page'), '3');
+  assert.equal(new URL(window.location).searchParams.get('page'), '5');
   view.previous.click();
-  assert.deepEqual(view.paths(), expected.slice(20, 40));
+  assert.deepEqual(view.paths(), expected.slice(30, 40));
   assert.equal(view.calls.length, fetches);
 });
 
@@ -458,15 +464,15 @@ test('pagination restores deep links and clamps invalid or out-of-range pages', 
   const view = await paginatedSearch(t, {
     url: 'https://pagination-deep.example/search.html?q=care&page=2',
   });
-  assert.deepEqual(view.paths(), view.records.slice(20, 40).map((record) => record.path));
+  assert.deepEqual(view.paths(), view.records.slice(10, 20).map((record) => record.path));
   for (const [value, expected] of [
-    ['999', 3], ['0', 1], ['-2', 1], ['1.5', 1], ['oops', 1], ['9007199254740992', 1],
+    ['999', 5], ['0', 1], ['-2', 1], ['1.5', 1], ['oops', 1], ['9007199254740992', 1],
   ]) {
     window.history.replaceState({}, '', `/search.html?q=care&page=${value}`);
     window.dispatchEvent(new window.PopStateEvent('popstate'));
     await tick();
-    assert.equal(new URL(window.location).searchParams.get('page'), expected === 1 ? null : '3');
-    assert.match(view.status.textContent, new RegExp(`Page ${expected} of 3`));
+    assert.equal(new URL(window.location).searchParams.get('page'), expected === 1 ? null : '5');
+    assert.match(view.status.textContent, new RegExp(`Page ${expected} of 5`));
   }
 });
 
@@ -485,13 +491,13 @@ test('browser back and forward restore result pages and the query', async (t) =>
     await tick();
   }
   await navigate('back');
-  assert.match(view.status.textContent, /Page 2 of 3/);
+  assert.match(view.status.textContent, /Page 2 of 5/);
   await navigate('back');
-  assert.match(view.status.textContent, /Page 1 of 3/);
+  assert.match(view.status.textContent, /Page 1 of 5/);
   await navigate('forward');
-  assert.match(view.status.textContent, /Page 2 of 3/);
+  assert.match(view.status.textContent, /Page 2 of 5/);
   assert.equal(view.input.value, 'care');
-  assert.deepEqual(view.paths(), view.records.slice(20, 40).map((record) => record.path));
+  assert.deepEqual(view.paths(), view.records.slice(10, 20).map((record) => record.path));
 });
 
 test('new queries, autocomplete selection, clearing and empty results reset pagination', async (t) => {
@@ -519,7 +525,7 @@ test('new queries, autocomplete selection, clearing and empty results reset pagi
   view.input.value = 'Care guide';
   view.input.dispatchEvent(new window.CustomEvent('search-autocomplete-select', { bubbles: true }));
   await tick();
-  assert.match(view.status.textContent, /Page 1 of 3/);
+  assert.match(view.status.textContent, /Page 1 of 5/);
   assert.equal(new URL(window.location).searchParams.has('page'), false);
   view.next.click();
   await submit('doesnotexist');
@@ -546,28 +552,28 @@ test('partial-source warnings remain visible on every results page', async (t) =
     url: 'https://pagination-partial.example/search.html?q=care',
     unavailableAssets: true,
   });
-  for (let page = 1; page <= 3; page += 1) {
+  for (let page = 1; page <= 5; page += 1) {
     assert.match(view.status.textContent, /results may be incomplete/);
-    assert.match(view.status.textContent, new RegExp(`Page ${page} of 3`));
+    assert.match(view.status.textContent, new RegExp(`Page ${page} of 5`));
     view.next.click();
   }
 });
 
-test('a thousand matches create only twenty result entries and one page has no controls', async (t) => {
+test('a thousand matches create only ten result entries and one page has no controls', async (t) => {
   await t.test('large result set', async (child) => {
     const view = await paginatedSearch(child, {
       count: 1000, url: 'https://pagination-large.example/search.html?q=care',
     });
-    assert.equal(view.block.querySelectorAll('.search-results > li').length, 20);
-    assert.match(view.status.textContent, /1000 results found.*Page 1 of 50/);
+    assert.equal(view.block.querySelectorAll('.search-results > li').length, 10);
+    assert.match(view.status.textContent, /1000 results found.*Page 1 of 100/);
     view.next.click();
-    assert.equal(view.block.querySelectorAll('.search-results > li').length, 20);
+    assert.equal(view.block.querySelectorAll('.search-results > li').length, 10);
   });
   await t.test('single page', async (child) => {
     const view = await paginatedSearch(child, {
-      count: 20, url: 'https://pagination-single.example/search.html?q=care&page=5',
+      count: 10, url: 'https://pagination-single.example/search.html?q=care&page=5',
     });
-    assert.equal(view.paths().length, 20);
+    assert.equal(view.paths().length, 10);
     assert.equal(view.pagination.hidden, true);
     assert.equal(new URL(window.location).searchParams.has('page'), false);
   });
