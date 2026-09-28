@@ -84,6 +84,22 @@ body.north-carolina .accordion-doc-links .accordion-doc-links-item-body a {
   white-space: normal;
 }
 
+body.north-carolina .accordion-doc-links .accordion-doc-links-item-body[data-link-style="links"] a {
+  text-decoration: underline;
+  text-underline-offset: .125em;
+}
+
+body.north-carolina .accordion-doc-links .accordion-doc-links-pdf {
+  display: inline-block;
+  box-sizing: border-box;
+  max-width: 100%;
+  padding-left: 1.875rem;
+  background-image: url('/icons/pdf_icon.png');
+  background-position: left .2em;
+  background-repeat: no-repeat;
+  background-size: 1rem;
+}
+
 /* Paragraph-authored prose and numbered instructions use the source's body typography. */
 body.north-carolina .accordion-doc-links .accordion-doc-links-item-body p,
 body.north-carolina .accordion-doc-links .accordion-doc-links-item-body ol > li {

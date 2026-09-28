@@ -1,8 +1,55 @@
 /*
  * accordion-doc-links — expand/collapse accordion whose panels hold lists of
- * PDF/document links. Each row: label cell (category title) + body cell (link list).
+ * PDF/document links. Each row: title + content + optional link style (links/buttons/auto).
  * Brand styling from body.north-carolina tokens.
  */
+function decoratePDFLink(link) {
+  let pathname;
+  try {
+    pathname = new URL(link.href).pathname;
+  } catch {
+    return;
+  }
+  if (!/(\.pdf|-pdf)$/i.test(pathname)) return;
+
+  link.classList.add('accordion-doc-links-pdf');
+  const label = link.getAttribute('aria-label');
+  if (/\bpdf\b/i.test(label || link.textContent)) return;
+  if (label) {
+    link.setAttribute('aria-label', `${label} (PDF)`);
+  } else {
+    const fileType = document.createElement('span');
+    fileType.className = 'sr-only';
+    fileType.textContent = ' (PDF)';
+    link.append(fileType);
+  }
+}
+
+function decorateLinkStyle(body, value = '') {
+  const style = value.trim().toLowerCase();
+  if (!['links', 'buttons'].includes(style)) return;
+
+  body.dataset.linkStyle = style;
+  body.querySelectorAll('a[href]').forEach((link) => {
+    if (style === 'links') {
+      // Undo the shared decorator's automatic conversion of standalone links.
+      link.classList.remove('button', 'primary', 'secondary');
+      const container = link.closest('.button-container');
+      if (container && body.contains(container)) container.classList.remove('button-container');
+      decoratePDFLink(link);
+    } else {
+      // Keep links within sentences inline, including paragraphs in list items.
+      const container = link.closest('p, li, div');
+      if (container && container.querySelectorAll('a').length === 1
+        && container.textContent.trim() === link.textContent.trim()
+        && !container.querySelector('img')) {
+        link.classList.add('button');
+        container.classList.add('button-container');
+      }
+    }
+  });
+}
+
 function animateToggle(details, summary, body) {
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   let animation;
@@ -56,7 +103,10 @@ export default function decorate(block) {
     if (label) summary.append(...label.childNodes);
 
     const body = row.children[1];
-    if (body) body.className = 'accordion-doc-links-item-body';
+    if (body) {
+      body.className = 'accordion-doc-links-item-body';
+      decorateLinkStyle(body, row.children[2]?.textContent);
+    }
 
     const details = document.createElement('details');
     details.className = 'accordion-doc-links-item';
