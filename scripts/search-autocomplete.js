@@ -1,12 +1,14 @@
 const phraseRequests = new Map();
+const preparedCatalogs = new WeakMap();
 let instance = 0;
 
 export function normalizeText(value = '') {
+  // The punctuation pass also collapses every whitespace run. Replacing spaces
+  // again creates unnecessary intermediate strings when preparing long PDF text.
   return String(value ?? '').normalize('NFKD').replace(/\p{M}/gu, '')
     .toLowerCase()
     .replace(/[^\p{L}\p{N}]+/gu, ' ')
-    .trim()
-    .replace(/\s+/gu, ' ');
+    .trim();
 }
 
 export function isPreviewHost(hostname = globalThis.location?.hostname || '') {
@@ -23,23 +25,40 @@ export function hasMinimumQuery(value, minimum = 3) {
   return normalizeText(value).replace(/\s/g, '').length >= minimum;
 }
 
+// Catalogs are immutable snapshots, like the search indexes. Older catalogs without a
+// generated normalized field still work; normalize those phrases once on first use.
+export function preparePhrases(records) {
+  if (preparedCatalogs.has(records)) return preparedCatalogs.get(records);
+  const seen = new Set();
+  const prepared = records.map((record) => {
+    const phrase = typeof record.normalized === 'string' && record.normalized
+      ? record.normalized : normalizeText(record.phrase);
+    if (!phrase || seen.has(phrase)) return null;
+    seen.add(phrase);
+    return {
+      record, phrase, words: phrase.split(' '), sourceCount: Number(record.sourceCount) || 0,
+    };
+  }).filter(Boolean);
+  preparedCatalogs.set(records, prepared);
+  return prepared;
+}
+
 export function rankPhrases(records, query, maximum = 8) {
   const normalized = normalizeText(query);
   if (!hasMinimumQuery(normalized)) return [];
   const terms = normalized.split(' ');
-  const seen = new Set();
-  return records.map((record) => {
-    const phrase = normalizeText(record.phrase);
-    if (!phrase || seen.has(phrase) || !terms.every((term) => phrase.includes(term))) return null;
-    seen.add(phrase);
+  return preparePhrases(records).map((entry) => {
+    const { phrase, words } = entry;
+    if (!terms.every((term) => phrase.includes(term))) return null;
     let rank = 3;
     if (phrase === normalized) rank = 0;
     else if (phrase.startsWith(normalized)) rank = 1;
-    else if (terms.every((term) => phrase.split(' ').some((word) => word.startsWith(term)))) rank = 2;
-    return { record, rank };
+    else if (terms.every((term) => words.some((word) => word.startsWith(term)))) rank = 2;
+    return { ...entry, rank };
   }).filter(Boolean).sort((a, b) => a.rank - b.rank
-    || (Number(b.record.sourceCount) || 0) - (Number(a.record.sourceCount) || 0)
-    || a.record.phrase.localeCompare(b.record.phrase)).slice(0, maximum)
+    || b.sourceCount - a.sourceCount
+    || a.record.phrase.localeCompare(b.record.phrase))
+    .slice(0, maximum)
     .map(({ record }) => record);
 }
 

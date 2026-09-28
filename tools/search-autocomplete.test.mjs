@@ -4,11 +4,16 @@ import { test } from 'node:test';
 import { JSDOM } from 'jsdom';
 import {
   decorateAutocomplete, hasMinimumQuery, isPreviewHost, loadPhrases,
-  normalizeText, phraseURL, rankPhrases,
+  normalizeText, phraseURL, preparePhrases, rankPhrases,
 } from '../scripts/search-autocomplete.js';
 import {
-  assetIndexURL, loadSearchData, searchRecords,
+  assetIndexURL, loadSearchData, prepareSearchData, searchRecords,
 } from '../scripts/search-data.js';
+
+import {
+  referenceNormalizeText, referencePhrases, referenceSearch,
+} from './search-reference.mjs';
+import { createPhraseCatalog, createSearchCorpus, SEARCH_QUERIES } from './search-benchmark.mjs';
 
 const tick = () => new Promise((resolve) => { setTimeout(resolve, 0); });
 const suggestion = (phrase, sourceCount = 1) => ({ phrase, sourceCount });
@@ -170,7 +175,9 @@ test('runtime sources settle independently, deduplicate, filter noindex and cach
   assert.equal(first.failedSources, 1);
   assert.equal(first.unavailable, false);
   assert.equal(first.data.length, 1);
-  await loadSearchData('/partial-query.json', 'localhost');
+  const second = await loadSearchData('/partial-query.json', 'localhost');
+  assert.equal(second, first);
+  assert.equal(second.data, first.data);
   assert.equal(calls.length, 2);
 });
 
@@ -269,4 +276,110 @@ test('results status distinguishes partial-source errors from complete unavailab
     await tick();
     assert.match(block.querySelector('[role="status"]').textContent, expected);
   }
+});
+
+test('prepared search matches original results and ordering across varied queries', () => {
+  const records = createSearchCorpus(150, 500);
+  records.push(
+    { path: '/cross-field', title: 'prior', description: 'authorization' },
+    { path: '/accent', title: 'ＣＡＦÉ—resources', content: null },
+    { path: '/rank-first', title: 'care management 0', content: '' },
+    {
+      path: '/empty', title: null, header: null, content: '',
+    },
+  );
+  for (const query of [...SEARCH_QUERIES, 'a b', 'PDF', '---', 'auth auth', 'provider prior']) {
+    assert.deepEqual(searchRecords(records, query), referenceSearch(records, query));
+  }
+});
+
+test('normalization preserves the original Unicode and whitespace behavior', () => {
+  const values = [null, undefined, '', 'a\tb\nc\r\nd', '  cafe    care  ',
+    'CÁFÉ—Ｃare', 'ΟΣ\u2019Α', 'İstanbul', '건강 관리', 'ﬃrst', 'مرحبا',
+    'a\u00a0\u1680\u2000\u2009\u2028\u2029\u202f\u205f\u3000\ufeffb',
+    'one🩺two\u200bthree', 'a\u0301\u0308 b\u0301', '\ud800 guide'];
+  for (const value of values) assert.equal(normalizeText(value), referenceNormalizeText(value));
+});
+
+test('search preparation reads PDF text once per immutable snapshot without changing records', () => {
+  let reads = 0;
+  const record = Object.freeze({
+    path: '/pdfs/criteria.pdf',
+    title: 'Café guide',
+    get content() { reads += 1; return 'Outpatient therapy criteria'; },
+  });
+  const records = Object.freeze([record]);
+  for (const query of ['cafe', 'therapy criteria', 'outpatient guide']) {
+    assert.deepEqual(searchRecords(records, query), [record]);
+  }
+  assert.equal(reads, 1);
+  assert.equal(prepareSearchData(records), prepareSearchData(records));
+  assert.equal(record.title, 'Café guide');
+  const replacement = Object.freeze([{ path: '/new', title: 'New therapy guide' }]);
+  assert.deepEqual(searchRecords(replacement, 'therapy'), replacement);
+  assert.deepEqual(searchRecords(replacement, 'outpatient'), []);
+});
+
+test('prepared autocomplete retains fallback, duplicate, tie and limit behavior', () => {
+  const records = createPhraseCatalog(300);
+  records.push(
+    suggestion('Café—resources guide 7', 999),
+    suggestion('Urgent care guide'),
+    suggestion('Care guidance', 5),
+    suggestion('Care guidance addition', 5),
+    suggestion('Scare guideline', 20),
+  );
+  for (const query of [...SEARCH_QUERIES, 'res gui', 'care guide', 'ca', 'PDF', '---']) {
+    for (const maximum of [0, 1, 8, 20]) {
+      assert.deepEqual(
+        rankPhrases(records, query, maximum),
+        referencePhrases(records, query, maximum),
+      );
+    }
+  }
+});
+
+test('autocomplete reuses generated normalization and prepares legacy phrases only once', () => {
+  let displayReads = 0;
+  const generated = Object.freeze({
+    normalized: 'cafe care',
+    sourceCount: 1,
+    get phrase() { displayReads += 1; return 'Café Care'; },
+  });
+  const catalog = Object.freeze([generated]);
+  assert.equal(rankPhrases(catalog, 'cafe')[0], generated);
+  assert.equal(rankPhrases(catalog, 'care')[0], generated);
+  assert.equal(displayReads, 0);
+  assert.equal(preparePhrases(catalog), preparePhrases(catalog));
+  let legacyReads = 0;
+  const legacy = Object.freeze([Object.freeze({
+    get phrase() { legacyReads += 1; return 'Therapy guidance'; },
+  })]);
+  assert.equal(rankPhrases(legacy, 'therapy').length, 1);
+  assert.equal(rankPhrases(legacy, 'guidance').length, 1);
+  assert.equal(legacyReads, 1);
+  assert.equal(rankPhrases([suggestion('New guidance')], 'therapy').length, 0);
+});
+
+test('merged cache canonicalizes URLs and separates document-enabled and page-only searches', async (t) => {
+  setupDOM(t, 'https://cache-isolation.example/search.html');
+  const calls = [];
+  t.mock.method(globalThis, 'fetch', async (url) => {
+    calls.push(String(url));
+    const pdf = String(url).includes('asset-index');
+    return Response.json({ data: [{ path: pdf ? '/pdfs/guide.pdf' : '/care', title: 'Care guide' }] });
+  });
+  const combinedPromise = loadSearchData('/cache-query.json', 'localhost');
+  assert.equal(
+    combinedPromise,
+    loadSearchData('https://cache-isolation.example/cache-query.json', 'localhost'),
+  );
+  const combined = await combinedPromise;
+  assert.equal(combined.data.length, 2);
+  const pages = await loadSearchData('/cache-query.json', 'localhost', false);
+  assert.equal(pages.data.length, 1);
+  assert.equal(calls.length, 2);
+  const live = await loadSearchData('/cache-query.json', 'production.example');
+  assert.notEqual(live, combined);
+  assert.equal(calls.length, 3);
 });

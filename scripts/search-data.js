@@ -1,6 +1,9 @@
 import { hasMinimumQuery, isPreviewHost, normalizeText } from './search-autocomplete.js';
 
 const requests = new Map();
+const combinedRequests = new Map();
+const preparedData = new WeakMap();
+const SEARCH_FIELDS = ['title', 'header', 'description', 'content', 'topic', 'type', 'path'];
 
 export function assetIndexURL(hostname) {
   return isPreviewHost(hostname) ? '/asset-index-preview.json' : '/asset-index.json';
@@ -37,16 +40,12 @@ async function fetchIndex(source) {
 }
 
 export function loadIndex(source) {
-  if (!requests.has(source)) requests.set(source, fetchIndex(source));
-  return requests.get(source);
+  const url = new URL(source, window.location.origin).href;
+  if (!requests.has(url)) requests.set(url, fetchIndex(url));
+  return requests.get(url);
 }
 
-export async function loadSearchData(
-  pageSource = '/query-index.json',
-  hostname = window.location.hostname,
-  includeAssets = true,
-) {
-  const sources = [...new Set([pageSource, ...(includeAssets ? [assetIndexURL(hostname)] : [])])];
+async function combineIndexes(sources) {
   const loaded = await Promise.allSettled(sources.map(loadIndex));
   const records = new Map();
   loaded.forEach((result) => {
@@ -64,15 +63,38 @@ export async function loadSearchData(
   };
 }
 
+export function loadSearchData(
+  pageSource = '/query-index.json',
+  hostname = window.location.hostname,
+  includeAssets = true,
+) {
+  const sources = [...new Set([pageSource, ...(includeAssets ? [assetIndexURL(hostname)] : [])]
+    .map((source) => new URL(source, window.location.origin).href))];
+  const key = JSON.stringify(sources);
+  if (!combinedRequests.has(key)) combinedRequests.set(key, combineIndexes(sources));
+  return combinedRequests.get(key);
+}
+
+// Index arrays are immutable snapshots. A new array prepares a new snapshot; discarded
+// snapshots can be collected. Keep normalized fields separate to avoid copying PDF bodies
+// into another combined string, while retaining original records for result display.
+export function prepareSearchData(data) {
+  if (!preparedData.has(data)) {
+    preparedData.set(data, data.filter(isSearchable).map((result) => ({
+      result,
+      values: SEARCH_FIELDS.map((field) => normalizeText(result[field])),
+    })));
+  }
+  return preparedData.get(data);
+}
+
 export function searchRecords(data, query) {
   if (!hasMinimumQuery(query)) return [];
   const normalized = normalizeText(query);
   const terms = normalized.split(' ');
-  const fields = ['title', 'header', 'description', 'content', 'topic', 'type', 'path'];
   const matches = (text) => terms.every((term) => text.includes(term));
-  return data.filter(isSearchable).map((result, order) => {
-    const values = fields.map((field) => normalizeText(result[field]));
-    if (!matches(values.join(' '))) return null;
+  return prepareSearchData(data).map(({ result, values }, order) => {
+    if (!terms.every((term) => values.some((value) => value.includes(term)))) return null;
     const [title, header, description, content] = values;
     let rank = 6;
     if (title === normalized) rank = 0;

@@ -17,7 +17,8 @@
     "search:index:da:live": "node tools/build-da-source-index.mjs --config asset-index.config.json --delivery-environment live",
     "search:phrases:preview": "node tools/build-search-key-phrases.mjs --config asset-index.config.json --delivery-environment preview",
     "search:phrases:live": "node tools/build-search-key-phrases.mjs --config asset-index.config.json --delivery-environment live",
-    "test:search-index": "node --test tools/build-da-source-index.test.mjs tools/build-search-key-phrases.test.mjs tools/search-autocomplete.test.mjs"
+    "test:search-index": "node --test tools/build-da-source-index.test.mjs tools/build-search-key-phrases.test.mjs tools/search-autocomplete.test.mjs",
+    "bench:search": "node --expose-gc tools/search-benchmark.mjs"
   },
   "repository": {
     "type": "git",

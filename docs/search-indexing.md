@@ -32,6 +32,63 @@ Arrow Up/Down, Enter, Escape, Tab, pointer selection and focus/blur, and maintai
 combobox/listbox ARIA state. Failure to load suggestions leaves ordinary search
 working. Escape closes suggestions first, then the existing overlay interaction.
 
+## Query efficiency and benchmark
+
+The runtime caches the merged result of each source combination, including failure
+status, for the page lifetime. Relative and absolute forms of the same index URL
+share a request. Preview/live and page-only source combinations stay separate.
+
+The first eligible query prepares each searchable record once. Later queries reuse
+normalized fields and scan them separately, avoiding a second combined copy of PDF
+text. Original records remain available for result display. Autocomplete similarly
+prepares each catalog once, uses its generated `normalized` values, and caches word
+boundaries and source counts. Older catalogs without normalized values still work.
+
+These caches treat record arrays and catalog arrays as **immutable snapshots**.
+Callers that replace data must supply a new array and unchanged/new record objects,
+rather than mutating an already-prepared snapshot. Prepared data uses weak keys so
+unused snapshots can be garbage-collected. Cached downloaded indexes remain alive
+for the page lifetime, as before. Normalization no longer repeats the whitespace
+pass already performed when punctuation is collapsed.
+
+Run a repeatable comparison against the original algorithms from commit `4d6d36d`:
+
+```sh
+npm run bench:search
+# Adjust synthetic text volume and repetitions:
+npm run bench:search -- --sizes 100,500,1000 --characters 12000 --phrases 5000 --iterations 3
+```
+
+The benchmark uses deterministic synthetic PDFs with varied text lengths, topics,
+accents, cross-field queries, body-only matches and missing terms. `--characters`
+sets the approximate average body length; individual bodies range from half to
+one-and-a-half times that value. It verifies identical ordered results against the
+original algorithms before timing. The JSON report includes parsing, one-time
+preparation, approximate additional retained heap, and median/p95 query durations.
+The command enables explicit garbage collection for the heap estimate.
+
+Sample run on 2026-09-28, Node.js 22.23.3 / Apple M5 Pro, using the defaults
+above (36 timed queries per algorithm and dataset):
+
+| Synthetic PDFs | JSON size | Original median | Cached median | Cached p95 | One-time preparation | Additional retained heap |
+| --- | --- | --- | --- | --- | --- | --- |
+| 100 | 1.18 MiB | 34.64 ms | 0.41 ms | 0.63 ms | 58.72 ms | ~1.51 MiB |
+| 500 | 5.90 MiB | 172.94 ms | 1.98 ms | 3.04 ms | 152.74 ms | ~7.37 MiB |
+| 1,000 | 11.84 MiB | 338.02 ms | 3.91 ms | 6.13 ms | 295.81 ms | ~14.79 MiB |
+
+For 5,000 autocomplete phrases, median query time was **2.23 ms → 0.14 ms**
+(p95 **2.49 ms → 0.32 ms**), with **1.03 ms** of one-time preparation. All
+ordered results matched the original implementation. Timings and heap estimates
+vary by machine, text distribution and garbage collection; they are observations,
+not pass/fail thresholds.
+
+This measures local CPU work with data already available. It does **not** measure
+network transfer, browser rendering, the 200 ms input debounce, browser peak memory,
+or performance on phones. The first query still pays preparation cost; retaining
+normalized text also consumes memory. Larger deployed indexes may still need a
+worker, an index built during generation, or smaller downloads. Use real DA data
+and mobile measurements before treating these numbers as production guarantees.
+
 ## Final environment setup
 
 1. In AEM Site Admin / Index Admin for **adobedrago/elevance-nc**, enable the page
