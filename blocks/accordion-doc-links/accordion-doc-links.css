@@ -12,6 +12,10 @@ body.north-carolina .accordion-doc-links .accordion-doc-links-item {
   display: block;
 }
 
+body.north-carolina .accordion-doc-links .accordion-doc-links-item.is-animating {
+  overflow: hidden;
+}
+
 body.north-carolina .accordion-doc-links .accordion-doc-links-item + .accordion-doc-links-item {
   margin-top: 1.25rem;
 }
@@ -53,7 +57,7 @@ body.north-carolina .accordion-doc-links .accordion-doc-links-item-label::before
 }
 
 /* Open state — fa-minus-circle (blue disc, white minus). */
-body.north-carolina .accordion-doc-links .accordion-doc-links-item[open] .accordion-doc-links-item-label::before {
+body.north-carolina .accordion-doc-links .accordion-doc-links-item[open] .accordion-doc-links-item-label:not([aria-expanded="false"])::before {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='12' fill='%230B76A1'/%3E%3Crect x='5.5' y='11' width='13' height='2' fill='%23fff'/%3E%3C/svg%3E");
 }
 
