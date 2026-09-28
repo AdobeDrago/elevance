@@ -333,6 +333,7 @@ async function decorateNorthCarolinaTools(nav, navTools, navSections) {
   searchBlock.id = 'nav-search-panel';
   searchBlock.className = 'search overlay block';
   searchBlock.dataset.blockName = 'search';
+  searchBlock.dataset.searchMode = 'navigate';
   searchBlock.dataset.blockStatus = 'initialized';
   searchBlock.hidden = true;
   searchBlock.setAttribute('aria-hidden', 'true');
@@ -364,15 +365,6 @@ async function decorateNorthCarolinaTools(nav, navTools, navSections) {
     setMenuExpanded(nav, navSections, false);
     nav.querySelector('.nav-hamburger button')?.focus();
   });
-
-  if (isNorthCarolinaDesktopView()
-    && new URL(window.location.href).searchParams.get('q')) {
-    searchButton.setAttribute('aria-expanded', 'true');
-    searchButton.setAttribute('aria-label', 'Close site search');
-    searchBlock.hidden = false;
-    searchBlock.setAttribute('aria-hidden', 'false');
-    searchBlock.querySelector('.search-input')?.focus();
-  }
 }
 
 function setupMobileHeaderVisibility(header, nav, navSections) {

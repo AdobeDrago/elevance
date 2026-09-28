@@ -1,0 +1,75 @@
+name: Refresh search indexes
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - asset-index.config.json
+      - helix-query.yaml
+      - tools/*search*.mjs
+      - tools/build-da-source-index*.mjs
+      - scripts/search-*.js
+      - package.json
+      - package-lock.json
+      - .github/workflows/refresh-asset-index.yaml
+  schedule:
+    - cron: '*/15 * * * *'
+  workflow_dispatch:
+    inputs:
+      roots:
+        description: 'Optional comma-separated DA roots, e.g. /pdfs (never /)'
+        required: false
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: refresh-search-indexes
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      SEARCH_INDEX_ROOTS: ${{ inputs.roots || '' }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run test:search-index
+      - name: Validate output paths
+        run: node tools/prepare-search-index.mjs --validate-only
+      - name: Mint token and verify DA site access
+        id: prepare
+        env:
+          ADOBE_CLIENT_ID: ${{ secrets.ADOBE_CLIENT_ID }}
+          ADOBE_CLIENT_SECRET: ${{ secrets.ADOBE_CLIENT_SECRET }}
+          ADOBE_SCOPES: ${{ secrets.ADOBE_SCOPES }}
+        run: node tools/prepare-search-index.mjs
+      - name: Generate preview and live search data
+        run: npm run search:index:da
+      - name: Commit only generated files when changed
+        env:
+          SEARCH_OUTPUT_FILES: ${{ steps.prepare.outputs.files }}
+          DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+        shell: bash
+        run: |
+          mapfile -t files < <(node -e 'JSON.parse(process.env.SEARCH_OUTPUT_FILES).forEach(file => console.log(file))')
+          git add -- "${files[@]}"
+          if git diff --cached --quiet -- "${files[@]}"; then
+            echo "Search indexes are unchanged."
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'chore: refresh search indexes' -- "${files[@]}"
+          # Never force-push or overwrite intervening source/config changes. A later run retries.
+          git push origin "HEAD:${DEFAULT_BRANCH}"

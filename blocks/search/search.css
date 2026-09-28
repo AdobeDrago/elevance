@@ -516,3 +516,87 @@ body.north-carolina header #nav > .search ul.search-results.no-results {
     font-size: 16px;
   }
 }
+
+/* Shared autocomplete behavior, styled only for the North Carolina site. */
+body.north-carolina .search .search-suggestions {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  left: 0;
+  z-index: 10;
+  max-height: min(360px, 50vh);
+  margin: 0;
+  border: 1px solid var(--link-color);
+  padding: 0;
+  overflow-y: auto;
+  color: var(--text-color);
+  background-color: var(--background-color);
+  box-shadow: 0 4px 8px rgb(0 0 0 / 15%);
+  list-style: none;
+}
+
+body.north-carolina .search .search-suggestions[hidden] {
+  display: none;
+}
+
+body.north-carolina .search .search-suggestions [role='option'] {
+  margin: 0;
+  padding: 12px 16px;
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  line-height: 1.4;
+  cursor: pointer;
+}
+
+body.north-carolina .search .search-suggestions [role='option']:hover,
+body.north-carolina .search .search-suggestions [aria-selected='true'] {
+  color: var(--heading-color);
+  background-color: #dff3fa;
+}
+
+body.north-carolina .search.overlay .search-suggestions {
+  right: 44px;
+}
+
+body.north-carolina main .search .search-status {
+  position: static;
+  width: calc(100% - 60px);
+  max-width: 1140px;
+  height: auto;
+  margin: 16px auto;
+  overflow: visible;
+  clip: auto;
+  clip-path: none;
+  white-space: normal;
+}
+
+body.north-carolina main .search ul.search-results {
+  max-height: none;
+  border: 0;
+  padding: 0 16px;
+  overflow: visible;
+}
+
+body.north-carolina main .search ul.search-results > li {
+  border-bottom: 1px solid #ddd;
+  padding: 20px 0;
+}
+
+body.north-carolina main .search ul.search-results .search-result-title {
+  font-family: var(--heading-font-family);
+  font-size: 22px;
+}
+
+body.north-carolina main .search ul.search-results p {
+  display: block;
+  margin: 8px 0 0;
+  padding: 0;
+  color: var(--text-color);
+}
+
+@media (width < 992px) {
+  body.north-carolina header #nav > .search.overlay .search-suggestions,
+  body.north-carolina header #nav > .search.overlay .search-clear {
+    right: 0;
+  }
+}

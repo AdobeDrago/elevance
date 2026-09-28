@@ -4,8 +4,9 @@ import {
   fetchPlaceholders,
 } from '../../scripts/aem.js';
 
-const MIN_QUERY_LENGTH = 3;
-const dataPromises = new Map();
+import { decorateAutocomplete, hasMinimumQuery, normalizeText } from '../../scripts/search-autocomplete.js';
+import { loadSearchData, searchRecords } from '../../scripts/search-data.js';
+
 let searchInstance = 0;
 
 function findNextHeading(el) {
@@ -61,30 +62,6 @@ function highlightTextElements(terms, elements) {
   });
 }
 
-export async function fetchData(source) {
-  try {
-    const response = await fetch(source);
-    if (!response.ok) throw new Error(`Search index returned ${response.status}`);
-    const json = await response.json();
-    return Array.isArray(json?.data) ? json.data : [];
-  } catch (error) {
-    // eslint-disable-next-line no-console
-    console.error('Unable to load search index', error);
-    return null;
-  }
-}
-
-function loadData(source) {
-  if (!dataPromises.has(source)) {
-    const dataPromise = fetchData(source).then((data) => {
-      if (!data) dataPromises.delete(source);
-      return data;
-    });
-    dataPromises.set(source, dataPromise);
-  }
-  return dataPromises.get(source);
-}
-
 function getResultTitle(result) {
   return result.title || result.header || result.path || '';
 }
@@ -94,6 +71,11 @@ function renderResult(result, searchTerms, titleTag) {
   const link = document.createElement('a');
   link.className = 'search-result-link';
   link.href = result.path;
+  if (result.type?.toLowerCase() === 'pdf' || /\.pdf(?:[?#]|$)/i.test(result.path)) {
+    link.target = '_blank';
+    link.rel = 'noopener noreferrer';
+    link.setAttribute('aria-label', `${getResultTitle(result)} (PDF, opens in a new tab)`);
+  }
 
   if (result.image) {
     const imageWrapper = document.createElement('div');
@@ -125,37 +107,6 @@ function renderResult(result, searchTerms, titleTag) {
   return listItem;
 }
 
-function compareFound(hit1, hit2) {
-  if (hit1.group !== hit2.group) return hit1.group - hit2.group;
-  if (hit1.position !== hit2.position) return hit1.position - hit2.position;
-  return hit1.order - hit2.order;
-}
-
-function filterData(searchTerms, data) {
-  return data
-    .map((result, order) => {
-      const title = getResultTitle(result).toLowerCase();
-      const metadata = [result.description, result.path]
-        .filter(Boolean)
-        .join(' ')
-        .toLowerCase();
-      const allContent = `${title} ${metadata}`;
-      if (!searchTerms.every((term) => allContent.includes(term))) return null;
-
-      const titlePositions = searchTerms.map((term) => title.indexOf(term));
-      const titleMatch = titlePositions.every((position) => position >= 0);
-      return {
-        group: titleMatch ? 0 : 1,
-        order,
-        position: titleMatch ? Math.max(...titlePositions) : allContent.indexOf(searchTerms[0]),
-        result,
-      };
-    })
-    .filter(Boolean)
-    .sort(compareFound)
-    .map(({ result }) => result);
-}
-
 function updateQueryParameter(value) {
   if (!window.history.replaceState) return;
   const url = new URL(window.location.href);
@@ -174,13 +125,14 @@ function clearSearchResults(block) {
 }
 
 function clearSearch(block, clearInput = false) {
+  block.dataset.query = '';
   clearSearchResults(block);
   if (clearInput) {
     const input = block.querySelector('.search-input');
     input.value = '';
     block.querySelector('.search-clear').hidden = true;
   }
-  updateQueryParameter('');
+  if (block.dataset.searchMode !== 'navigate') updateQueryParameter('');
 }
 
 function requestClose(block) {
@@ -226,24 +178,34 @@ function renderSearchError(block, config) {
 
 async function handleSearch(input, block, config) {
   const searchValue = input.value.trim();
+  if (config.navigate) return;
   updateQueryParameter(searchValue);
   block.dataset.query = searchValue;
 
-  if (searchValue.length < MIN_QUERY_LENGTH) {
+  if (!hasMinimumQuery(searchValue)) {
     clearSearchResults(block);
+    block.querySelector('.search-status').textContent = searchValue
+      ? 'Enter at least three characters to search.' : '';
     return;
   }
 
-  const searchTerms = searchValue.toLowerCase().split(/\s+/).filter(Boolean);
+  const searchTerms = normalizeText(searchValue).split(' ');
   block.querySelector('.search-status').textContent = 'Searching.';
   block.querySelector('.search-results').setAttribute('aria-busy', 'true');
-  const data = await loadData(config.source);
-  if (block.dataset.query !== searchValue) return;
-  if (!data) {
+  const { data, failedSources, unavailable } = await loadSearchData(
+    config.source,
+    window.location.hostname,
+    config.northCarolina,
+  );
+  if (block.dataset.query !== searchValue || input.value.trim() !== searchValue) return;
+  if (unavailable) {
     renderSearchError(block, config);
     return;
   }
-  await renderResults(block, config, filterData(searchTerms, data), searchTerms);
+  await renderResults(block, config, searchRecords(data, searchValue), searchTerms);
+  if (failedSources) {
+    block.querySelector('.search-status').textContent += ' Some search sources are temporarily unavailable; results may be incomplete.';
+  }
 }
 
 function searchResultsContainer(block) {
@@ -282,8 +244,10 @@ function searchClose(block) {
   return closeButton;
 }
 
-function searchBox(block, config, resultsId) {
-  const box = document.createElement('div');
+function searchBox(block, config) {
+  const box = document.createElement('form');
+  box.method = 'get';
+  box.action = '/search.html';
   box.className = 'search-box';
 
   const input = document.createElement('input');
@@ -293,7 +257,8 @@ function searchBox(block, config, resultsId) {
   input.autocomplete = 'off';
   input.placeholder = config.placeholders.searchPlaceholder || 'What are you searching for?';
   input.setAttribute('aria-label', input.placeholder);
-  input.setAttribute('aria-controls', resultsId);
+  input.required = true;
+  input.minLength = 3;
 
   const clearButton = document.createElement('button');
   clearButton.type = 'button';
@@ -301,25 +266,54 @@ function searchBox(block, config, resultsId) {
   clearButton.setAttribute('aria-label', 'Clear search');
   clearButton.hidden = true;
 
+  box.append(searchIcon(), input, clearButton, searchClose(block));
+  const autocomplete = config.northCarolina
+    ? decorateAutocomplete(input, { container: box }) : null;
   let debounceTimer;
+  const reset = () => {
+    window.clearTimeout(debounceTimer);
+    autocomplete?.close();
+    clearSearch(block, true);
+  };
+  box.addEventListener('submit', (event) => {
+    window.clearTimeout(debounceTimer);
+    if (!hasMinimumQuery(input.value)) {
+      event.preventDefault();
+      input.setCustomValidity('Enter at least three characters to search.');
+      input.reportValidity();
+    } else if (!config.navigate) {
+      event.preventDefault();
+      autocomplete?.close();
+      handleSearch(input, block, config);
+    }
+  });
+  input.addEventListener('search-autocomplete-select', () => {
+    window.clearTimeout(debounceTimer);
+    input.setCustomValidity('');
+    clearButton.hidden = false;
+    if (config.navigate) box.requestSubmit();
+    else handleSearch(input, block, config);
+  });
+  block.addEventListener('search:reset', reset);
   input.addEventListener('input', () => {
+    input.setCustomValidity('');
     clearButton.hidden = !input.value;
     window.clearTimeout(debounceTimer);
-    debounceTimer = window.setTimeout(() => handleSearch(input, block, config), 150);
+    if (!config.navigate) {
+      debounceTimer = window.setTimeout(() => handleSearch(input, block, config), 200);
+    }
   });
   input.addEventListener('keydown', (event) => {
-    if (event.code !== 'Escape') return;
+    if (event.key !== 'Escape' || event.defaultPrevented) return;
     window.clearTimeout(debounceTimer);
     if (block.classList.contains('overlay')) requestClose(block);
     else clearSearch(block, true);
   });
   clearButton.addEventListener('click', () => {
-    window.clearTimeout(debounceTimer);
-    clearSearch(block, true);
+    reset();
     input.focus();
   });
 
-  box.append(searchIcon(), input, clearButton, searchClose(block));
   return box;
 }
 
@@ -328,18 +322,22 @@ export default async function decorate(block) {
   const sourceLink = block.querySelector('a[href]');
   const source = sourceLink?.href || '/query-index.json';
   const results = searchResultsContainer(block);
-  const config = { source, placeholders };
+  const config = {
+    source,
+    placeholders,
+    navigate: block.dataset.searchMode === 'navigate',
+    northCarolina: document.body.classList.contains('north-carolina'),
+  };
   block.setAttribute('role', 'search');
   block.setAttribute('aria-label', 'Site search');
-  block.addEventListener('search:reset', () => clearSearch(block, true));
   block.replaceChildren(
-    searchBox(block, config, results.id),
+    searchBox(block, config),
     searchStatus(),
     results,
   );
 
   const query = new URL(window.location.href).searchParams.get('q');
-  if (query) {
+  if (query && !config.navigate) {
     const input = block.querySelector('.search-input');
     input.value = query;
     block.querySelector('.search-clear').hidden = false;
