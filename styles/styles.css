@@ -51,6 +51,11 @@ footer .footer[data-block-status="loaded"] {
   body[data-breadcrumbs] {
     --header-height: calc(var(--nav-height) + var(--breadcrumbs-height));
   }
+
+  a.button:any-link,
+  button {
+    white-space: nowrap;
+  }
 }
 
 h1,
@@ -121,7 +126,7 @@ button {
 a:any-link {
   color: var(--link-color);
   text-decoration: none;
-  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 a:hover {
@@ -149,7 +154,6 @@ button {
   color: #fff;
   cursor: pointer;
   text-overflow: ellipsis;
-  white-space: nowrap;
 }
 
 a.button:hover,
