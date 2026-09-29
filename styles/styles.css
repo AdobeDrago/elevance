@@ -237,6 +237,11 @@ body.north-carolina {
   font-size: var(--body-font-size-xs);
 }
 
+/* hide the empty trailing section left behind when metadata follows a section break */
+body.north-carolina main > .section:last-child:not(:has(*)) {
+  display: none;
+}
+
 body.north-carolina h1,
 body.north-carolina h2,
 body.north-carolina h3,
