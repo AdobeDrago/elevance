@@ -1,0 +1,10 @@
+{
+  "variantName": "forms-accordion",
+  "baseBlock": "forms-accordion",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": "Collapsible topic accordion (blue plus/minus-circle toggle, dark-navy titles) of PDF form links, grouped into six fixed topics, followed by a standalone 'PCP Change Form' heading and link list.",
+  "contentPattern": "No authored content is read — the decorate function ignores the block's table content entirely and fetches/renders everything client-side from the GPP forms-library service (mocked locally via scripts/lookup-service/lookup-service.js, backed by mock-forms-response.json). The block table only needs the block-name header row.",
+  "usage": "Provider forms library on the Forms page (north-carolina-provider/forms). Custom interactive block (NOT the boilerplate accordion block).",
+  "options": [],
+  "memberVariantIds": ["forms-accordion"]
+}

@@ -1,0 +1,45 @@
+[
+    {
+        "score": "1",
+        "stateAbbreviation": "NC",
+        "lineOfBusinessCode": "CFSP",
+        "lineOfBusinessDescription": "CFSP - Healthy Blue Care Together",
+        "procedureCode": "0002M",
+        "procedureCodeDescription": "Liver disease, ten biochemical assays (ALT, A2-macroglobulin, apolipoprotein A-1, total bilirubin, GGT, haptoglobin, AST, glucose, total cholesterol and triglycerides) utilizing serum, prognostic algorithm reported as quantitative scores for fibrosis, steatosis and alcoholic steatohepatitis (ASH)",
+        "authRequiredCode": "X",
+        "lookupContent": "For members under the age of 21 an EPSDT Benefit Exception Requires Precertification for Non-Covered Services (CHIP Products Excluded).",
+        "umsg": "NONE1",
+        "umsgName": "NONE1",
+        "umsgNote": "",
+        "busGroupResponsible": "Medicaid - Precert Team",
+        "serviceLine": "Service Line 1",
+        "nbrServiceUnits": "Use specific authorized units - enter separate service line for each item authorized",
+        "dateSpan": "Based on Treatment Plan",
+        "serviceLineNote": "Use specific procedure code",
+        "stateGuideLine": "None",
+        "specialProcessingInfo": "",
+        "internalNotes": "",
+        "dualIndicator": "",
+        "clinicalEditInfo": "",
+        "vendorInfo": "",
+        "highDollarDme": "",
+        "vendorName": "",
+        "vendorException": "",
+        "cmsGuideLine": "None",
+        "clinicalCriteriaException": null,
+        "authTieringIndicator": "N",
+        "precertCodeGuideList": [
+            {
+                "policy": "LAB.00019",
+                "interQualSubset": "None",
+                "stateAbbreviation": "NC",
+                "lineOfBusinessCode": "CFSP",
+                "stateGuideLine": "None",
+                "cmsGuideLine": "None",
+                "procedureCode": "0002M"
+            }
+        ],
+        "drugNames": [],
+        "ffsDrugNames": []
+    }
+]

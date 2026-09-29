@@ -1,0 +1,10 @@
+{
+  "variantName": "cta-footer-banner",
+  "baseBlock": "cta-footer-banner",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": "Full-width light band near the foot of the page with a centered heading, a short supporting paragraph, and a single solid brand-blue button.",
+  "contentPattern": "Row 1: heading text. Row 2: paragraph text. Row 3: a hyperlink whose link text is the button label and whose URL is the button target.",
+  "usage": "Closing call to action at the bottom of provider pages (e.g. contact or sign-up prompts).",
+  "options": [],
+  "memberVariantIds": ["cta-footer-banner"]
+}

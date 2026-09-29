@@ -7,8 +7,12 @@ import { createOptimizedPicture } from '../../scripts/aem.js';
  */
 export default function decorate(block) {
   const ul = document.createElement('ul');
+  ul.className = 'cards-icon-links-list';
+
   [...block.children].forEach((row) => {
     const li = document.createElement('li');
+    li.className = 'cards-icon-links-card';
+
     while (row.firstElementChild) li.append(row.firstElementChild);
     [...li.children].forEach((div) => {
       if (div.children.length === 1 && (div.querySelector('picture') || div.querySelector('.icon'))) {

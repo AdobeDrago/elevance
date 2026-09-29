@@ -1,0 +1,37 @@
+[
+    {
+        "procedureCode": "0002M",
+        "description": "Liver disease, ten biochemical assays (ALT, A2-macroglobulin, apolipoprotein A-1, total bilirubin, GGT, haptoglobin, AST, glucose, total cholesterol and triglycerides) utilizing serum, prognostic algorithm reported as quantitative scores for fibrosis, steatosis and alcoholic steatohepatitis (ASH)",
+        "category": null,
+        "subcategory": null,
+        "highDollarMe": null
+    },
+    {
+        "procedureCode": "0003M",
+        "description": "Liver disease, ten biochemical assays (ALT, A2-macroglobulin, apolipoprotein A-1, total bilirubin, GGT, haptoglobin, AST, glucose, total cholesterol and triglycerides) utilizing serum, prognostic algorithm reported as quantitative scores for fibrosis, steatosis and nonalcoholic steatohepatitis (NASH)",
+        "category": null,
+        "subcategory": null,
+        "highDollarMe": null
+    },
+    {
+        "procedureCode": "00702",
+        "description": "Anesthesia, Proc, Upper Anterior Abdominal Wall; Percutaneous Liver Bx",
+        "category": null,
+        "subcategory": null,
+        "highDollarMe": null
+    },
+    {
+        "procedureCode": "00792",
+        "description": "Anesthesia, Upper Abd W/Laparoscopy; Partial Hepatectomy/Mgmt Liver Hemorrhage (W/O Liver Bx)",
+        "category": null,
+        "subcategory": null,
+        "highDollarMe": null
+    },
+    {
+        "procedureCode": "00796",
+        "description": "Anesthesia, Intraperitoneal Proc, Upper Abdomen, W/Laparoscopy; Liver Transplant, Recipient",
+        "category": null,
+        "subcategory": null,
+        "highDollarMe": null
+    }
+]

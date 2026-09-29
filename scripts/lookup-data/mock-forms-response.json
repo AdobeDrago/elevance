@@ -1,0 +1,2325 @@
+ {"AllDocs":[
+
+
+
+
+
+
+
+
+
+
+	
+ 
+	{
+               "id":1527369237948,
+		"name":"HBNC_RP_Admin_DocStandardsEpisodeofCare",	
+		"description":"Documentation Standards for Episodes of Care",
+		"title":"Documentation Standards for Episodes of Care",
+		"analyticsTag":"",
+		"language":"en_US",
+		"brands":["HBNC"],
+		"states":[],
+		"topic":["Reimbursement Administration - General"],
+		"URI":"\/docs\/inline\/HBNC_RP_Admin_DocStandardsEpisodeofCare.pdf?v=202512151954","fileSize":"243 KB","fileType":"pdf"	
+	}
+	
+
+
+,
+
+
+
+
+
+
+
+
+
+
+	
+ 
+	{
+               "id":1527369239991,
+		"name":"HBNC_RP_Admin_MaximumUnitsPerDay",	
+		"description":"Maximum Units Per Day",
+		"title":"Maximum Units Per Day",
+		"analyticsTag":"",
+		"language":"en_US",
+		"brands":["HBNC"],
+		"states":[],
+		"topic":["Reimbursement Administration - General"],
+		"URI":"\/docs\/inline\/HBNC_RP_Admin_MaximumUnitsPerDay.pdf?v=202604271429","fileSize":"272 KB","fileType":"pdf"	
+	}
+	
+
+
+,
+
+
+
+
+
+
+
+
+
+
+	
+ 
+	{
+               "id":1527369241495,
+		"name":"HBNC_RP_Admin_SanctionedOptOutProviders",	
+		"description":"Sanctioned and Opt-Out Providers",
+		"title":"Sanctioned Providers",
+		"analyticsTag":"",
+		"language":"en_US",
+		"brands":["HBNC"],
+		"states":[],
+		"topic":["Reimbursement Administration - General"],
+		"URI":"\/docs\/inline\/HBNC_RP_Admin_SanctionedOptOutProviders.pdf?v=202512152006","fileSize":"206 KB","fileType":"pdf"	
+	}
+	
+
+
+,
+
+
+
+
+
+
+
+
+
+
+	
+ 
+	{
+               "id":1527369245779,
+		"name":"HBNC_RP_Anesthesia_ProfessionalAnesthesiaServices",	
+		"description":"Professional Anesthesia Services",
+		"title":"Professional Anesthesia Services",
+		"analyticsTag":"",
+		"language":"en_US",
+		"brands":["HBNC"],
+		"states":[],
+		"topic":["Anesthesia"],
+		"URI":"\/docs\/gpp\/HBNC_RP_Anesthesia_ProfessionalAnesthesiaServices.pdf?v=202606121457","fileSize":"330 KB","fileType":"pdf"	
+	}
+	
+
+
+,
+
+
+
+
+
+
+
+
+
+
+	
+ 
+	{
+               "id":1527369250690,
+		"name":"HBNC_RP_Transportation_TransportationServices",	
+		"description":"Transportation Services: Ambulance and Nonemergent Transport",
+		"title":"Transportation Services: Ambulance and Non-Emergent Transport",
+		"analyticsTag":"",
+		"language":"en_US",
+		"brands":["HBNC"],
+		"states":[],
+		"topic":["Transportation"],
+		"URI":"\/docs\/gpp\/HBNC_RP_Transportation_TransportationServices.pdf?v=202512151937","fileSize":"271 KB","fileType":"pdf"	
+	}
+	
+
+
+,
+
+
+
+
+
+
+
+
+
+
+	
+ 
+	{
+               "id":1527369254793,
+		"name":"HBNC_RP_Surgery_Sterilization",	
+		"description":"Sterilization",
+		"title":"Sterilization",
+		"analyticsTag":"",
+		"language":"en_US",
+		"brands":["HBNC"],
+		"states":[],
+		"topic":["Surgery"],
+		"URI":"\/docs\/inline\/HBNC_RP_Surgery_Sterilization.pdf?v=202512151948","fileSize":"251 KB","fileType":"pdf"	
+	}
+	
+
+
+,
+
+
+
+
+
+
+
+
+
+
+	
+ 
+	{
+               "id":1527369255923,
+		"name":"HBNC_RP_Surgery_MultipleDeliveryServices",	
+		"description":"Multiple Delivery Services",
+		"title":"Multiple Delivery Services",
+		"analyticsTag":"",
+		"language":"en_US",
+		"brands":["HBNC"],
+		"states":[],
+		"topic":["Surgery"],
+		"URI":"\/docs\/inline\/HBNC_RP_Surgery_MultipleDeliveryServices.pdf?v=202512151947","fileSize":"208 KB","fileType":"pdf"	
+	}
+	
+
+
+,
+
+
+
+
+
+
+
+
+
+
+	
+ 
+	{
+               "id":1527369258935,
+		"name":"HBNC_RP_Surgery_MaternityServices",	
+		"description":"Maternity Services",
+		"title":"Maternity Services",
+		"analyticsTag":"",
+		"language":"en_US",
+		"brands":["HBNC"],
+		"states":[],
+		"topic":["Surgery"],
+		"URI":"\/docs\/gpp\/HBNC_RP_Surgery_MaternityServices.pdf?v=202606161404","fileSize":"325 KB","fileType":"pdf"	
+	}
+	
+
+
+,
+
+
+
+
+
+
+
+
+
+
+	
+ 
+	{
+               "id":1527369260121,
+		"name":"HBNC_RP_Surgery_Hysterectomy",	
+		"description":"Hysterectomy",
+		"title":"Hysterectomy",
+		"analyticsTag":"",
+		"language":"en_US",
+		"brands":["HBNC"],
+		"states":[],
+		"topic":["Surgery"],
+		"URI":"\/docs\/inline\/HBNC_RP_Surgery_Hysterectomy.pdf?v=202512151946","fileSize":"227 KB","fileType":"pdf"	
+	}
+	
+
+
+,
+
+
+
+
+
+
+
+
+
+
+	
+ 
+	{
+               "id":1527369260929,
+		"name":"HBNC_RP_Surgery_GlobalSurgicalPackage",	
+		"description":"Global Surgical Package for Professional Providers",
+		"title":"Global Surgical Package",
+		"analyticsTag":"",
+		"language":"en_US",
+		"brands":["HBNC"],
+		"states":[],
+		"topic":["Surgery"],
+		"URI":"\/docs\/inline\/HBNC_RP_Surgery_GlobalSurgicalPackage.pdf?v=202512151945","fileSize":"279 KB","fileType":"pdf"	
+	}
+	
+
+
+,
+
+
+
+
+
+
+
+
+
+
+	
+ 
+	{
+               "id":1527369261897,
+		"name":"HBNC_RP_Surgery_Abortion",	
+		"description":"Abortion (Termination of Pregnancy)",
+		"title":"Abortion (Termination of Pregnancy)",
+		"analyticsTag":"",
+		"language":"en_US",
+		"brands":["HBNC"],
+		"states":[],
+		"topic":["Surgery"],
+		"URI":"\/docs\/inline\/HBNC_RP_Surgery_Abortion.pdf?v=202512151944","fileSize":"281 KB","fileType":"pdf"	
+	}
+	
+
+
+,
+
+
+
+
+
+
+
+
+
+
+	
+ 
+	{
+               "id":1527369266685,
+		"name":"HBNC_RP_Radiology_PortableMobileHandheld",	
+		"description":"Portable\/Mobile\/Handheld Radiology Services",
+		"title":"Portable\/Mobile\/Handheld Radiology Services",
+		"analyticsTag":"",
+		"language":"en_US",
+		"brands":["HBNC"],
+		"states":[],
+		"topic":["Radiology"],
+		"URI":"\/docs\/inline\/HBNC_RP_Radiology_PortableMobileHandheld.pdf?v=202605071333","fileSize":"189 KB","fileType":"pdf"	
+	}
+	
+
+
+,
+
+
+
+
+
+
+
+
+
+
+	
+ 
+	{
+               "id":1527369267907,
+		"name":"HBNC_RP_Radiology_MultipleRadiologyPayment",	
+		"description":"Multiple Radiology Payment Reduction",
+		"title":"Multiple Radiology Payment Reduction",
+		"analyticsTag":"",
+		"language":"en_US",
+		"brands":["HBNC"],
+		"states":[],
+		"topic":["Radiology"],
+		"URI":"\/docs\/inline\/HBNC_RP_Radiology_MultipleRadiologyPayment.pdf?v=202512152017","fileSize":"301 KB","fileType":"pdf"	
+	}
+	
+
+
+,
+
+
+
+
+
+
+
+
+
+
+	
+ 
+	{
+               "id":1527369268768,
+		"name":"HBNC_RP_ProstheticsOrthotics_ProstheticsAndOrthotics",	
+		"description":"Prosthetics and Orthotics",
+		"title":"Prosthetics and Orthotics",
+		"analyticsTag":"",
+		"language":"en_US",
+		"brands":["HBNC"],
+		"states":[],
+		"topic":["Prosthetics and Orthotics"],
+		"URI":"\/docs\/inline\/HBNC_RP_ProstheticsOrthotics_ProstheticsAndOrthotics.pdf?v=202512151933","fileSize":"337 KB","fileType":"pdf"	
+	}
+	
+
+
+,
+
+
+
+
+
+
+
+
+
+
+	
+ 
+	{
+               "id":1527369269767,
+		"name":"HBNC_RP_Prevention_VaccinesForChildren",	
+		"description":"Vaccines for Children Program",
+		"title":"Vaccines for Children (VFC) Program",
+		"analyticsTag":"",
+		"language":"en_US",
+		"brands":["HBNC"],
+		"states":[],
+		"topic":["Prevention"],
+		"URI":"\/docs\/inline\/HBNC_RP_Prevention_VaccinesForChildren.pdf?v=202512152016","fileSize":"212 KB","fileType":"pdf"	
+	}
+	
+
+
+,
+
+
+
+
+
+
+
+
+
+
+	
+ 
+	{
+               "id":1527369272665,
+		"name":"HBNC_RP_Prevention_EPSDT",	
+		"description":"",
+		"title":"Early and Periodic Screening Diagnostic Treatment (EPSDT)",
+		"analyticsTag":"",
+		"language":"en_US",
+		"brands":["HBNC"],
+		"states":[],
+		"topic":["Prevention"],
+		"URI":"\/docs\/inline\/HBNC_RP_Prevention_EPSDT.pdf?v=202512151932","fileSize":"228 KB","fileType":"pdf"	
+	}
+	
+
+
+,
+
+
+
+
+
+
+
+
+
+
+	
+ 
+	{
+               "id":1527369274447,
+		"name":"HBNC_RP_Laboratory_DrugScreenTesting",	
+		"description":"Drug Screen Testing",
+		"title":"Drug Screen Testing",
+		"analyticsTag":"",
+		"language":"en_US",
+		"brands":["HBNC"],
+		"states":[],
+		"topic":["Laboratory"],
+		"URI":"\/docs\/inline\/HBNC_RP_Laboratory_DrugScreenTesting.pdf?v=202606252002","fileSize":"215 KB","fileType":"pdf"	
+	}
+	
+
+
+,
+
+
+
+
+
+
+
+
+
+
+	
+ 
+	{
+               "id":1527369276120,
+		"name":"HBNC_RP_Admin_ItemsUnderWarranty",	
+		"description":"Reimbursement For Items Under Warranty",
+		"title":"Reimbursement For Items Under Warranty",
+		"analyticsTag":"",
+		"language":"en_US",
+		"brands":["HBNC"],
+		"states":[],
+		"topic":["Reimbursement Administration - General"],
+		"URI":"\/docs\/gpp\/HBNC_RP_Admin_ItemsUnderWarranty.pdf?v=202601202045","fileSize":"184 KB","fileType":"pdf"	
+	}
+	
+
+
+,
+
+
+
+
+
+
+
+
+
+
+	
+ 
+	{
+               "id":1527369278115,
+		"name":"HBNC_RP_Admin_PresentOnAdmissionIndicator",	
+		"description":"Present on Admission Indicator for Health Care-Acquired Conditions",
+		"title":"Present on Admission Indicator for Health Care-Acquired Conditions",
+		"analyticsTag":"",
+		"language":"en_US",
+		"brands":["HBNC"],
+		"states":[],
+		"topic":["Reimbursement Administration - General"],
+		"URI":"\/docs\/inline\/HBNC_RP_Admin_PresentOnAdmissionIndicator.pdf?v=202107062019","fileSize":"514 KB","fileType":"pdf"	
+	}
+	
+
+
+,
+
+
+
+
+
+
+
+
+
+
+	
+ 
+	{
+               "id":1527369279443,
+		"name":"HBNC_RP_Admin_EligibleBilledCharges",	
+		"description":"Eligible Billed Charges",
+		"title":"Eligible Billed Charges",
+		"analyticsTag":"",
+		"language":"en_US",
+		"brands":["HBNC"],
+		"states":[],
+		"topic":["Reimbursement Administration - General"],
+		"URI":"\/docs\/inline\/HBNC_RP_Admin_EligibleBilledCharges.pdf?v=202512151957","fileSize":"236 KB","fileType":"pdf"	
+	}
+	
+
+
+,
+
+
+
+
+
+
+
+
+
+
+	
+ 
+	{
+               "id":1527369280183,
+		"name":"HBNC_RP_Admin_MedicalRecalls",	
+		"description":"Medical Recalls",
+		"title":"Medical Recalls",
+		"analyticsTag":"",
+		"language":"en_US",
+		"brands":["HBNC"],
+		"states":[],
+		"topic":["Reimbursement Administration - General"],
+		"URI":"\/docs\/inline\/HBNC_RP_Admin_MedicalRecalls.pdf?v=202512151958","fileSize":"211 KB","fileType":"pdf"	
+	}
+	
+
+
+,
+
+
+
+
+
+
+
+
+
+
+	
+ 
+	{
+               "id":1527369281907,
+		"name":"HBNC_RP_Admin_EmergencyServicesNonparticipating",	
+		"description":"Emergency Services: Nonparticipating Providers and Facilities",
+		"title":"Emergency Services: Nonparticipating Providers and Facilities",
+		"analyticsTag":"",
+		"language":"en_US",
+		"brands":["HBNC"],
+		"states":[],
+		"topic":["Reimbursement Administration - General"],
+		"URI":"\/docs\/inline\/HBNC_RP_Admin_EmergencyServicesNonparticipating.pdf?v=202512151956","fileSize":"214 KB","fileType":"pdf"	
+	}
+	
+
+
+,
+
+
+
+
+
+
+
+
+
+
+	
+ 
+	{
+               "id":1527369283126,
+		"name":"HBNC_RP_Admin_DuplicateSubsequentServiceSameDate",	
+		"description":"Duplicate or Subsequent Services on the Same Date of Service",
+		"title":"Duplicate or Subsequent Services on the Same Date of Service",
+		"analyticsTag":"",
+		"language":"en_US",
+		"brands":["HBNC"],
+		"states":[],
+		"topic":["Reimbursement Administration - General"],
+		"URI":"\/docs\/gpp\/HBNC_RP_Admin_DuplicateSubsequentServiceSameDate.pdf?v=202606251925","fileSize":"192 KB","fileType":"pdf"	
+	}
+	
+
+
+,
+
+
+
+
+
+
+
+
+
+
+	
+ 
+	{
+               "id":1527369285651,
+		"name":"HBNC_RP_Admin_CodeClinicalEditingGuidelines",	
+		"description":"Code and Clinical Editing Guidelines",
+		"title":"Code and Clinical Editing Guidelines",
+		"analyticsTag":"",
+		"language":"en_US",
+		"brands":["HBNC"],
+		"states":[],
+		"topic":["Reimbursement Administration - General"],
+		"URI":"\/docs\/inline\/HBNC_RP_Admin_CodeClinicalEditingGuidelines.pdf?v=202512151952","fileSize":"228 KB","fileType":"pdf"	
+	}
+	
+
+
+,
+
+
+
+
+
+
+
+
+
+
+	
+ 
+	{
+               "id":1527369286399,
+		"name":"HBNC_RP_Admin_ClaimsTimelyFiling",	
+		"description":"Claims Timely Filing",
+		"title":"Claims Timely Filing",
+		"analyticsTag":"",
+		"language":"en_US",
+		"brands":["HBNC"],
+		"states":[],
+		"topic":["Reimbursement Administration - General"],
+		"URI":"\/docs\/inline\/HBNC_RP_Admin_ClaimsTimelyFiling.pdf?v=202604171943","fileSize":"184 KB","fileType":"pdf"	
+	}
+	
+
+
+,
+
+
+
+
+
+
+
+
+
+
+	
+ 
+	{
+               "id":1527369287282,
+		"name":"HBNC_RP_Admin_ClaimsRequiredInfoProfessionalProviders",	
+		"description":"Claims Submission — Required Information for Professional Providers",
+		"title":"Claims Submission — Required Information for Professional Providers",
+		"analyticsTag":"",
+		"language":"en_US",
+		"brands":["HBNC"],
+		"states":[],
+		"topic":["Reimbursement Administration - General"],
+		"URI":"\/docs\/inline\/HBNC_RP_Admin_ClaimsRequiredInfoProfessionalProviders.pdf?v=202510241510","fileSize":"210 KB","fileType":"pdf"	
+	}
+	
+
+
+,
+
+
+
+
+
+
+
+
+
+
+	
+ 
+	{
+               "id":1527369288541,
+		"name":"HBNC_RP_Admin_ClaimsRequiredInfoFacilities",	
+		"description":"Claims Submission — Required Information for Facilities",
+		"title":"Claims Submission — Required Information for Facilities",
+		"analyticsTag":"",
+		"language":"en_US",
+		"brands":["HBNC"],
+		"states":[],
+		"topic":["Reimbursement Administration - General"],
+		"URI":"\/docs\/inline\/HBNC_RP_Admin_ClaimsRequiredInfoFacilities.pdf?v=202510141833","fileSize":"190 KB","fileType":"pdf"	
+	}
+	
+
+
+,
+
+
+
+
+
+
+
+
+
+
+	
+ 
+	{
+               "id":1527369289224,
+		"name":"HBNC_RP_Admin_ClaimsRequiringAdditionalDocumentation",	
+		"description":"Claims Requiring Additional Documentation",
+		"title":"Claims Requiring Additional Documentation",
+		"analyticsTag":"",
+		"language":"en_US",
+		"brands":["HBNC"],
+		"states":[],
+		"topic":["Reimbursement Administration - General"],
+		"URI":"\/docs\/inline\/HBNC_RP_Admin_ClaimsRequiringAdditionalDocumentation.pdf?v=202512151950","fileSize":"212 KB","fileType":"pdf"	
+	}
+	
+
+
+,
+
+
+
+
+
+
+
+
+
+
+	
+ 
+	{
+               "id":1527369290125,
+		"name":"HBNC_RP_Facilities_PreadmissionServicesInpatientStays",	
+		"description":"Preadmission Services for Inpatient Stays",
+		"title":"Preadmission Services for Inpatient Stays",
+		"analyticsTag":"",
+		"language":"en_US",
+		"brands":["HBNC"],
+		"states":[],
+		"topic":["Facilities"],
+		"URI":"\/docs\/inline\/HBNC_RP_Facilities_PreadmissionServicesInpatientStays.pdf?v=202512151930","fileSize":"665 KB","fileType":"pdf"	
+	}
+	
+
+
+,
+
+
+
+
+
+
+
+
+
+
+	
+ 
+	{
+               "id":1527369290753,
+		"name":"HBNC_RP_Facilities_DRGNewbornInpatientStays",	
+		"description":"",
+		"title":"DRG Newborn Inpatient Stays",
+		"analyticsTag":"",
+		"language":"en_US",
+		"brands":["HBNC"],
+		"states":[],
+		"topic":["Reimbursement Administration - General","Facilities"],
+		"URI":"\/docs\/inline\/HBNC_RP_Facilities_DRGNewbornInpatientStays.pdf?v=202601062220","fileSize":"186 KB","fileType":"pdf"	
+	}
+	
+
+
+,
+
+
+
+
+
+
+
+
+
+
+	
+ 
+	{
+               "id":1527369291317,
+		"name":"HBNC_RP_EvalMgmt_PreventiveMedSickVisitSameDay",	
+		"description":"Preventive Medicine and Sick Visits on the Same Day",
+		"title":"Preventive Medicine and Sick Visits on the Same Day",
+		"analyticsTag":"",
+		"language":"en_US",
+		"brands":["HBNC"],
+		"states":[],
+		"topic":["Evaluation and Management"],
+		"URI":"\/docs\/inline\/HBNC_RP_EvalMgmt_PreventiveMedSickVisitSameDay.pdf?v=202512151924","fileSize":"304 KB","fileType":"pdf"	
+	}
+	
+
+
+,
+
+
+
+
+
+
+
+
+
+
+	
+ 
+	{
+               "id":1527369292294,
+		"name":"HBNC_RP_EvalMgmt_Consultations",	
+		"description":"Consultations",
+		"title":"Consultations",
+		"analyticsTag":"",
+		"language":"en_US",
+		"brands":["HBNC"],
+		"states":[],
+		"topic":["Evaluation and Management"],
+		"URI":"\/docs\/gpp\/HBNC_RP_EvalMgmt_Consultations.pdf?v=202604281947","fileSize":"236 KB","fileType":"pdf"	
+	}
+	
+
+
+,
+
+
+
+
+
+
+
+
+
+
+	
+ 
+	{
+               "id":1527369293038,
+		"name":"HBNC_RP_DME_FacilityTakeHomeDMEMedicalSupplies",	
+		"description":"Facility Take-Home DME and Medical Supplies",
+		"title":"Facility Take-Home DME and Medical Supplies",
+		"analyticsTag":"",
+		"language":"en_US",
+		"brands":["HBNC"],
+		"states":[],
+		"topic":["DME and Supplies"],
+		"URI":"\/docs\/inline\/HBNC_RP_Drugs_FacilityTakeHomeDrugs.pdf?v=202512151921","fileSize":"223 KB","fileType":"pdf"	
+	}
+	
+
+
+,
+
+
+
+
+
+
+
+
+
+
+	
+ 
+	{
+               "id":1527369296613,
+		"name":"HBNC_RP_DME_DMERentToPurchase",	
+		"description":"Durable Medical Equipment (Rent to Purchase)",
+		"title":"Durable Medical Equipment (Rent to Purchase)",
+		"analyticsTag":"",
+		"language":"en_US",
+		"brands":["HBNC"],
+		"states":[],
+		"topic":["DME and Supplies"],
+		"URI":"\/docs\/gpp\/HBNC_RP_DME_DMERentToPurchase.pdf?v=202601222155","fileSize":"202 KB","fileType":"pdf"	
+	}
+	
+
+
+,
+
+
+
+
+
+
+
+
+
+
+	
+ 
+	{
+               "id":1527369410881,
+		"name":"HBNC_RP_Coding_AssistantAtSurgery",	
+		"description":"Assistant at Surgery (Modifiers 80\/81\/82\/AS)",
+		"title":"Modifiers 80, 81, 82 and AS: Assistant at Surgery",
+		"analyticsTag":"",
+		"language":"en_US",
+		"brands":["HBNC"],
+		"states":[],
+		"topic":["Coding"],
+		"URI":"\/docs\/inline\/HBNC_RP_Coding_AssistantAtSurgery.pdf?v=202608051343","fileSize":"186 KB","fileType":"pdf"	
+	}
+	
+
+
+,
+
+
+
+
+
+
+
+
+
+
+	
+ 
+	{
+               "id":1527369437115,
+		"name":"HBNC_RP_Coding_DisctinctProceduralServices",	
+		"description":"Distinct Procedural Services (Modifiers 59, XE, XP, XS, XU)",
+		"title":"Modifiers 59, XE, XP, XS, XU: Distinct Procedural Services",
+		"analyticsTag":"",
+		"language":"en_US",
+		"brands":["HBNC"],
+		"states":[],
+		"topic":["Coding"],
+		"URI":"\/docs\/gpp\/HBNC_RP_Coding_DisctinctProceduralServices.pdf?v=202512112050","fileSize":"213 KB","fileType":"pdf"	
+	}
+	
+
+
+,
+
+
+
+
+
+
+
+
+
+
+	
+ 
+	{
+               "id":1527369438455,
+		"name":"HBNC_RP_Coding_Modifier22",	
+		"description":"Modifier 22",
+		"title":"Modifier 22",
+		"analyticsTag":"",
+		"language":"en_US",
+		"brands":["HBNC"],
+		"states":[],
+		"topic":["Coding"],
+		"URI":"\/docs\/inline\/HBNC_RP_Coding_Modifier22.pdf?v=202512112048","fileSize":"208 KB","fileType":"pdf"	
+	}
+	
+
+
+,
+
+
+
+
+
+
+
+
+
+
+	
+ 
+	{
+               "id":1527369439107,
+		"name":"HBNC_RP_Coding_Modifier24",	
+		"description":"Modifier 24: Unrelated Evaluation and Management Service by the Same Physician or Other Qualified Health Care Professional During the Postoperative Period",
+		"title":"Modifier 24",
+		"analyticsTag":"",
+		"language":"en_US",
+		"brands":["HBNC"],
+		"states":[],
+		"topic":["Coding"],
+		"URI":"\/docs\/inline\/HBNC_RP_Coding_Modifier24.pdf?v=202512112049","fileSize":"210 KB","fileType":"pdf"	
+	}
+	
+
+
+,
+
+
+
+
+
+
+
+
+
+
+	
+ 
+	{
+               "id":1527369441013,
+		"name":"HBNC_RP_Coding_Modifier26",	
+		"description":"Modifier 26 and TC: Professional and Technical Component",
+		"title":"Modifiers 26 and TC",
+		"analyticsTag":"",
+		"language":"en_US",
+		"brands":["HBNC"],
+		"states":[],
+		"topic":["Coding"],
+		"URI":"\/docs\/inline\/HBNC_RP_Coding_Modifier26.pdf?v=202512112050","fileSize":"228 KB","fileType":"pdf"	
+	}
+	
+
+
+,
+
+
+
+
+
+
+
+
+
+
+	
+ 
+	{
+               "id":1527369442307,
+		"name":"HBNC_RP_Coding_Modifier62",	
+		"description":"",
+		"title":"Modifier 62",
+		"analyticsTag":"",
+		"language":"en_US",
+		"brands":["HBNC"],
+		"states":[],
+		"topic":["Coding"],
+		"URI":"\/docs\/inline\/HBNC_RP_Coding_Modifier62.pdf?v=202512112049","fileSize":"212 KB","fileType":"pdf"	
+	}
+	
+
+
+,
+
+
+
+
+
+
+
+
+
+
+	
+ 
+	{
+               "id":1527369442863,
+		"name":"HBNC_RP_Coding_Modifier63",	
+		"description":"Modifier 63",
+		"title":"Modifier 63",
+		"analyticsTag":"",
+		"language":"en_US",
+		"brands":["HBNC"],
+		"states":[],
+		"topic":["Coding"],
+		"URI":"\/docs\/gpp\/HBNC_RP_Coding_Modifier63.pdf?v=202512112048","fileSize":"212 KB","fileType":"pdf"	
+	}
+	
+
+
+,
+
+
+
+
+
+
+
+
+
+
+	
+ 
+	{
+               "id":1527369443958,
+		"name":"HBNC_RP_Coding_Modifier66",	
+		"description":"Modifier 66: Surgical Teams",
+		"title":"Modifier 66",
+		"analyticsTag":"",
+		"language":"en_US",
+		"brands":["HBNC"],
+		"states":[],
+		"topic":["Coding"],
+		"URI":"\/docs\/inline\/HBNC_RP_Coding_Modifier66.pdf?v=202512112050","fileSize":"240 KB","fileType":"pdf"	
+	}
+	
+
+
+,
+
+
+
+
+
+
+
+
+
+
+	
+ 
+	{
+               "id":1527369444572,
+		"name":"HBNC_RP_Coding_Modifier76",	
+		"description":"Modifier 76",
+		"title":"Modifier 76",
+		"analyticsTag":"",
+		"language":"en_US",
+		"brands":["HBNC"],
+		"states":[],
+		"topic":["Coding"],
+		"URI":"\/docs\/inline\/HBNC_RP_Coding_Modifier76.pdf?v=202605261308","fileSize":"323 KB","fileType":"pdf"	
+	}
+	
+
+
+,
+
+
+
+
+
+
+
+
+
+
+	
+ 
+	{
+               "id":1527369445452,
+		"name":"HBNC_RP_Coding_Modifier77",	
+		"description":"Modifier 77",
+		"title":"Modifier 77",
+		"analyticsTag":"",
+		"language":"en_US",
+		"brands":["HBNC"],
+		"states":[],
+		"topic":["Coding"],
+		"URI":"\/docs\/inline\/HBNC_RP_Coding_Modifier77.pdf?v=202605261428","fileSize":"332 KB","fileType":"pdf"	
+	}
+	
+
+
+,
+
+
+
+
+
+
+
+
+
+
+	
+ 
+	{
+               "id":1527369446427,
+		"name":"HBNC_RP_Coding_Modifier78",	
+		"description":"Modifier 78 Unplanned Return to OR\/Procedure Room by Same Physician Following Initial Procedure for a Related Procedure",
+		"title":"Modifier 78",
+		"analyticsTag":"",
+		"language":"en_US",
+		"brands":["HBNC"],
+		"states":[],
+		"topic":["Coding"],
+		"URI":"\/docs\/inline\/HBNC_RP_Coding_Modifier78.pdf?v=202512112049","fileSize":"226 KB","fileType":"pdf"	
+	}
+	
+
+
+,
+
+
+
+
+
+
+
+
+
+
+	
+ 
+	{
+               "id":1527369448049,
+		"name":"HBNC_RP_Coding_ModifiersLTandRT",	
+		"description":"Modifiers LT and RT: Left Side\/Right Side Procedures",
+		"title":"Modifiers LT and RT: Left-Side and Right-Side Procedures",
+		"analyticsTag":"",
+		"language":"en_US",
+		"brands":["HBNC"],
+		"states":[],
+		"topic":["Coding"],
+		"URI":"\/docs\/inline\/HBNC_RP_Coding_ModifiersLTandRT.pdf?v=202512151915","fileSize":"231 KB","fileType":"pdf"	
+	}
+	
+
+
+,
+
+
+
+
+
+
+
+
+
+
+	
+ 
+	{
+               "id":1527369449343,
+		"name":"HBNC_RP_Coding_ModifierUsage",	
+		"description":"Modifier Usage",
+		"title":"Modifier Usage",
+		"analyticsTag":"",
+		"language":"en_US",
+		"brands":["HBNC"],
+		"states":[],
+		"topic":["Coding"],
+		"URI":"\/docs\/inline\/HBNC_RP_Coding_ModifierUsage.pdf?v=202512112049","fileSize":"218 KB","fileType":"pdf"	
+	}
+	
+
+
+,
+
+
+
+
+
+
+
+
+
+
+	
+ 
+	{
+               "id":1527369450719,
+		"name":"HBNC_RP_Coding_MultipleBilateralSurgery",	
+		"description":"",
+		"title":"Modifiers 50 and 51: Multiple and Bilateral Surgery",
+		"analyticsTag":"",
+		"language":"en_US",
+		"brands":["HBNC"],
+		"states":[],
+		"topic":["Coding"],
+		"URI":"\/docs\/inline\/HBNC_RP_Coding_MultipleBilateralSurgery.pdf?v=202604091924","fileSize":"216 KB","fileType":"pdf"	
+	}
+	
+
+
+,
+
+
+
+
+
+
+
+
+
+
+	
+ 
+	{
+               "id":1527369451712,
+		"name":"HBNC_RP_Coding_ReimbursementReducedDiscontinued",	
+		"description":"Reimbursement for Reduced and Discontinued Services",
+		"title":"Modifiers 52, 53, 73 and 74: Reduced and Discontinued Services",
+		"analyticsTag":"",
+		"language":"en_US",
+		"brands":["HBNC"],
+		"states":[],
+		"topic":["Coding"],
+		"URI":"\/docs\/gpp\/HBNC_RP_Coding_ReimbursementReducedDiscontinued.pdf?v=202603111600","fileSize":"192 KB","fileType":"pdf"	
+	}
+	
+
+
+,
+
+
+
+
+
+
+
+
+
+
+	
+ 
+	{
+               "id":1527369453131,
+		"name":"HBNC_RP_Coding_RoboticAssistedSurgery",	
+		"description":"Robotic Assisted Surgery",
+		"title":"Technology Assisted Surgical Procedures",
+		"analyticsTag":"",
+		"language":"en_US",
+		"brands":["HBNC"],
+		"states":[],
+		"topic":["Surgery"],
+		"URI":"\/docs\/gpp\/HBNC_RP_Coding_RoboticAssistedSurgery.pdf?v=202602102104","fileSize":"167 KB","fileType":"pdf"	
+	}
+	
+
+
+,
+
+
+
+
+
+
+
+
+
+
+	
+ 
+	{
+               "id":1527369455573,
+		"name":"HBNC_RP_Coding_SplitCareSurgicalModifiers",	
+		"description":"Split-Care Surgical Modifiers",
+		"title":"Split-Care Surgical Modifiers",
+		"analyticsTag":"",
+		"language":"en_US",
+		"brands":["HBNC"],
+		"states":[],
+		"topic":["Coding"],
+		"URI":"\/docs\/gpp\/HBNC_RP_Coding_SplitCareSurgicalModifiers.pdf?v=202602121803","fileSize":"195 KB","fileType":"pdf"	
+	}
+	
+
+
+,
+
+
+
+
+
+
+
+
+
+
+	
+ 
+	{
+               "id":1527369456276,
+		"name":"HBNC_RP_Coding_UnlistedUnspecifiedMisc",	
+		"description":"Unlisted, Unspecified or Miscellaneous Codes",
+		"title":"Unlisted or Miscellaneous Codes",
+		"analyticsTag":"",
+		"language":"en_US",
+		"brands":["HBNC"],
+		"states":[],
+		"topic":["Coding"],
+		"URI":"\/docs\/inline\/HBNC_RP_Coding_UnlistedUnspecifiedMisc.pdf?v=202512151917","fileSize":"209 KB","fileType":"pdf"	
+	}
+	
+
+
+,
+
+
+
+
+
+
+
+
+
+
+	
+ 
+	{
+               "id":1527369457032,
+		"name":"HBNC_RP_Coding_DMEModifiersNewRentedUsed",	
+		"description":"DME Modifiers for New, Rented and Used Equipment",
+		"title":"DME Modifiers for New, Rented and Used Equipment",
+		"analyticsTag":"",
+		"language":"en_US",
+		"brands":["HBNC"],
+		"states":[],
+		"topic":["Coding"],
+		"URI":"\/docs\/inline\/HBNC_RP_Coding_DMEModifiersNewRentedUsed.pdf?v=202608052033","fileSize":"186 KB","fileType":"pdf"	
+	}
+	
+
+
+,
+
+
+
+
+
+
+
+
+
+
+	
+ 
+	{
+               "id":1527369501355,
+		"name":"HBNC_Forms_MCS_MaternityNotification",	
+		"description":"Maternity Notification Form",
+		"title":"Pregnancy Notification Form",
+		"analyticsTag":"",
+		"language":"en_US",
+		"brands":["HBNC"],
+		"states":[],
+		"topic":["Maternal Child Services"],
+		"URI":"\/docs\/inline\/HBNC_Forms_MCS_MaternityNotification.pdf?v=202308311355","fileSize":"314 KB","fileType":"pdf"	
+	}
+	
+
+
+,
+
+
+
+
+
+
+
+
+
+
+	
+ 
+	{
+               "id":1527369504669,
+		"name":"HBNC_Forms_MCS_NewbornNotificationDelivery",	
+		"description":"Newborn Notification of Delivery Form",
+		"title":"Newborn Notification of Delivery Form",
+		"analyticsTag":"",
+		"language":"en_US",
+		"brands":["HBNC"],
+		"states":[],
+		"topic":["Maternal Child Services"],
+		"URI":"\/docs\/inline\/HBNC_Forms_MCS_NewbornNotificationDelivery.pdf?v=202105281843","fileSize":"825 KB","fileType":"pdf"	
+	}
+	
+
+
+,
+
+
+
+
+
+
+
+
+
+
+	
+ 
+	{
+               "id":1527369518015,
+		"name":"HBNC_Forms_PA_PriorAuthRequestForm",	
+		"description":"",
+		"title":"Prior Authorization Request Form",
+		"analyticsTag":"",
+		"language":"en_US",
+		"brands":["HBNC"],
+		"states":[],
+		"topic":["Prior Authorizations"],
+		"URI":"\/docs\/gpp\/HBNC_Forms_PA_PriorAuthRequestForm.pdf?v=202602251215","fileSize":"213 KB","fileType":"pdf"	
+	}
+	
+
+
+,
+
+
+
+
+
+
+
+
+
+
+	
+ 
+	{
+               "id":1527370182698,
+		"name":"HBNC_Forms_PPA_NonCoveredSMPSforUnder21",	
+		"description":"Non-Covered State Medicaid Plan Services for Members Under 21 Years Old",
+		"title":"Non-Covered State Medicaid Plan Services for Members Under 21 Years Old",
+		"analyticsTag":"",
+		"language":"en_US",
+		"brands":["HBNC"],
+		"states":[],
+		"topic":["Pharmacy"],
+		"URI":"\/docs\/inline\/HBNC_Forms_PPA_NonCoveredSMPSforUnder21.pdf?v=202512081558","fileSize":"203 KB","fileType":"pdf"	
+	}
+	
+
+
+,
+
+
+
+
+
+
+
+
+
+
+	
+ 
+	{
+               "id":1527370221080,
+		"name":"HBNC_Forms_PPA_StandardDrug",	
+		"description":"Standard Drug",
+		"title":"Standard Drug",
+		"analyticsTag":"",
+		"language":"en_US",
+		"brands":["HBNC"],
+		"states":[],
+		"topic":["Pharmacy"],
+		"URI":"\/docs\/inline\/HBNC_Forms_PPA_StandardDrug.pdf?v=202606171932","fileSize":"223 KB","fileType":"pdf"	
+	}
+	
+
+
+,
+
+
+
+
+
+
+
+
+
+
+	
+ 
+	{
+               "id":1527370243759,
+		"name":"HBNC_Forms_PPA_ASAP",	
+		"description":"ASAP",
+		"title":"ASAP",
+		"analyticsTag":"",
+		"language":"en_US",
+		"brands":["HBNC"],
+		"states":[],
+		"topic":["Pharmacy"],
+		"URI":"\/docs\/gpp\/HBNC_Forms_PPA_ASAP.pdf?v=202606171932","fileSize":"240 KB","fileType":"pdf"	
+	}
+	
+
+
+,
+
+
+
+
+
+
+
+
+
+
+	
+ 
+	{
+               "id":1527370245826,
+		"name":"HBNC_Forms_PPA_APlusKIDS",	
+		"description":"A+KIDS",
+		"title":"A+KIDS",
+		"analyticsTag":"",
+		"language":"en_US",
+		"brands":["HBNC"],
+		"states":[],
+		"topic":["Pharmacy"],
+		"URI":"\/docs\/gpp\/HBNC_Forms_PPA_APlusKIDS.pdf?v=202606171932","fileSize":"289 KB","fileType":"pdf"	
+	}
+	
+
+
+,
+
+
+
+
+
+
+
+
+
+
+	
+ 
+	{
+               "id":1527375170236,
+		"name":"NCNC_CAID_Forms_Other_DiseaseManagementReferral",	
+		"description":"Condition Care Referral Form",
+		"title":"Condition Care Referral Form",
+		"analyticsTag":"",
+		"language":"en_US",
+		"brands":["HBNC"],
+		"states":[],
+		"topic":["Other Forms"],
+		"URI":"\/docs\/gpp\/NCNC_CAID_Forms_Other_DiseaseManagementReferral.pdf?v=202505052040","fileSize":"172 KB","fileType":"pdf"	
+	}
+	
+
+
+,
+
+
+
+
+
+
+
+
+
+
+	
+ 
+	{
+               "id":1527569589860,
+		"name":"BNCPEC-0151-21_Recoupment_Form-NC_fillable",	
+		"description":"",
+		"title":"Provider Authorization to Adjust Claims and Create Claim Offsets",
+		"analyticsTag":"",
+		"language":"en_US",
+		"brands":["HBNC"],
+		"states":[],
+		"topic":["Other Forms"],
+		"URI":"\/docs\/gpp\/BNCPEC-0151-21_Recoupment_Form-NC_fillable.pdf?v=202106031635","fileSize":"165 KB","fileType":"pdf"	
+	}
+	
+
+
+,
+
+
+
+
+
+
+
+
+
+
+	
+ 
+	{
+               "id":1527574595865,
+		"name":"HBNC_RP_DocReqProofTimelyFiling",	
+		"description":"Requirements for Documentation of Proof of Timely Filing",
+		"title":"Proof of Timely Filing",
+		"analyticsTag":"",
+		"language":"en_US",
+		"brands":["HBNC"],
+		"states":[],
+		"topic":["Reimbursement Administration - General"],
+		"URI":"\/docs\/gpp\/HBNC_RP_DocReqProofTimelyFiling.pdf?v=202604221322","fileSize":"286 KB","fileType":"pdf"	
+	}
+	
+
+
+,
+
+
+
+
+
+
+
+
+
+
+	
+ 
+	{
+               "id":1527574596407,
+		"name":"HBNC_RP_NPandPAServices",	
+		"description":"Nurse Practitioner and Physician Assistant Services",
+		"title":"Nurse Practitioner and Physician Assistant Services",
+		"analyticsTag":"",
+		"language":"en_US",
+		"brands":["HBNC"],
+		"states":[],
+		"topic":["Reimbursement Administration - General"],
+		"URI":"\/docs\/gpp\/HBNC_RP_NPandPAServices.pdf?v=202512152001","fileSize":"211 KB","fileType":"pdf"	
+	}
+	
+
+
+,
+
+
+
+
+
+
+
+
+
+
+	
+ 
+	{
+               "id":1527574808218,
+		"name":"HBNC_RP_Modifier9091LabServices",	
+		"description":"",
+		"title":"Modifiers 90 and 91: Laboratory Services",
+		"analyticsTag":"",
+		"language":"en_US",
+		"brands":["HBNC"],
+		"states":[],
+		"topic":["Coding"],
+		"URI":"\/docs\/HBNC_RP_Modifier9091LabServices.pdf?v=202609031704","fileSize":"201 KB","fileType":"pdf"	
+	}
+	
+
+
+,
+
+
+
+
+
+
+
+
+
+
+	
+ 
+	{
+               "id":1527590980253,
+		"name":"HBNC_CAID_ChangeRequestFormInst",	
+		"description":"",
+		"title":"PCP Change Form - English Version",
+		"analyticsTag":"",
+		"language":"en_US",
+		"brands":["HBNC"],
+		"states":[],
+		"topic":[],
+		"URI":"\/docs\/gpp\/HBNC_CAID_ChangeRequestFormInst.pdf?v=202505021752","fileSize":"235 KB","fileType":"pdf"	
+	}
+	
+
+
+,
+
+
+
+
+
+
+
+
+
+
+	
+ 
+	{
+               "id":1527592756143,
+		"name":"HBNC_CAID_ClaimPymtAppealForm",	
+		"description":"",
+		"title":"Claim Payment Appeal Form",
+		"analyticsTag":"",
+		"language":"en_US",
+		"brands":["HBNC"],
+		"states":[],
+		"topic":["Claims & Billing"],
+		"URI":"\/docs\/gpp\/HBNC_CAID_ClaimPymtAppealForm.pdf?v=202110281932","fileSize":"2948 KB","fileType":"pdf"	
+	}
+	
+
+
+,
+
+
+
+
+
+
+
+
+
+
+	
+ 
+	{
+               "id":1527598234867,
+		"name":"NCNC_CAID_Forms_Other_NCEmailOptinForm",	
+		"description":"",
+		"title":"North Carolina Email Opt In Form",
+		"analyticsTag":"",
+		"language":"en_US",
+		"brands":["HBNC"],
+		"states":[],
+		"topic":["Other Forms"],
+		"URI":"\/docs\/gpp\/NCNC_CAID_Forms_Other_NCEmailOptinForm.pdf?v=202208011757","fileSize":"55 KB","fileType":"pdf"	
+	}
+	
+
+
+,
+
+
+
+
+
+
+
+
+
+
+	
+ 
+	{
+               "id":1527601753042,
+		"name":"HBNC_CAID_OverpaymentRefund",	
+		"description":"",
+		"title":"Overpayment Refund Notification Form",
+		"analyticsTag":"",
+		"language":"en_US",
+		"brands":["HBNC"],
+		"states":[],
+		"topic":["Claims & Billing"],
+		"URI":"\/docs\/gpp\/HBNC_CAID_OverpaymentRefund.pdf?v=202511101500","fileSize":"112 KB","fileType":"pdf"	
+	}
+	
+
+
+,
+
+
+
+
+
+
+
+
+
+
+	
+ 
+	{
+               "id":1527608285417,
+		"name":"HBNC_CAID_ChangeRequestFormInst_spa",	
+		"description":"",
+		"title":"PCP Change Form - Spanish Version",
+		"analyticsTag":"",
+		"language":"en_US",
+		"brands":["HBNC"],
+		"states":[],
+		"topic":[],
+		"URI":"\/docs\/gpp\/HBNC_CAID_ChangeRequestFormInst_spa.pdf?v=202202182322","fileSize":"82 KB","fileType":"pdf"	
+	}
+	
+
+
+,
+
+
+
+
+
+
+
+
+
+
+	
+ 
+	{
+               "id":1527643338959,
+		"name":"HBNC_RP_CorrectedClaims",	
+		"description":"",
+		"title":"Corrected Claims",
+		"analyticsTag":"",
+		"language":"en_US",
+		"brands":["HBNC"],
+		"states":[],
+		"topic":["Reimbursement Administration - General"],
+		"URI":"\/docs\/gpp\/HBNC_RP_CorrectedClaims.pdf?v=202512151953","fileSize":"212 KB","fileType":"pdf"	
+	}
+	
+
+
+,
+
+
+
+
+
+
+
+
+
+
+	
+ 
+	{
+               "id":1527650235650,
+		"name":"HBNC_RP_Coding_Modifi25and57",	
+		"description":"",
+		"title":"Modifiers 25 and 57: Evaluation and Management with Global Procedures",
+		"analyticsTag":"",
+		"language":"en_US",
+		"brands":["HBNC"],
+		"states":[],
+		"topic":["Coding"],
+		"URI":"\/docs\/gpp\/HBNC_RP_Coding_Modifi25and57.pdf?v=202512112049","fileSize":"241 KB","fileType":"pdf"	
+	}
+	
+
+
+,
+
+
+
+
+
+
+
+
+
+
+	
+ 
+	{
+               "id":1527679698198,
+		"name":"HBNC_RP_Admin_PreventableConditions",	
+		"description":"",
+		"title":"Provider Preventable Conditions",
+		"analyticsTag":"",
+		"language":"en_US",
+		"brands":["HBNC"],
+		"states":[],
+		"topic":["Reimbursement Administration - General"],
+		"URI":"\/docs\/gpp\/HBNC_RP_Admin_PreventableConditions.pdf?v=202512152023","fileSize":"445 KB","fileType":"pdf"	
+	}
+	
+
+
+,
+
+
+
+
+
+
+
+
+
+
+	
+ 
+	{
+               "id":1527683221808,
+		"name":"HBNC_RP_Laboratory_GeneticTests",	
+		"description":"",
+		"title":"Genetic Tests: Once per Lifetime",
+		"analyticsTag":"",
+		"language":"en_US",
+		"brands":["HBNC"],
+		"states":[],
+		"topic":["Laboratory"],
+		"URI":"\/docs\/gpp\/HBNC_RP_Laboratory_GeneticTests.pdf?v=202603311837","fileSize":"138 KB","fileType":"pdf"	
+	}
+	
+
+
+,
+
+
+
+
+
+
+
+
+
+
+	
+ 
+	{
+               "id":1527699488008,
+		"name":"HBNC_RP_Facilities_DRGInpatientFacilityTransfers",	
+		"description":"",
+		"title":"DRG Inpatient Facility Transfers",
+		"analyticsTag":"",
+		"language":"en_US",
+		"brands":["HBNC"],
+		"states":[],
+		"topic":["Reimbursement Administration - General","Facilities"],
+		"URI":"\/docs\/gpp\/HBNC_RP_Facilities_DRGInpatientFacilityTransfers.pdf?v=202512152014","fileSize":"216 KB","fileType":"pdf"	
+	}
+	
+
+
+,
+
+
+
+
+
+
+
+
+
+
+	
+ 
+	{
+               "id":1527731235086,
+		"name":"HBNC_InpatientReadmissions",	
+		"description":"",
+		"title":"Inpatient Readmissions",
+		"analyticsTag":"",
+		"language":"en_US",
+		"brands":["HBNC"],
+		"states":[],
+		"topic":["Reimbursement Administration - General","Facilities"],
+		"URI":"\/docs\/gpp\/HBNC_InpatientReadmissions.pdf?v=202607221538","fileSize":"194 KB","fileType":"pdf"	
+	}
+	
+
+
+,
+
+
+
+
+
+
+
+
+
+
+	
+ 
+	{
+               "id":1527774720428,
+		"name":"HBNC_CAID_NeuropsychTestingForms",	
+		"description":"",
+		"title":"Request for Authorization: Neuropsychological Testing ",
+		"analyticsTag":"",
+		"language":"en_US",
+		"brands":["HBNC"],
+		"states":[],
+		"topic":["Behavioral Health"],
+		"URI":"\/docs\/gpp\/HBNC_CAID_NeuropsychTestingForms.pdf?v=202603042046","fileSize":"283 KB","fileType":"pdf"	
+	}
+	
+
+
+,
+
+
+
+
+
+
+
+
+
+
+	
+ 
+	{
+               "id":1527775455097,
+		"name":"HBNC_CAID_PsychologicalTestingRequestForm",	
+		"description":"",
+		"title":"Request for Authorization: Psychological Testing",
+		"analyticsTag":"",
+		"language":"en_US",
+		"brands":["HBNC"],
+		"states":[],
+		"topic":["Behavioral Health"],
+		"URI":"\/docs\/gpp\/HBNC_CAID_PsychologicalTestingRequestForm.pdf?v=202603092137","fileSize":"318 KB","fileType":"pdf"	
+	}
+	
+
+
+,
+
+
+
+
+
+
+
+
+
+
+	
+ 
+	{
+               "id":1527777220517,
+		"name":"HBNC_CAID_AutismTestingForms",	
+		"description":"",
+		"title":"Request for Authorization: Autism Spectrum Disorder Testing",
+		"analyticsTag":"",
+		"language":"en_US",
+		"brands":["HBNC"],
+		"states":[],
+		"topic":["Behavioral Health"],
+		"URI":"\/docs\/gpp\/HBNC_CAID_AutismTestingForms.pdf?v=202604091932","fileSize":"318 KB","fileType":"pdf"	
+	}
+	
+
+
+,
+
+
+
+
+
+
+
+
+
+
+	
+ 
+	{
+               "id":1527778899009,
+		"name":"HBNC_RP_Coding_DRGComputation",	
+		"description":"",
+		"title":"Diagnoses Used in DRG Computation",
+		"analyticsTag":"",
+		"language":"en_US",
+		"brands":["HBNC"],
+		"states":[],
+		"topic":["Coding"],
+		"URI":"\/docs\/gpp\/HBNC_RP_Coding_DRGComputation.pdf?v=202602032000","fileSize":"207 KB","fileType":"pdf"	
+	}
+	
+
+
+,
+
+
+
+
+
+
+
+
+
+
+	
+ 
+	{
+               "id":1527780014965,
+		"name":"HBNC_CAID_HBCT_PriorAuthForm",	
+		"description":"",
+		"title":"HBCT Prior Authorization Request Form",
+		"analyticsTag":"",
+		"language":"en_US",
+		"brands":["HBNC"],
+		"states":[],
+		"topic":["Prior Authorizations"],
+		"URI":"\/docs\/gpp\/HBNC_CAID_HBCT_PriorAuthForm.pdf?v=202602251215","fileSize":"222 KB","fileType":"pdf"	
+	}
+	
+
+
+,
+
+
+
+
+
+
+
+
+
+
+	
+ 
+	{
+               "id":1527783907922,
+		"name":"NC_CAID_HBCT_ResPlacementReferralForm",	
+		"description":"",
+		"title":"HBCT Residential Placement Universal Referral Form",
+		"analyticsTag":"",
+		"language":"en_US",
+		"brands":["HBNC"],
+		"states":[],
+		"topic":["Other Forms"],
+		"URI":"\/docs\/gpp\/NC_CAID_HBCT_ResPlacementReferralForm.pdf?v=202605211703","fileSize":"483 KB","fileType":"pdf"	
+	}
+	
+
+
+,
+
+
+
+
+
+
+
+
+
+
+	
+ 
+	{
+               "id":1527785786240,
+		"name":"HBNC_Forms_PPA_MedInjectables",	
+		"description":"",
+		"title":"Medical Injectables",
+		"analyticsTag":"",
+		"language":"en_US",
+		"brands":["HBNC"],
+		"states":[],
+		"topic":["Pharmacy"],
+		"URI":"\/docs\/gpp\/HBNC_Forms_PPA_MedInjectables.pdf?v=202606301618","fileSize":"157 KB","fileType":"pdf"	
+	}
+	
+
+
+]}
