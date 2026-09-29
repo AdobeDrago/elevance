@@ -249,8 +249,9 @@ function decorateNorthCarolinaNavSections(navSections) {
     });
     section.addEventListener('mouseenter', () => {
       if (!isNorthCarolinaDesktopView()) return;
+      const nav = navSections.closest('nav');
+      if (nav.querySelector('.nav-search-button[aria-expanded="true"]')) return;
       hoverOpenedSections.add(section);
-      closeSearch(navSections.closest('nav'));
       closeAllNavSections(navSections, section);
       setNavSectionExpanded(section, true);
     });

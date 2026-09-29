@@ -1,13 +1,13 @@
 # Search
 
-The NC search page at `/search.html` combines the site's AEM page index with the
-matching preview/live document index and adds accessible title/H1 autocomplete.
+The authored NC page at `/north-carolina-provider/search` combines the AEM page
+index with the matching preview/live document index and adds title/H1 autocomplete.
 
 ## Authoring
 
 Add a Search block, optionally containing a link to its page query-index JSON.
 The default is `/query-index.json`. The NC header creates the same block with
-`data-search-mode="navigate"` and submits a GET form to `/search.html?q=...`.
+`data-search-mode="navigate"` and submits to `/north-carolina-provider/search?q=...`.
 Results-page suggestions immediately refresh results; header suggestions submit.
 Other site themes load only their configured page index.
 
@@ -53,7 +53,7 @@ Pages come from the site's `/query-index.json`. The definition in
 
 The JSON files can be maintained manually. PDF records need `path`, `title`,
 `description`, `type: "pdf"`, and extracted `content` for body-text searches.
-The initial files are empty; PDF results and autocomplete need populated data.
+Only documents present in the populated asset index can appear in PDF results.
 
 To regenerate all four files from DA, use Node.js 22, set `DA_IMS_TOKEN` in the
 terminal environment, then run:

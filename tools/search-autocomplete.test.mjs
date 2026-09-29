@@ -232,7 +232,7 @@ test('results page deep links, PDF body search, selection, status and header GET
   form.addEventListener('submit', (event) => {
     submissions += 1;
     assert.equal(form.method, 'get');
-    assert.equal(new URL(form.action).pathname, '/search.html');
+    assert.equal(new URL(form.action).pathname, '/north-carolina-provider/search');
     assert.equal(new window.FormData(form).get('q'), 'Therapy guide');
     event.preventDefault();
   });

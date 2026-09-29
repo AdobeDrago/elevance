@@ -471,7 +471,7 @@ function pageSizeControl(block, config) {
 function searchBox(block, config) {
   const box = document.createElement('form');
   box.method = 'get';
-  box.action = '/search.html';
+  box.action = config.northCarolina ? '/north-carolina-provider/search' : '/search.html';
   box.className = 'search-box';
 
   const input = document.createElement('input');
