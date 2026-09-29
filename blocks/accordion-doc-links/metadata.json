@@ -2,8 +2,8 @@
   "variantName": "accordion-doc-links",
   "baseBlock": "accordion",
   "canonicalModel": "standalone",
-  "visualCharacteristics": "Expand/collapse accordion. Each panel header is a category title with a chevron toggle; the expanded body holds a vertical list of PDF/document links.",
-  "contentPattern": "One row per category; row cell 1 = title, row cell 2 = a list of document links.",
+  "visualCharacteristics": "Expand/collapse accordion with a plus/minus-circle toggle. Each panel holds prose, document links, or buttons. PDF links in links mode include a PDF icon and accessible file-type label.",
+  "contentPattern": "One row per category: cell 1 = title, cell 2 = content, optional cell 3 = link style (links, buttons, or auto). Blank or auto preserves the shared link decoration. Inline links in sentences remain inline in buttons mode.",
   "usage": "Categorized document directories (e.g. reimbursement policies, medical policies) presented as collapsible sections.",
   "options": [],
   "memberVariantIds": ["accordion-doc-links"]
