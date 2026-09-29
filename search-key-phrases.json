@@ -1,4 +1,416 @@
 {
-  "total": 0,
-  "data": []
+  "total": 51,
+  "environment": "live",
+  "origin": "https://main--elevance-nc--adobedrago.aem.live",
+  "fingerprint": "42966fdf8c5c7e4d1d621acb768f0b3936dbac49bfa0b2bbec02371bb447d344",
+  "data": [
+    {
+      "phrase": "Archives",
+      "normalized": "archives",
+      "sourceCount": 1,
+      "types": [
+        "page"
+      ]
+    },
+    {
+      "phrase": "Behavioral Health",
+      "normalized": "behavioral health",
+      "sourceCount": 1,
+      "types": [
+        "page"
+      ]
+    },
+    {
+      "phrase": "Benefits Partners",
+      "normalized": "benefits partners",
+      "sourceCount": 1,
+      "types": [
+        "page"
+      ]
+    },
+    {
+      "phrase": "Care Management",
+      "normalized": "care management",
+      "sourceCount": 1,
+      "types": [
+        "page"
+      ]
+    },
+    {
+      "phrase": "Claims",
+      "normalized": "claims",
+      "sourceCount": 1,
+      "types": [
+        "page"
+      ]
+    },
+    {
+      "phrase": "Claims Submissions and Disputes",
+      "normalized": "claims submissions and disputes",
+      "sourceCount": 1,
+      "types": [
+        "page"
+      ]
+    },
+    {
+      "phrase": "Communications",
+      "normalized": "communications",
+      "sourceCount": 1,
+      "types": [
+        "page"
+      ]
+    },
+    {
+      "phrase": "Contact Us",
+      "normalized": "contact us",
+      "sourceCount": 1,
+      "types": [
+        "page"
+      ]
+    },
+    {
+      "phrase": "Continuing medical education | Healthy Blue",
+      "normalized": "continuing medical education healthy blue",
+      "sourceCount": 1,
+      "types": [
+        "page"
+      ]
+    },
+    {
+      "phrase": "Critical Incidents",
+      "normalized": "critical incidents",
+      "sourceCount": 1,
+      "types": [
+        "page"
+      ]
+    },
+    {
+      "phrase": "Disease Management",
+      "normalized": "disease management",
+      "sourceCount": 1,
+      "types": [
+        "page"
+      ]
+    },
+    {
+      "phrase": "Early and Periodic Screening, Diagnostic and Treatment",
+      "normalized": "early and periodic screening diagnostic and treatment",
+      "sourceCount": 1,
+      "types": [
+        "page"
+      ]
+    },
+    {
+      "phrase": "Electronic Data Interchange",
+      "normalized": "electronic data interchange",
+      "sourceCount": 1,
+      "types": [
+        "page"
+      ]
+    },
+    {
+      "phrase": "Eligibility & Provider Report",
+      "normalized": "eligibility provider report",
+      "sourceCount": 1,
+      "types": [
+        "page"
+      ]
+    },
+    {
+      "phrase": "Enhanced Personal Health Care Program",
+      "normalized": "enhanced personal health care program",
+      "sourceCount": 1,
+      "types": [
+        "page"
+      ]
+    },
+    {
+      "phrase": "Guide to drug coverage under medical benefit | Healthy Blue",
+      "normalized": "guide to drug coverage under medical benefit healthy blue",
+      "sourceCount": 1,
+      "types": [
+        "page"
+      ]
+    },
+    {
+      "phrase": "Health Education",
+      "normalized": "health education",
+      "sourceCount": 1,
+      "types": [
+        "page"
+      ]
+    },
+    {
+      "phrase": "Healthcare Effectiveness Data and Information Set (HEDIS)",
+      "normalized": "healthcare effectiveness data and information set hedis",
+      "sourceCount": 1,
+      "types": [
+        "page"
+      ]
+    },
+    {
+      "phrase": "Healthy Blue North Carolina Providers",
+      "normalized": "healthy blue north carolina providers",
+      "sourceCount": 1,
+      "types": [
+        "page"
+      ]
+    },
+    {
+      "phrase": "Join Our Network",
+      "normalized": "join our network",
+      "sourceCount": 1,
+      "types": [
+        "page"
+      ]
+    },
+    {
+      "phrase": "Learn about Availity",
+      "normalized": "learn about availity",
+      "sourceCount": 1,
+      "types": [
+        "page"
+      ]
+    },
+    {
+      "phrase": "Maternal Child Services",
+      "normalized": "maternal child services",
+      "sourceCount": 1,
+      "types": [
+        "page"
+      ]
+    },
+    {
+      "phrase": "Medical Management Model",
+      "normalized": "medical management model",
+      "sourceCount": 1,
+      "types": [
+        "page"
+      ]
+    },
+    {
+      "phrase": "Member Eligibility & Pharmacy",
+      "normalized": "member eligibility pharmacy",
+      "sourceCount": 1,
+      "types": [
+        "page"
+      ]
+    },
+    {
+      "phrase": "Nc Caid Evvhomehealthcrosswalkhrdlnch",
+      "normalized": "nc caid evvhomehealthcrosswalkhrdlnch",
+      "sourceCount": 1,
+      "types": [
+        "pdf"
+      ]
+    },
+    {
+      "phrase": "Nc Caid Mngcrelctrncvstvrfhmhlthimp Hrdlnch",
+      "normalized": "nc caid mngcrelctrncvstvrfhmhlthimp hrdlnch",
+      "sourceCount": 1,
+      "types": [
+        "pdf"
+      ]
+    },
+    {
+      "phrase": "Ncnc Caid Bcnc Goodfaithcontractingpolicy",
+      "normalized": "ncnc caid bcnc goodfaithcontractingpolicy",
+      "sourceCount": 1,
+      "types": [
+        "pdf"
+      ]
+    },
+    {
+      "phrase": "Patient Care",
+      "normalized": "patient care",
+      "sourceCount": 1,
+      "types": [
+        "page"
+      ]
+    },
+    {
+      "phrase": "Pharmacy Information",
+      "normalized": "pharmacy information",
+      "sourceCount": 1,
+      "types": [
+        "page"
+      ]
+    },
+    {
+      "phrase": "Physician Administered Drug Program",
+      "normalized": "physician administered drug program",
+      "sourceCount": 1,
+      "types": [
+        "page"
+      ]
+    },
+    {
+      "phrase": "Prior Authorization",
+      "normalized": "prior authorization",
+      "sourceCount": 1,
+      "types": [
+        "page"
+      ]
+    },
+    {
+      "phrase": "Prior Authorization Lookup Tool",
+      "normalized": "prior authorization lookup tool",
+      "sourceCount": 1,
+      "types": [
+        "page"
+      ]
+    },
+    {
+      "phrase": "Privacy Policies",
+      "normalized": "privacy policies",
+      "sourceCount": 1,
+      "types": [
+        "page"
+      ]
+    },
+    {
+      "phrase": "Provider Forms",
+      "normalized": "provider forms",
+      "sourceCount": 1,
+      "types": [
+        "page"
+      ]
+    },
+    {
+      "phrase": "Provider Manuals and Guides",
+      "normalized": "provider manuals and guides",
+      "sourceCount": 1,
+      "types": [
+        "page"
+      ]
+    },
+    {
+      "phrase": "Provider Resources",
+      "normalized": "provider resources",
+      "sourceCount": 1,
+      "types": [
+        "page"
+      ]
+    },
+    {
+      "phrase": "Quality Management",
+      "normalized": "quality management",
+      "sourceCount": 1,
+      "types": [
+        "page"
+      ]
+    },
+    {
+      "phrase": "Referrals",
+      "normalized": "referrals",
+      "sourceCount": 1,
+      "types": [
+        "page"
+      ]
+    },
+    {
+      "phrase": "Reimbursement Policies",
+      "normalized": "reimbursement policies",
+      "sourceCount": 1,
+      "types": [
+        "page"
+      ]
+    },
+    {
+      "phrase": "Reimbursement Policy Definitions",
+      "normalized": "reimbursement policy definitions",
+      "sourceCount": 1,
+      "types": [
+        "page"
+      ]
+    },
+    {
+      "phrase": "Reimbursement Policy Disclaimer",
+      "normalized": "reimbursement policy disclaimer",
+      "sourceCount": 1,
+      "types": [
+        "page"
+      ]
+    },
+    {
+      "phrase": "Resource library | Healthy Blue",
+      "normalized": "resource library healthy blue",
+      "sourceCount": 1,
+      "types": [
+        "page"
+      ]
+    },
+    {
+      "phrase": "Rights and Responsibilities",
+      "normalized": "rights and responsibilities",
+      "sourceCount": 1,
+      "types": [
+        "page"
+      ]
+    },
+    {
+      "phrase": "SBIRT | Healthy Blue",
+      "normalized": "sbirt healthy blue",
+      "sourceCount": 1,
+      "types": [
+        "page"
+      ]
+    },
+    {
+      "phrase": "Schedules and registration | Healthy Blue",
+      "normalized": "schedules and registration healthy blue",
+      "sourceCount": 1,
+      "types": [
+        "page"
+      ]
+    },
+    {
+      "phrase": "Search Medical Policies and Clinical Guidelines",
+      "normalized": "search medical policies and clinical guidelines",
+      "sourceCount": 1,
+      "types": [
+        "page"
+      ]
+    },
+    {
+      "phrase": "Serving diverse populations | Healthy Blue",
+      "normalized": "serving diverse populations healthy blue",
+      "sourceCount": 1,
+      "types": [
+        "page"
+      ]
+    },
+    {
+      "phrase": "Terms of Use",
+      "normalized": "terms of use",
+      "sourceCount": 1,
+      "types": [
+        "page"
+      ]
+    },
+    {
+      "phrase": "Total Member View",
+      "normalized": "total member view",
+      "sourceCount": 1,
+      "types": [
+        "page"
+      ]
+    },
+    {
+      "phrase": "Training academy | Healthy Blue",
+      "normalized": "training academy healthy blue",
+      "sourceCount": 1,
+      "types": [
+        "page"
+      ]
+    },
+    {
+      "phrase": "Training resources | Healthy Blue",
+      "normalized": "training resources healthy blue",
+      "sourceCount": 1,
+      "types": [
+        "page"
+      ]
+    }
+  ]
 }
