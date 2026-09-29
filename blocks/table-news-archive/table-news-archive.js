@@ -1,44 +1,61 @@
 /*
  * table-news-archive — filterable / sortable / paginated document news feed.
  *
- * Authoring content model (one row per document):
- *   | linked document title | publication date | category |
- * The block derives the category filter tabs from the distinct category
- * values, adds a Sort By dropdown (Newest / Oldest / A-Z / Z-A), and paginates
- * the visible rows with a "Load More" button.
+ * Source: https://provider.healthybluenc.com/north-carolina-provider/archives
+ * (ul.tab_list filter tabs + Sort By dropdown over a list of PDF rows).
+ *
+ * Fetches the GPP news-archives service (AllDocs[]: title, URI, updateDate
+ * "MM-DD-YYYY", topic[]); any authored rows are ignored. The filter tabs are
+ * the fixed topic list below, and a document shows under every topic it is
+ * tagged with. Adds a Sort By dropdown (Newest / Oldest / A-Z / Z-A) and
+ * paginates the visible rows with a "Load More" button.
  *
  * Structural/behavioral only — brand styling from body.north-carolina tokens.
  */
 
+import { sampleRUM } from '../../scripts/aem.js';
+import { fetchNewsArchiveData } from '../../scripts/lookup-service.js';
+
 const PAGE_SIZE = 10;
 const ALL = 'All';
+const TOPICS = ['Provider Newsletter', 'Medicaid News'];
+const DOC_BASE_URL = 'https://provider.healthybluenc.com';
 
-function parseDate(str) {
-  const t = Date.parse((str || '').trim());
-  return Number.isNaN(t) ? 0 : t;
+function resolveDocUrl(uri) {
+  if (!uri) return '#';
+  return uri.startsWith('/') ? `${DOC_BASE_URL}${uri}` : uri;
 }
 
-export default function decorate(block) {
-  // 1. Read authored rows into a document model.
-  const docs = [...block.children].map((row) => {
-    const cells = [...row.children];
-    const titleCell = cells[0];
-    const dateText = (cells[1]?.textContent || '').trim();
-    const category = (cells[2]?.textContent || '').trim() || ALL;
-    const link = titleCell?.querySelector('a');
-    return {
-      title: (link?.textContent || titleCell?.textContent || '').trim(),
-      href: link?.getAttribute('href') || '',
-      date: dateText,
-      ts: parseDate(dateText),
-      category,
-    };
-  }).filter((d) => d.title);
+// updateDate is "MM-DD-YYYY", which Date.parse does not handle reliably.
+function parseDate(str) {
+  const [month, day, year] = (str || '').split('-').map(Number);
+  if (!month || !day || !year) return 0;
+  return new Date(year, month - 1, day).getTime();
+}
 
-  // 2. Build the UI shell.
+function formatDate(ts, fallback) {
+  if (!ts) return fallback || '';
+  return new Date(ts).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+}
+
+function toDocModel(doc) {
+  const ts = parseDate(doc.updateDate);
+  return {
+    title: (doc.title || '').trim(),
+    href: resolveDocUrl(doc.URI),
+    date: formatDate(ts, doc.updateDate),
+    ts,
+    topics: Array.isArray(doc.topic) ? doc.topic : [],
+  };
+}
+
+export default async function decorate(block) {
+  let docs = [];
+
+  // 1. Build the UI shell.
   block.textContent = '';
 
-  const categories = [ALL, ...[...new Set(docs.map((d) => d.category))].filter((c) => c !== ALL)];
+  const categories = [ALL, ...TOPICS];
 
   const controls = document.createElement('div');
   controls.className = 'table-news-archive-controls';
@@ -66,6 +83,10 @@ export default function decorate(block) {
     });
   sortWrap.append(sortLabel, sortSelect);
 
+  const status = document.createElement('p');
+  status.className = 'table-news-archive-status';
+  status.textContent = 'Loading archives…';
+
   const list = document.createElement('ul');
   list.className = 'table-news-archive-list';
 
@@ -73,15 +94,16 @@ export default function decorate(block) {
   moreBtn.type = 'button';
   moreBtn.className = 'table-news-archive-more';
   moreBtn.textContent = 'Load More';
+  moreBtn.hidden = true;
 
   controls.append(tabs, sortWrap);
-  block.append(controls, list, moreBtn);
+  block.append(controls, status, list, moreBtn);
 
-  // 3. State + rendering.
+  // 2. State + rendering.
   const state = { category: ALL, sort: 'newest', shown: PAGE_SIZE };
 
   function filtered() {
-    let rows = docs.filter((d) => state.category === ALL || d.category === state.category);
+    let rows = docs.filter((d) => state.category === ALL || d.topics.includes(state.category));
     rows = rows.slice().sort((a, b) => {
       if (state.sort === 'newest') return b.ts - a.ts;
       if (state.sort === 'oldest') return a.ts - b.ts;
@@ -100,6 +122,8 @@ export default function decorate(block) {
       li.className = 'table-news-archive-item';
       const a = document.createElement('a');
       a.href = d.href;
+      a.target = '_blank';
+      a.rel = 'noopener';
       a.textContent = d.title;
       a.className = 'table-news-archive-item-title';
       const date = document.createElement('span');
@@ -108,6 +132,8 @@ export default function decorate(block) {
       li.append(a, date);
       list.append(li);
     });
+    status.textContent = rows.length ? '' : 'No documents found.';
+    status.hidden = rows.length > 0;
     moreBtn.hidden = state.shown >= rows.length;
   }
 
@@ -138,5 +164,14 @@ export default function decorate(block) {
     render();
   });
 
-  render();
+  // 3. Load the document list from the news-archives service.
+  try {
+    const data = await fetchNewsArchiveData();
+    docs = (data?.AllDocs ?? []).map(toDocModel).filter((d) => d.title);
+    render();
+  } catch (err) {
+    status.textContent = 'Unable to load archives right now. Please try again later.';
+    block.dataset.loadError = err.message;
+    sampleRUM('error', { source: 'table-news-archive', target: err.message });
+  }
 }
