@@ -625,9 +625,10 @@ body.north-carolina main .search .search-results {
   }
 }
 
-/* Results page, matching the NC provider site's search presentation. */
+/* NC results page with a continuous background and compact heading spacing. */
 body.north-carolina main.search-page-main {
-  margin-top: 64px;
+  margin-top: 0;
+  padding-top: 32px;
   background-color: var(--light-color);
 }
 
@@ -651,7 +652,7 @@ body.north-carolina main .search-page {
   width: calc(100% - 60px);
   max-width: 1080px;
   margin: 0 auto;
-  padding: 45px 0 96px;
+  padding: 32px 0 96px;
   background-color: transparent;
 }
 
@@ -947,7 +948,7 @@ body.north-carolina main .search-page .search-pagination {
 
 @media (width < 768px) {
   body.north-carolina main.search-page-main {
-    margin-top: 48px;
+    padding-top: 24px;
   }
 
   body.north-carolina main.search-page-main h1 {
@@ -958,6 +959,10 @@ body.north-carolina main .search-page .search-pagination {
   body.north-carolina main.search-page-main > .section > .default-content-wrapper,
   body.north-carolina main .search-page {
     width: calc(100% - 40px);
+  }
+
+  body.north-carolina main .search-page {
+    padding-top: 24px;
   }
 
   body.north-carolina main .search-page .search-heading {
