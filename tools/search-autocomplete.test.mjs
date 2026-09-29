@@ -14,6 +14,7 @@ import {
   referenceNormalizeText, referencePhrases, referenceSearch,
 } from './search-reference.mjs';
 import { createPhraseCatalog, createSearchCorpus, SEARCH_QUERIES } from './search-benchmark.mjs';
+import { filterResults, resultCategories } from '../scripts/search-filters.js';
 
 const tick = () => new Promise((resolve) => { setTimeout(resolve, 0); });
 const suggestion = (phrase, sourceCount = 1) => ({ phrase, sourceCount });
@@ -261,7 +262,7 @@ test('results status distinguishes partial-source errors from complete unavailab
   });
   const { default: decorate } = await import('../blocks/search/search.js');
   for (const [route, expected] of [
-    ['partial-ui', /1 result found.*incomplete/],
+    ['partial-ui', /1 result for.*incomplete/],
     ['unavailable-ui', /Search is temporarily unavailable/],
   ]) {
     const block = document.createElement('div');
@@ -384,10 +385,13 @@ test('merged cache canonicalizes URLs and separates document-enabled and page-on
   assert.equal(calls.length, 3);
 });
 
-async function paginatedSearch(t, { count = 45, url, unavailableAssets = false } = {}) {
+async function paginatedSearch(t, {
+  count = 45, url, unavailableAssets = false, records: suppliedRecords, theme = 'north-carolina',
+} = {}) {
   setupDOM(t, url || 'https://pagination.example/search.html?q=care&category=all#results');
+  document.body.className = theme;
   window.placeholders = { default: {} };
-  const records = Array.from({ length: count }, (_, index) => ({
+  const records = suppliedRecords || Array.from({ length: count }, (_, index) => ({
     path: index >= 25 ? `/pdfs/care-${index}.pdf` : `/care-${index}`,
     title: 'Care guide',
     description: index === 7 ? 'Unique resource' : 'Provider resources',
@@ -425,7 +429,7 @@ test('pagination renders only the current 10 results and preserves ordering and 
   const view = await paginatedSearch(t);
   const expected = view.records.map((record) => record.path);
   assert.deepEqual(view.paths(), expected.slice(0, 10));
-  assert.match(view.status.textContent, /45 results found\. Showing 1–10\. Page 1 of 5/);
+  assert.match(view.status.textContent, /Showing 1–10 of 45 results for “care” Page 1 of 5/);
   assert.equal(view.pagination.hidden, false);
   assert.equal(view.previous.disabled, true);
   assert.equal(view.next.disabled, false);
@@ -438,20 +442,20 @@ test('pagination renders only the current 10 results and preserves ordering and 
   assert.equal(new URL(window.location).searchParams.get('category'), 'all');
   assert.equal(window.location.hash, '#results');
   assert.equal(document.activeElement, view.block.querySelector('.search-result-link'));
-  assert.match(view.status.textContent, /Showing 11–20\. Page 2 of 5/);
+  assert.match(view.status.textContent, /Showing 11–20 of 45 results for “care” Page 2 of 5/);
   view.next.click();
   assert.deepEqual(view.paths(), expected.slice(20, 30));
-  assert.match(view.status.textContent, /Showing 21–30\. Page 3 of 5/);
+  assert.match(view.status.textContent, /Showing 21–30 of 45 results for “care” Page 3 of 5/);
   const pdf = view.block.querySelector('a[href$=".pdf"]');
   assert.equal(pdf.target, '_blank');
   assert.equal(pdf.rel, 'noopener noreferrer');
   assert.equal(view.block.querySelector('a[href="/care-20"]').target, '');
   view.next.click();
   assert.deepEqual(view.paths(), expected.slice(30, 40));
-  assert.match(view.status.textContent, /Showing 31–40\. Page 4 of 5/);
+  assert.match(view.status.textContent, /Showing 31–40 of 45 results for “care” Page 4 of 5/);
   view.next.click();
   assert.deepEqual(view.paths(), expected.slice(40));
-  assert.match(view.status.textContent, /Showing 41–45\. Page 5 of 5/);
+  assert.match(view.status.textContent, /Showing 41–45 of 45 results for “care” Page 5 of 5/);
   assert.equal(view.next.disabled, true);
   view.next.click();
   assert.equal(new URL(window.location).searchParams.get('page'), '5');
@@ -565,7 +569,7 @@ test('a thousand matches create only ten result entries and one page has no cont
       count: 1000, url: 'https://pagination-large.example/search.html?q=care',
     });
     assert.equal(view.block.querySelectorAll('.search-results > li').length, 10);
-    assert.match(view.status.textContent, /1000 results found.*Page 1 of 100/);
+    assert.match(view.status.textContent, /1000 results for.*Page 1 of 100/);
     view.next.click();
     assert.equal(view.block.querySelectorAll('.search-results > li').length, 10);
   });
@@ -577,4 +581,110 @@ test('a thousand matches create only ten result entries and one page has no cont
     assert.equal(view.pagination.hidden, true);
     assert.equal(new URL(window.location).searchParams.has('page'), false);
   });
+});
+
+test('content filters honor metadata, fall back to descriptive fields, and combine with OR', () => {
+  const records = [
+    { path: '/forms', title: 'Claims guide', category: 'Policies, Guidelines & Manuals' },
+    { path: '/claims', title: 'Provider information' },
+    { path: '/pdfs/prior-auth-form.pdf', title: 'Care request' },
+    { path: '/home', title: 'Home', content: 'Claims, forms and guidelines' },
+    { path: '/other', title: 'Other', tags: ['Forms', 'Claims & Billing'] },
+  ];
+  assert.deepEqual(resultCategories(records[0]), ['policies']);
+  assert.deepEqual(resultCategories(records[1]), ['claims']);
+  assert.deepEqual(resultCategories(records[2]), ['authorization', 'forms']);
+  assert.deepEqual(resultCategories(records[3]), []);
+  assert.deepEqual(resultCategories(records[4]), ['claims', 'forms']);
+  assert.equal(filterResults(records, []), records);
+  assert.deepEqual(filterResults(records, ['claims', 'forms']), records.slice(1).filter((r) => r.path !== '/home'));
+});
+
+test('page size and filters restore from the URL and reuse matches when changed', async (t) => {
+  const records = Array.from({ length: 45 }, (_, index) => ({
+    path: `/care-${index}`, title: 'Care guide', category: index < 30 ? 'Forms' : 'Claims & Billing',
+  }));
+  const view = await paginatedSearch(t, {
+    records, url: 'https://search-options.example/search.html?q=care&size=20&filter=forms&page=2',
+  });
+  const select = view.block.querySelector('.search-page-size select');
+  const claims = view.block.querySelector('input[value="claims"]');
+  const forms = view.block.querySelector('input[value="forms"]');
+  const requests = view.calls.length;
+  assert.equal(select.value, '20');
+  assert.equal(forms.checked, true);
+  assert.deepEqual(view.paths(), records.slice(20, 30).map(({ path }) => path));
+  assert.match(view.status.textContent, /Showing 21–30 of 30 results/);
+  claims.checked = true;
+  claims.dispatchEvent(new window.Event('change'));
+  assert.equal(view.paths().length, 20);
+  assert.match(view.status.textContent, /Showing 1–20 of 45 results/);
+  assert.equal(new URL(window.location).searchParams.has('page'), false);
+  assert.deepEqual(new URL(window.location).searchParams.getAll('filter'), ['claims', 'forms']);
+  forms.checked = false;
+  forms.dispatchEvent(new window.Event('change'));
+  assert.deepEqual(view.paths(), records.slice(30).map(({ path }) => path));
+  assert.equal(view.pagination.hidden, true);
+  view.block.querySelector('.search-clear-filters').click();
+  assert.equal(new URL(window.location).searchParams.has('filter'), false);
+  assert.equal(view.paths().length, 20);
+  select.value = '10';
+  select.dispatchEvent(new window.Event('change'));
+  assert.equal(view.paths().length, 10);
+  assert.equal(new URL(window.location).searchParams.has('size'), false);
+  assert.equal(view.calls.length, requests);
+
+  // History restores controls as well as the displayed results.
+  window.history.replaceState({}, '', '/search.html?q=care&filter=claims&size=20');
+  window.dispatchEvent(new window.PopStateEvent('popstate'));
+  await tick();
+  assert.equal(select.value, '20');
+  assert.equal(claims.checked, true);
+  assert.equal(forms.checked, false);
+  assert.equal(view.paths().length, 15);
+  window.history.replaceState({}, '', '/search.html?q=care&filter=unknown&size=999&page=999');
+  window.dispatchEvent(new window.PopStateEvent('popstate'));
+  await tick();
+  assert.equal(select.value, '10');
+  assert.equal(view.paths().length, 5);
+  assert.equal(new URL(window.location).searchParams.has('filter'), false);
+  assert.equal(new URL(window.location).searchParams.has('size'), false);
+  assert.match(view.status.textContent, /Page 5 of 5/);
+});
+
+test('NC results separate linked titles from safe URLs and descriptions', async (t) => {
+  const view = await paginatedSearch(t, {
+    url: 'https://result-layout.example/search.html?q=care',
+    records: [{
+      path: '/pdfs/care.pdf',
+      title: 'Care <img src=x>',
+      description: 'Care requirements <script>unsafe</script>',
+      image: '/image.jpg',
+    }],
+  });
+  const row = view.block.querySelector('.search-results > li');
+  assert.equal(row.querySelector('.search-result-title a').textContent, 'Care <img src=x>');
+  assert.equal(row.querySelector('.search-result-url').textContent, 'https://result-layout.example/pdfs/care.pdf');
+  assert.equal(row.querySelector('.search-result-description').closest('a'), null);
+  assert.equal(row.querySelector('.search-result-description mark').textContent, 'Care');
+  assert.equal(row.querySelector('img, script'), null);
+  assert.equal(row.classList.contains('search-result-pdf'), true);
+  assert.equal(row.querySelector('a').target, '_blank');
+  assert.equal(row.querySelector('a').rel, 'noopener noreferrer');
+});
+
+test('other site themes retain their card markup and page-only data source', async (t) => {
+  const view = await paginatedSearch(t, {
+    theme: 'elevance',
+    url: 'https://other-theme.example/search.html?q=care',
+    records: [{
+      path: '/care', title: 'Care guide', description: 'Provider resources', image: '/care.jpg',
+    }],
+  });
+  assert.equal(view.block.querySelector('.search-layout, .search-page-size, .search-filters'), null);
+  assert.equal(view.block.querySelector('.search-result-url'), null);
+  assert.ok(view.block.querySelector('.search-result-link .search-result-image img'));
+  assert.ok(view.block.querySelector('.search-result-link p'));
+  assert.equal(view.status.textContent, '1 result found.');
+  assert.equal(view.calls.some((url) => url.includes('asset-index')), false);
 });

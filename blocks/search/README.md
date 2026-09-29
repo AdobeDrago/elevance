@@ -17,8 +17,11 @@ Other site themes load only their configured page index.
 - Three non-space characters and 200 ms debounce; the query stays in `?q=`.
 - AND matching across title, H1, description, body, topic, type and path.
 - Exact-title-first ranking; `noindex` records excluded; paths deduplicated.
-- Ten results per page, with Previous/Next controls and an announced total,
+- Ten results per page by default, with Previous/Next controls and an announced total,
   visible range and page number. Page changes reuse the ranked matches.
+- NC results pages offer 10/20/30/40/50 results per page and four content filters.
+  Filters and page-size changes reuse matches and return to page one. Their
+  `filter` and `size` URL parameters restore with browser Back/Forward.
 - `?q=care&page=2` opens the second page; browser Back/Forward restores the
   selected page. New queries and autocomplete selections return to page one.
 - PDFs open in a new tab; pages remain in the same tab.
@@ -27,5 +30,11 @@ Other site themes load only their configured page index.
 
 Default card and `minimal` variants remain available. NC styling stays scoped to
 `body.north-carolina` and preserves the header's responsive overlay and focus
-behavior. Page-level results use the existing NC link-list presentation with
-visible descriptions and status.
+behavior. NC results pages match the source search layout: gray background,
+search heading and labeled field, filter sidebar, bold linked titles, visible
+destination URLs, PDF document icons, and separate description snippets.
+
+Filters use recognized `category`, `topic`, or `tags` values first, then fall back
+to title/H1/path keywords when categories are unavailable. Body text does not
+assign categories. Selecting multiple filters includes any matching category;
+uncategorized results remain visible when all filters are cleared.

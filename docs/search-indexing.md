@@ -27,7 +27,7 @@ Records with `noindex` are ignored. PDFs open in a new tab with a protected open
 page links use the current tab. A live status reports loading, counts, empty
 results and incomplete/unavailable sources.
 
-Results render **10 at a time**, with Previous/Next controls, a full match count,
+Results render **10 at a time by default**, with Previous/Next controls, a full match count,
 visible range and current page announced in the live status. The controls appear
 only when more than one page is available. Page buttons reuse the ranked matches,
 move focus to the first result and scroll the results into view. They neither
@@ -39,8 +39,28 @@ Back/Forward restores it. Invalid page values fall back to page one; pages beyon
 the available matches use the final page. New queries, autocomplete selections
 and clearing search reset pagination. Page one omits the `page` parameter.
 
+The NC results page follows the provider search design: a gray background,
+Search Results heading, Search Again field, filter sidebar, and a results column
+with bold linked titles, destination URLs, separate descriptions and PDF icons.
+Mobile stacks the controls and result column. Header search retains its overlay.
+
+Results per page offers 10, 20, 30, 40 or 50, with 10 as the default. The content
+filters are Policies, Guidelines & Manuals; Claims & Billing; Prior Authorization
+& Eligibility; and Forms. Multiple selected categories use OR matching. Recognized
+`category`, `topic` and `tags` values take precedence. Where those are absent or
+unrecognized, categories fall back to title/H1/path keywords. Body text is never
+used to assign categories, and unclassified records remain in unfiltered results.
+The current AEM index has empty category values, so authoring metadata is needed
+for precise categorization beyond this conservative fallback.
+
+Changing a filter or page size reuses ranked matches, resets to page one, and
+preserves the query. Both controls are shareable (`filter=forms&size=20`) and
+restore on browser Back/Forward. Default size 10 and empty filters omit their URL
+parameters. PDF opens remain protected, and descriptions/URLs are displayed as
+text rather than added to the title link.
+
 This is client-side pagination: it bounds result rendering, not index downloads
-or the initial matching pass. With 1,000 matches, only 10 result entries are
+or the initial matching pass. With 1,000 matches at the default size, only 10 result entries are
 created in the document at once (99% fewer than rendering every match). The full
 ranked result array remains in memory while the query is active.
 
