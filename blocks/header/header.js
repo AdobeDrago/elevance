@@ -183,7 +183,6 @@ function setMenuExpanded(nav, navSections, expanded) {
 
 function toggleNavSection(navSections, section) {
   const expanded = section.classList.contains('is-open');
-  if (isNorthCarolinaDesktopView()) closeSearch(navSections.closest('nav'));
   closeAllNavSections(navSections, section);
   setNavSectionExpanded(section, !expanded);
 }
@@ -191,20 +190,20 @@ function toggleNavSection(navSections, section) {
 function handleNorthCarolinaEscape(e, nav, navSections) {
   if (e.code !== 'Escape') return;
 
-  const searchButton = nav.querySelector(
-    '.nav-search-button[aria-expanded="true"]',
-  );
-  if (searchButton && isNorthCarolinaDesktopView()) {
-    closeSearch(nav, true);
-    return;
-  }
-
   const openToggle = nav.querySelector(
     '.nav-section-toggle[aria-expanded="true"]',
   );
   if (openToggle) {
     closeAllNavSections(navSections);
     openToggle.focus();
+    return;
+  }
+
+  const searchButton = nav.querySelector(
+    '.nav-search-button[aria-expanded="true"]',
+  );
+  if (searchButton && isNorthCarolinaDesktopView()) {
+    closeSearch(nav, true);
     return;
   }
 
@@ -249,8 +248,6 @@ function decorateNorthCarolinaNavSections(navSections) {
     });
     section.addEventListener('mouseenter', () => {
       if (!isNorthCarolinaDesktopView()) return;
-      const nav = navSections.closest('nav');
-      if (nav.querySelector('.nav-search-button[aria-expanded="true"]')) return;
       hoverOpenedSections.add(section);
       closeAllNavSections(navSections, section);
       setNavSectionExpanded(section, true);
