@@ -13,4 +13,3 @@ jobs:
     - run: npm ci
     - run: npm run lint
     - run: npm run test:search-index
-    - run: npm run build:json

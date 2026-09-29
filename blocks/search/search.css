@@ -336,82 +336,9 @@ body.north-carolina .search.overlay .search-close:focus-visible {
   outline-offset: -4px;
 }
 
-body.north-carolina .search ul.search-results {
-  box-sizing: border-box;
-  display: block;
-  width: calc(100% - 60px);
-  max-width: 1140px;
-  max-height: min(420px, 60vh);
-  margin: 0 auto;
-  border: 1px solid #666;
-  border-top: 0;
-  padding: 8px 16px 12px 66px;
-  overflow-y: auto;
-  background-color: #fff;
-}
-
 body.north-carolina .search ul.search-results[hidden],
 body.north-carolina .search .search-clear[hidden] {
   display: none;
-}
-
-body.north-carolina .search ul.search-results > li {
-  margin: 0;
-  border: 0;
-  padding: 5px 0;
-}
-
-body.north-carolina .search ul.search-results > li > a {
-  color: #016b95;
-  background-color: transparent;
-  font-size: 16px;
-  line-height: 22px;
-  text-decoration: underline;
-}
-
-body.north-carolina .search ul.search-results > li > a:hover,
-body.north-carolina .search ul.search-results > li > a:focus {
-  color: #01506f;
-  text-decoration: underline;
-}
-
-body.north-carolina .search ul.search-results > li > a:focus-visible {
-  outline: 2px solid #016b95;
-  outline-offset: 2px;
-}
-
-body.north-carolina .search ul.search-results .search-result-image,
-body.north-carolina .search ul.search-results p {
-  display: none;
-}
-
-body.north-carolina .search ul.search-results .search-result-title {
-  margin: 0;
-  padding: 0;
-  color: currentcolor;
-  font-family: var(--body-font-family);
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 22px;
-}
-
-body.north-carolina .search ul.search-results mark {
-  color: inherit;
-  background-color: #dff3fa;
-}
-
-body.north-carolina .search ul.search-results.no-results {
-  margin: 0 auto;
-  padding-left: 66px;
-  color: #333;
-}
-
-body.north-carolina .search.overlay ul.search-results,
-body.north-carolina .search.overlay ul.search-results.no-results {
-  width: calc(100% - 104px);
-  max-width: 1096px;
-  margin-right: auto;
-  margin-left: max(30px, calc((100% - 1140px) / 2));
 }
 
 body.north-carolina header #nav > .search {
@@ -444,13 +371,6 @@ body.north-carolina header #nav > .search.overlay .search-close {
   display: none;
 }
 
-body.north-carolina header #nav > .search ul.search-results,
-body.north-carolina header #nav > .search ul.search-results.no-results {
-  width: 100%;
-  max-width: none;
-  margin: 0;
-}
-
 @media (width >= 481px) and (width < 992px) {
   body.north-carolina header #nav > .search {
     padding-right: 50px;
@@ -480,40 +400,6 @@ body.north-carolina header #nav > .search ul.search-results.no-results {
 
   body.north-carolina header #nav > .search.overlay .search-close {
     display: grid;
-  }
-
-  body.north-carolina header #nav > .search.overlay ul.search-results,
-  body.north-carolina header #nav > .search.overlay ul.search-results.no-results {
-    width: calc(100% - 44px);
-    margin: 0;
-  }
-}
-
-@media (width < 600px) {
-  body.north-carolina .search {
-    padding: 16px 0;
-  }
-
-  body.north-carolina .search .search-box,
-  body.north-carolina .search ul.search-results {
-    width: calc(100% - 40px);
-  }
-
-  body.north-carolina .search.overlay ul.search-results,
-  body.north-carolina .search.overlay ul.search-results.no-results {
-    width: calc(100% - 84px);
-    margin-right: auto;
-    margin-left: 20px;
-  }
-
-  body.north-carolina .search ul.search-results {
-    padding-left: 54px;
-  }
-
-  body.north-carolina .search .search-box input,
-  body.north-carolina .search ul.search-results > li > a,
-  body.north-carolina .search ul.search-results .search-result-title {
-    font-size: 16px;
   }
 }
 
@@ -862,7 +748,10 @@ body.north-carolina main .search-page .search-source-warning {
 }
 
 body.north-carolina main .search-page ul.search-results {
+  box-sizing: border-box;
+  display: block;
   width: 100%;
+  max-width: 1140px;
   max-height: none;
   margin: 0;
   border: 0;
@@ -937,6 +826,7 @@ body.north-carolina main .search-page ul.search-results .search-result-descripti
 }
 
 body.north-carolina main .search-page ul.search-results mark {
+  color: inherit;
   background-color: transparent;
   font-weight: 700;
 }

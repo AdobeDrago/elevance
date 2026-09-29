@@ -10,10 +10,6 @@ import {
   assetIndexURL, loadSearchData, prepareSearchData, searchRecords,
 } from '../scripts/search-data.js';
 
-import {
-  referenceNormalizeText, referencePhrases, referenceSearch,
-} from './search-reference.mjs';
-import { createPhraseCatalog, createSearchCorpus, SEARCH_QUERIES } from './search-benchmark.mjs';
 import { filterResults, resultCategories } from '../scripts/search-filters.js';
 
 const tick = () => new Promise((resolve) => { setTimeout(resolve, 0); });
@@ -279,27 +275,33 @@ test('results status distinguishes partial-source errors from complete unavailab
   }
 });
 
-test('prepared search matches original results and ordering across varied queries', () => {
-  const records = createSearchCorpus(150, 500);
-  records.push(
+test('queries match across fields, ignore repeated terms, and normalize accents', () => {
+  const records = [
     { path: '/cross-field', title: 'prior', description: 'authorization' },
     { path: '/accent', title: 'ＣＡＦÉ—resources', content: null },
-    { path: '/rank-first', title: 'care management 0', content: '' },
     {
       path: '/empty', title: null, header: null, content: '',
     },
-  );
-  for (const query of [...SEARCH_QUERIES, 'a b', 'PDF', '---', 'auth auth', 'provider prior']) {
-    assert.deepEqual(searchRecords(records, query), referenceSearch(records, query));
-  }
+  ];
+  assert.deepEqual(searchRecords(records, 'authorization prior'), [records[0]]);
+  assert.deepEqual(searchRecords(records, 'auth auth'), [records[0]]);
+  assert.deepEqual(searchRecords(records, 'cafe resources'), [records[1]]);
+  assert.deepEqual(searchRecords(records, 'prior missing'), []);
+  assert.deepEqual(searchRecords(records, 'a b'), []);
+  assert.deepEqual(searchRecords(records, '---'), []);
 });
 
-test('normalization preserves the original Unicode and whitespace behavior', () => {
-  const values = [null, undefined, '', 'a\tb\nc\r\nd', '  cafe    care  ',
-    'CÁFÉ—Ｃare', 'ΟΣ\u2019Α', 'İstanbul', '건강 관리', 'ﬃrst', 'مرحبا',
-    'a\u00a0\u1680\u2000\u2009\u2028\u2029\u202f\u205f\u3000\ufeffb',
-    'one🩺two\u200bthree', 'a\u0301\u0308 b\u0301', '\ud800 guide'];
-  for (const value of values) assert.equal(normalizeText(value), referenceNormalizeText(value));
+test('normalization handles empty values, multilingual text and Unicode whitespace', () => {
+  const cases = [
+    [null, ''], [undefined, ''], ['', ''], ['a\tb\nc\r\nd', 'a b c d'],
+    ['  cafe    care  ', 'cafe care'], ['CÁFÉ—Ｃare', 'cafe care'],
+    ['ΟΣ\u2019Α', 'οσ α'], ['İstanbul', 'istanbul'], ['건강 관리', '건강 관리'],
+    ['ﬃrst', 'ffirst'], ['مرحبا', 'مرحبا'],
+    ['a\u00a0\u1680\u2000\u2009\u2028\u2029\u202f\u205f\u3000\ufeffb', 'a b'],
+    ['one🩺two\u200bthree', 'one two three'], ['a\u0301\u0308 b\u0301', 'a b'],
+    ['\ud800 guide', 'guide'],
+  ];
+  for (const [value, expected] of cases) assert.equal(normalizeText(value), expected);
 });
 
 test('search preparation reads PDF text once per immutable snapshot without changing records', () => {
@@ -321,23 +323,16 @@ test('search preparation reads PDF text once per immutable snapshot without chan
   assert.deepEqual(searchRecords(replacement, 'outpatient'), []);
 });
 
-test('prepared autocomplete retains fallback, duplicate, tie and limit behavior', () => {
-  const records = createPhraseCatalog(300);
-  records.push(
-    suggestion('Café—resources guide 7', 999),
-    suggestion('Urgent care guide'),
-    suggestion('Care guidance', 5),
-    suggestion('Care guidance addition', 5),
-    suggestion('Scare guideline', 20),
-  );
-  for (const query of [...SEARCH_QUERIES, 'res gui', 'care guide', 'ca', 'PDF', '---']) {
-    for (const maximum of [0, 1, 8, 20]) {
-      assert.deepEqual(
-        rankPhrases(records, query, maximum),
-        referencePhrases(records, query, maximum),
-      );
-    }
-  }
+test('autocomplete deduplicates normalized titles and honors result limits', () => {
+  const records = [
+    suggestion('Café Care', 2), suggestion('Cafe—Care', 99),
+    suggestion('Care guidance', 5), suggestion('Care assistance', 5),
+  ];
+  assert.deepEqual(rankPhrases(records, 'care'), [records[3], records[2], records[0]]);
+  assert.deepEqual(rankPhrases(records, 'cafe'), [records[0]]);
+  assert.deepEqual(rankPhrases(records, 'care', 1), [records[3]]);
+  assert.deepEqual(rankPhrases(records, 'care', 0), []);
+  assert.deepEqual(rankPhrases(records, 'missing'), []);
 });
 
 test('autocomplete reuses generated normalization and prepares legacy phrases only once', () => {

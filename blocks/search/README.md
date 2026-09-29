@@ -2,7 +2,6 @@
 
 The NC search page at `/search.html` combines the site's AEM page index with the
 matching preview/live document index and adds accessible title/H1 autocomplete.
-See [search setup and operations](../../docs/search-indexing.md).
 
 ## Authoring
 
@@ -41,3 +40,32 @@ Filters use recognized `category`, `topic`, or `tags` values first, then fall ba
 to title/H1/path keywords when categories are unavailable. Body text does not
 assign categories. Selecting multiple filters includes any matching category;
 uncategorized results remain visible when all filters are cleared.
+
+## Search data
+
+Pages come from the site's `/query-index.json`. The definition in
+`helix-query.yaml` is applied through AEM Site Admin for this repoless site.
+
+| Environment | Documents | Autocomplete |
+| --- | --- | --- |
+| Local / preview | `asset-index-preview.json` | `search-key-phrases-preview.json` |
+| Live / production | `asset-index.json` | `search-key-phrases.json` |
+
+The JSON files can be maintained manually. PDF records need `path`, `title`,
+`description`, `type: "pdf"`, and extracted `content` for body-text searches.
+The initial files are empty; PDF results and autocomplete need populated data.
+
+To regenerate all four files from DA, use Node.js 22, set `DA_IMS_TOKEN` in the
+terminal environment, then run:
+
+```sh
+npm run search:index:da
+```
+
+`asset-index.config.json` targets `adobedrago/elevance-nc/docs/gpp`. The token
+must have read access to that site. The generator checks each document on its
+matching preview/live host, extracts PDF text, then builds suggestions from
+page and document titles. Files returning 404/410 are omitted. Changed files
+are written locally; refresh is manual.
+
+Validate changes with `npm run test:search-index` and `npm run lint`.

@@ -85,9 +85,8 @@ export function validateConfig(config) {
   return config;
 }
 
-export async function readConfig(file, rootsOverride = process.env.SEARCH_INDEX_ROOTS) {
+export async function readConfig(file) {
   const config = JSON.parse(await readFile(file, 'utf8'));
-  if (rootsOverride?.trim()) config.roots = rootsOverride.split(',').map((root) => root.trim());
   validateConfig(config);
   await validateOutputPaths(config);
   return config;
