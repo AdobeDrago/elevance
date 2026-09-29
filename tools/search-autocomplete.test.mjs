@@ -673,6 +673,33 @@ test('NC results separate linked titles from safe URLs and descriptions', async 
   assert.equal(row.querySelector('a').rel, 'noopener noreferrer');
 });
 
+test('collapsing mobile filters preserves the selected filter and results', async (t) => {
+  const view = await paginatedSearch(t, {
+    url: 'https://mobile-filters.example/search.html?q=care',
+    records: [
+      { path: '/care-form', title: 'Care form', category: 'Forms' },
+      { path: '/care-claim', title: 'Care claim', category: 'Claims & Billing' },
+    ],
+  });
+  const toggle = view.block.querySelector('.search-filters-toggle');
+  const panel = document.getElementById(toggle.getAttribute('aria-controls'));
+  assert.ok(panel.contains(view.block.querySelector('input[value="forms"]')));
+  assert.equal(toggle.getAttribute('aria-expanded'), 'false');
+  toggle.click();
+  assert.equal(toggle.getAttribute('aria-expanded'), 'true');
+  view.block.querySelector('input[value="forms"]').click();
+  assert.deepEqual(view.paths(), ['/care-form']);
+  const url = window.location.href;
+  const requests = view.calls.length;
+  toggle.click();
+  assert.equal(toggle.getAttribute('aria-expanded'), 'false');
+  toggle.click();
+  assert.equal(view.block.querySelector('input[value="forms"]').checked, true);
+  assert.deepEqual(view.paths(), ['/care-form']);
+  assert.equal(window.location.href, url);
+  assert.equal(view.calls.length, requests);
+});
+
 test('other site themes retain their card markup and page-only data source', async (t) => {
   const view = await paginatedSearch(t, {
     theme: 'elevance',

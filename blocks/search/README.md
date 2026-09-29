@@ -33,6 +33,9 @@ Default card and `minimal` variants remain available. NC styling stays scoped to
 behavior. NC results pages match the source search layout: gray background,
 search heading and labeled field, filter sidebar, bold linked titles, visible
 destination URLs, PDF document icons, and separate description snippets.
+Descriptions are limited to three visible lines. On mobile, the content filters
+start collapsed; the keyboard-accessible disclosure preserves selections when
+closed. At wider sizes the filters remain visible beside the results.
 
 Filters use recognized `category`, `topic`, or `tags` values first, then fall back
 to title/H1/path keywords when categories are unavailable. Body text does not

@@ -413,6 +413,20 @@ function searchFilters(block, config) {
   filters.className = 'search-filters';
   const legend = document.createElement('legend');
   legend.textContent = 'Filter by content type';
+  const toggle = document.createElement('button');
+  toggle.type = 'button';
+  toggle.className = 'search-filters-toggle';
+  toggle.textContent = legend.textContent;
+  toggle.setAttribute('aria-expanded', 'false');
+  const options = document.createElement('div');
+  options.className = 'search-filter-options';
+  options.id = `search-filters-${searchInstance}`;
+  toggle.setAttribute('aria-controls', options.id);
+  toggle.addEventListener('click', () => {
+    const expanded = toggle.getAttribute('aria-expanded') !== 'true';
+    toggle.setAttribute('aria-expanded', String(expanded));
+    filters.classList.toggle('is-expanded', expanded);
+  });
   const clear = document.createElement('button');
   clear.type = 'button';
   clear.className = 'search-clear-filters';
@@ -421,7 +435,8 @@ function searchFilters(block, config) {
     filters.querySelectorAll('input').forEach((input) => { input.checked = false; });
     changeOptions(block, config);
   });
-  filters.append(legend, clear);
+  options.append(clear);
+  filters.append(legend, toggle, options);
   SEARCH_FILTERS.forEach(({ id, label }) => {
     const option = document.createElement('label');
     const input = document.createElement('input');
@@ -429,16 +444,19 @@ function searchFilters(block, config) {
     input.value = id;
     input.addEventListener('change', () => changeOptions(block, config));
     option.append(input, document.createTextNode(label));
-    filters.append(option);
+    options.append(option);
   });
   return filters;
 }
 
 function pageSizeControl(block, config) {
-  const control = document.createElement('label');
+  const control = document.createElement('div');
   control.className = 'search-page-size';
-  control.append('Results per page');
+  const label = document.createElement('label');
+  label.textContent = 'Results per page';
   const select = document.createElement('select');
+  select.id = `search-page-size-${searchInstance}`;
+  label.htmlFor = select.id;
   PAGE_SIZES.forEach((size) => {
     const option = document.createElement('option');
     option.value = size;
@@ -446,7 +464,7 @@ function pageSizeControl(block, config) {
     select.append(option);
   });
   select.addEventListener('change', () => changeOptions(block, config));
-  control.append(select);
+  control.append(label, select);
   return control;
 }
 
@@ -480,6 +498,7 @@ function searchBox(block, config) {
     input.id = `search-input-${searchInstance}`;
     label.htmlFor = input.id;
     label.textContent = 'Search Again';
+    input.removeAttribute('aria-label');
     clearButton.textContent = 'clear';
     queryContainer.append(label, input, clearButton);
     box.append(queryContainer, pageSizeControl(block, config));

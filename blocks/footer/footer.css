@@ -85,3 +85,76 @@ footer .footer-legal p:last-child {
     grid-row: 2;
   }
 }
+
+/* North Carolina legal copy precedes the stacked provider links. */
+body.north-carolina footer {
+  background: #023347;
+}
+
+body.north-carolina footer .footer {
+  max-width: 1240px;
+  padding: 45px 50px 50px;
+  font-size: 16px;
+  line-height: 28px;
+}
+
+body.north-carolina footer .footer p {
+  margin: 0;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+body.north-carolina footer .footer-legal {
+  margin: 0;
+  border: 0;
+  padding: 0;
+}
+
+body.north-carolina footer .footer-legal p + p {
+  margin-top: 25px;
+}
+
+body.north-carolina footer .footer-links {
+  display: block;
+  margin-top: 32px;
+}
+
+body.north-carolina footer .footer-links p + p {
+  margin-top: 10px;
+}
+
+body.north-carolina footer .footer a:any-link {
+  color: #8ed4ed;
+  font-weight: 400;
+  text-decoration: underline;
+}
+
+body.north-carolina footer .footer a:hover {
+  color: #fff;
+}
+
+body.north-carolina footer .footer a:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+}
+
+body.north-carolina footer .footer-reader {
+  display: block;
+  width: fit-content;
+  margin-top: 40px;
+  line-height: 0;
+}
+
+body.north-carolina footer .footer-reader img {
+  display: block;
+  width: 175px;
+  height: 43px;
+}
+
+@media (width < 768px) {
+  body.north-carolina footer .footer {
+    padding: 22px 20px 25px 25px;
+    font-size: 14px;
+    line-height: 22px;
+  }
+}
