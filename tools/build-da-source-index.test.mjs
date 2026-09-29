@@ -15,6 +15,7 @@ test('recursive discovery filters extensions and deduplicates paths and director
   const mock = mockDA(options.config);
   const files = await discoverAssets(options.config, options.token, mock);
   assert.equal(files.length, 4);
+  assert.ok(files.every((file) => file.startsWith(`${options.config.roots[0]}/`)));
   assert.equal(new Set(files).size, 4);
   assert.equal(mock.calls.length, 2);
   assert.ok(mock.calls.every(({ options: init }) => init.headers.Authorization === 'Bearer test-token'));
@@ -100,7 +101,7 @@ test('any required asset failure preserves complete output byte for byte', async
   await buildAssetIndex(options.config, 'live', { ...options, ...mock });
   const output = path.join(options.cwd, options.config.outputs.live);
   const before = await readFile(output, 'utf8');
-  state.fail = ['/pdfs/clinical-guide.pdf'];
+  state.fail = [`${options.config.roots[0]}/clinical-guide.pdf`];
   await assert.rejects(buildAssetIndex(options.config, 'live', { ...options, ...mock }), /Preserving complete/);
   assert.equal(await readFile(output, 'utf8'), before);
 });

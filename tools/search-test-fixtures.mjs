@@ -44,18 +44,19 @@ export const modified = 'Fri, 25 Sep 2026 16:37:53 GMT';
 export function mockDA(config, state = {}) {
   const calls = [];
   const prefix = `/${config.org}/${config.site}`;
+  const root = config.roots[0];
   const listing = state.listing || {
-    '/pdfs': [
-      { path: `${prefix}/pdfs/clinical-guide.pdf`, ext: 'pdf' },
-      { path: `${prefix}/pdfs/preview-only.pdf`, ext: 'pdf' },
-      { path: `${prefix}/pdfs/source-only.pdf`, ext: 'pdf' },
-      { path: `${prefix}/pdfs/forms` },
-      { path: `${prefix}/pdfs/forms` },
-      { path: `${prefix}/pdfs/logo.png`, ext: 'png' },
+    [root]: [
+      { path: `${prefix}${root}/clinical-guide.pdf`, ext: 'pdf' },
+      { path: `${prefix}${root}/preview-only.pdf`, ext: 'pdf' },
+      { path: `${prefix}${root}/source-only.pdf`, ext: 'pdf' },
+      { path: `${prefix}${root}/forms` },
+      { path: `${prefix}${root}/forms` },
+      { path: `${prefix}${root}/logo.png`, ext: 'png' },
     ],
-    '/pdfs/forms': [
-      { path: `${prefix}/pdfs/forms/referral-form.docx`, ext: 'docx' },
-      { path: `${prefix}/pdfs/clinical-guide.pdf`, ext: 'pdf' },
+    [`${root}/forms`]: [
+      { path: `${prefix}${root}/forms/referral-form.docx`, ext: 'docx' },
+      { path: `${prefix}${root}/clinical-guide.pdf`, ext: 'pdf' },
     ],
   };
   const fetchImpl = async (url, options = {}) => {
@@ -63,8 +64,8 @@ export function mockDA(config, state = {}) {
     const file = decodeURIComponent(parsed.pathname);
     calls.push({ url: parsed, options });
     if (parsed.hostname === 'admin.da.live') {
-      const root = file.replace(`/list${prefix}`, '');
-      return Response.json(listing[root] || []);
+      const directory = file.replace(`/list${prefix}`, '');
+      return Response.json(listing[directory] || []);
     }
     const missing = file.endsWith('source-only.pdf')
       || (file.endsWith('preview-only.pdf') && parsed.hostname.endsWith('.aem.live'))

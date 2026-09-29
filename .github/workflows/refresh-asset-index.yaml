@@ -17,7 +17,7 @@ on:
   workflow_dispatch:
     inputs:
       roots:
-        description: 'Optional comma-separated DA roots, e.g. /pdfs (never /)'
+        description: 'Optional comma-separated DA roots, e.g. /docs/gpp (never /)'
         required: false
         type: string
 

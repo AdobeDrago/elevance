@@ -1,7 +1,7 @@
 # Search, documents, and autocomplete
 
 The active search deployment is **adobedrago/elevance-nc**, branch **main**, with
-DA document discovery limited to **/pdfs**. Configuration is in
+DA document discovery limited to **/docs/gpp**. Configuration is in
 `asset-index.config.json`; it contains no credentials. All new visual rules are
 scoped to `body.north-carolina`. Other site themes continue to use their own page
 query index without loading the NC document index or phrase catalog.
@@ -143,7 +143,7 @@ and mobile measurements before treating these numbers as production guarantees.
    scopes were `openid,AdobeID,additional_info.projectedProductContext,read_organizations,aem.frontend.all`.
    Do not store a long-lived `DA_IMS_TOKEN` secret.
 4. After merging, dispatch **Refresh search indexes** once and inspect all four
-   generated outputs. Preview/publish representative files under `/pdfs` to
+   generated outputs. Preview/publish representative files under `/docs/gpp` to
    validate the appropriate tier; ensure at least one supported file exists in
    DA under that root. Test a PDF body phrase, then unpreview/unpublish a document
    and verify removal on the next run.
@@ -214,9 +214,9 @@ causes a normal push rejection rather than a force push; rerun using the new hea
 Repository rules must permit the workflow's normal `contents: write` commit.
 
 Manual dispatch accepts a comma-separated `roots` override, for example
-`/pdfs/forms,/pdfs/policies`. An override **replaces** configured roots for that run
+`/docs/gpp`. An override **replaces** configured roots for that run
 and is applied to both generators/fingerprints; the next scheduled run returns to
-`/pdfs`. Output paths must be distinct, safe relative JSON paths without symlinks.
+`/docs/gpp`. Output paths must be distinct, safe relative JSON paths without symlinks.
 
 ## Validation boundaries
 

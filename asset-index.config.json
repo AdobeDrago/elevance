@@ -17,7 +17,7 @@
     "maximumLength": 120,
     "maximumPhrases": 5000
   },
-  "roots": ["/pdfs"],
+  "roots": ["/docs/gpp"],
   "extensions": ["pdf", "doc", "docx", "xls", "xlsx", "ppt", "pptx", "csv", "rtf", "txt"],
   "minimumFiles": 1,
   "maxFiles": 1000,
