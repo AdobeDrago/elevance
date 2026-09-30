@@ -268,6 +268,159 @@ body.north-carolina li {
   line-height: 1.57;
 }
 
+
+body.north-carolina main .default-content-wrapper > p,
+body.north-carolina main .default-content-wrapper > ul,
+body.north-carolina main .default-content-wrapper > ol {
+  margin: 25px 0 0;
+}
+
+body.north-carolina main .default-content-wrapper > ul,
+body.north-carolina main .default-content-wrapper > ol {
+  padding-left: 0;
+}
+
+body.north-carolina main .default-content-wrapper > ul > li,
+body.north-carolina main .default-content-wrapper > ol > li {
+  margin-left: 16px;
+}
+
+body.north-carolina main .default-content-wrapper > h2 {
+  margin: 35px 0 0;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 38px;
+}
+
+body.north-carolina main .default-content-wrapper > :first-child,
+body.north-carolina main .default-content-wrapper > p + ul,
+body.north-carolina main .default-content-wrapper > p + ol {
+  margin-top: 0;
+}
+
+body.north-carolina main .default-content-wrapper > h2 + p {
+  margin-top: 15px;
+}
+
+body.north-carolina main .default-content-wrapper > ul + p,
+body.north-carolina main .default-content-wrapper > ol + p {
+  margin-top: 19px;
+}
+
+@media (width >= 900px) {
+  body.north-carolina main .default-content-wrapper > p,
+  body.north-carolina main .default-content-wrapper > ul > li,
+  body.north-carolina main .default-content-wrapper > ol > li {
+    font-size: var(--body-font-size-m);
+    line-height: 1.75;
+  }
+
+  body.north-carolina main .default-content-wrapper > h2 {
+    font-size: 43px;
+    line-height: 50px;
+  }
+
+  body.north-carolina main .default-content-wrapper > h2 + p {
+    margin-top: 20px;
+  }
+
+  body.north-carolina main .default-content-wrapper > p + ul,
+  body.north-carolina main .default-content-wrapper > p + ol,
+  body.north-carolina main .default-content-wrapper > p + p.button-container {
+    margin-top: 35px;
+  }
+}
+
+body.north-carolina main .section.light > .default-content-wrapper {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+body.north-carolina main .section.light .default-content-wrapper a.button:any-link {
+  margin: 0;
+  border: 0;
+  border-bottom: 2px solid var(--brand-blue-dark);
+  border-radius: 3px;
+  padding: 10px 25px;
+  font-size: var(--body-font-size-xs);
+  font-weight: 400;
+  line-height: 18px;
+  text-shadow: 0 1px 1px var(--brand-blue-dark);
+}
+
+body.north-carolina main .section.light .default-content-wrapper a.button:hover,
+body.north-carolina main .section.light .default-content-wrapper a.button:focus {
+  background-color: var(--brand-blue-dark);
+  border-bottom-color: var(--heading-color);
+}
+
+body.north-carolina main .section.light:has(> .default-content-wrapper > h3:first-child) {
+  padding: 22px 0 25px;
+}
+
+body.north-carolina main .section.light > .default-content-wrapper:has(> h3:first-child) {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+body.north-carolina main .section.light > .default-content-wrapper:has(> h3:first-child) > h3 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 28px;
+}
+
+body.north-carolina main .section.light > .default-content-wrapper:has(> h3:first-child) > h3 + p {
+  margin-top: 15px;
+}
+
+body.north-carolina main .section.light > .default-content-wrapper:has(> h3:first-child) > p.button-container {
+  margin-top: 20px;
+}
+
+@media (width >= 900px) {
+  body.north-carolina main .section.light .default-content-wrapper a.button:any-link {
+    padding: 12px 30px;
+    font-size: var(--body-font-size-m);
+  }
+
+  body.north-carolina main .section.light:has(> .default-content-wrapper > h3:first-child) {
+    padding: 45px 0 52px;
+  }
+
+  body.north-carolina main .section.light > .default-content-wrapper:has(> h3:first-child) > h3 {
+    font-size: 35px;
+    line-height: 40px;
+  }
+
+  body.north-carolina main .section.light > .default-content-wrapper:has(> h3:first-child) > h3 + p {
+    margin-top: 20px;
+  }
+
+  body.north-carolina main .section.light > .default-content-wrapper:has(> h3:first-child) > p.button-container {
+    margin-top: 30px;
+  }
+}
+
+body.north-carolina main .default-content-wrapper:has(> h2#provider-services) {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+body.north-carolina main .default-content-wrapper:has(> h2#provider-services) > p {
+  margin-top: 10px;
+}
+
+body.north-carolina main .default-content-wrapper:has(> h2#provider-services) > h2 + p {
+  margin-top: 17px;
+}
+
+@media (width >= 900px) {
+  body.north-carolina main .default-content-wrapper:has(> h2#provider-services) > p {
+    line-height: 22px;
+  }
+}
+
 /* Screen reader only */
 .sr-only {
   position: absolute;
