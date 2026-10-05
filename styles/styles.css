@@ -285,6 +285,14 @@ body.north-carolina main .default-content-wrapper > ol > li {
   margin-left: 16px;
 }
 
+/* PDF document links get the source site's PDF icon in place of the bullet */
+body.north-carolina main .default-content-wrapper > ul > li:has(> a[href$='-pdf' i], > a[href$='.pdf' i]) {
+  margin-left: 0;
+  padding-left: 30px;
+  list-style: none;
+  background: url('../icons/pdf_icon.png') 0 4px / 16px auto no-repeat;
+}
+
 body.north-carolina main .default-content-wrapper > h2 {
   margin: 35px 0 0;
   font-size: 32px;
@@ -296,6 +304,11 @@ body.north-carolina main .default-content-wrapper > :first-child,
 body.north-carolina main .default-content-wrapper > p + ul,
 body.north-carolina main .default-content-wrapper > p + ol {
   margin-top: 0;
+}
+
+/* content sharing a section with the hero banner keeps the source's 45px gap below it */
+body.north-carolina main .hero-banner-wrapper + .default-content-wrapper > :first-child {
+  margin-top: 45px;
 }
 
 body.north-carolina main .default-content-wrapper > h2 + p {

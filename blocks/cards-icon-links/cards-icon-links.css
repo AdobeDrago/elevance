@@ -15,9 +15,17 @@ body.north-carolina .cards-icon-links-wrapper {
   padding: 0;
 }
 
-body.north-carolina .cards-icon-links-container {
+/* source bar has no vertical padding; the cards' own 25px padding sets its height.
+   Beats the global `main .section.light { padding: 40px 0 }`. */
+body.north-carolina main .section.cards-icon-links-container {
   background-color: var(--light-color);
   margin: 0;
+  padding: 0;
+}
+
+/* source bar sits flush under the interior hero banner */
+body.north-carolina main > .section.hero-banner-container:has(+ .cards-icon-links-container) {
+  margin-bottom: 0;
 }
 
 body.north-carolina .cards-icon-links {
