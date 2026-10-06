@@ -17,22 +17,6 @@ import {
   toCamelCase,
 } from './aem.js';
 
-const NORTH_CAROLINA_FONT_SIZE_KEY = 'hbnc-font-size';
-const NORTH_CAROLINA_FONT_SIZES = ['small', 'default', 'large'];
-
-function applyNorthCarolinaFontSizePreference(doc) {
-  if (!doc.body.classList.contains('north-carolina')) return;
-
-  try {
-    const storedSize = window.localStorage.getItem(NORTH_CAROLINA_FONT_SIZE_KEY);
-    if (NORTH_CAROLINA_FONT_SIZES.includes(storedSize)) {
-      doc.body.dataset.fontSize = storedSize;
-    }
-  } catch (e) {
-    // Use the default size when storage is unavailable.
-  }
-}
-
 /**
  * Builds hero block and prepends to main in a new section.
  * @param {Element} main The container element
@@ -165,7 +149,6 @@ export function decorateMain(main) {
 async function loadEager(doc) {
   doc.documentElement.lang = 'en';
   decorateTemplateAndTheme();
-  applyNorthCarolinaFontSizePreference(doc);
   if (getMetadata('breadcrumbs').toLowerCase() === 'true') {
     doc.body.dataset.breadcrumbs = true;
   }
