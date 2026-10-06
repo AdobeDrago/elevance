@@ -13,6 +13,32 @@ body.north-carolina .columns-content img {
   width: 100%;
 }
 
+/* headings follow the source .content_column scale (computed styles) */
+body.north-carolina .columns-content .columns-content-col h2 {
+  margin: 45px 0 0;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 38px;
+}
+
+body.north-carolina .columns-content .columns-content-col h3 {
+  margin: 40px 0 0;
+  font-size: 28px;
+  font-weight: 300;
+  line-height: 34px;
+}
+
+body.north-carolina .columns-content .columns-content-col h4 {
+  margin: 35px 0 0;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 26px;
+}
+
+body.north-carolina .columns-content .columns-content-col :is(h2, h3, h4) + :not(h2, h3, h4) {
+  margin-top: 15px;
+}
+
 body.north-carolina .columns-content .columns-content-col > *:first-child {
   margin-top: 0;
 }
@@ -26,5 +52,26 @@ body.north-carolina .columns-content .columns-content-col > *:first-child {
 
   body.north-carolina .columns-content .columns-content-col {
     flex: 1;
+  }
+
+  body.north-carolina .columns-content .columns-content-col h2 {
+    font-size: 43px;
+    line-height: 50px;
+  }
+
+  body.north-carolina .columns-content .columns-content-col h3 {
+    margin-top: 55px;
+    font-size: 36px;
+    line-height: 42px;
+  }
+
+  body.north-carolina .columns-content .columns-content-col h4 {
+    margin-top: 45px;
+    font-size: 28px;
+    line-height: 34px;
+  }
+
+  body.north-carolina .columns-content .columns-content-col :is(h2, h3, h4) + :not(h2, h3, h4) {
+    margin-top: 20px;
   }
 }
