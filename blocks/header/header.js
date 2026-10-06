@@ -2,8 +2,8 @@ import { fetchPlaceholders, getMetadata, loadBlock } from '../../scripts/aem.js'
 
 const defaultDesktop = window.matchMedia('(min-width: 900px)');
 const northCarolinaDesktop = window.matchMedia('(min-width: 992px)');
-const FONT_SIZE_KEY = 'hbnc-font-size';
-const FONT_SIZES = ['small', 'default', 'large'];
+const FONT_SIZE_MAX_STEPS = 4;
+const FONT_SIZE_SCOPE = 'main, main *, footer, footer *';
 
 function isNorthCarolinaDesktopView() {
   return northCarolinaDesktop.matches;
@@ -260,32 +260,34 @@ function decorateNorthCarolinaNavSections(navSections) {
   });
 }
 
-function readFontSizePreference() {
-  const appliedSize = document.body.dataset.fontSize;
-  if (FONT_SIZES.includes(appliedSize)) return appliedSize;
-  try {
-    const storedSize = window.localStorage.getItem(FONT_SIZE_KEY);
-    return FONT_SIZES.includes(storedSize) ? storedSize : 'default';
-  } catch (e) {
-    return 'default';
-  }
+/**
+ * Shifts every main/footer element 1px per step from its original computed
+ * size (up to FONT_SIZE_MAX_STEPS either way), matching the source site's
+ * A/A/A control. The header is intentionally left untouched.
+ * @param {number} step offset in px from the original sizes; 0 restores them
+ */
+function applyFontSizeStep(step) {
+  document.body.dataset.fontSizeStep = step;
+  const elements = [...document.querySelectorAll(FONT_SIZE_SCOPE)];
+  // Read every original size before writing any, so a resized parent can't
+  // skew an inheriting child's baseline.
+  elements.forEach((el) => {
+    if (!el.dataset.baseFontSize && step !== 0) {
+      el.dataset.baseFontSize = parseFloat(getComputedStyle(el).fontSize);
+    }
+  });
+  elements.forEach((el) => {
+    if (!el.dataset.baseFontSize) return;
+    el.style.fontSize = step === 0 ? '' : `${Number(el.dataset.baseFontSize) + step}px`;
+  });
 }
 
-function applyFontSize(size, controls, persist = true) {
-  const selectedSize = FONT_SIZES.includes(size) ? size : 'default';
-  document.body.dataset.fontSize = selectedSize;
-  controls.querySelectorAll('button').forEach((button) => {
-    const selected = button.dataset.fontSize === selectedSize;
-    button.setAttribute('aria-pressed', selected ? 'true' : 'false');
-  });
-
-  if (persist) {
-    try {
-      window.localStorage.setItem(FONT_SIZE_KEY, selectedSize);
-    } catch (e) {
-      // The control still works when storage is unavailable.
-    }
-  }
+function changeFontSize(action) {
+  const current = Number(document.body.dataset.fontSizeStep) || 0;
+  let step = 0;
+  if (action === 'small') step = Math.max(current - 1, -FONT_SIZE_MAX_STEPS);
+  if (action === 'large') step = Math.min(current + 1, FONT_SIZE_MAX_STEPS);
+  if (step !== current) applyFontSizeStep(step);
 }
 
 function createFontSizeControls() {
@@ -300,18 +302,16 @@ function createFontSizeControls() {
     large: 'Increase text size',
   };
 
-  FONT_SIZES.forEach((size) => {
+  Object.entries(labels).forEach(([action, label]) => {
     const button = document.createElement('button');
     button.type = 'button';
-    button.className = `nav-text-size-${size}`;
-    button.dataset.fontSize = size;
-    button.setAttribute('aria-label', labels[size]);
+    button.className = `nav-text-size-${action}`;
+    button.setAttribute('aria-label', label);
     button.textContent = 'A';
-    button.addEventListener('click', () => applyFontSize(size, controls));
+    button.addEventListener('click', () => changeFontSize(action));
     controls.append(button);
   });
 
-  applyFontSize(readFontSizePreference(), controls, false);
   return controls;
 }
 

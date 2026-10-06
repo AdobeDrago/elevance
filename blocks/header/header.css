@@ -1364,7 +1364,6 @@ body.north-carolina header #nav .nav-sections .nav-drop > ul > li > ul a:any-lin
 
   body.north-carolina header #nav .nav-text-size button:hover,
   body.north-carolina header #nav .nav-text-size button:focus,
-  body.north-carolina header #nav .nav-text-size button[aria-pressed='true'],
   body.north-carolina header #nav .nav-search-button:hover,
   body.north-carolina header #nav .nav-search-button:focus,
   body.north-carolina header #nav .nav-search-button[aria-expanded='true'] {
