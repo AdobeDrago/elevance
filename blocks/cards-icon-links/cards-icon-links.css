@@ -12,6 +12,7 @@
  */
 
 body.north-carolina .cards-icon-links-wrapper {
+  max-width: unset;
   padding: 0;
 }
 
@@ -41,10 +42,14 @@ body.north-carolina .cards-icon-links-list {
   padding: 0;
 }
 
+/*
+ * Source layouts: a 25%-indented column below 481px and from 801–991px; a
+ * single row with the icon stacked over a centered 14px label from 481–800px;
+ * a single row with icon beside label from 992px.
+ */
 body.north-carolina .cards-icon-links-card {
   display: flex;
   align-items: center;
-  gap: 11px;
   font-weight: 700;
   padding: 1.375rem 0;
   line-height: 1.25rem;
@@ -52,32 +57,42 @@ body.north-carolina .cards-icon-links-card {
   margin-right: 1rem;
 }
 
-/* icon cell — source icon rendered ~18px tall */
+/* icon cell — source icons are 18px-wide background images (education 26px)
+   with the label offset 35px from the icon's left edge */
 body.north-carolina .cards-icon-links .cards-icon-links-card-image {
+  display: flex;
+  align-items: center;
+  width: 35px;
+  height: 20px;
   line-height: 0;
   flex: none;
 }
 
 body.north-carolina .cards-icon-links .cards-icon-links-card-image img,
 body.north-carolina .cards-icon-links .cards-icon-links-card-image .icon img {
-  width: auto;
-  height: 1.4063rem;
-  aspect-ratio: 1/1;
-  object-fit: contain;
+  width: 18px;
+  height: auto;
+}
+
+body.north-carolina .cards-icon-links-card:has(a[href*='training-academy']) .cards-icon-links-card-image img {
+  width: 26px;
 }
 
 /* label cell — reset the <p> margin EDS adds */
 body.north-carolina .cards-icon-links .cards-icon-links-card-body,
 body.north-carolina .cards-icon-links .cards-icon-links-card-body p {
+  max-width: 12.5rem;
   margin: 0;
+  font-size: 18px;
+  line-height: 20px;
 }
 
 /*
- * Label link — EDS auto-decorates the standalone <p><a> into a solid blue
- * a.button. Source is a plain bold text link, so reset the button styling.
- * Overrides global `a.button:any-link`, so match its specificity with main scope.
+ * Label link — a plain bold underlined text link. EDS may auto-decorate the
+ * standalone <p><a> into a.button, so this also resets the button styling;
+ * main scope outranks the global `a.button:any-link`.
  */
-body.north-carolina main .cards-icon-links a.button:any-link {
+body.north-carolina main .cards-icon-links a:any-link {
   display: inline;
   margin: 0;
   padding: 0;
@@ -86,44 +101,121 @@ body.north-carolina main .cards-icon-links a.button:any-link {
   background-color: transparent;
   color: var(--link-color);
   font-family: var(--body-font-family);
-  font-size: 18px;
+  font-size: inherit;
   font-weight: 700;
-  line-height: 20px;
-  text-align: left;
+  line-height: inherit;
+  text-align: inherit;
   text-decoration: underline;
   white-space: normal;
   text-overflow: clip;
 }
 
-body.north-carolina main .cards-icon-links a.button:any-link:hover,
-body.north-carolina main .cards-icon-links a.button:any-link:focus {
+/* source: label darkens and loses its underline on hover */
+body.north-carolina main .cards-icon-links a:any-link:hover,
+body.north-carolina main .cards-icon-links a:any-link:focus {
   background-color: transparent;
   color: var(--link-hover-color);
-  text-decoration: underline;
+  text-decoration: none;
 }
 
-@media (width >= 900px) {
-  body.north-carolina .cards-icon-links-wrapper {
-    max-width: unset;
-    padding: 0;
-  }
-
+@media (width >= 481px) and (width <= 800px), (width >= 992px) {
   body.north-carolina .cards-icon-links {
     padding-inline: 0;
   }
 
   body.north-carolina .cards-icon-links-list {
     max-width: var(--content-max-width);
-    padding-inline: 50px;
     margin: auto;
     justify-content: space-between;
     flex-direction: row;
     padding: 0 3.125rem;
-    gap: 16px 32px;
+  }
+}
+
+@media (width >= 481px) and (width <= 800px) {
+  body.north-carolina .cards-icon-links-card {
+    flex-direction: column;
+    padding: 17px 0 13px;
   }
 
+  /* icon centered 17px from the top; label starts 46px down */
+  body.north-carolina .cards-icon-links .cards-icon-links-card-image {
+    justify-content: center;
+    align-items: flex-start;
+    width: auto;
+    height: 22px;
+  }
+
+  body.north-carolina .cards-icon-links .cards-icon-links-card-body {
+    margin-top: 7px;
+  }
+
+  body.north-carolina .cards-icon-links .cards-icon-links-card-body,
+  body.north-carolina .cards-icon-links .cards-icon-links-card-body p {
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+  }
+
+  /* source fixes each label's width here, so longer labels wrap */
+  body.north-carolina .cards-icon-links-card:has(a[href*='apps.availity.com']) .cards-icon-links-card-body {
+    width: 47px;
+  }
+
+  body.north-carolina .cards-icon-links-card:has(a[href*='prior-authorization']) .cards-icon-links-card-body {
+    width: 86px;
+  }
+
+  body.north-carolina .cards-icon-links-card:has(a[href*='claims']) .cards-icon-links-card-body {
+    width: 57px;
+  }
+
+  body.north-carolina .cards-icon-links-card:has(a[href*='forms']) .cards-icon-links-card-body {
+    width: 40px;
+  }
+
+  body.north-carolina .cards-icon-links-card:has(a[href*='training-academy']) .cards-icon-links-card-body {
+    width: 115px;
+  }
+}
+
+@media (width >= 992px) {
+  /* source items keep their own height, so one-line labels stay top-aligned
+     with the icon centered beside them when a neighbour wraps */
   body.north-carolina .cards-icon-links-card {
+    align-self: flex-start;
     padding: 25px 0;
-    margin-right: 16px;
+  }
+
+  body.north-carolina .cards-icon-links .cards-icon-links-card-image {
+    width: 29px;
+  }
+
+  body.north-carolina .cards-icon-links-card:has(a[href*='training-academy']) .cards-icon-links-card-image {
+    width: 38px;
+  }
+
+  body.north-carolina .cards-icon-links .cards-icon-links-card-body,
+  body.north-carolina .cards-icon-links .cards-icon-links-card-body p {
+    max-width: none;
+  }
+}
+
+/* source keeps fixed label widths until its 1024px breakpoint */
+@media (width >= 992px) and (width <= 1023px) {
+  body.north-carolina .cards-icon-links-card:has(a[href*='apps.availity.com']) .cards-icon-links-card-body {
+    width: 60px;
+  }
+
+  body.north-carolina .cards-icon-links-card:has(a[href*='prior-authorization']) .cards-icon-links-card-body {
+    width: 110px;
+  }
+
+  body.north-carolina .cards-icon-links-card:has(a[href*='claims']) .cards-icon-links-card-body {
+    width: 73px;
+  }
+
+  body.north-carolina .cards-icon-links-card:has(a[href*='training-academy']) .cards-icon-links-card-body {
+    width: 147px;
   }
 }

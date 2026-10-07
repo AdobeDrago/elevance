@@ -1163,12 +1163,12 @@ body.north-carolina header #nav .nav-sections .nav-drop > ul > li > ul a:any-lin
       'sections tools' 34px
       'search search' auto / minmax(0, 1fr) auto;
     width: 100%;
-    max-width: calc(var(--content-max-width) + 64px);
+    max-width: calc(var(--content-max-width) + 100px);
     height: auto;
     max-height: none;
     min-height: 99.125px;
     margin: 0 auto;
-    padding: 0 32px;
+    padding: 0 50px;
     overflow: visible;
     overscroll-behavior: auto;
     background-color: transparent;

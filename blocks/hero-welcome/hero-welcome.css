@@ -119,7 +119,7 @@ body.north-carolina .hero-welcome .hero-welcome-card a:any-link {
 
 body.north-carolina .hero-welcome .hero-welcome-card a:hover,
 body.north-carolina .hero-welcome .hero-welcome-card a:focus {
-  color: var(--link-hover-color);
+  color: var(--link-color);
 }
 
 body.north-carolina .hero-welcome.no-image .hero-welcome-card {
@@ -145,15 +145,16 @@ body.north-carolina .hero-welcome.no-image .hero-welcome-card {
 @media (width >= 992px) {
   body.north-carolina .hero-welcome {
     margin-top: 0;
-    padding: 60px 32px;
+    padding: 60px 50px;
   }
 
   body.north-carolina .hero-welcome .hero-welcome-bg img {
     width: 100%;
   }
 
+  /* source: .wide_image .center is 71rem, 4px narrower than the content row */
   body.north-carolina .hero-welcome .hero-welcome-card {
-    max-width: var(--content-max-width);
+    max-width: 71rem;
     margin-top: 0;
   }
 
