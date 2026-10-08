@@ -134,6 +134,12 @@ a:hover {
   text-decoration: underline;
 }
 
+/* NC source: inline text links keep their color on hover and only underline.
+   :where() keeps this at plain a:hover weight so buttons/blocks still win. */
+:where(body.north-carolina) a:hover {
+  color: var(--link-color);
+}
+
 /* buttons — solid brand blue, subtle radius (matches source CTA) */
 a.button:any-link,
 button {
@@ -220,6 +226,18 @@ main > .section:first-of-type {
 @media (width >= 900px) {
   main > .section > div {
     padding: 0 32px;
+  }
+}
+
+/* NC source gutters: 20px, 50px at 481–800px and from 992px up.
+   :where() keeps block wrapper overrides in charge. */
+:where(body.north-carolina) main > .section > div {
+  padding: 0 20px;
+}
+
+@media (width >= 481px) and (width <= 800px), (width >= 992px) {
+  :where(body.north-carolina) main > .section > div {
+    padding: 0 50px;
   }
 }
 
