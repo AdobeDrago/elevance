@@ -362,6 +362,58 @@ body.north-carolina main .default-content-wrapper > ol + p {
   }
 }
 
+/* default-content h3 (source: h3 28/34, 36/42 from 992px; :not(h3) + h3 gets 40px, 55px from 992px) */
+body.north-carolina main .default-content-wrapper > h3 {
+  margin-bottom: 0;
+  font-size: 28px;
+  line-height: 34px;
+}
+
+body.north-carolina main .default-content-wrapper > :not(h3) + h3 {
+  margin-top: 40px;
+}
+
+@media (width >= 992px) {
+  body.north-carolina main .default-content-wrapper > h3 {
+    font-size: 36px;
+    line-height: 42px;
+  }
+
+  body.north-carolina main .default-content-wrapper > :not(h3) + h3 {
+    margin-top: 55px;
+  }
+}
+
+/* Check list: paragraphs authored as ":check: Text" (source .checklist_block). */
+body.north-carolina main .default-content-wrapper > p:has(> .icon-check:first-child) {
+  margin-top: 12px;
+  font-size: 16px;
+  line-height: 17px;
+}
+
+body.north-carolina main .default-content-wrapper > :where(:not(p:has(> .icon-check:first-child)))
+  + p:has(> .icon-check:first-child) {
+  margin-top: 20px;
+}
+
+body.north-carolina main .default-content-wrapper > p:has(> .icon-check:first-child)
+  + :not(p:has(> .icon-check:first-child), .button-container) {
+  margin-top: 24px;
+}
+
+/* the button's own 12px top margin completes the 24px gap */
+body.north-carolina main .default-content-wrapper > p:has(> .icon-check:first-child)
+  + p.button-container {
+  margin-top: 12px;
+}
+
+body.north-carolina .icon.icon-check {
+  width: 16px;
+  height: 16px;
+  margin-right: 16px;
+  vertical-align: -2px;
+}
+
 body.north-carolina main .section.light > .default-content-wrapper {
   padding-top: 20px;
   padding-bottom: 20px;
