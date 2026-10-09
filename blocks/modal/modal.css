@@ -96,7 +96,7 @@ body.north-carolina .modal.external-link-interstitial dialog {
   padding: 32px;
   overflow: visible;
   border: 1px solid #016b95;
-  border-radius: 12px;
+  border-radius: 10px;
   background: #fff;
   color: #023347;
 }
@@ -134,8 +134,8 @@ body.north-carolina .modal.external-link-interstitial p {
 body.north-carolina .modal.external-link-interstitial .external-link-interstitial-actions {
   display: flex;
   align-items: center;
-  gap: 16px;
-  margin-top: 20px;
+  gap: 18px;
+  margin-top: 18px;
 }
 
 body.north-carolina .modal.external-link-interstitial .external-link-interstitial-continue,
@@ -147,7 +147,7 @@ body.north-carolina .modal.external-link-interstitial .external-link-interstitia
   min-height: 40px;
   margin: 0;
   padding: 10px 25px;
-  border-radius: 4px;
+  border-radius: 3px;
   font-family: var(--body-font-family);
   font-size: 14px;
   font-weight: 400;
@@ -159,21 +159,26 @@ body.north-carolina .modal.external-link-interstitial .external-link-interstitia
 
 body.north-carolina .modal.external-link-interstitial .external-link-interstitial-continue:any-link {
   border: 0;
+  border-bottom: 2px solid #044661;
   background-color: #016b95;
   color: #fff;
+  text-shadow: 0 1px 1px #044661;
 }
 
 body.north-carolina .modal.external-link-interstitial .external-link-interstitial-continue:hover,
 body.north-carolina .modal.external-link-interstitial .external-link-interstitial-continue:focus {
-  background-color: #01506f;
+  border-bottom-color: #023347;
+  background-color: #044661;
   color: #fff;
   text-decoration: none;
+  text-shadow: 0 1px 1px #023347;
 }
 
 body.north-carolina .modal.external-link-interstitial .external-link-interstitial-cancel {
   border: 1px solid #0e92c7;
   background-color: #f8f8f8;
   color: #0e92c7;
+  text-shadow: 0 1px 1px #d8e1e9;
 }
 
 body.north-carolina .modal.external-link-interstitial .external-link-interstitial-cancel:hover,
@@ -188,14 +193,13 @@ body.north-carolina .modal.external-link-interstitial .close-button {
   right: -14px;
   width: 52px;
   height: 52px;
-  border: 2px solid #016b95;
+  border: 1px solid #016b95;
   border-radius: 50%;
   background-color: #fff;
   color: #016b95;
 }
 
-body.north-carolina .modal.external-link-interstitial .close-button:hover,
-body.north-carolina .modal.external-link-interstitial .close-button:focus {
+body.north-carolina .modal.external-link-interstitial .close-button:hover {
   border-color: #023347;
   background-color: #fff;
   color: #023347;
@@ -204,8 +208,8 @@ body.north-carolina .modal.external-link-interstitial .close-button:focus {
 body.north-carolina .modal.external-link-interstitial .external-link-interstitial-continue:focus-visible,
 body.north-carolina .modal.external-link-interstitial .external-link-interstitial-cancel:focus-visible,
 body.north-carolina .modal.external-link-interstitial .close-button:focus-visible {
-  outline: 3px solid #023347;
-  outline-offset: 3px;
+  outline: auto;
+  outline-offset: 0;
 }
 
 body.north-carolina .modal.external-link-interstitial .close-button .icon.icon-close::before,
@@ -245,7 +249,7 @@ body.north-carolina .modal.external-link-interstitial .close-button .icon.icon-c
     width: calc(100vw - 120px);
     max-width: 481px;
     max-height: calc(100dvh - 120px);
-    padding: 45px 47px 36px;
+    padding: 45px 47px 30px;
   }
 
   body.north-carolina .modal.external-link-interstitial dialog .modal-content {
@@ -270,7 +274,9 @@ body.north-carolina .modal.external-link-interstitial .close-button .icon.icon-c
   }
 
   body.north-carolina .modal.external-link-interstitial .close-button {
+    top: -11px;
+    right: -9px;
     width: 56px;
-    height: 56px;
+    height: 50px;
   }
 }
