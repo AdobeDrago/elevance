@@ -66,7 +66,7 @@ async function openExternalLinkInterstitial(link) {
     dialog.addEventListener('close', () => link.focus(), { once: true });
 
     showModal();
-    content.cancelButton.focus();
+    block.querySelector('.close-button')?.focus();
   } finally {
     dialogOpening = false;
   }
