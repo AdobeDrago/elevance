@@ -6,3 +6,7 @@ package.json
 package-lock.json
 test/*
 ue/models/*
+
+# Build-time search tooling is not part of the public runtime.
+asset-index.config.json
+tools/*.mjs

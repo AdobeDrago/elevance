@@ -128,8 +128,14 @@ function decorateSections(main) {
  */
 // eslint-disable-next-line import/prefer-default-export
 export function decorateMain(main) {
-  // hopefully forward compatible button decoration
   decorateButtons(main);
+  // NC authors opt into buttons with bold/italic; plain links remain text links.
+  if (document.body.classList.contains('north-carolina')) {
+    main.querySelectorAll('a.button:not(.primary, .secondary)').forEach((link) => {
+      link.classList.remove('button');
+      link.parentElement.classList.remove('button-container');
+    });
+  }
   decorateIcons(main);
   buildAutoBlocks(main);
   decorateSections(main);
@@ -184,6 +190,11 @@ async function loadLazy(doc) {
 
   loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);
   loadFonts();
+
+  if (doc.body.classList.contains('north-carolina')) {
+    const { default: decorateExternalLinks } = await import('./external-link-interstitial.js');
+    decorateExternalLinks(doc);
+  }
 }
 
 /**

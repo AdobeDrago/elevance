@@ -83,6 +83,8 @@ body.north-carolina .cards-featured .cards-featured-card-body a.button:any-link 
   text-decoration: underline;
 }
 
+body.north-carolina .cards-featured .cards-featured-card-body a:any-link:hover,
+body.north-carolina .cards-featured .cards-featured-card-body a:any-link:focus,
 body.north-carolina .cards-featured .cards-featured-card-body a.button:any-link:hover,
 body.north-carolina .cards-featured .cards-featured-card-body a.button:any-link:focus {
   background: none;

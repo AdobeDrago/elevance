@@ -1,12 +1,18 @@
-import { fetchPlaceholders, getMetadata } from '../../scripts/aem.js';
+import { fetchPlaceholders, getMetadata, loadBlock } from '../../scripts/aem.js';
+
+const defaultDesktop = window.matchMedia('(min-width: 900px)');
+const northCarolinaDesktop = window.matchMedia('(min-width: 992px)');
+const FONT_SIZE_MAX_STEPS = 4;
+const FONT_SIZE_SCOPE = 'main, main *, footer, footer *';
+
+function isNorthCarolinaDesktopView() {
+  return northCarolinaDesktop.matches;
+}
 
 /**
- * Loads the nav fragment using a metadata-independent dual fetch:
- *   1. /content/nav.plain.html  — localhost / aem up
- *   2. /nav.plain.html          — DA/EDS production (served at site root)
- * Deriving the path from the nav metadata value is a trap: a page whose nav
- * meta is /content/nav makes both attempts resolve to the same path and 404
- * on DA/EDS preview + publish.
+ * Loads the configured nav fragment. DA/EDS serves the fragment at the site
+ * root, while the local development server exposes the same content below
+ * /content.
  * @returns {Element} a container holding the fetched nav sections
  */
 async function loadNavFragment() {
@@ -33,129 +39,401 @@ async function loadNavFragment() {
   return container;
 }
 
-// media query match that indicates mobile/tablet width
-const isDesktop = window.matchMedia('(min-width: 900px)');
-
-function closeOnEscape(e) {
-  if (e.code === 'Escape') {
-    const nav = document.getElementById('nav');
-    const navSections = nav.querySelector('.nav-sections');
-    const navSectionExpanded = navSections.querySelector('[aria-expanded="true"]');
-    if (navSectionExpanded && isDesktop.matches) {
-      // eslint-disable-next-line no-use-before-define
-      toggleAllNavSections(navSections);
-      navSectionExpanded.focus();
-    } else if (!isDesktop.matches) {
-      // eslint-disable-next-line no-use-before-define
-      toggleMenu(nav, navSections);
-      nav.querySelector('button').focus();
-    }
-  }
-}
-
-function closeOnFocusLost(e) {
-  const nav = e.currentTarget;
-  if (!nav.contains(e.relatedTarget)) {
-    const navSections = nav.querySelector('.nav-sections');
-    const navSectionExpanded = navSections.querySelector('[aria-expanded="true"]');
-    if (navSectionExpanded && isDesktop.matches) {
-      // eslint-disable-next-line no-use-before-define
-      toggleAllNavSections(navSections, false);
-    } else if (!isDesktop.matches) {
-      // eslint-disable-next-line no-use-before-define
-      toggleMenu(nav, navSections, false);
-    }
-  }
-}
-
-function openOnKeydown(e) {
-  const focused = document.activeElement;
-  const isNavDrop = focused.className === 'nav-drop';
-  if (isNavDrop && (e.code === 'Enter' || e.code === 'Space')) {
-    const dropExpanded = focused.getAttribute('aria-expanded') === 'true';
-    // eslint-disable-next-line no-use-before-define
-    toggleAllNavSections(focused.closest('.nav-sections'));
-    focused.setAttribute('aria-expanded', dropExpanded ? 'false' : 'true');
-  }
-}
-
-function focusNavSection() {
-  document.activeElement.addEventListener('keydown', openOnKeydown);
-}
-
-/**
- * Toggles all nav sections
- * @param {Element} sections The container element
- * @param {Boolean} expanded Whether the element should be expanded or collapsed
- */
-function toggleAllNavSections(sections, expanded = false) {
+function toggleAllDefaultNavSections(sections, expanded = false) {
   sections.querySelectorAll('.nav-sections .default-content-wrapper > ul > li').forEach((section) => {
     section.setAttribute('aria-expanded', expanded);
   });
 }
 
-/**
- * Toggles the entire nav
- * @param {Element} nav The container element
- * @param {Element} navSections The nav sections within the container element
- * @param {*} forceExpanded Optional param to force nav expand behavior when not null
- */
-function toggleMenu(nav, navSections, forceExpanded = null) {
-  const expanded = forceExpanded !== null ? !forceExpanded : nav.getAttribute('aria-expanded') === 'true';
+function toggleDefaultMenu(nav, navSections, forceExpanded = null) {
+  const expanded = forceExpanded !== null
+    ? !forceExpanded
+    : nav.getAttribute('aria-expanded') === 'true';
   const button = nav.querySelector('.nav-hamburger button');
-  document.body.style.overflowY = (expanded || isDesktop.matches) ? '' : 'hidden';
+  document.body.style.overflowY = (expanded || defaultDesktop.matches) ? '' : 'hidden';
   nav.setAttribute('aria-expanded', expanded ? 'false' : 'true');
-  toggleAllNavSections(navSections, expanded || isDesktop.matches ? 'false' : 'true');
+  toggleAllDefaultNavSections(
+    navSections,
+    expanded || defaultDesktop.matches ? 'false' : 'true',
+  );
   button.setAttribute('aria-label', expanded ? 'Open navigation' : 'Close navigation');
-  // enable nav dropdown keyboard accessibility
+
   const navDrops = navSections.querySelectorAll('.nav-drop');
-  if (isDesktop.matches) {
+  if (defaultDesktop.matches) {
     navDrops.forEach((drop) => {
       if (!drop.hasAttribute('tabindex')) {
         drop.setAttribute('tabindex', 0);
-        drop.addEventListener('focus', focusNavSection);
+        // eslint-disable-next-line no-use-before-define
+        drop.addEventListener('focus', focusDefaultNavSection);
       }
     });
   } else {
     navDrops.forEach((drop) => {
       drop.removeAttribute('tabindex');
-      drop.removeEventListener('focus', focusNavSection);
+      // eslint-disable-next-line no-use-before-define
+      drop.removeEventListener('focus', focusDefaultNavSection);
     });
   }
 
-  // enable menu collapse on escape keypress
-  if (!expanded || isDesktop.matches) {
-    // collapse menu on escape press
-    window.addEventListener('keydown', closeOnEscape);
-    // collapse menu on focus lost
-    nav.addEventListener('focusout', closeOnFocusLost);
+  if (!expanded || defaultDesktop.matches) {
+    // eslint-disable-next-line no-use-before-define
+    window.addEventListener('keydown', closeDefaultOnEscape);
+    // eslint-disable-next-line no-use-before-define
+    nav.addEventListener('focusout', closeDefaultOnFocusLost);
   } else {
-    window.removeEventListener('keydown', closeOnEscape);
-    nav.removeEventListener('focusout', closeOnFocusLost);
+    // eslint-disable-next-line no-use-before-define
+    window.removeEventListener('keydown', closeDefaultOnEscape);
+    // eslint-disable-next-line no-use-before-define
+    nav.removeEventListener('focusout', closeDefaultOnFocusLost);
   }
 }
 
-function getDirectTextContent(menuItem) {
-  const menuLink = menuItem.querySelector(':scope > a');
-  if (menuLink) {
-    return menuLink.textContent.trim();
+function closeDefaultOnEscape(e) {
+  if (e.code !== 'Escape') return;
+  const nav = document.getElementById('nav');
+  const navSections = nav.querySelector('.nav-sections');
+  const expandedSection = navSections.querySelector('[aria-expanded="true"]');
+  if (expandedSection && defaultDesktop.matches) {
+    toggleAllDefaultNavSections(navSections);
+    expandedSection.focus();
+  } else if (!defaultDesktop.matches) {
+    toggleDefaultMenu(nav, navSections);
+    nav.querySelector('button').focus();
   }
+}
+
+function closeDefaultOnFocusLost(e) {
+  const nav = e.currentTarget;
+  if (nav.contains(e.relatedTarget)) return;
+  const navSections = nav.querySelector('.nav-sections');
+  const expandedSection = navSections.querySelector('[aria-expanded="true"]');
+  if (expandedSection && defaultDesktop.matches) {
+    toggleAllDefaultNavSections(navSections, false);
+  } else if (!defaultDesktop.matches) {
+    toggleDefaultMenu(nav, navSections, false);
+  }
+}
+
+function openDefaultOnKeydown(e) {
+  const focused = document.activeElement;
+  if (focused.className !== 'nav-drop' || (e.code !== 'Enter' && e.code !== 'Space')) return;
+  const expanded = focused.getAttribute('aria-expanded') === 'true';
+  toggleAllDefaultNavSections(focused.closest('.nav-sections'));
+  focused.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+}
+
+function focusDefaultNavSection() {
+  document.activeElement.addEventListener('keydown', openDefaultOnKeydown);
+}
+
+function getTopLevelNavItems(navSections) {
+  return navSections
+    ? navSections.querySelectorAll(':scope .default-content-wrapper > ul > li')
+    : [];
+}
+
+function setNavSectionExpanded(section, expanded) {
+  section.classList.toggle('is-open', expanded);
+  const toggle = section.querySelector(':scope > .nav-section-toggle');
+  if (toggle) toggle.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+}
+
+function closeAllNavSections(navSections, except = null) {
+  getTopLevelNavItems(navSections).forEach((section) => {
+    if (section !== except) setNavSectionExpanded(section, false);
+  });
+}
+
+function closeSearch(nav, returnFocus = false) {
+  const searchButton = nav.querySelector('.nav-search-button');
+  const searchBlock = nav.querySelector('.search.overlay');
+  if (!searchButton || !searchBlock) return;
+
+  const wasOpen = searchButton.getAttribute('aria-expanded') === 'true';
+  searchButton.setAttribute('aria-expanded', 'false');
+  searchButton.setAttribute('aria-label', 'Open site search');
+  searchBlock.hidden = true;
+  searchBlock.setAttribute('aria-hidden', 'true');
+  searchBlock.dispatchEvent(new CustomEvent('search:reset'));
+  if (returnFocus && wasOpen) searchButton.focus();
+}
+
+function setMenuExpanded(nav, navSections, expanded) {
+  nav.classList.toggle('is-open', expanded);
+  closeAllNavSections(navSections);
+  if (expanded) nav.closest('header')?.classList.remove('is-hidden');
+
+  const hamburgerButton = nav.querySelector('.nav-hamburger button');
+  if (hamburgerButton) {
+    hamburgerButton.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+    hamburgerButton.setAttribute(
+      'aria-label',
+      expanded ? 'Close navigation' : 'Open navigation',
+    );
+  }
+
+  if (!isNorthCarolinaDesktopView()) {
+    const searchBlock = nav.querySelector('.search.overlay');
+    if (searchBlock) {
+      searchBlock.hidden = !expanded;
+      searchBlock.setAttribute('aria-hidden', expanded ? 'false' : 'true');
+    }
+  }
+}
+
+function toggleNavSection(navSections, section) {
+  const expanded = section.classList.contains('is-open');
+  closeAllNavSections(navSections, section);
+  setNavSectionExpanded(section, !expanded);
+}
+
+function handleNorthCarolinaEscape(e, nav, navSections) {
+  if (e.code !== 'Escape') return;
+
+  const openToggle = nav.querySelector(
+    '.nav-section-toggle[aria-expanded="true"]',
+  );
+  if (openToggle) {
+    closeAllNavSections(navSections);
+    openToggle.focus();
+    return;
+  }
+
+  const searchButton = nav.querySelector(
+    '.nav-search-button[aria-expanded="true"]',
+  );
+  if (searchButton && isNorthCarolinaDesktopView()) {
+    closeSearch(nav, true);
+    return;
+  }
+
+  if (!isNorthCarolinaDesktopView() && nav.classList.contains('is-open')) {
+    setMenuExpanded(nav, navSections, false);
+    nav.querySelector('.nav-hamburger button')?.focus();
+  }
+}
+
+function handleNorthCarolinaFocusLost(e) {
+  if (!isNorthCarolinaDesktopView() || e.currentTarget.contains(e.relatedTarget)) return;
+  closeAllNavSections(e.currentTarget.querySelector('.nav-sections'));
+  closeSearch(e.currentTarget);
+}
+
+function decorateNorthCarolinaNavSections(navSections) {
+  const hoverOpenedSections = new WeakSet();
+  getTopLevelNavItems(navSections).forEach((section, index) => {
+    const submenu = section.querySelector(':scope > ul');
+    if (!submenu) return;
+
+    const label = section.querySelector(':scope > p');
+    const toggle = document.createElement('button');
+    const submenuId = `nav-submenu-${index + 1}`;
+    toggle.type = 'button';
+    toggle.className = 'nav-section-toggle';
+    toggle.textContent = label?.textContent.trim() || '';
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-controls', submenuId);
+    submenu.id = submenuId;
+
+    if (label) label.replaceWith(toggle);
+    else section.prepend(toggle);
+
+    section.classList.add('nav-drop');
+    setNavSectionExpanded(section, false);
+    toggle.addEventListener('click', (event) => {
+      if (isNorthCarolinaDesktopView()
+        && event.detail > 0
+        && hoverOpenedSections.delete(section)) return;
+      toggleNavSection(navSections, section);
+    });
+    section.addEventListener('mouseenter', () => {
+      if (!isNorthCarolinaDesktopView()) return;
+      hoverOpenedSections.add(section);
+      closeAllNavSections(navSections, section);
+      setNavSectionExpanded(section, true);
+    });
+    section.addEventListener('mouseleave', () => {
+      if (!isNorthCarolinaDesktopView()) return;
+      hoverOpenedSections.delete(section);
+      setNavSectionExpanded(section, false);
+    });
+  });
+}
+
+/**
+ * Shifts every main/footer element 1px per step from its original computed
+ * size (up to FONT_SIZE_MAX_STEPS either way), matching the source site's
+ * A/A/A control. The header is intentionally left untouched.
+ * @param {number} step offset in px from the original sizes; 0 restores them
+ */
+function applyFontSizeStep(step) {
+  document.body.dataset.fontSizeStep = step;
+  const elements = [...document.querySelectorAll(FONT_SIZE_SCOPE)];
+  // Read every original size before writing any, so a resized parent can't
+  // skew an inheriting child's baseline.
+  elements.forEach((el) => {
+    if (!el.dataset.baseFontSize && step !== 0) {
+      el.dataset.baseFontSize = parseFloat(getComputedStyle(el).fontSize);
+    }
+  });
+  elements.forEach((el) => {
+    if (!el.dataset.baseFontSize) return;
+    el.style.fontSize = step === 0 ? '' : `${Number(el.dataset.baseFontSize) + step}px`;
+  });
+}
+
+function changeFontSize(action) {
+  const current = Number(document.body.dataset.fontSizeStep) || 0;
+  let step = 0;
+  if (action === 'small') step = Math.max(current - 1, -FONT_SIZE_MAX_STEPS);
+  if (action === 'large') step = Math.min(current + 1, FONT_SIZE_MAX_STEPS);
+  if (step !== current) applyFontSizeStep(step);
+}
+
+function createFontSizeControls() {
+  const controls = document.createElement('div');
+  controls.className = 'nav-text-size';
+  controls.setAttribute('role', 'group');
+  controls.setAttribute('aria-label', 'Text size');
+
+  const labels = {
+    small: 'Decrease text size',
+    default: 'Default text size',
+    large: 'Increase text size',
+  };
+
+  Object.entries(labels).forEach(([action, label]) => {
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = `nav-text-size-${action}`;
+    button.setAttribute('aria-label', label);
+    button.textContent = 'A';
+    button.addEventListener('click', () => changeFontSize(action));
+    controls.append(button);
+  });
+
+  return controls;
+}
+
+async function decorateNorthCarolinaTools(nav, navTools, navSections) {
+  const toolsWrapper = navTools.querySelector('.default-content-wrapper');
+  if (!toolsWrapper) return;
+
+  const searchButton = document.createElement('button');
+  searchButton.type = 'button';
+  searchButton.className = 'nav-search-button';
+  searchButton.setAttribute('aria-label', 'Open site search');
+  searchButton.setAttribute('aria-controls', 'nav-search-panel');
+  searchButton.setAttribute('aria-expanded', 'false');
+  searchButton.innerHTML = '<span aria-hidden="true"></span>';
+
+  const searchBlock = document.createElement('div');
+  searchBlock.id = 'nav-search-panel';
+  searchBlock.className = 'search overlay block';
+  searchBlock.dataset.blockName = 'search';
+  searchBlock.dataset.searchMode = 'navigate';
+  searchBlock.dataset.blockStatus = 'initialized';
+  searchBlock.hidden = true;
+  searchBlock.setAttribute('aria-hidden', 'true');
+
+  searchButton.addEventListener('click', () => {
+    const expanded = searchButton.getAttribute('aria-expanded') === 'true';
+    closeAllNavSections(navSections);
+    searchButton.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+    searchButton.setAttribute(
+      'aria-label',
+      expanded ? 'Open site search' : 'Close site search',
+    );
+    searchBlock.hidden = expanded;
+    searchBlock.setAttribute('aria-hidden', expanded ? 'true' : 'false');
+    if (expanded) searchBlock.dispatchEvent(new CustomEvent('search:reset'));
+    else searchBlock.querySelector('.search-input')?.focus();
+  });
+
+  toolsWrapper.prepend(createFontSizeControls());
+  toolsWrapper.append(searchButton);
+  nav.append(searchBlock);
+  await loadBlock(searchBlock);
+
+  searchBlock.addEventListener('search:close', () => {
+    if (isNorthCarolinaDesktopView()) {
+      closeSearch(nav, true);
+      return;
+    }
+    setMenuExpanded(nav, navSections, false);
+    nav.querySelector('.nav-hamburger button')?.focus();
+  });
+}
+
+function setupMobileHeaderVisibility(header, nav, navSections) {
+  if (!header) return;
+  const scrollThreshold = 8;
+  let lastScrollY = Math.max(window.scrollY, 0);
+  let ticking = false;
+
+  const updateHeader = () => {
+    const currentScrollY = Math.max(window.scrollY, 0);
+    const delta = currentScrollY - lastScrollY;
+    const menuOpen = nav.classList.contains('is-open');
+
+    if (isNorthCarolinaDesktopView() || menuOpen || currentScrollY === 0) {
+      header.classList.remove('is-hidden');
+    } else if (Math.abs(delta) >= scrollThreshold) {
+      header.classList.toggle('is-hidden', delta > 0);
+    }
+    if (Math.abs(delta) >= scrollThreshold || currentScrollY === 0) {
+      lastScrollY = currentScrollY;
+    }
+    ticking = false;
+  };
+
+  window.addEventListener('scroll', () => {
+    if (ticking) return;
+    ticking = true;
+    window.requestAnimationFrame(updateHeader);
+  }, { passive: true });
+
+  northCarolinaDesktop.addEventListener('change', () => {
+    lastScrollY = Math.max(window.scrollY, 0);
+    header.classList.remove('is-hidden');
+  });
+
+  document.addEventListener('click', (event) => {
+    if (isNorthCarolinaDesktopView()
+      || !nav.classList.contains('is-open')
+      || nav.contains(event.target)) return;
+    closeSearch(nav);
+    setMenuExpanded(nav, navSections, false);
+  });
+}
+
+function getNorthCarolinaDirectTextContent(menuItem) {
+  const toggle = menuItem.querySelector(':scope > .nav-section-toggle');
+  if (toggle) return toggle.textContent.trim();
+  const menuLink = menuItem.querySelector(':scope > a, :scope > p > a');
+  if (menuLink) return menuLink.textContent.trim();
   return Array.from(menuItem.childNodes)
-    .filter((n) => n.nodeType === Node.TEXT_NODE)
-    .map((n) => n.textContent)
-    .join(' ');
+    .filter((node) => node.nodeType === Node.TEXT_NODE)
+    .map((node) => node.textContent)
+    .join(' ')
+    .trim();
 }
 
-async function buildBreadcrumbsFromNavTree(nav, currentUrl) {
+async function buildNorthCarolinaBreadcrumbsFromNavTree(nav, currentUrl) {
   const crumbs = [];
+  const homeLink = document.querySelector('.nav-brand a[href]');
+  const homeUrl = homeLink?.href || '/';
 
-  const homeUrl = document.querySelector('.nav-brand a[href]').href;
-
-  let menuItem = Array.from(nav.querySelectorAll('a')).find((a) => a.href === currentUrl);
+  let menuItem = Array.from(nav?.querySelectorAll('a') || []).find(
+    (a) => a.href === currentUrl,
+  );
   if (menuItem) {
     do {
-      const link = menuItem.querySelector(':scope > a');
-      crumbs.unshift({ title: getDirectTextContent(menuItem), url: link ? link.href : null });
+      const link = menuItem.querySelector(':scope > a, :scope > p > a');
+      crumbs.unshift({
+        title: getNorthCarolinaDirectTextContent(menuItem),
+        url: link ? link.href : null,
+      });
       menuItem = menuItem.closest('ul')?.closest('li');
     } while (menuItem);
   } else if (currentUrl !== homeUrl) {
@@ -163,61 +441,117 @@ async function buildBreadcrumbsFromNavTree(nav, currentUrl) {
   }
 
   const placeholders = await fetchPlaceholders();
-  const homePlaceholder = placeholders.breadcrumbsHomeLabel || 'Home';
+  crumbs.unshift({
+    title: placeholders.breadcrumbsHomeLabel || 'Home',
+    url: homeUrl,
+  });
 
-  crumbs.unshift({ title: homePlaceholder, url: homeUrl });
-
-  // last link is current page and should not be linked
-  if (crumbs.length > 1) {
-    crumbs[crumbs.length - 1].url = null;
-  }
+  if (crumbs.length > 1) crumbs[crumbs.length - 1].url = null;
   crumbs[crumbs.length - 1]['aria-current'] = 'page';
   return crumbs;
 }
 
-async function buildBreadcrumbs() {
+async function buildNorthCarolinaBreadcrumbs() {
   const breadcrumbs = document.createElement('nav');
   breadcrumbs.className = 'breadcrumbs';
+  breadcrumbs.setAttribute('aria-label', 'Breadcrumb');
 
-  const crumbs = await buildBreadcrumbsFromNavTree(document.querySelector('.nav-sections'), document.location.href);
+  const crumbs = await buildNorthCarolinaBreadcrumbsFromNavTree(
+    document.querySelector('.nav-sections'),
+    document.location.href,
+  );
+  const ol = document.createElement('ol');
+  ol.append(
+    ...crumbs.map((item) => {
+      const li = document.createElement('li');
+      if (item['aria-current']) li.setAttribute('aria-current', item['aria-current']);
+      if (item.url) {
+        const link = document.createElement('a');
+        link.href = item.url;
+        link.textContent = item.title;
+        li.append(link);
+      } else {
+        li.textContent = item.title;
+      }
+      return li;
+    }),
+  );
+  breadcrumbs.append(ol);
+  return breadcrumbs;
+}
 
+function getDefaultDirectTextContent(menuItem) {
+  const menuLink = menuItem.querySelector(':scope > a');
+  if (menuLink) return menuLink.textContent.trim();
+  return Array.from(menuItem.childNodes)
+    .filter((node) => node.nodeType === Node.TEXT_NODE)
+    .map((node) => node.textContent)
+    .join(' ');
+}
+
+async function buildDefaultBreadcrumbsFromNavTree(nav, currentUrl) {
+  const crumbs = [];
+  const homeUrl = document.querySelector('.nav-brand a[href]').href;
+
+  let menuItem = Array.from(nav.querySelectorAll('a')).find((link) => link.href === currentUrl);
+  if (menuItem) {
+    do {
+      const link = menuItem.querySelector(':scope > a');
+      crumbs.unshift({
+        title: getDefaultDirectTextContent(menuItem),
+        url: link ? link.href : null,
+      });
+      menuItem = menuItem.closest('ul')?.closest('li');
+    } while (menuItem);
+  } else if (currentUrl !== homeUrl) {
+    crumbs.unshift({ title: getMetadata('og:title'), url: currentUrl });
+  }
+
+  const placeholders = await fetchPlaceholders();
+  crumbs.unshift({
+    title: placeholders.breadcrumbsHomeLabel || 'Home',
+    url: homeUrl,
+  });
+
+  if (crumbs.length > 1) crumbs[crumbs.length - 1].url = null;
+  crumbs[crumbs.length - 1]['aria-current'] = 'page';
+  return crumbs;
+}
+
+async function buildDefaultBreadcrumbs() {
+  const breadcrumbs = document.createElement('nav');
+  breadcrumbs.className = 'breadcrumbs';
+  const crumbs = await buildDefaultBreadcrumbsFromNavTree(
+    document.querySelector('.nav-sections'),
+    document.location.href,
+  );
   const ol = document.createElement('ol');
   ol.append(...crumbs.map((item) => {
     const li = document.createElement('li');
     if (item['aria-current']) li.setAttribute('aria-current', item['aria-current']);
     if (item.url) {
-      const a = document.createElement('a');
-      a.href = item.url;
-      a.textContent = item.title;
-      li.append(a);
+      const link = document.createElement('a');
+      link.href = item.url;
+      link.textContent = item.title;
+      li.append(link);
     } else {
       li.textContent = item.title;
     }
     return li;
   }));
-
   breadcrumbs.append(ol);
   return breadcrumbs;
 }
 
-/**
- * loads and decorates the header, mainly the nav
- * @param {Element} block The header block element
- */
-export default async function decorate(block) {
-  // load nav as fragment (metadata-independent dual fetch: /content first, root fallback)
-  const fragment = await loadNavFragment();
-
-  // decorate nav DOM
+async function decorateDefaultHeader(block, fragment) {
   block.textContent = '';
   const nav = document.createElement('nav');
   nav.id = 'nav';
   while (fragment.firstElementChild) nav.append(fragment.firstElementChild);
 
-  const classes = ['brand', 'sections', 'tools'];
-  classes.forEach((c, i) => {
-    const section = nav.children[i];
-    if (section) section.classList.add(`nav-${c}`);
+  ['brand', 'sections', 'tools'].forEach((name, index) => {
+    const section = nav.children[index];
+    if (section) section.classList.add(`nav-${name}`);
   });
 
   const navBrand = nav.querySelector('.nav-brand');
@@ -229,38 +563,37 @@ export default async function decorate(block) {
 
   const navSections = nav.querySelector('.nav-sections');
   if (navSections) {
-    navSections.querySelectorAll(':scope .default-content-wrapper > ul > li').forEach((navSection) => {
-      if (navSection.querySelector('ul')) navSection.classList.add('nav-drop');
-      navSection.addEventListener('click', () => {
-        if (isDesktop.matches) {
+    navSections.querySelectorAll(':scope .default-content-wrapper > ul > li')
+      .forEach((navSection) => {
+        if (navSection.querySelector('ul')) navSection.classList.add('nav-drop');
+        navSection.addEventListener('click', () => {
+          if (!defaultDesktop.matches) return;
           const expanded = navSection.getAttribute('aria-expanded') === 'true';
-          toggleAllNavSections(navSections);
+          toggleAllDefaultNavSections(navSections);
           navSection.setAttribute('aria-expanded', expanded ? 'false' : 'true');
-        }
+        });
       });
-    });
   }
 
   const navTools = nav.querySelector('.nav-tools');
   if (navTools) {
     const search = navTools.querySelector('a[href*="search"]');
-    if (search && search.textContent === '') {
-      search.setAttribute('aria-label', 'Search');
-    }
+    if (search && search.textContent === '') search.setAttribute('aria-label', 'Search');
   }
 
-  // hamburger for mobile
   const hamburger = document.createElement('div');
   hamburger.classList.add('nav-hamburger');
   hamburger.innerHTML = `<button type="button" aria-controls="nav" aria-label="Open navigation">
       <span class="nav-hamburger-icon"></span>
     </button>`;
-  hamburger.addEventListener('click', () => toggleMenu(nav, navSections));
+  hamburger.addEventListener('click', () => toggleDefaultMenu(nav, navSections));
   nav.prepend(hamburger);
   nav.setAttribute('aria-expanded', 'false');
-  // prevent mobile nav behavior on window resize
-  toggleMenu(nav, navSections, isDesktop.matches);
-  isDesktop.addEventListener('change', () => toggleMenu(nav, navSections, isDesktop.matches));
+
+  toggleDefaultMenu(nav, navSections, defaultDesktop.matches);
+  defaultDesktop.addEventListener('change', () => {
+    toggleDefaultMenu(nav, navSections, defaultDesktop.matches);
+  });
 
   const navWrapper = document.createElement('div');
   navWrapper.className = 'nav-wrapper';
@@ -268,6 +601,73 @@ export default async function decorate(block) {
   block.append(navWrapper);
 
   if (getMetadata('breadcrumbs').toLowerCase() === 'true') {
-    navWrapper.append(await buildBreadcrumbs());
+    navWrapper.append(await buildDefaultBreadcrumbs());
+  }
+}
+
+/**
+ * Loads and decorates the header navigation.
+ * @param {Element} block The header block element
+ */
+export default async function decorate(block) {
+  const fragment = await loadNavFragment();
+  if (!document.body.classList.contains('north-carolina')) {
+    await decorateDefaultHeader(block, fragment);
+    return;
+  }
+
+  block.textContent = '';
+  const nav = document.createElement('nav');
+  nav.id = 'nav';
+  nav.setAttribute('aria-label', 'Main navigation');
+  while (fragment.firstElementChild) nav.append(fragment.firstElementChild);
+
+  ['brand', 'sections', 'tools'].forEach((name, index) => {
+    if (nav.children[index]) nav.children[index].classList.add(`nav-${name}`);
+  });
+
+  const navBrand = nav.querySelector('.nav-brand');
+  const brandLink = navBrand?.querySelector('.button');
+  if (brandLink) {
+    brandLink.className = '';
+    brandLink.closest('.button-container')?.removeAttribute('class');
+  }
+
+  const navSections = nav.querySelector('.nav-sections');
+  decorateNorthCarolinaNavSections(navSections);
+
+  const navTools = nav.querySelector('.nav-tools');
+  if (navTools) await decorateNorthCarolinaTools(nav, navTools, navSections);
+
+  // hamburger for mobile
+  const hamburger = document.createElement('div');
+  hamburger.className = 'nav-hamburger';
+  hamburger.innerHTML = `<button type="button" aria-controls="nav" aria-expanded="false"
+      aria-label="Open navigation"><span class="nav-hamburger-icon"></span></button>`;
+  hamburger.querySelector('button').addEventListener('click', () => {
+    const expanded = nav.classList.contains('is-open');
+    if (expanded) closeSearch(nav);
+    setMenuExpanded(nav, navSections, !expanded);
+  });
+  nav.prepend(hamburger);
+  setMenuExpanded(nav, navSections, false);
+
+  northCarolinaDesktop.addEventListener('change', () => {
+    closeSearch(nav);
+    setMenuExpanded(nav, navSections, false);
+  });
+  window.addEventListener('keydown', (event) => {
+    handleNorthCarolinaEscape(event, nav, navSections);
+  });
+  nav.addEventListener('focusout', handleNorthCarolinaFocusLost);
+
+  const navWrapper = document.createElement('div');
+  navWrapper.className = 'nav-wrapper';
+  navWrapper.append(nav);
+  block.append(navWrapper);
+  setupMobileHeaderVisibility(block.closest('header'), nav, navSections);
+
+  if (getMetadata('breadcrumbs').toLowerCase() === 'true') {
+    navWrapper.append(await buildNorthCarolinaBreadcrumbs());
   }
 }

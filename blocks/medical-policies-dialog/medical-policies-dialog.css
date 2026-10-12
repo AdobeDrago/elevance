@@ -1,0 +1,69 @@
+.medical-policies-disclaimer {
+  max-width: 33.75rem;
+  border-radius: 10px;
+  padding: 0;
+  line-height: 1.75rem;
+  font-size: 1rem;
+  border: 1px solid #929292;
+
+  &::backdrop {
+    background-color: #000;
+    height: 100%;
+    opacity: 0.5;
+  }
+
+  .medical-policies-disclaimer-content {
+    margin: 2.8125rem 2.8125rem 0;
+    height: 18.75rem;
+    overflow-y: auto;
+  }
+
+  .medical-policies-disclaimer-section {
+    padding: 1.5625rem 2.8125rem 2.8125rem;
+    margin-top: 1.5625rem;
+    box-shadow: -1px -3px 5px 0 #bababa;
+
+    p {
+      margin-top: 0;
+      font-weight: 700;
+    }
+
+    .medical-policies-disclaimer-primary-btn {
+      margin-right: 1rem;
+    }
+
+    .medical-policies-disclaimer-secondary-btn {
+      background-color: #fff;
+      color: var(--link-color);
+      border-color: var(--link-color);
+
+      &:hover {
+        color: #fff;
+        background-color: var(--link-hover-color);
+      }
+    }
+  }
+}
+
+@media (width < 900px) {
+  .medical-policies-disclaimer {
+    width: 90%;
+    margin: auto 5%;
+
+    .medical-policies-disclaimer-content {
+      margin: 2.1875rem 2.1875rem 0;
+      height: 18.75rem;
+      overflow-y: auto;
+    }
+
+    .medical-policies-disclaimer-section {
+      padding: 1.5625rem 2.1875rem 2.1875rem;
+
+      button {
+        font-size: 0.875rem;
+        padding: 0.625rem 1.375rem;
+        font-weight: 600;
+      }
+    }
+  }
+}

@@ -51,6 +51,7 @@ export async function createModal(contentNodes) {
 
   return {
     block,
+    dialog,
     showModal: () => {
       dialog.showModal();
       // reset scroll position

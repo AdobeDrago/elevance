@@ -42,7 +42,7 @@ function buildDocLink(doc) {
   return a;
 }
 
-function buildAccordionItem(topic, docs, open) {
+function buildAccordionItem(topic, docs) {
   const icon = document.createElement('span');
   icon.className = 'forms-accordion-item-icon';
   const closedIcon = document.createElement('span');
@@ -65,7 +65,6 @@ function buildAccordionItem(topic, docs, open) {
 
   const details = document.createElement('details');
   details.className = 'forms-accordion-item';
-  details.open = open;
   details.append(summary, body);
   return details;
 }
@@ -102,9 +101,9 @@ export default async function decorate(block) {
     const docs = data?.AllDocs ?? [];
 
     list.textContent = '';
-    ACCORDION_TOPICS.forEach((topic, index) => {
+    ACCORDION_TOPICS.forEach((topic) => {
       const topicDocs = docs.filter((doc) => Array.isArray(doc.topic) && doc.topic.includes(topic));
-      list.append(buildAccordionItem(topic, topicDocs, index === 0));
+      list.append(buildAccordionItem(topic, topicDocs));
     });
 
     const pcpDocs = docs.filter((doc) => (!doc.topic || doc.topic.length === 0)

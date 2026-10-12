@@ -9,10 +9,12 @@
 const MOCK_SUGGESTION_DATA_URL = '/scripts/lookup-data/mock-suggestion-data.json';
 const MOCK_SEARCH_DATA_URL = '/scripts/lookup-data/mock-search-data.json';
 const MOCK_FORMS_DATA_URL = '/scripts/lookup-data/mock-forms-response.json';
+const MOCK_NEWS_ARCHIVE_DATA_URL = '/scripts/lookup-data/mock-news-archives.json';
 
 const FORMS_API_URL = 'https://provider.healthybluenc.com/sites/Satellite?d=Universal&pagename=getdocuments&brand=HBNC&state=&formslibrary=gpp_formslib';
 const SUGGESTION_API_URL = 'https://provider.healthybluenc.com/sites/Satellite?d=Universal&pagename=gbdPro/PlutoServiceProxy&service=cpt&state=NC&lobCode=CFSP&procCode=%250002M%25';
 const SEARCH_API_URL = 'https://provider.healthybluenc.com/sites/Satellite?d=Universal&pagename=gbdPro/PlutoServiceProxy&service=submit&state=NC&lobCode=CFSP&procCode=0002M';
+const NEWS_ARCHIVE_URL = 'https://provider.healthybluenc.com/sites/Satellite?d=Universal&pagename=getdocuments&brand=HBNC&formslibrary=gpp_newsarchives';
 
 // Update once site is live and the mock data URLs are replaced with actual endpoints.
 function useMock() {
@@ -63,4 +65,15 @@ export function fetchFormsData() {
     });
   }
   return fetchMockJson(MOCK_FORMS_DATA_URL);
+}
+
+// news-archive: GPP news archives document list
+export function fetchNewsArchiveData() {
+  if (!useMock()) {
+    return fetch(NEWS_ARCHIVE_URL).then((res) => {
+      if (!res.ok) throw new Error(`News archive data failed to load: ${res.status}`);
+      return res.json();
+    });
+  }
+  return fetchMockJson(MOCK_NEWS_ARCHIVE_DATA_URL);
 }

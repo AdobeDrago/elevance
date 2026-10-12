@@ -78,6 +78,7 @@ body.north-carolina .hero-banner.no-image .hero-banner-title-inner {
   }
 
   body.north-carolina .hero-banner .hero-banner-title-inner {
+    max-width: calc(var(--content-max-width, 1080px) + 64px);
     padding: 41px 32px 39px;
   }
 

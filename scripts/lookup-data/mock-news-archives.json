@@ -1,0 +1,3691 @@
+{
+  "AllDocs": [
+    {
+      "id": 1527364180750,
+      "name": "NCNC_CAID_PolicyProcedureCredentialingRecredentialing",
+      "description": "Provider credentialing and re-credentialing process",
+      "title": "Provider credentialing and re-credentialing process – Updated",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "10-09-2019",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/inline/NCNC_CAID_PolicyProcedureCredentialingRecredentialing.pdf?v=201912092121",
+      "fileSize": "683 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527365046658,
+      "name": "NCNC_CAID_PU_TestPDF",
+      "description": "TEST PDF",
+      "title": "Test PDF",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "10-11-2019",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [],
+      "URI": "/docs/NCNC_CAID_PU_TestPDF.pdf?v=201910111646",
+      "fileSize": "1870 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527551239858,
+      "name": "NC_CAID_ClinicalCriteriaNotice",
+      "description": "",
+      "title": "Clinical Criteria Notice",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "03-17-2021",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_ClinicalCriteriaNotice.pdf?v=202103191726",
+      "fileSize": "203 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527552537974,
+      "name": "NC_CAID_LARCDeviceInvySeparateInpatientReimbursement",
+      "description": "",
+      "title": "LARC Device Inventory and Separate Inpatient Reimbursement",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "03-23-2021",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_LARCDeviceInvySeparateInpatientReimbursement.pdf?v=202103241515",
+      "fileSize": "204 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527552540956,
+      "name": "NC_CAID_LARCdevicesinOBunits",
+      "description": "",
+      "title": "LARC Devices in OB Units",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "03-23-2021",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_LARCdevicesinOBunits.pdf?v=202103241515",
+      "fileSize": "309 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527554123409,
+      "name": "NC_CAID_TransvaginalUltrasoundReductionUpdate",
+      "description": "",
+      "title": "Transvaginal Ultrasound Reduction Update",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "03-29-2021",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_TransvaginalUltrasoundReductionUpdate.pdf?v=202103291640",
+      "fileSize": "298 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527554831985,
+      "name": "NC_CAID_AvailityPortalAnnouncementOnlineToolsResources",
+      "description": "",
+      "title": "Register Now for the Availity Portal: Be Prepared to Access Healthy Blue Online Tools and Resources on July 1, 2021",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "03-31-2021",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_AvailityPortalAnnouncementOnlineToolsResources.pdf?v=202104010233",
+      "fileSize": "228 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527555111417,
+      "name": "NC_CAID_DeviceBilling",
+      "description": "",
+      "title": "Separate Reimbursement for Long-acting, Reversible Contraception Devices",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "04-01-2021",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_DeviceBilling.pdf?v=202104012304",
+      "fileSize": "205 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527555264097,
+      "name": "NC_CAID_Cervical CancerScreeinigFrequency",
+      "description": "",
+      "title": "Routine cervical cancer screening",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "04-01-2021",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_Cervical-CancerScreeinigFrequency.pdf?v=202104030025",
+      "fileSize": "206 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527555266729,
+      "name": "NC_CAID_CervicalCancerScreeingAge",
+      "description": "",
+      "title": "Cervical Cancer Screening Coverage for Women Less Than 21 Years of Age",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "04-01-2021",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_CervicalCancerScreeingAge.pdf?v=202104030025",
+      "fileSize": "205 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527563606204,
+      "name": "NC_CAID_MCGCareGuidelinesEdition",
+      "description": "",
+      "title": "MCG Care Guidelines 25th Edition",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "05-06-2021",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_MCGCareGuidelinesEdition.pdf?v=202105072052",
+      "fileSize": "208 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527570233808,
+      "name": "NC_CAID_ImprovingPatientExperience",
+      "description": "",
+      "title": "What Matters Most: Improving the Patient Experience",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "06-04-2021",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_ImprovingPatientExperience.pdf?v=202106041823",
+      "fileSize": "54 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527572506654,
+      "name": "NC_CAID_CareBridgeHealthyBlueQADocsforwebsite",
+      "description": "",
+      "title": "Using CareBridge Electronic Visit Verification",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "06-16-2021",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_CareBridgeHealthyBlueQADocsforwebsite.pdf?v=202106152256",
+      "fileSize": "178 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527573557590,
+      "name": "NC_CAID_HBFAQ",
+      "description": "",
+      "title": "Healthy Blue Frequently Asked Questions",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "06-21-2021",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_HBFAQ.pdf?v=202106221528",
+      "fileSize": "490 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527574623824,
+      "name": "NC_CAID_ImplementationBulletin",
+      "description": "",
+      "title": "Implementation Bulletin",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "06-28-2021",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_ImplementationBulletin.pdf?v=202107071537",
+      "fileSize": "102 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527578367598,
+      "name": "HBNC_HBTC_TelehealthBillingCode_Archives",
+      "description": "",
+      "title": "NC Medicaid State Telehealth Billing Code Summary",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "07-23-2021",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/HBNC_HBTC_TelehealthBillingCode_Archives.pdf?v=202107262057",
+      "fileSize": "716 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527578368074,
+      "name": "HBNC_HBTC_TelehealthFactSheet_Archives",
+      "description": "",
+      "title": "NC Medicaid State Telehealth FactSheet",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "07-23-2021",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/HBNC_HBTC_TelehealthFactSheet_Archives.pdf?v=202107262057",
+      "fileSize": "324 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527579461166,
+      "name": "NC_CAID_ProviderNewsletter_Aug2021",
+      "description": "",
+      "title": "August 2021 Provider Newsletter",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "07-29-2021",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News",
+        "Provider Newsletter"
+      ],
+      "URI": "/docs/gpp/NC_CAID_ProviderNewsletter_Aug2021.pdf?v=202107310051",
+      "fileSize": "1585 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527582432951,
+      "name": "HBNC_HBTC_May2021UMGuidelinesUpdate",
+      "description": "",
+      "title": "May 2021 Medical Policies and Utilization Management Guidelines update",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "08-20-2021",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/HBNC_HBTC_May2021UMGuidelinesUpdate.pdf?v=202108201737",
+      "fileSize": "155 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527582904034,
+      "name": "NC_CAID_ProviderNewsletter_Sept2021",
+      "description": "",
+      "title": "September 2021 Provider Newsletter",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "08-30-2021",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News",
+        "Provider Newsletter"
+      ],
+      "URI": "/docs/gpp/NC_CAID_ProviderNewsletter_Sept2021.pdf?v=202108301421",
+      "fileSize": "769 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527585208916,
+      "name": "NC_CAID_PU_MaternityNewbornNotificationProcess",
+      "description": "",
+      "title": "Maternity and Newborn Notification Process",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "09-10-2021",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_PU_MaternityNewbornNotificationProcess.pdf?v=202205201506",
+      "fileSize": "99 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527585220461,
+      "name": "HBNC_HBTC_PersonalCareProvIntakeFAQ",
+      "description": "",
+      "title": "Personal Care Service (PCS) Referral FAQ",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "09-10-2021",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/HBNC_HBTC_PersonalCareProvIntakeFAQ.pdf?v=202109102148",
+      "fileSize": "581 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527586636864,
+      "name": "NC_CAID_PU_RacialTraumaChildren_92421",
+      "description": "",
+      "title": "You are Invited - Racial Trauma & Children: Exploring the Impact",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "09-24-2021",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_PU_RacialTraumaChildren_92421.pdf?v=202109241702",
+      "fileSize": "206 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527587040832,
+      "name": "NC_CAID_ProviderNewsletter_Oct2021",
+      "description": "",
+      "title": "October 2021 Provider Newsletter",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "09-30-2021",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News",
+        "Provider Newsletter"
+      ],
+      "URI": "/docs/gpp/NC_CAID_ProviderNewsletter_Oct2021.pdf?v=202109292001",
+      "fileSize": "820 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527588780134,
+      "name": "NC_CAID_PU_EnrollSafereplaceCAQHEnrollhubeft",
+      "description": "",
+      "title": "EnrollSafe will replace CAQH Enrollhub® as the electronic funds transfer (EFT)",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "10-01-2021",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_PU_EnrollSafereplaceCAQHEnrollhubeft.pdf?v=202110202010",
+      "fileSize": "309 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527589536643,
+      "name": "https://medicaid.ncdhhs.gov/blog/2021/09/30/electronic-visit-verification-soft-launch-update-prepaid-health-plans",
+      "description": "",
+      "title": "Electronic Visit Verification Soft Launch Update for Prepaid Health Plans",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "10-05-2021",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "https://medicaid.ncdhhs.gov/blog/2021/09/30/electronic-visit-verification-soft-launch-update-prepaid-health-plans",
+      "fileSize": "",
+      "fileType": "OTHER"
+    },
+    {
+      "id": 1527591705504,
+      "name": "NC_CAID_PU_PAChangeDec21",
+      "description": "",
+      "title": "Prior authorization requirement changes effective December 1, 2021",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "10-21-2021",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_PU_PAChangeDec21.pdf?v=202110221523",
+      "fileSize": "118 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527592401380,
+      "name": "NC_CAID_ProviderNewsletter_Nov2021",
+      "description": "",
+      "title": "November 2021 Provider Newsletter",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "10-29-2021",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News",
+        "Provider Newsletter"
+      ],
+      "URI": "/docs/gpp/NC_CAID_ProviderNewsletter_Nov2021.pdf?v=202110281621",
+      "fileSize": "2044 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527592501826,
+      "name": "NC_CAID_PU_PAuthreqchangeseffectiveDecember12021",
+      "description": "",
+      "title": "Prior authorization requirement changes effective December 1, 2021",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "10-26-2021",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_PU_PAuthreqchangeseffectiveDecember12021.pdf?v=202110291338",
+      "fileSize": "221 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527592635469,
+      "name": "NC_CAID_PU_ServiceFlexibilities",
+      "description": "",
+      "title": "SPECIAL BULLETIN COVID-19 #46: Behavioral Health Service Flexibilities",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "10-27-2021",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_PU_ServiceFlexibilities.pdf?v=202110272104",
+      "fileSize": "136 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527594016089,
+      "name": "NC_CAID_PU_EnrollSafeEFTEnrollmentPortalFlyer",
+      "description": "",
+      "title": "EnrollSafe/EFT Enrollment Portal Flyer",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "11-04-2021",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_PU_EnrollSafeEFTEnrollmentPortalFlyer.pdf?v=202111042138",
+      "fileSize": "235 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527595798782,
+      "name": "NC_CAID_PU_Aug2021MedPoliciesUMGuidelinesupdate",
+      "description": "",
+      "title": "August 2021 Medical Policies and Utilization Management Guidelines update",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "11-18-2021",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_PU_Aug2021MedPoliciesUMGuidelinesupdate.pdf?v=202111181817",
+      "fileSize": "141 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527596849911,
+      "name": "NC_CAID_PU_MedSpecialtyPharmAnnounceNotice",
+      "description": "",
+      "title": "Medical Specialty Pharmacy Announcement",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "11-24-2021",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_PU_MedSpecialtyPharmAnnounceNotice.pdf?v=202111291528",
+      "fileSize": "182 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527597152991,
+      "name": "NC_CAID_ProviderNewsletter_Dec2021",
+      "description": "",
+      "title": "December 2021 Provider Newsletter",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "11-29-2021",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News",
+        "Provider Newsletter"
+      ],
+      "URI": "/docs/gpp/NC_CAID_ProviderNewsletter_Dec2021.pdf?v=202111302320",
+      "fileSize": "944 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527597259088,
+      "name": "NC_CAID_PU_RacialEquityForum",
+      "description": "",
+      "title": "Join Us in Talking About Racism and Its Impact on Health",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "11-30-2021",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_PU_RacialEquityForum.pdf?v=202205201506",
+      "fileSize": "325 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527598712682,
+      "name": "NC_CAID_BotoxUpdate",
+      "description": "",
+      "title": "Important Update on Botox",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "12-10-2021",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_BotoxUpdate.pdf?v=202112101703",
+      "fileSize": "140 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527600649069,
+      "name": "NC_CAID_ProviderNews_Jan2022",
+      "description": "",
+      "title": "January 2022 Provider News",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "12-28-2021",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News",
+        "Provider Newsletter"
+      ],
+      "URI": "/docs/gpp/NC_CAID_ProviderNews_Jan2022.pdf?v=202112300127",
+      "fileSize": "1186 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527604770224,
+      "name": "NC_CAID_ProviderNews_Feb2022",
+      "description": "",
+      "title": "February 2022 Provider News",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "01-26-2022",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News",
+        "Provider Newsletter"
+      ],
+      "URI": "/docs/gpp/NC_CAID_ProviderNews_Feb2022.pdf?v=202201311450",
+      "fileSize": "1231 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527606923350,
+      "name": "NC_CAID_KnownIssuesBulletinFeb182022",
+      "description": "",
+      "title": "Known Issues Bulletin: February 18, 2022",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "02-18-2022",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News",
+        "Medicaid"
+      ],
+      "URI": "/docs/gpp/NC_CAID_KnownIssuesBulletinFeb182022.pdf?v=202202241829",
+      "fileSize": "117 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527606957074,
+      "name": "NC_CAID_PU_ImplicitBias",
+      "description": "",
+      "title": "Exploring Implicit Bias in Healthcare for Historically Marginalized Communities",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "02-16-2022",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_PU_ImplicitBias.pdf?v=202202161958",
+      "fileSize": "98 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527608894179,
+      "name": "NC_CAID_KnownIssuesBulletinFeb252022",
+      "description": "",
+      "title": "Known Issues Bulletin: February 25, 2022",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "02-25-2022",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News",
+        "Medicaid"
+      ],
+      "URI": "/docs/gpp/NC_CAID_KnownIssuesBulletinFeb252022.pdf?v=202203031519",
+      "fileSize": "167 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527609015180,
+      "name": "NC_CAID_PU_Nov2021MedPoliUMGuidelinesupdate",
+      "description": "",
+      "title": "November 2021 Medical Policies and Utilization Management Guidelines update",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "02-23-2022",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_PU_Nov2021MedPoliUMGuidelinesupdate.pdf?v=202202241926",
+      "fileSize": "214 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527609073011,
+      "name": "NC_CAID_ProviderNews_March2022",
+      "description": "",
+      "title": "March 2022 Provider News",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "02-28-2022",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Provider Newsletter"
+      ],
+      "URI": "/docs/gpp/NC_CAID_ProviderNews_March2022.pdf?v=202202282211",
+      "fileSize": "678 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527609346887,
+      "name": "NC_CAID_PU_PARC_HCPCCodeK1022",
+      "description": "",
+      "title": "Prior Authorization Requirement Change for HCPCS code K1022",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "02-25-2022",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_PU_PARC_HCPCCodeK1022.pdf?v=202202251840",
+      "fileSize": "223 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527609833374,
+      "name": "NC_CAID_KnownIssuesBulletinMar042022",
+      "description": "",
+      "title": "Known Issues Bulletin: March 4, 2022",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "03-04-2022",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_KnownIssuesBulletinMar042022.pdf?v=202203161337",
+      "fileSize": "175 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527610819271,
+      "name": "NC_CAID_KnownIssuesBulletinMar112022",
+      "description": "Known Issues Bulletin: March 11, 2022",
+      "title": "Known Issues Bulletin: March 11, 2022",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "03-11-2022",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_KnownIssuesBulletinMar112022.pdf?v=202203241918",
+      "fileSize": "147 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527610879531,
+      "name": "NC_CAID_SubmittingHITClaim",
+      "description": "",
+      "title": "Clarification for Submitting a Home Infusion Therapy (HIT) Claim",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "03-11-2022",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_SubmittingHITClaim.pdf?v=202203101604",
+      "fileSize": "231 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527611388242,
+      "name": "NC_CAID_KnownIssuesBulletinMar182022",
+      "description": "",
+      "title": "Known Issues Bulletin: March 18, 2022",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "03-18-2022",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_KnownIssuesBulletinMar182022.pdf?v=202203242009",
+      "fileSize": "167 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527611426635,
+      "name": "NC_CAID_ClarificationSubmittingClaims",
+      "description": "Clarification for Submitting a Home Infusion Therapy Claim",
+      "title": "Clarification for Submitting a Home Infusion Therapy Claim",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "03-11-2022",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_ClarificationSubmittingClaims.pdf?v=202203211432",
+      "fileSize": "231 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527611896400,
+      "name": "NC_CAID_CoverMyMedsenhancementparequests",
+      "description": "",
+      "title": "CoverMyMeds enhancement for prior authorization (PA) requests",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "03-22-2022",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_CoverMyMedsenhancementparequests.pdf?v=202203232130",
+      "fileSize": "116 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527612165078,
+      "name": "NC_CAID_KnownIssuesBulletinMar252022",
+      "description": "Known Issues Bulletin: March 25, 2022",
+      "title": "Known Issues Bulletin: March 25, 2022",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "03-24-2022",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_KnownIssuesBulletinMar252022.pdf?v=202204011430",
+      "fileSize": "175 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527612563122,
+      "name": "NC_CAID_ProviderNews_April2022",
+      "description": "",
+      "title": "April 2022 Provider News",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "03-28-2022",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Provider Newsletter"
+      ],
+      "URI": "/docs/gpp/NC_CAID_ProviderNews_April2022.pdf?v=202203302211",
+      "fileSize": "1353 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527612888063,
+      "name": "NC_CAID_KnownIssuesBulletinApr012022",
+      "description": "Known Issues Bulletin: April 1, 2022",
+      "title": "Known Issues Bulletin: April 1, 2022",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "04-01-2022",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_KnownIssuesBulletinApr012022.pdf?v=202204071659",
+      "fileSize": "178 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527613643761,
+      "name": "NC_CAID_KnownIssuesBulletinApr082022",
+      "description": "Known Issues Bulletin: April 8, 2022",
+      "title": "Known Issues Bulletin: April 8, 2022",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "04-08-2022",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_KnownIssuesBulletinApr082022.pdf?v=202204141832",
+      "fileSize": "187 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527614414071,
+      "name": "NC_CAID_KnownIssuesBulletinApr152022",
+      "description": "Known Issues Bulletin: April 8, 2022",
+      "title": "Known Issues Bulletin: April 15, 2022",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "04-15-2022",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_KnownIssuesBulletinApr152022.pdf?v=202204211549",
+      "fileSize": "186 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527614857332,
+      "name": "NC_CAID_ElectronicDataInfo",
+      "description": "",
+      "title": "Electronic Data Interchange Information",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "04-13-2022",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_ElectronicDataInfo.pdf?v=202204131434",
+      "fileSize": "138 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527615346412,
+      "name": "NC_CAID_KnownIssuesBulletinApr222022",
+      "description": "",
+      "title": "Known Issues Bulletin: April 22, 2022",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "04-22-2022",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_KnownIssuesBulletinApr222022.pdf?v=202204281509",
+      "fileSize": "175 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527615923106,
+      "name": "NC_CAID_KnownIssuesBulletinApr292022",
+      "description": "",
+      "title": "Known Issues Bulletin: April 29, 2022",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "04-29-2022",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_KnownIssuesBulletinApr292022.pdf?v=202205051845",
+      "fileSize": "178 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527615943316,
+      "name": "NC_CAID_ProviderNews_May2022",
+      "description": "",
+      "title": "May 2022 Provider News",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "04-28-2022",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Provider Newsletter"
+      ],
+      "URI": "/docs/gpp/NC_CAID_ProviderNews_May2022.pdf?v=202204281720",
+      "fileSize": "531 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527616587072,
+      "name": "NC_CAID_KnownIssuesBulletinMay62022",
+      "description": "",
+      "title": "Known Issues Bulletin: May 6, 2022",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "05-06-2022",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News",
+        "Medicaid"
+      ],
+      "URI": "/docs/gpp/NC_CAID_KnownIssuesBulletinMay62022.pdf?v=202205121557",
+      "fileSize": "182 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527617368876,
+      "name": "NC_CAID_KnownIssuesBulletinMay132022",
+      "description": "",
+      "title": "Known Issues Bulletin: May 13, 2022",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "05-13-2022",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_KnownIssuesBulletinMay132022.pdf?v=202205191220",
+      "fileSize": "183 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527617735834,
+      "name": "NC_CAID_MPTAC_Feb22",
+      "description": "",
+      "title": "February 2022 Medical Policies and Utilization Management Guidelines update",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "05-19-2022",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News",
+        "Medicaid"
+      ],
+      "URI": "/docs/gpp/NC_CAID_MPTAC_Feb22.pdf?v=202205181522",
+      "fileSize": "225 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527617822230,
+      "name": "NC_CAID_BillingGuidelineNotMay182022",
+      "description": "",
+      "title": "Billing Guidelines Notice — Clinical Laboratory Improvement Amendments Reporting",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "05-18-2022",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_BillingGuidelineNotMay182022.pdf?v=202205181730",
+      "fileSize": "108 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527617876132,
+      "name": "NC_CAID_KnownIssuesBulletinMay202022",
+      "description": "",
+      "title": "Known Issues Bulletin: May 20, 2022",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "05-20-2022",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_KnownIssuesBulletinMay202022.pdf?v=202205261734",
+      "fileSize": "168 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527618100645,
+      "name": "NC_CAID_EEDNewClaimProcess",
+      "description": "",
+      "title": "Early Elective Delivery New Claim Submission Process",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "05-20-2022",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_EEDNewClaimProcess.pdf?v=202205201506",
+      "fileSize": "157 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527618461251,
+      "name": "NC_CAID_KnownIssuesBulletinMay272022",
+      "description": "",
+      "title": "Known Issues Bulletin: May 27, 2022",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "05-27-2022",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_KnownIssuesBulletinMay272022.pdf?v=202206021802",
+      "fileSize": "173 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527618512896,
+      "name": "NC_CAID_HealthyRewardsFlier",
+      "description": "",
+      "title": "Healthy Rewards Program – Provider Information",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "05-25-2022",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_HealthyRewardsFlier.pdf?v=202205261805",
+      "fileSize": "136 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527618692667,
+      "name": "NC_CAID_ProviderNews_June2022",
+      "description": "",
+      "title": "June 2022 Provider News",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "05-26-2022",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Provider Newsletter"
+      ],
+      "URI": "/docs/gpp/NC_CAID_ProviderNews_June2022.pdf?v=202206011606",
+      "fileSize": "1070 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527619308568,
+      "name": "NC_CAID_KnownIssuesBulletinJune032022",
+      "description": "",
+      "title": "Known Issues Bulletin: June 3, 2022",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "06-03-2022",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_KnownIssuesBulletinJune032022.pdf?v=202206091838",
+      "fileSize": "169 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527619765174,
+      "name": "NCHB-CAID-000800-22-Sleepstudy",
+      "description": "",
+      "title": "Sleep Study Notice",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "06-06-2022",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NCHB-CAID-000800-22-Sleepstudy.pdf?v=202206061721",
+      "fileSize": "121 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527620010560,
+      "name": "NC_CAID_KnownIssuesBulletinJune102022",
+      "description": "",
+      "title": "Known Issues Bulletin: June 10, 2022",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "06-10-2022",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_KnownIssuesBulletinJune102022.pdf?v=202206161620",
+      "fileSize": "164 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527620461511,
+      "name": "NC_CAID_MCGcareguidelinesEffectiveSept12022",
+      "description": "",
+      "title": "MCG care guidelines 26th edition - Effective September 1, 2022",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "06-14-2022",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_MCGcareguidelinesEffectiveSept12022.pdf?v=202206141632",
+      "fileSize": "91 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527620541654,
+      "name": "NC_CAID_KnownIssuesBulletinJune172022",
+      "description": "",
+      "title": "Known Issues Bulletin: June 17, 2022",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "06-17-2022",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_KnownIssuesBulletinJune172022.pdf?v=202206231553",
+      "fileSize": "222 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527621262574,
+      "name": "NC_CAID_KnownIssuesBulletinJune232022",
+      "description": "",
+      "title": "Known Issues Bulletin: June 24, 2022",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "06-23-2022",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_KnownIssuesBulletinJune232022.pdf?v=202206301450",
+      "fileSize": "195 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527621638441,
+      "name": "NC_CAID_Modifier25Update",
+      "description": "",
+      "title": "Update use of Modifier 25 ",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "07-01-2022",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_Modifier25Update.pdf?v=202206301421",
+      "fileSize": "122 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527621697292,
+      "name": "NC_CAID_ProviderNews_July2022",
+      "description": "",
+      "title": "July 2022 Provider News",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "06-29-2022",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Provider Newsletter",
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_ProviderNews_July2022.pdf?v=202207251444",
+      "fileSize": "3485 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527621794060,
+      "name": "NC_CAID_Homeparenteralnutritionpriorauthreq",
+      "description": "",
+      "title": "Home parenteral nutrition prior authorization requirement changes effective August 4, 2022",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "06-28-2022",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_Homeparenteralnutritionpriorauthreq.pdf?v=202206291911",
+      "fileSize": "181 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527622031571,
+      "name": "NC_CAID_KnownIssuesBulletinJuly12022",
+      "description": "",
+      "title": "Known Issues Bulletin: July 1, 2022",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "06-30-2022",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_KnownIssuesBulletinJuly12022.pdf?v=202207071831",
+      "fileSize": "193 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527622882034,
+      "name": "NC_CAID_KnownIssuesBulletinJuly82022",
+      "description": "",
+      "title": "Known Issues Bulletin: July 8, 2022",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "07-07-2022",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News",
+        "Medicaid"
+      ],
+      "URI": "/docs/gpp/NC_CAID_KnownIssuesBulletinJuly82022.pdf?v=202207211410",
+      "fileSize": "195 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527623033162,
+      "name": "NC_CAID_PARCUrineDrugScreenings",
+      "description": "Prior Authorization Requirement Change for Urine Drug Screenings Effective September 1, 2022",
+      "title": "Prior Authorization Requirement Change for Urine Drug Screenings Effective September 1, 2022",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "07-08-2022",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_PARCUrineDrugScreenings.pdf?v=202207082035",
+      "fileSize": "135 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527623909930,
+      "name": "NC_CAID_KnownIssuesBulletinJuly222022",
+      "description": "",
+      "title": "Known Issues Bulletin: July 22, 2022",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "07-22-2022",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News",
+        "Medicaid"
+      ],
+      "URI": "/docs/gpp/NC_CAID_KnownIssuesBulletinJuly222022.pdf?v=202207271623",
+      "fileSize": "201 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527624579732,
+      "name": "NC_CAID_ProviderNews_Aug2022",
+      "description": "",
+      "title": "August 2022 Provider News",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "07-28-2022",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Provider Newsletter",
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_ProviderNews_Aug2022.pdf?v=202207281817",
+      "fileSize": "4202 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527624709483,
+      "name": "NC_CAID_KnownIssuesBulletinJuly292022",
+      "description": "",
+      "title": "Known Issues Bulletin: July 29, 2022",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "07-29-2022",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News",
+        "Medicaid"
+      ],
+      "URI": "/docs/gpp/NC_CAID_KnownIssuesBulletinJuly292022.pdf?v=202208042235",
+      "fileSize": "204 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527625104178,
+      "name": "NC_CAID_PAChangesNov22",
+      "description": "",
+      "title": "Prior authorization requirement changes effective November 1, 2022",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "08-01-2022",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_PAChangesNov22.pdf?v=202208011643",
+      "fileSize": "85 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527625448586,
+      "name": "NC_CAID_KnownIssuesBulletinAug52022",
+      "description": "",
+      "title": "Known Issues Bulletin: August 5, 2022",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "08-04-2022",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_KnownIssuesBulletinAug52022.pdf?v=202208121305",
+      "fileSize": "205 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527626256610,
+      "name": "NC_CAID_KnownIssuesBulletinAug122022",
+      "description": "",
+      "title": "Known Issues Bulletin: August 12, 2022",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "08-11-2022",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_KnownIssuesBulletinAug122022.pdf?v=202208182021",
+      "fileSize": "217 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527626628924,
+      "name": "NC_CAID_KnownIssuesBulletinAug192022",
+      "description": "",
+      "title": "Known Issues Bulletin: August 19, 2022",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "08-18-2022",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_KnownIssuesBulletinAug192022.pdf?v=202208251204",
+      "fileSize": "213 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527627117593,
+      "name": "NC_CAID_ChlamydiaScreening",
+      "description": "",
+      "title": "Chlamydia Screening",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "08-19-2022",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_ChlamydiaScreening.pdf?v=202208182106",
+      "fileSize": "162 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527627457938,
+      "name": "NC_CAID_AIMNotice",
+      "description": "",
+      "title": "New AIM Programs Effective November 1, 2022",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "08-22-2022",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_AIMNotice.pdf?v=202208241945",
+      "fileSize": "387 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527627693541,
+      "name": "NC_CAID_UpdateMedicaidCopays",
+      "description": "",
+      "title": "Update to Medicaid copays",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "08-24-2022",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_UpdateMedicaidCopays.pdf?v=202208231459",
+      "fileSize": "155 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527627942025,
+      "name": "NC_CAID_KnownIssuesBulletinAug262022",
+      "description": "",
+      "title": "Known Issues Bulletin: August 26, 2022",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "08-26-2022",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_KnownIssuesBulletinAug262022.pdf?v=202208251204",
+      "fileSize": "225 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527628266708,
+      "name": "NC_CAID_ProviderNews_Sept2022",
+      "description": "",
+      "title": "September 2022 Provider News",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "08-25-2022",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Provider Newsletter",
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_ProviderNews_Sept2022.pdf?v=202208301512",
+      "fileSize": "3471 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527628484087,
+      "name": "NC_CAID_HHHomeTherapyEvalGuide",
+      "description": "",
+      "title": "Home health and home therapy evaluation guidance",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "08-29-2022",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_HHHomeTherapyEvalGuide.pdf?v=202303291604",
+      "fileSize": "137 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527628703147,
+      "name": "NC_CAID_ExploretheIntersectionofRaceandDisability",
+      "description": "",
+      "title": "Register Today: Continuing to Explore the Intersection of Race and Disability",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "08-30-2022",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_ExploretheIntersectionofRaceandDisability.pdf?v=202208311754",
+      "fileSize": "177 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527629536002,
+      "name": "NC_CAID_KnownIssuesBulletinSep12022",
+      "description": "",
+      "title": "Known Issues Bulletin: September 2, 2022",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "09-01-2022",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_KnownIssuesBulletinSep12022.pdf?v=202209011527",
+      "fileSize": "226 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527629705444,
+      "name": "NC_CAID_ProviderFormulary11022",
+      "description": "",
+      "title": "Pharmacy Formulary Change Notice effective 10/1/2022",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "09-02-2022",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_ProviderFormulary11022.pdf?v=202209022014",
+      "fileSize": "203 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527630276709,
+      "name": "NC_CAID_KnownIssuesBulletinSep92022",
+      "description": "",
+      "title": "Known Issues Bulletin: September 9, 2022",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "09-09-2022",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_KnownIssuesBulletinSep92022.pdf?v=202209081757",
+      "fileSize": "221 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527631036489,
+      "name": "NC_CAID_KnownIssuesBulletinSep162022",
+      "description": "",
+      "title": "Known Issues Bulletin: September 16, 2022",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "09-16-2022",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_KnownIssuesBulletinSep162022.pdf?v=202209152048",
+      "fileSize": "230 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527631039056,
+      "name": "NC_CAID_MedBeneficDemographUpdt",
+      "description": "",
+      "title": "Renewing Medicaid Benefits",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "09-15-2022",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_MedBeneficDemographUpdt.pdf?v=202209152047",
+      "fileSize": "69 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527631724165,
+      "name": "NC_CAID_KnownIssuesBulletinSep232022",
+      "description": "",
+      "title": "Known Issues Bulletin: September 23, 2022",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "09-23-2022",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_KnownIssuesBulletinSep232022.pdf?v=202209231133",
+      "fileSize": "230 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527631884452,
+      "name": "NC_CAID_MPTACMay22",
+      "description": "",
+      "title": "May 2022 Medical Policies and Utilization Management Guidelines update",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "09-24-2022",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_MPTACMay22.pdf?v=202209232030",
+      "fileSize": "164 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527632046669,
+      "name": "NC_CAID_ProviderNews_Oct2022",
+      "description": "",
+      "title": "October 2022 Provider News",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "09-30-2022",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Provider Newsletter",
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_ProviderNews_Oct2022.pdf?v=202209281817",
+      "fileSize": "3874 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527632047671,
+      "name": "NC_CAID_PARChangesNov22",
+      "description": "",
+      "title": "Prior authorization requirement changes effective November 1, 2022",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "09-30-2022",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_PARChangesNov22.pdf?v=202209271918",
+      "fileSize": "131 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527632402064,
+      "name": "NC_CAID_KnownIssuesBulletinSep302022",
+      "description": "",
+      "title": "Known Issues Bulletin: September 30, 2022",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "09-30-2022",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_KnownIssuesBulletinSep302022.pdf?v=202209292157",
+      "fileSize": "229 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527634049172,
+      "name": "NC_CAID_AIMCardiologyCPTCodeExpansion",
+      "description": "",
+      "title": "AIM Specialty Health Cardiology Clinical Appropriateness Guidelines CPT Code List update",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "10-06-2022",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_AIMCardiologyCPTCodeExpansion.pdf?v=202210052044",
+      "fileSize": "132 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527634397750,
+      "name": "NC_CAID_LabDocumentationEducation",
+      "description": "",
+      "title": "Lab Documentation Education",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "10-06-2022",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_LabDocumentationEducation.pdf?v=202210102206",
+      "fileSize": "145 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527634428067,
+      "name": "NC_CAID_KnownIssuesBulletinOct72022",
+      "description": "",
+      "title": "Known Issues Bulletin: October 7, 2022",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "10-07-2022",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_KnownIssuesBulletinOct72022.pdf?v=202210071434",
+      "fileSize": "234 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527636672688,
+      "name": "NC_CAID_ProviderNews_Nov2022",
+      "description": "",
+      "title": "November 2022 Provider News",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "10-26-2022",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Provider Newsletter",
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_ProviderNews_Nov2022.pdf?v=202210281530",
+      "fileSize": "3726 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527637436905,
+      "name": "NC_CAID_KnownIssuesBulletinOct282022",
+      "description": "",
+      "title": "Known Issues Bulletin: October 28, 2022",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "11-01-2022",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_KnownIssuesBulletinOct282022.pdf?v=202211040034",
+      "fileSize": "234 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527638318911,
+      "name": "NC_CAID_KnownIssuesBulletinNov42022",
+      "description": "",
+      "title": "Known Issues Bulletin: November 4, 2022",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "11-04-2022",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_KnownIssuesBulletinNov42022.pdf?v=202211041451",
+      "fileSize": "237 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527638328448,
+      "name": "NC_CAID_AvailityEssentialsTechIssuesBulletin",
+      "description": "",
+      "title": "Availity Essentials is Experiencing Technical Issues",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "11-04-2022",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_AvailityEssentialsTechIssuesBulletin.pdf?v=202211041450",
+      "fileSize": "65 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527639140825,
+      "name": "NC_CAID_KnownIssuesBulletinNov112022",
+      "description": "",
+      "title": "Known Issues Bulletin: November 11, 2022",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "11-11-2022",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_KnownIssuesBulletinNov112022.pdf?v=202211101802",
+      "fileSize": "242 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527640051555,
+      "name": "NC_CAID_KnownIssuesBulletinNov182022",
+      "description": "",
+      "title": "Known Issues Bulletin: November 18, 2022",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "11-18-2022",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_KnownIssuesBulletinNov182022.pdf?v=202211171923",
+      "fileSize": "251 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527641029407,
+      "name": "NC_CAID_ProviderNews_Dec2022",
+      "description": "",
+      "title": "December 2022 Provider News",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "11-30-2022",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Provider Newsletter",
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_ProviderNews_Dec2022.pdf?v=202211301924",
+      "fileSize": "3717 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527641136463,
+      "name": "NC_CAID_KnownIssuesBulletinDec22022",
+      "description": "",
+      "title": "Known Issues Bulletin: December 2, 2022",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "12-02-2022",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_KnownIssuesBulletinDec22022.pdf?v=202212011515",
+      "fileSize": "268 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527641425082,
+      "name": "NC_CAID_KnownIssuesBulletinNov252022",
+      "description": "",
+      "title": "Known Issues Bulletin: November 25, 2022",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "11-25-2022",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_KnownIssuesBulletinNov252022.pdf?v=202212081737",
+      "fileSize": "254 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527642215258,
+      "name": "NC_CAID_KnownIssuesBulletinDec92022",
+      "description": "",
+      "title": "Known Issues Bulletin: December 9, 2022",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "12-09-2022",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_KnownIssuesBulletinDec92022.pdf?v=202212081947",
+      "fileSize": "280 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527642994336,
+      "name": "NC_CAID_KnownIssuesBulletinDec162022",
+      "description": "",
+      "title": "Known Issues Bulletin: December 16, 2022",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "12-16-2022",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_KnownIssuesBulletinDec162022.pdf?v=202212152006",
+      "fileSize": "277 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527643702633,
+      "name": "NC_CAID_KnownIssuesBulletinDec232022",
+      "description": "",
+      "title": "Known Issues Bulletin: December 23, 2022",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "12-23-2022",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_KnownIssuesBulletinDec232022.pdf?v=202212230151",
+      "fileSize": "277 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527644159010,
+      "name": "NC_CAID_ProviderNews_Jan23",
+      "description": "",
+      "title": "January 2023 Provider News",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "12-28-2022",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Provider Newsletter",
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_ProviderNews_Jan23.pdf?v=202301131934",
+      "fileSize": "3534 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527644951154,
+      "name": "NC_CAID_KnownIssuesBulletinDec302022",
+      "description": "",
+      "title": "Known Issues Bulletin: December 30, 2022",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "12-30-2022",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_KnownIssuesBulletinDec302022.pdf?v=202212292223",
+      "fileSize": "282 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527646400653,
+      "name": "NC_CAID_August2022MedicalPoliciesandUMGuideUpdate",
+      "description": "",
+      "title": "August 2022 Medical Policies and Utilization Management Guidelines Update",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "01-04-2023",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_August2022MedicalPoliciesandUMGuideUpdate.pdf?v=202301052027",
+      "fileSize": "159 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527646483049,
+      "name": "NC_CAID_EXPRESSPENFebNonBlue",
+      "description": "",
+      "title": "A new look is coming to our Provider News",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "01-04-2023",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_EXPRESSPENFebNonBlue.pdf?v=202301042249",
+      "fileSize": "113 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527646655681,
+      "name": "NC_CAID_KnownIssuesBulletinJan62023",
+      "description": "",
+      "title": "Known Issues Bulletin: January 06, 2023",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "01-06-2023",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_KnownIssuesBulletinJan62023.pdf?v=202301070141",
+      "fileSize": "283 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527648075900,
+      "name": "NC_CAID_KnownIssuesBulletinJan132023",
+      "description": "",
+      "title": "Known Issues Bulletin: January 13, 2023",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "01-13-2023",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_KnownIssuesBulletinJan132023.pdf?v=202301201812",
+      "fileSize": "274 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527648835544,
+      "name": "NC_CAID_KnownIssuesBulletinJan202023",
+      "description": "",
+      "title": "Known Issues Bulletin: January 20, 2023",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "01-20-2023",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_KnownIssuesBulletinJan202023.pdf?v=202301201812",
+      "fileSize": "280 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527649320245,
+      "name": "NC_CAID_KnownIssuesBulletinJan272023",
+      "description": "",
+      "title": "Known Issues Bulletin: January 27, 2023",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "01-27-2023",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_KnownIssuesBulletinJan272023.pdf?v=202301261454",
+      "fileSize": "279 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527649325336,
+      "name": "NC_CAID_LegislativePolicyChangeHealthChoiceTrans",
+      "description": "",
+      "title": "Legislative/Policy Change: Health Choice Transition to Medicaid",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "01-25-2023",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_LegislativePolicyChangeHealthChoiceTrans.pdf?v=202301261455",
+      "fileSize": "149 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527649736400,
+      "name": "NC_CAID_NewCarelonRehabProgram",
+      "description": "",
+      "title": "New Carelon Rehabilitation Program effective May 1, 2023",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "01-30-2023",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_NewCarelonRehabProgram.pdf?v=202303082015",
+      "fileSize": "142 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527650043555,
+      "name": "NC_CAID_ProviderNews_Feb23",
+      "description": "",
+      "title": "February 2023 Provider News",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "01-31-2023",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Provider Newsletter",
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_ProviderNews_Feb23.pdf?v=202301302150",
+      "fileSize": "2794 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527650223484,
+      "name": "NC_CAID_1099FAQ",
+      "description": "",
+      "title": "1099 Frequently Asked Questions",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "02-01-2023",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_1099FAQ.pdf?v=202301311943",
+      "fileSize": "70 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527650507190,
+      "name": "NC_CAID_AdvancingMentalHealth",
+      "description": "",
+      "title": "Advancing Mental Health Equity for Youth & Young Adults",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "02-02-2023",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_AdvancingMentalHealth.pdf?v=202302022229",
+      "fileSize": "99 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527650719299,
+      "name": "NC_CAID_DurMedEuipPriorAuthorizationUpdate",
+      "description": "",
+      "title": "Durable Medical Equipment (DME) Prior Authorization Update",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "02-03-2023",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_DurMedEuipPriorAuthorizationUpdate.pdf?v=202302032100",
+      "fileSize": "196 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527650848034,
+      "name": "NC_CAID_Resourcestosupportyourdiversepatientpanel",
+      "description": "",
+      "title": "Resources to support your diverse patient panel",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "02-06-2023",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_Resourcestosupportyourdiversepatientpanel.pdf?v=202302071445",
+      "fileSize": "111 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527651018425,
+      "name": "NC_CAID_ASCDentalFacilityUpdate",
+      "description": "",
+      "title": "Ambulatory Surgical Center (ASC) Dental Facility Update",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "02-08-2023",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_ASCDentalFacilityUpdate.pdf?v=202302071825",
+      "fileSize": "67 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527651337038,
+      "name": "NC_CAID_KnownIssuesBulletinFeb102023",
+      "description": "",
+      "title": "Known Issues Bulletin: February 10, 2023",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "02-10-2023",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_KnownIssuesBulletinFeb102023.pdf?v=202302091523",
+      "fileSize": "298 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527651398259,
+      "name": "NC_CAID_KnownIssuesBulletin",
+      "description": "",
+      "title": "Known Issues Bulletin: February 3, 2023",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "02-03-2023",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_KnownIssuesBulletin.pdf?v=202302091503",
+      "fileSize": "298 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527651563007,
+      "name": "NC_CAID_NewLearningHub",
+      "description": "",
+      "title": "New Learning Hub to assist providers with Availity",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "02-09-2023",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_NewLearningHub.pdf?v=202302091822",
+      "fileSize": "118 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527651884369,
+      "name": "NC_CAID_OPSurgeryRedirectionRetraction",
+      "description": "",
+      "title": "Outpatient Surgery Redirection – Policy Retraction",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "02-13-2023",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_OPSurgeryRedirectionRetraction.pdf?v=202302132148",
+      "fileSize": "183 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527651960418,
+      "name": "NC_CAID_KnownIssuesBulletinFeb172023",
+      "description": "",
+      "title": "Known Issues Bulletin: February 17, 2023",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "02-17-2023",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_KnownIssuesBulletinFeb172023.pdf?v=202302161519",
+      "fileSize": "302 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527653502573,
+      "name": "NC_CAID_KnownIssuesBulletinFeb232023",
+      "description": "",
+      "title": "Known Issues Bulletin: February 24, 2023",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "02-23-2023",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_KnownIssuesBulletinFeb232023.pdf?v=202302242137",
+      "fileSize": "310 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527653623282,
+      "name": "NC_CAID_ProviderNews_Mar2023",
+      "description": "",
+      "title": "March 2023 Provider News",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "02-28-2023",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Provider Newsletter"
+      ],
+      "URI": "/docs/gpp/NC_CAID_ProviderNews_Mar2023.pdf?v=202302271743",
+      "fileSize": "3605 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527654127818,
+      "name": "NC_CAID_KnownIssuesBulletinMar32023",
+      "description": "",
+      "title": "Known Issues Bulletin: March 3, 2023",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "03-01-2023",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_KnownIssuesBulletinMar32023.pdf?v=202303021842",
+      "fileSize": "305 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527655048788,
+      "name": "NC_CAID_KnownIssuesBulletinMar102023",
+      "description": "",
+      "title": "Known Issues Bulletin: March 10, 2023",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "03-10-2023",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_KnownIssuesBulletinMar102023.pdf?v=202303091944",
+      "fileSize": "309 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527656015184,
+      "name": "NC_CAID_KnownIssuesBulletinMar172023",
+      "description": "",
+      "title": "Known Issues Bulletin: March 17, 2023",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "03-17-2023",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_KnownIssuesBulletinMar172023.pdf?v=202303212020",
+      "fileSize": "315 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527656940581,
+      "name": "NC_CAID_QtPharmacyFormChange040123",
+      "description": "",
+      "title": "Quarterly Pharmacy Formulary Changes effective 4/1/2023",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "03-29-2023",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_QtPharmacyFormChange040123.pdf?v=202303241808",
+      "fileSize": "218 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527657075544,
+      "name": "NC_CAID_KnownIssuesBulletinMar312023",
+      "description": "",
+      "title": "Known Issues Bulletin: March 31, 2023",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "03-30-2023",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_KnownIssuesBulletinMar312023.pdf?v=202303301931",
+      "fileSize": "341 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527657105285,
+      "name": "NC_CAID_Useofmod25certainvisits",
+      "description": "",
+      "title": "Update use of modifier 25 for billing for visits that include preventive and problem-oriented evaluation and management services",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "03-24-2023",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_Useofmod25certainvisits.pdf?v=202303271644",
+      "fileSize": "58 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527657303985,
+      "name": "NC_CAID_ProviderNews_Apr2023",
+      "description": "",
+      "title": "April 2023 Provider News",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "03-31-2023",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Provider Newsletter"
+      ],
+      "URI": "/docs/gpp/NC_CAID_ProviderNews_Apr2023.pdf?v=202304051607",
+      "fileSize": "2883 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527657701777,
+      "name": "NC_CAID_ReadySetRenewFlier",
+      "description": "",
+      "title": "Ready, set, renew!",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "03-30-2023",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_ReadySetRenewFlier.pdf?v=202303291604",
+      "fileSize": "729 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527658083464,
+      "name": "NC_CAID_ReduceDelays",
+      "description": "",
+      "title": "Helping to reduce delays when submitting attachments",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "05-08-2023",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_ReduceDelays.pdf?v=202305081648",
+      "fileSize": "183 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527658608457,
+      "name": "NC_CAID_KnownIssuesBulletinApr72023",
+      "description": "",
+      "title": "Known Issues Bulletin: April 7, 2023",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "04-07-2023",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_KnownIssuesBulletinApr72023.pdf?v=202304071351",
+      "fileSize": "342 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527658611823,
+      "name": "NC_CAID_MMCadminSimplification",
+      "description": "",
+      "title": "NC Medicaid Managed Care: Administrative Simplification 2023",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "03-30-2023",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_MMCadminSimplification.pdf?v=202304071626",
+      "fileSize": "244 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527658908731,
+      "name": "NC_CAID_OtherHealthInsurance",
+      "description": "",
+      "title": "Other Health Insurance",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "04-12-2023",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_OtherHealthInsurance.pdf?v=202304111933",
+      "fileSize": "125 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527659662736,
+      "name": "NC_CAID_RequestingBreastPumps",
+      "description": "",
+      "title": "Requesting Breast Pumps for Healthy Blue Medicaid Members",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "04-14-2023",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_RequestingBreastPumps.pdf?v=202304141353",
+      "fileSize": "161 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527659728186,
+      "name": "NC_CAID_KnownIssuesBulletinApr142023",
+      "description": "",
+      "title": "Known Issues Bulletin: April 14, 2023",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "04-14-2023",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_KnownIssuesBulletinApr142023.pdf?v=202304141540",
+      "fileSize": "343 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527660178366,
+      "name": "NC_CAID_KnownIssuesBulletinApr212023",
+      "description": "",
+      "title": "Known Issues Bulletin: April 21, 2023",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "04-21-2023",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_KnownIssuesBulletinApr212023.pdf?v=202304201356",
+      "fileSize": "344 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527660602964,
+      "name": "NC_CAID_ClinicalCoveragePolicy8C",
+      "description": "",
+      "title": "Clinical Coverage Policy 8C Reminder: Outpatient BH Services",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "04-25-2023",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_ClinicalCoveragePolicy8C.pdf?v=202304241738",
+      "fileSize": "68 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527660743145,
+      "name": "NC_CAID_SleepStudyNotice",
+      "description": "",
+      "title": "Sleep Study Notice",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "04-27-2023",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_SleepStudyNotice.pdf?v=202304271706",
+      "fileSize": "125 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527661067416,
+      "name": "NC_CAID_ProviderNews_May2023",
+      "description": "",
+      "title": "May 2023 Provider News",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "05-01-2023",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Provider Newsletter"
+      ],
+      "URI": "/docs/gpp/NC_CAID_ProviderNews_May2023.pdf?v=202304272209",
+      "fileSize": "3711 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527661076254,
+      "name": "NC_CAID_KnownIssuesBulletinApr282023",
+      "description": "",
+      "title": "Known Issues Bulletin: April 28, 2023",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "04-28-2023",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_KnownIssuesBulletinApr282023.pdf?v=202304271706",
+      "fileSize": "328 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527661425634,
+      "name": "NC_CAID_MCG27thEditionUpdate",
+      "description": "",
+      "title": "MCG 27th Edition Annual Update",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "05-01-2023",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_MCG27thEditionUpdate.pdf?v=202304291252",
+      "fileSize": "233 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527661867530,
+      "name": "NC_CAID_EquityAsthmaCare",
+      "description": "",
+      "title": "Moving Toward Equity in Asthma Care",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "05-02-2023",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_EquityAsthmaCare.pdf?v=202305021851",
+      "fileSize": "190 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527662055949,
+      "name": "NC_CAID_MPCUMG_UpdateMay23",
+      "description": "",
+      "title": "Medical Policies and Clinical Utilization Management Guidelines Update",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "05-03-2023",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_MPCUMG_UpdateMay23.pdf?v=202305031944",
+      "fileSize": "103 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527662404690,
+      "name": "NC_CAID_KnownIssuesBulletinMay52023",
+      "description": "",
+      "title": "Known Issues Bulletin: May 5, 2023",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "05-05-2023",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_KnownIssuesBulletinMay52023.pdf?v=202305081411",
+      "fileSize": "328 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527662542836,
+      "name": "NC_CAID_PARPeerSupportSvcs",
+      "description": "",
+      "title": "Prior Authorization Requirements for Peer Support Services",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "05-10-2023",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_PARPeerSupportSvcs.pdf?v=202305101505",
+      "fileSize": "192 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527662647597,
+      "name": "NC_CAID_KnownIssuesBulletinMay122023",
+      "description": "",
+      "title": "Known Issues Bulletin: May 12, 2023",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "05-12-2023",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_KnownIssuesBulletinMay122023.pdf?v=202305251800",
+      "fileSize": "332 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527663630961,
+      "name": "NC_CAID_ThyroidSerumIronTesting",
+      "description": "",
+      "title": "Thyroid and Serum Iron Testing Reminder",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "05-22-2023",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_ThyroidSerumIronTesting.pdf?v=202305221715",
+      "fileSize": "210 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527663810982,
+      "name": "NC_CAID_CarelonTransitionMRIBreast",
+      "description": "",
+      "title": "Transition to Carelon Medical Benefits Management, Inc. MRI Breast Clinical Appropriateness Guidelines",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "05-23-2023",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_CarelonTransitionMRIBreast.pdf?v=202305241420",
+      "fileSize": "133 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527663849444,
+      "name": "NC_CAID_CarelonAdvImagingSpineSurgery",
+      "description": "",
+      "title": "Updates to Carelon Medical Benefits Management, Inc. Advanced Imaging and Spine Surgery Clinical Appropriateness Guidelines",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "05-24-2023",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_CarelonAdvImagingSpineSurgery.pdf?v=202305241546",
+      "fileSize": "196 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527664099232,
+      "name": "NC_CAID_KnownIssuesBulletinMay192023",
+      "description": "",
+      "title": "Known Issues Bulletin: May 19, 2023",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "05-19-2023",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_KnownIssuesBulletinMay192023.pdf?v=202305251800",
+      "fileSize": "333 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527664102828,
+      "name": "NC_CAID_KnownIssuesBulletinMay262023",
+      "description": "",
+      "title": "Known Issues Bulletin: May 26, 2023",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "05-26-2023",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_KnownIssuesBulletinMay262023.pdf?v=202305251800",
+      "fileSize": "334 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527664581404,
+      "name": "NC_CAID_ProviderNews_Jun2023",
+      "description": "",
+      "title": "June 2023 Provider News",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "06-01-2023",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Provider Newsletter"
+      ],
+      "URI": "/docs/gpp/NC_CAID_ProviderNews_Jun2023.pdf?v=202305311641",
+      "fileSize": "3378 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527664902112,
+      "name": "NC_CAID_KnownIssuesBulletinJune22023",
+      "description": "",
+      "title": "Known Issues Bulletin: June 02, 2023",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "06-02-2023",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_KnownIssuesBulletinJune22023.pdf?v=202306021445",
+      "fileSize": "335 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527665226360,
+      "name": "NC_CAID_KnownIssuesBulletinJune92023",
+      "description": "",
+      "title": "Known Issues Bulletin: June 09, 2023",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "06-09-2023",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_KnownIssuesBulletinJune92023.pdf?v=202306081834",
+      "fileSize": "331 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527665266117,
+      "name": "NC_CAID_JointSurgeryCPTCode",
+      "description": "",
+      "title": "Joint Surgery CPT Code List Update",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "06-07-2023",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_JointSurgeryCPTCode.pdf?v=202306072010",
+      "fileSize": "144 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527666076480,
+      "name": "NC_CAID_KnownIssuesBulletinJune162023",
+      "description": "",
+      "title": "Known Issues Bulletin: June 16, 2023",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "06-16-2023",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_KnownIssuesBulletinJune162023.pdf?v=202306161903",
+      "fileSize": "335 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527666633048,
+      "name": "NC_CAID_ComingsoontheenhancedProviderNews",
+      "description": "",
+      "title": "Coming soon: the enhanced Provider News",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "06-22-2023",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_ComingsoontheenhancedProviderNews.pdf?v=202306221723",
+      "fileSize": "788 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527666639131,
+      "name": "NC_CAID_CarelonMedBeneMngntClinAppGuidelinesjtsurg",
+      "description": "",
+      "title": "Updates to Carelon Medical Benefits Management, Inc. Clinical Appropriateness Guidelines for Joint Surgery",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "06-22-2023",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_CarelonMedBeneMngntClinAppGuidelinesjtsurg.pdf?v=202306221820",
+      "fileSize": "233 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527666814967,
+      "name": "NC_CAID_UpdateClaimsPended",
+      "description": "",
+      "title": "Update on Claims Pended for Request of Information",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "06-23-2023",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_UpdateClaimsPended.pdf?v=202306232201",
+      "fileSize": "188 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527667811612,
+      "name": "NC_CAID_KnownIssuesBulletinJune232023",
+      "description": "",
+      "title": "Known Issues Bulletin: June 23, 2023",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "06-28-2023",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_KnownIssuesBulletinJune232023.pdf?v=202306281851",
+      "fileSize": "344 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527668285349,
+      "name": "NC_CAID_KnownIssuesBulletinJune302023",
+      "description": "",
+      "title": "Known Issues Bulletin: June 30, 2023",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "06-30-2023",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_KnownIssuesBulletinJune302023.pdf?v=202307031348",
+      "fileSize": "349 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527668971850,
+      "name": "NC_CAID_KnownIssuesBulletinJuly072023",
+      "description": "",
+      "title": "Known Issues Bulletin: July 07, 2023",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "07-07-2023",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_KnownIssuesBulletinJuly072023.pdf?v=202307071342",
+      "fileSize": "350 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527670072718,
+      "name": "NC_CAID_KnownIssuesBulletinJuly142023",
+      "description": "",
+      "title": "Known Issues Bulletin: July 14, 2023",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "07-14-2023",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_KnownIssuesBulletinJuly142023.pdf?v=202307141757",
+      "fileSize": "350 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527670329774,
+      "name": "NC_CAID_ProviderEnrollmentDataGuidance",
+      "description": "",
+      "title": "Provider Enrollment Data Guidance",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "07-24-2023",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_ProviderEnrollmentDataGuidance.pdf?v=202404011608",
+      "fileSize": "249 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527670483026,
+      "name": "NC_CAID_KnownIssuesBulletinJuly282023",
+      "description": "",
+      "title": " Known Issues Bulletin: July 28, 2023",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "07-28-2023",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_KnownIssuesBulletinJuly282023.pdf?v=202307312030",
+      "fileSize": "354 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527671382820,
+      "name": "NC_CAID_KnownIssuesBulletinJuly212023",
+      "description": "",
+      "title": " Known Issues Bulletin: July 21, 2023",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "07-21-2023",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_KnownIssuesBulletinJuly212023.pdf?v=202307312119",
+      "fileSize": "356 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527671641074,
+      "name": "NC_CAID_KnownIssuesBulletinAug423",
+      "description": "",
+      "title": " Known Issues Bulletin: August 4, 2023",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "08-04-2023",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_KnownIssuesBulletinAug423.pdf?v=202308031501",
+      "fileSize": "356 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527672416467,
+      "name": "NC_CAID_KnownIssuesBulletinAug112023",
+      "description": "",
+      "title": "Known Issues Bulletin: August 18, 2023",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "08-17-2023",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_KnownIssuesBulletinAug112023.pdf?v=202308181647",
+      "fileSize": "360 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527673645651,
+      "name": "NC_CAID_KnownIssuesBulletinAug252023",
+      "description": "",
+      "title": "Known Issues Bulletin: August 25, 2023",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "08-25-2023",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_KnownIssuesBulletinAug252023.pdf?v=202309141805",
+      "fileSize": "360 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527674025925,
+      "name": "NC_CAID_KnownIssuesBulletinsept12023",
+      "description": "",
+      "title": "Known Issues Bulletin: September 8, 2023",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "09-07-2023",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_KnownIssuesBulletinsept12023.pdf?v=202309072017",
+      "fileSize": "361 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527675628706,
+      "name": "NC_CAID_KnownIssuesBulletinSep12023",
+      "description": "",
+      "title": "Known Issues Bulletin: September 1, 2023",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "09-01-2023",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_KnownIssuesBulletinSep12023.pdf?v=202309141805",
+      "fileSize": "361 KB",
+      "fileType": "pdf"
+    },
+    {
+      "id": 1527675645943,
+      "name": "NC_CAID_KnownIssuesBulletinSep15",
+      "description": "",
+      "title": "Known Issues Bulletin: September 15, 2023",
+      "analyticsTag": "",
+      "language": "en_US",
+      "updateDate": "09-15-2023",
+      "brands": [
+        "HBNC"
+      ],
+      "states": [],
+      "topic": [
+        "Medicaid News"
+      ],
+      "URI": "/docs/gpp/NC_CAID_KnownIssuesBulletinSep15.pdf?v=202309141928",
+      "fileSize": "366 KB",
+      "fileType": "pdf"
+    }
+  ]
+}

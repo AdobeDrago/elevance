@@ -1,0 +1,43 @@
+version: 1
+indices:
+  default:
+    target: /query-index.json
+    include:
+      - /north-carolina-provider/**
+      - /grs-provider/**
+    exclude:
+      - '**/search'
+      - '**/search.html'
+      - '**/fragments/**'
+      - '**/nav'
+      - '**/footer'
+      - '**/drafts/**'
+      - '**/tools/**'
+    properties:
+      path:
+        select: none
+        value: path
+      title:
+        select: head > meta[property="og:title"]
+        value: attribute(el, "content")
+      description:
+        select: head > meta[name="description"]
+        value: attribute(el, "content")
+      header:
+        selectFirst: main h1
+        value: textContent(el)
+      content:
+        select: main
+        value: textContent(el)
+      topic:
+        select: head > meta[name="search-topic"]
+        value: attribute(el, "content")
+      type:
+        select: head > meta[name="search-type"]
+        value: attribute(el, "content")
+      robots:
+        select: head > meta[name="robots"]
+        value: attribute(el, "content")
+      lastModified:
+        select: none
+        value: headers["last-modified"]
