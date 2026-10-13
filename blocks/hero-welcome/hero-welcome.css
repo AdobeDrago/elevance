@@ -4,8 +4,9 @@
  * Every rule is scoped to the North Carolina theme for repoless isolation.
  */
 
-body.north-carolina .hero-welcome-container {
+body.north-carolina main > .section.hero-welcome-container {
   margin: 0;
+  padding: 0;
 }
 
 body.north-carolina .hero-welcome-container .hero-welcome-wrapper {

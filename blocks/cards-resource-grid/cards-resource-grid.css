@@ -57,7 +57,7 @@ body.north-carolina .cards-resource-grid .cards-resource-grid-card-body p {
 
 /* CTA button — solid brand blue, anchored at the bottom of each card */
 body.north-carolina .cards-resource-grid .cards-resource-grid-card-body .button-container {
-  margin: 35px 0 0;
+  margin: 30px 0 0;
 }
 
 body.north-carolina .cards-resource-grid .cards-resource-grid-card-body a.button:any-link {
@@ -79,6 +79,18 @@ body.north-carolina .cards-resource-grid .cards-resource-grid-card-body a.button
 body.north-carolina .cards-resource-grid .cards-resource-grid-card-body a.button:focus {
   background-color: var(--link-hover-color);
   color: #fff;
+}
+
+/* intro text sharing the section sits 40px above the grid, 60px from 992px
+   (source .within_brdr > p ~ .content_column) */
+body.north-carolina .default-content-wrapper + .cards-resource-grid-wrapper {
+  margin-top: 40px;
+}
+
+@media (width >= 992px) {
+  body.north-carolina .default-content-wrapper + .cards-resource-grid-wrapper {
+    margin-top: 60px;
+  }
 }
 
 /* Desktop: two vertical stacks matching the source column-fill layout */

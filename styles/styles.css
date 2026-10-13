@@ -241,6 +241,19 @@ main > .section:first-of-type {
   }
 }
 
+/* NC source sections (.content_column_*) space with inner padding, not margins:
+   40px, 60px from 992px. Grey (light) sections use the same spacing. */
+body.north-carolina main > .section {
+  margin: 0;
+  padding: 40px 0;
+}
+
+@media (width >= 992px) {
+  body.north-carolina main > .section {
+    padding: 60px 0;
+  }
+}
+
 /* section metadata */
 main .section.light,
 main .section.highlight {
@@ -311,8 +324,9 @@ body.north-carolina main .default-content-wrapper > ul > li:has(> a[href$='-pdf'
   background: url('../icons/pdf_icon.png') 0 4px / 16px auto no-repeat;
 }
 
+/* source :not(h2) + h2 { margin-top: 45px } */
 body.north-carolina main .default-content-wrapper > h2 {
-  margin: 35px 0 0;
+  margin: 45px 0 0;
   font-size: 32px;
   font-weight: 700;
   line-height: 38px;
@@ -401,10 +415,9 @@ body.north-carolina main .default-content-wrapper > p:has(> .icon-check:first-ch
   margin-top: 24px;
 }
 
-/* the button's own 12px top margin completes the 24px gap */
 body.north-carolina main .default-content-wrapper > p:has(> .icon-check:first-child)
   + p.button-container {
-  margin-top: 12px;
+  margin-top: 24px;
 }
 
 body.north-carolina .icon.icon-check {
@@ -414,12 +427,47 @@ body.north-carolina .icon.icon-check {
   vertical-align: -2px;
 }
 
-body.north-carolina main .section.light > .default-content-wrapper {
-  padding-top: 20px;
-  padding-bottom: 20px;
+/* Arrow links (source p.arrow_link): authored as a heading holding only a link,
+   so EDS doesn't turn them into buttons. Bold underlined link + chevron. */
+body.north-carolina main .default-content-wrapper > h4:has(> a:only-child, > strong:only-child > a:only-child) {
+  margin: 15px 0 0;
+  font-family: var(--body-font-family);
+  font-size: 18px;
+  line-height: 28px;
+}
+
+body.north-carolina main .default-content-wrapper > h2 + h4:has(> a:only-child, > strong:only-child > a:only-child) {
+  margin-top: 20px;
+}
+
+body.north-carolina main .default-content-wrapper > h4:has(> a:only-child, > strong:only-child > a:only-child) + p {
+  margin-top: 14px;
+}
+
+body.north-carolina main .default-content-wrapper > h4:has(> a:only-child, > strong:only-child > a:only-child) :is(strong, a) {
+  font-weight: 700;
+}
+
+body.north-carolina main .default-content-wrapper > h4:has(> a:only-child, > strong:only-child > a:only-child) a:any-link {
+  line-height: 22px;
+  text-decoration: underline;
+}
+
+/* chevron-right after the link text (replaces source fa-chevron-right icon) */
+body.north-carolina main .default-content-wrapper > h4:has(> a:only-child, > strong:only-child > a:only-child) a::after {
+  content: '';
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  margin: 0 2px 0 6px;
+  border-top: 2px solid currentcolor;
+  border-right: 2px solid currentcolor;
+  transform: rotate(45deg);
+  vertical-align: 2px;
 }
 
 body.north-carolina main .default-content-wrapper a.button:any-link {
+  margin: 0;
   border: 0;
   border-bottom: 2px solid var(--brand-blue-dark);
   border-radius: 3px;
@@ -434,10 +482,6 @@ body.north-carolina main .default-content-wrapper a.button:hover,
 body.north-carolina main .default-content-wrapper a.button:focus {
   background-color: var(--brand-blue-dark);
   border-bottom-color: var(--heading-color);
-}
-
-body.north-carolina main .section.light .default-content-wrapper a.button:any-link {
-  margin: 0;
 }
 
 body.north-carolina main .section.light:has(> .default-content-wrapper > h3:first-child) {

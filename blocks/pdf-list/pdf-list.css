@@ -16,3 +16,8 @@
   font-size: 1rem;
   line-height: 1.75rem;
 }
+
+/* source leaves a 16px gap between a PDF list and the content after it */
+body.north-carolina main .pdf-list-wrapper + .default-content-wrapper {
+  margin-top: 16px;
+}

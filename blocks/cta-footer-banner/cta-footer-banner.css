@@ -5,6 +5,11 @@
  * the button inherits the site-wide a.button styling from styles/styles.css.
  */
 
+/* the band brings its own spacing; drop the NC section padding */
+body.north-carolina main > .section.cta-footer-banner-container {
+  padding: 0;
+}
+
 /* full-bleed: escape the section's max-width/padding wrapper */
 body.north-carolina .cta-footer-banner-container .cta-footer-banner-wrapper {
   max-width: unset;

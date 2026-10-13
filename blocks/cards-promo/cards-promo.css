@@ -90,23 +90,25 @@ body.north-carolina .cards-promo .cards-promo-card-body a.button:focus {
   color: #fff;
 }
 
-@media (width >= 900px) {
-  /* Two equal columns, image beside text. Source: 525px + 70px gap + 525px
-     within a 1140px row; here scaled to the EDS 1080px content width. */
+@media (width >= 992px) {
+  /* Image beside text. Source .content_column_2 .content_column:
+     width calc(50% - 45px), 70px apart, packed left (525 + 70 + 525 in 1140). */
   body.north-carolina .cards-promo > ul > li {
     flex-direction: row;
-    align-items: center;
+    align-items: flex-start;
     gap: 70px;
   }
 
   body.north-carolina .cards-promo .cards-promo-card-image,
   body.north-carolina .cards-promo .cards-promo-card-body {
-    flex: 1;
+    flex: 0 0 calc(50% - 45px);
     min-width: 0;
   }
 
-  /* Image side alternates per block (set in JS): reverse puts image right. */
+  /* Image side alternates per block (set in JS): reverse puts image right;
+     flex-end keeps the pair packed to the left edge like the source floats. */
   body.north-carolina .cards-promo-reverse > ul > li {
     flex-direction: row-reverse;
+    justify-content: flex-end;
   }
 }
