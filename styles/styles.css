@@ -419,8 +419,7 @@ body.north-carolina main .section.light > .default-content-wrapper {
   padding-bottom: 20px;
 }
 
-body.north-carolina main .section.light .default-content-wrapper a.button:any-link {
-  margin: 0;
+body.north-carolina main .default-content-wrapper a.button:any-link {
   border: 0;
   border-bottom: 2px solid var(--brand-blue-dark);
   border-radius: 3px;
@@ -431,10 +430,14 @@ body.north-carolina main .section.light .default-content-wrapper a.button:any-li
   text-shadow: 0 1px 1px var(--brand-blue-dark);
 }
 
-body.north-carolina main .section.light .default-content-wrapper a.button:hover,
-body.north-carolina main .section.light .default-content-wrapper a.button:focus {
+body.north-carolina main .default-content-wrapper a.button:hover,
+body.north-carolina main .default-content-wrapper a.button:focus {
   background-color: var(--brand-blue-dark);
   border-bottom-color: var(--heading-color);
+}
+
+body.north-carolina main .section.light .default-content-wrapper a.button:any-link {
+  margin: 0;
 }
 
 body.north-carolina main .section.light:has(> .default-content-wrapper > h3:first-child) {
@@ -462,7 +465,7 @@ body.north-carolina main .section.light > .default-content-wrapper:has(> h3:firs
 }
 
 @media (width >= 900px) {
-  body.north-carolina main .section.light .default-content-wrapper a.button:any-link {
+  body.north-carolina main .default-content-wrapper a.button:any-link {
     padding: 12px 30px;
     font-size: var(--body-font-size-m);
   }
