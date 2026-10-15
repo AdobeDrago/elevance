@@ -324,8 +324,13 @@ body.north-carolina main .default-content-wrapper > p + ol {
   margin-top: 0;
 }
 
-/* content sharing a section with the hero banner keeps the source's 45px gap below it */
+/* content sharing a section with the hero banner: source gap below the title bar
+   is 35px for a paragraph and 45px for an h2 (`:not(h2) + h2`) */
 body.north-carolina main .hero-banner-wrapper + .default-content-wrapper > :first-child {
+  margin-top: 35px;
+}
+
+body.north-carolina main .hero-banner-wrapper + .default-content-wrapper > h2:first-child {
   margin-top: 45px;
 }
 
