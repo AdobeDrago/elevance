@@ -1,0 +1,551 @@
+{
+  "capturedOn": "2026-10-15",
+  "renderEnvironment": "Local AEM development server",
+  "daSite": "adobedrago/elevance-nc",
+  "blocks": {
+    "hero-welcome": {
+      "rendered": {
+        "file": "assets/blocks/hero-welcome-rendered.jpg",
+        "width": 1280,
+        "height": 963,
+        "kind": "local-render-of-site-content",
+        "source": "/north-carolina-provider/home"
+      },
+      "authoring": {
+        "file": "assets/blocks/hero-welcome-da.jpg",
+        "width": 1670,
+        "height": 1054,
+        "kind": "da-content-view",
+        "source": "https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/home"
+      }
+    },
+    "hero-banner": {
+      "rendered": {
+        "file": "assets/blocks/hero-banner-rendered.jpg",
+        "width": 1280,
+        "height": 494,
+        "kind": "local-render-of-site-content",
+        "source": "/north-carolina-provider/resources"
+      },
+      "authoring": {
+        "file": "assets/blocks/hero-banner-da.jpg",
+        "width": 1670,
+        "height": 1054,
+        "kind": "da-content-view",
+        "source": "https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/resources"
+      }
+    },
+    "cards-icon-links": {
+      "rendered": {
+        "file": "assets/blocks/cards-icon-links-rendered.jpg",
+        "width": 1280,
+        "height": 70,
+        "kind": "local-render-of-site-content",
+        "source": "/north-carolina-provider/home"
+      },
+      "authoring": {
+        "file": "assets/blocks/cards-icon-links-da.jpg",
+        "width": 1670,
+        "height": 1054,
+        "kind": "da-content-view",
+        "source": "https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/home"
+      }
+    },
+    "cards-featured": {
+      "rendered": {
+        "file": "assets/blocks/cards-featured-rendered.jpg",
+        "width": 1140,
+        "height": 690,
+        "kind": "local-render-of-site-content",
+        "source": "/north-carolina-provider/home"
+      },
+      "authoring": {
+        "file": "assets/blocks/cards-featured-da.jpg",
+        "width": 1670,
+        "height": 1054,
+        "kind": "da-content-view",
+        "source": "https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/home"
+      }
+    },
+    "cards-promo": {
+      "rendered": {
+        "file": "assets/blocks/cards-promo-rendered.jpg",
+        "width": 1140,
+        "height": 310,
+        "kind": "local-render-of-site-content",
+        "source": "/north-carolina-provider/resources"
+      },
+      "authoring": {
+        "file": "assets/blocks/cards-promo-da.jpg",
+        "width": 1670,
+        "height": 1054,
+        "kind": "da-content-view",
+        "source": "https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/resources"
+      }
+    },
+    "cards-resource-grid": {
+      "rendered": {
+        "file": "assets/blocks/cards-resource-grid-rendered.jpg",
+        "width": 1140,
+        "height": 530,
+        "kind": "local-render-of-site-content",
+        "source": "/north-carolina-provider/resources"
+      },
+      "authoring": {
+        "file": "assets/blocks/cards-resource-grid-da.jpg",
+        "width": 1670,
+        "height": 1054,
+        "kind": "da-content-view",
+        "source": "https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/resources"
+      }
+    },
+    "cards-topics": {
+      "rendered": {
+        "file": "assets/blocks/cards-topics-rendered.jpg",
+        "width": 1280,
+        "height": 353,
+        "kind": "local-sample",
+        "source": "/docs/block-examples/index.html?block=cards-topics"
+      },
+      "authoring": {
+        "file": "assets/blocks/cards-topics-author-sample.jpg",
+        "width": 1280,
+        "height": 642,
+        "kind": "illustrative-table",
+        "source": "/docs/block-examples/index.html?block=cards-topics&view=author"
+      }
+    },
+    "columns-link-lists": {
+      "rendered": {
+        "file": "assets/blocks/columns-link-lists-rendered.jpg",
+        "width": 1140,
+        "height": 414,
+        "kind": "local-render-of-site-content",
+        "source": "/north-carolina-provider/home"
+      },
+      "authoring": {
+        "file": "assets/blocks/columns-link-lists-da.jpg",
+        "width": 1670,
+        "height": 1054,
+        "kind": "da-content-view",
+        "source": "https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/home"
+      }
+    },
+    "columns-content": {
+      "rendered": {
+        "file": "assets/blocks/columns-content-rendered.jpg",
+        "width": 1140,
+        "height": 373,
+        "kind": "local-render-of-site-content",
+        "source": "/north-carolina-provider/electronic-data-interchange"
+      },
+      "authoring": {
+        "file": "assets/blocks/columns-content-da.jpg",
+        "width": 1670,
+        "height": 1054,
+        "kind": "da-content-view",
+        "source": "https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/electronic-data-interchange"
+      }
+    },
+    "columns-doc-library": {
+      "rendered": {
+        "file": "assets/blocks/columns-doc-library-rendered.jpg",
+        "width": 1280,
+        "height": 301,
+        "kind": "local-sample",
+        "source": "/docs/block-examples/index.html?block=columns-doc-library"
+      },
+      "authoring": {
+        "file": "assets/blocks/columns-doc-library-author-sample.jpg",
+        "width": 1280,
+        "height": 314,
+        "kind": "illustrative-table",
+        "source": "/docs/block-examples/index.html?block=columns-doc-library&view=author"
+      }
+    },
+    "accordion-doc-links": {
+      "rendered": {
+        "file": "assets/blocks/accordion-doc-links-rendered.jpg",
+        "width": 1140,
+        "height": 1256,
+        "kind": "local-render-of-site-content",
+        "source": "/north-carolina-provider/learn-about-availity"
+      },
+      "authoring": {
+        "file": "assets/blocks/accordion-doc-links-da.jpg",
+        "width": 1670,
+        "height": 1054,
+        "kind": "da-content-view",
+        "source": "https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/learn-about-availity"
+      }
+    },
+    "cta-footer-banner": {
+      "rendered": {
+        "file": "assets/blocks/cta-footer-banner-rendered.jpg",
+        "width": 1140,
+        "height": 176,
+        "kind": "local-render-of-site-content",
+        "source": "/north-carolina-provider/prior-authorization"
+      },
+      "authoring": {
+        "file": "assets/blocks/cta-footer-banner-da.jpg",
+        "width": 1670,
+        "height": 1054,
+        "kind": "da-content-view",
+        "source": "https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/prior-authorization"
+      }
+    },
+    "pdf-list": {
+      "rendered": {
+        "file": "assets/blocks/pdf-list-rendered.jpg",
+        "width": 1140,
+        "height": 56,
+        "kind": "local-render-of-site-content",
+        "source": "/north-carolina-provider/home"
+      },
+      "authoring": {
+        "file": "assets/blocks/pdf-list-da.jpg",
+        "width": 1670,
+        "height": 1054,
+        "kind": "da-content-view",
+        "source": "https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/home"
+      }
+    },
+    "more-resources": {
+      "rendered": {
+        "file": "assets/blocks/more-resources-rendered.jpg",
+        "width": 1140,
+        "height": 261,
+        "kind": "local-render-of-site-content",
+        "source": "/north-carolina-provider/claims"
+      },
+      "authoring": {
+        "file": "assets/blocks/more-resources-da.jpg",
+        "width": 1670,
+        "height": 1054,
+        "kind": "da-content-view",
+        "source": "https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/claims"
+      }
+    },
+    "prior-auth-lookup": {
+      "rendered": {
+        "file": "assets/blocks/prior-auth-lookup-rendered.jpg",
+        "width": 1140,
+        "height": 305,
+        "kind": "local-render-of-site-content",
+        "source": "/north-carolina-provider/prior-authorization-lookup"
+      },
+      "authoring": {
+        "file": "assets/blocks/prior-auth-lookup-da.jpg",
+        "width": 1670,
+        "height": 1054,
+        "kind": "da-content-view",
+        "source": "https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/prior-authorization-lookup"
+      }
+    },
+    "forms-accordion": {
+      "rendered": {
+        "file": "assets/blocks/forms-accordion-rendered.jpg",
+        "width": 1140,
+        "height": 507,
+        "kind": "local-render-of-site-content",
+        "source": "/north-carolina-provider/forms"
+      },
+      "authoring": {
+        "file": "assets/blocks/forms-accordion-da.jpg",
+        "width": 1670,
+        "height": 1054,
+        "kind": "da-content-view",
+        "source": "https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/forms"
+      }
+    },
+    "table-news-archive": {
+      "rendered": {
+        "file": "assets/blocks/table-news-archive-rendered.jpg",
+        "width": 1140,
+        "height": 698,
+        "kind": "local-render-of-site-content",
+        "source": "/north-carolina-provider/archives"
+      },
+      "authoring": {
+        "file": "assets/blocks/table-news-archive-da.jpg",
+        "width": 1670,
+        "height": 1054,
+        "kind": "da-content-view",
+        "source": "https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/archives"
+      }
+    },
+    "search": {
+      "rendered": {
+        "file": "assets/blocks/search-rendered.jpg",
+        "width": 1080,
+        "height": 560,
+        "kind": "local-render-of-site-content",
+        "source": "/north-carolina-provider/search"
+      },
+      "authoring": {
+        "file": "assets/blocks/search-da.jpg",
+        "width": 1670,
+        "height": 1054,
+        "kind": "da-content-view",
+        "source": "https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/search"
+      }
+    },
+    "accordion": {
+      "rendered": {
+        "file": "assets/blocks/accordion-rendered.jpg",
+        "width": 1280,
+        "height": 315,
+        "kind": "local-sample",
+        "source": "/docs/block-examples/index.html?block=accordion"
+      },
+      "authoring": {
+        "file": "assets/blocks/accordion-author-sample.jpg",
+        "width": 1280,
+        "height": 438,
+        "kind": "illustrative-table",
+        "source": "/docs/block-examples/index.html?block=accordion&view=author"
+      }
+    },
+    "cards": {
+      "rendered": {
+        "file": "assets/blocks/cards-rendered.jpg",
+        "width": 1280,
+        "height": 602,
+        "kind": "local-sample",
+        "source": "/docs/block-examples/index.html?block=cards"
+      },
+      "authoring": {
+        "file": "assets/blocks/cards-author-sample.jpg",
+        "width": 1280,
+        "height": 687,
+        "kind": "illustrative-table",
+        "source": "/docs/block-examples/index.html?block=cards&view=author"
+      }
+    },
+    "columns": {
+      "rendered": {
+        "file": "assets/blocks/columns-rendered.jpg",
+        "width": 1280,
+        "height": 425,
+        "kind": "local-sample",
+        "source": "/docs/block-examples/index.html?block=columns"
+      },
+      "authoring": {
+        "file": "assets/blocks/columns-author-sample.jpg",
+        "width": 1280,
+        "height": 387,
+        "kind": "illustrative-table",
+        "source": "/docs/block-examples/index.html?block=columns&view=author"
+      }
+    },
+    "hero": {
+      "rendered": {
+        "file": "assets/blocks/hero-rendered.jpg",
+        "width": 1280,
+        "height": 730,
+        "kind": "local-sample",
+        "source": "/docs/block-examples/index.html?block=hero"
+      },
+      "authoring": {
+        "file": "assets/blocks/hero-author-sample.jpg",
+        "width": 1280,
+        "height": 588,
+        "kind": "illustrative-table",
+        "source": "/docs/block-examples/index.html?block=hero&view=author"
+      }
+    },
+    "carousel": {
+      "rendered": {
+        "file": "assets/blocks/carousel-rendered.jpg",
+        "width": 1280,
+        "height": 891,
+        "kind": "local-sample",
+        "source": "/docs/block-examples/index.html?block=carousel"
+      },
+      "authoring": {
+        "file": "assets/blocks/carousel-author-sample.jpg",
+        "width": 1280,
+        "height": 687,
+        "kind": "illustrative-table",
+        "source": "/docs/block-examples/index.html?block=carousel&view=author"
+      }
+    },
+    "tabs": {
+      "rendered": {
+        "file": "assets/blocks/tabs-rendered.jpg",
+        "width": 1280,
+        "height": 380,
+        "kind": "local-sample",
+        "source": "/docs/block-examples/index.html?block=tabs"
+      },
+      "authoring": {
+        "file": "assets/blocks/tabs-author-sample.jpg",
+        "width": 1280,
+        "height": 435,
+        "kind": "illustrative-table",
+        "source": "/docs/block-examples/index.html?block=tabs&view=author"
+      }
+    },
+    "table": {
+      "rendered": {
+        "file": "assets/blocks/table-rendered.jpg",
+        "width": 1280,
+        "height": 357,
+        "kind": "local-sample",
+        "source": "/docs/block-examples/index.html?block=table"
+      },
+      "authoring": {
+        "file": "assets/blocks/table-author-sample.jpg",
+        "width": 1280,
+        "height": 396,
+        "kind": "illustrative-table",
+        "source": "/docs/block-examples/index.html?block=table&view=author"
+      }
+    },
+    "quote": {
+      "rendered": {
+        "file": "assets/blocks/quote-rendered.jpg",
+        "width": 1280,
+        "height": 268,
+        "kind": "local-sample",
+        "source": "/docs/block-examples/index.html?block=quote"
+      },
+      "authoring": {
+        "file": "assets/blocks/quote-author-sample.jpg",
+        "width": 1280,
+        "height": 316,
+        "kind": "illustrative-table",
+        "source": "/docs/block-examples/index.html?block=quote&view=author"
+      }
+    },
+    "fragment": {
+      "rendered": {
+        "file": "assets/blocks/fragment-rendered.jpg",
+        "width": 1280,
+        "height": 349,
+        "kind": "local-sample",
+        "source": "/docs/block-examples/index.html?block=fragment"
+      },
+      "authoring": {
+        "file": "assets/blocks/fragment-author-sample.jpg",
+        "width": 1280,
+        "height": 242,
+        "kind": "illustrative-table",
+        "source": "/docs/block-examples/index.html?block=fragment&view=author"
+      }
+    },
+    "embed": {
+      "rendered": {
+        "file": "assets/blocks/embed-rendered.jpg",
+        "width": 1280,
+        "height": 712,
+        "kind": "local-sample",
+        "source": "/docs/block-examples/index.html?block=embed"
+      },
+      "authoring": {
+        "file": "assets/blocks/embed-author-sample.jpg",
+        "width": 1280,
+        "height": 502,
+        "kind": "illustrative-table",
+        "source": "/docs/block-examples/index.html?block=embed&view=author"
+      }
+    },
+    "video": {
+      "rendered": {
+        "file": "assets/blocks/video-rendered.jpg",
+        "width": 1280,
+        "height": 753,
+        "kind": "local-sample",
+        "source": "/docs/block-examples/index.html?block=video"
+      },
+      "authoring": {
+        "file": "assets/blocks/video-author-sample.jpg",
+        "width": 1280,
+        "height": 502,
+        "kind": "illustrative-table",
+        "source": "/docs/block-examples/index.html?block=video&view=author"
+      }
+    },
+    "form": {
+      "rendered": {
+        "file": "assets/blocks/form-rendered.jpg",
+        "width": 1280,
+        "height": 538,
+        "kind": "local-sample",
+        "source": "/docs/block-examples/index.html?block=form"
+      },
+      "authoring": {
+        "file": "assets/blocks/form-author-sample.jpg",
+        "width": 1280,
+        "height": 316,
+        "kind": "illustrative-table",
+        "source": "/docs/block-examples/index.html?block=form&view=author"
+      }
+    },
+    "header": {
+      "rendered": {
+        "file": "assets/blocks/header-rendered.jpg",
+        "width": 1280,
+        "height": 100,
+        "kind": "local-render-of-site-content",
+        "source": "/north-carolina-provider/home"
+      },
+      "authoring": {
+        "file": "assets/blocks/header-da.jpg",
+        "width": 1670,
+        "height": 1054,
+        "kind": "da-content-view",
+        "source": "https://da.live/edit#/adobedrago/elevance-nc/fragments/nav"
+      }
+    },
+    "footer": {
+      "rendered": {
+        "file": "assets/blocks/footer-rendered.jpg",
+        "width": 1140,
+        "height": 432,
+        "kind": "local-render-of-site-content",
+        "source": "/north-carolina-provider/home"
+      },
+      "authoring": {
+        "file": "assets/blocks/footer-da.jpg",
+        "width": 1670,
+        "height": 1054,
+        "kind": "da-content-view",
+        "source": "https://da.live/edit#/adobedrago/elevance-nc/fragments/footer"
+      }
+    },
+    "modal": {
+      "rendered": {
+        "file": "assets/blocks/modal-rendered.jpg",
+        "width": 1280,
+        "height": 720,
+        "kind": "local-render-of-site-content",
+        "source": "/north-carolina-provider/home"
+      },
+      "authoring": {
+        "file": "assets/blocks/modal-da.jpg",
+        "width": 1670,
+        "height": 1054,
+        "kind": "da-content-view",
+        "source": "https://da.live/edit#/adobedrago/elevance-nc/fragments/nav"
+      }
+    },
+    "medical-policies-dialog": {
+      "rendered": {
+        "file": "assets/blocks/medical-policies-dialog-rendered.jpg",
+        "width": 1280,
+        "height": 720,
+        "kind": "local-render-of-site-content",
+        "source": "/north-carolina-provider/medical-policies-and-clinical-guidelines"
+      },
+      "authoring": {
+        "file": "assets/blocks/medical-policies-dialog-da.jpg",
+        "width": 1670,
+        "height": 1054,
+        "kind": "da-content-view",
+        "source": "https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/medical-policies-and-clinical-guidelines"
+      }
+    }
+  }
+}

@@ -1,0 +1,2885 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Author guide for Elevance and Healthy Blue NC provider sites: page metadata, shared navigation and footer, all blocks, variants, examples, and publishing checks.">
+<title>Site author guide | Elevance and Healthy Blue</title>
+<link rel="stylesheet" href="author-guide.css">
+<script src="author-guide.js" defer="">
+</script>
+</head>
+<body class="author-guide">
+<a class="skip-link" href="#main">Skip to guide</a>
+<header class="guide-header">
+<a href="index.html">Elevance documentation</a>
+<span>Site author guide</span>
+</header>
+<div class="guide-layout">
+<nav class="guide-nav" aria-label="Guide contents">
+<h2>In this guide</h2>
+<a href="#start">Overview</a>
+<a href="#page-setup">Page setup</a>
+<a href="#shared-header">Header and navigation</a>
+<a href="#shared-footer">Footer</a>
+<a href="#shared-content">Shared formatting</a>
+<a href="#recipes">Page patterns</a>
+<a href="#block-catalog">All 34 blocks</a>
+<a href="#page-reference">NC page reference</a>
+<a href="#publish">Review and publish</a>
+<a href="#troubleshooting">Troubleshooting</a>
+<a href="#reference">Technical reference</a>
+</nav>
+<main id="main">
+<section id="start">
+<p class="eyebrow">Elevance and Healthy Blue provider sites · Author reference</p>
+<h1>Site author guide</h1>
+<p class="lead">Build and maintain provider pages in Document Authoring (DA). This guide explains page setup, shared navigation and footer content, reusable sections, and all 34 block implementations in this repository.</p>
+<p>Detailed examples use the <strong>Healthy Blue North Carolina</strong> site, <code>adobedrago/elevance-nc</code>. The <code>elevance</code> site shares the code but uses its own DA content and default theme. Open <a href="https://da.live/#/adobedrago/elevance">its DA content browser</a> for that site. NC-specific layouts require <code>theme: north-carolina</code>; they are not a design catalog for the other site.</p>
+<p class="note">
+<strong>Reference date: October 15, 2026.</strong> Block behavior follows the current repository implementation. Page examples and usage counts come from the NC preview index at the time of documentation. Code availability, editor-picker availability, and production readiness are separate things.</p>
+<div class="quick-links">
+<a href="#page-setup">Set up a page</a>
+<a href="#shared-header">Edit navigation</a>
+<a href="#shared-footer">Edit footer</a>
+<a href="#block-catalog">Find a block</a>
+<a href="#publish">Review and publish</a>
+</div>
+</section>
+<section id="page-setup">
+<h2>Set up and edit a page</h2>
+<ol>
+<li>Open the correct DA site. For NC, use <a href="https://da.live/#/adobedrago/elevance-nc">the NC content browser</a>. Work in <code>/north-carolina-provider/</code> for provider pages.</li>
+<li>Duplicate an approved page with a similar purpose, or create a document at the intended path. Use lower-case words separated by hyphens. A path is the page’s URL, so coordinate redirects before renaming an existing page.</li>
+<li>Keep one H1 for the page title. Use H2 for main sections and H3 for subsections. Write ordinary text, lists, images, and links as normal content; use blocks when a specific layout or interaction is needed.</li>
+<li>Keep or add the page Metadata table shown below. Replace the example title and description. Use the actual image asset or image URL for social sharing.</li>
+<li>Preview, check the page at desktop and mobile sizes, then follow the publishing checklist. Review shared fragments separately when you change them.</li>
+</ol>
+<h3>NC page metadata</h3>
+<div class="table-scroll">
+<table>
+<caption>A two-column Metadata table at the end of the page</caption>
+<thead>
+<tr>
+<th colspan="2">Metadata</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>title</td>
+<td>Provider Resources | Healthy Blue</td>
+</tr>
+<tr>
+<td>description</td>
+<td>Find provider forms, policies, and support resources.</td>
+</tr>
+<tr>
+<td>image</td>
+<td>Page sharing image or its URL</td>
+</tr>
+<tr>
+<td>theme</td>
+<td>north-carolina</td>
+</tr>
+<tr>
+<td>nav</td>
+<td>/fragments/nav</td>
+</tr>
+<tr>
+<td>footer</td>
+<td>/fragments/footer</td>
+</tr>
+<tr>
+<td>breadcrumbs</td>
+<td>true — optional; normally omit on the home page</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The visible H1 and the metadata title serve different purposes; update both when appropriate. <code>robots: noindex</code> excludes a page from this site’s search when the index record contains it. Coordinate publication and indexing if the page must be kept out of search results.</p>
+<h3>Block names and variants</h3>
+<p>A block is authored as a table. Its first, merged row names the block; the following rows hold content. This guide shows that merged row in each example. Instructions such as “Image,” “H2,” “Bulleted list,” and “Link” describe what to insert in DA; replace them with real images, formatting, lists, and hyperlinks. They are not literal content to publish.</p>
+<p>Use the exact block name shown, such as <code>hero-banner</code> or <code>cards-featured</code>. A custom block is its own implementation; do not rewrite <code>hero-banner</code> as <code>Hero (banner)</code>. Parenthesized options are only for supported variants of a base block, such as <code>Table (striped, bordered)</code> or <code>Video (autoplay)</code>.</p>
+<p>The checked-in editor definitions mainly register starter blocks. Custom NC blocks may not appear in a picker or Library. Copy an existing working instance with the same structure, or coordinate editor registration with a developer. Do not assume a block is unavailable just because it is missing from the picker.</p>
+</section>
+<section id="shared-header">
+<h2>Shared header and navigation</h2>
+<p>Every normal page loads a header automatically. Its <code>nav</code> metadata selects the navigation fragment; NC pages use <code>/fragments/nav</code>. Edit <a href="https://da.live/edit#/adobedrago/elevance-nc/fragments/nav">the NC navigation document</a> to change the logo, navigation labels, destinations, or utility links across pages that use it.</p>
+<h3>Keep three sections in this order</h3>
+<div class="table-scroll">
+<table>
+<thead>
+<tr>
+<th>Section</th>
+<th>Authored content</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1. Brand</td>
+<td>A linked logo image, then the text “Medicaid Providers” in a separate paragraph.</td>
+<td>Logo and site descriptor at the top.</td>
+</tr>
+<tr>
+<td>2. Navigation</td>
+<td>One bulleted list. Top-level labels have nested lists of destination links; deeper lists group related child pages.</td>
+<td>Main menus and dropdown content.</td>
+</tr>
+<tr>
+<td>3. Tools</td>
+<td>Separate paragraphs with Log in and Members hyperlinks.</td>
+<td>Utility links beside generated text-size and search controls.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<pre aria-label="Navigation list structure">Resources
+  Provider Resources → /north-carolina-provider/resources
+  Forms → /north-carolina-provider/forms
+  Policies, Manuals and Guides → /north-carolina-provider/manuals-and-guides
+    Medical Policies → /north-carolina-provider/medical-policies-and-clinical-guidelines
+Claims
+  Claims overview → /north-carolina-provider/claims</pre>
+<p>Build the hierarchy with real nested lists and indentation in DA. Keep top-level menu labels as plain paragraph text when they open a submenu. Retain the section breaks; adding an introductory section shifts how the header interprets all three sections. The current top-level NC labels are Resources, Claims, Patient Care, Eligibility &amp; Pharmacy, Communications, and Our Network.</p>
+<p>Desktop menus open on hover or activation. Below the NC desktop breakpoint, a menu button controls navigation and search; the mobile header can hide while scrolling down and reappear while scrolling up. Search and the A/A/A text-size controls are generated by code. Do not author copies in the fragment.</p>
+<h3>Other site and fragment defaults</h3>
+<p>The header reads the current page’s nav value, falling back to <code>/nav</code> when it is absent. The footer reads footer, falling back to <code>/footer</code>. Both first request the site-root fragment, then a local <code>/content</code> path, then the legacy local default. These fallback paths are loader behavior, not additional fragments authors should insert. Keep each site’s approved metadata and fragment structure; do not apply NC theme metadata to the other site by default.</p>
+<h3>Breadcrumbs</h3>
+<p>Set <code>breadcrumbs: true</code> on an interior page to enable breadcrumbs. The trail is derived from the navigation tree and the current URL, with a Home link first. If a page is missing from the tree, its metadata title is used as a fallback. Check the result after changing navigation nesting or page paths.</p>
+<p class="note">A header fragment edit affects every page referencing that path. Preview the fragment and a representative page before publishing. Do not insert the fragment or a Header block again in the page body.</p>
+</section>
+<section id="shared-footer">
+<h2>Shared footer</h2>
+<p>Every normal page also loads a footer automatically. NC pages select <code>/fragments/footer</code> through metadata. Edit <a href="https://da.live/edit#/adobedrago/elevance-nc/fragments/footer">the NC footer document</a> for site-wide legal statements and utility links.</p>
+<p>Keep <strong>two sections in authored order</strong>: first, paragraphs of links; second, legal copy and the copyright paragraph. On NC the renderer displays the legal section first, followed by the links. Do not reverse the authored order to match the preview.</p>
+<ul>
+<li>Link section: Healthy Blue member website, Contact Us, Privacy Policy, Waste, Fraud and Abuse, Terms of Use, and Download Adobe Reader.</li>
+<li>Legal section: approved plan/license text and copyright. The copyright year is authored text; it is not automatically replaced by the current year.</li>
+<li>The Adobe Reader link to <code>https://get.adobe.com/reader/</code> becomes the Reader badge automatically on NC.</li>
+</ul>
+<p>Keep legal changes with the appropriate content approver. The CTA Footer Banner block is a separate page-body component and does not replace the global footer. A duplicate footer or header in DA can be a page-loader issue; first check that the page body does not contain extra copies, then report the page URL and preview behavior to a developer.</p>
+</section>
+<section id="shared-content">
+<h2>Shared content and formatting</h2>
+<h3>Sections and reusable content</h3>
+<p>Use DA section breaks to separate page bands. Section Metadata affects its own section; page Metadata affects the page. A Fragment block includes a separate DA document and makes changes reusable across all consuming pages.</p>
+<div class="table-scroll">
+<table>
+<caption>Example section metadata, placed in the section it styles</caption>
+<thead>
+<tr>
+<th colspan="2">Section Metadata</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Style</td>
+<td>light</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>
+<code>light</code> and <code>highlight</code> are supported section background styles. Keep existing approved section styles when duplicating a page. On NC, a light section beginning with H3 also has a specific callout treatment, so heading structure can change its appearance.</p>
+<h3>Links and buttons</h3>
+<div class="table-scroll">
+<table>
+<thead>
+<tr>
+<th>Authoring on NC</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Normal hyperlink in prose or its own paragraph</td>
+<td>Text link.</td>
+</tr>
+<tr>
+<td>A bold hyperlink alone in a paragraph</td>
+<td>Primary button.</td>
+</tr>
+<tr>
+<td>An italic hyperlink alone in a paragraph</td>
+<td>Secondary button.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Keep a button link alone in its paragraph, with no extra words around it. Some blocks apply their own link treatment: CTA Footer Banner creates its button automatically; Accordion Doc Links can force text links or standalone buttons; Cards Featured uses text-and-chevron styling. The default-site decorator can turn an ordinary standalone link into a button, so check the intended site.</p>
+<p>Use site-relative URLs such as <code>/north-carolina-provider/forms</code> for internal destinations. Use descriptive labels for PDFs, including file type and useful context. On NC, external HTTP/HTTPS links normally open a “You’re leaving our site” confirmation; continuing opens a new tab. Download links bypass that confirmation. Email, telephone, and same-origin links do not use it.</p>
+<h3>Images and accessibility</h3>
+<p>Insert actual image assets, not filenames typed in cells. Supply meaningful alt text for informative images and appropriate empty alt text for decorative images. Keep each image alone in its cell when the model calls for an image-only cell. Preview crops and mobile stacking; avoid embedding essential text in an image. Use real lists for lists, descriptive link text, and headings in a logical order.</p>
+</section>
+<section id="recipes">
+<h2>Common page patterns</h2>
+<div class="table-scroll">
+<table>
+<thead>
+<tr>
+<th>Page purpose</th>
+<th>Suggested structure</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NC home</td>
+<td>Hero Welcome → Cards Icon Links → normal text and PDF List sections → Cards Featured → Columns Link Lists.</td>
+</tr>
+<tr>
+<td>Interior overview</td>
+<td>Hero Banner → introduction → Cards Promo or Cards Resource Grid → supporting text or document panels.</td>
+</tr>
+<tr>
+<td>Document reference</td>
+<td>Hero Banner → introduction → Accordion Doc Links, PDF List, or normal headings and document lists.</td>
+</tr>
+<tr>
+<td>Forms or archives</td>
+<td>Hero Banner → introduction → Forms Accordion or Table News Archive. These blocks currently use sample datasets.</td>
+</tr>
+<tr>
+<td>Lookup tool</td>
+<td>Hero Banner → instructions/disclaimer → Prior Auth Lookup. Its current results are sample data.</td>
+</tr>
+<tr>
+<td>Search results</td>
+<td>Page title/metadata as appropriate → Search. The block creates the NC result layout and filters.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Use these as composition patterns. Keep approved page-specific copy and avoid replacing long document lists with summary cards if that would remove required information.</p>
+</section>
+<section id="block-catalog">
+<h2>Block catalog</h2>
+<p>All 34 block folders are covered below. “NC page blocks” use the NC theme. Shared blocks are available in code but may have site-specific styling or need design review. Header, footer, and modal are normally created automatically.</p>
+<p id="screenshot-reference" class="note">
+<strong>Screenshot reference:</strong> Every block includes a rendered capture and an authoring view. Twenty use existing NC content or shared fragments with real DA editor screenshots; fourteen use clearly labeled local samples because no current authored example was found. Rendered captures use the NC theme and local code. Screenshots were taken on October 15, 2026; select an image for full size.</p>
+<p>In DA’s new authoring interface, choose <strong>Content</strong> to edit block tables and <strong>Layout</strong> to inspect the rendered page. Select a block in the Outline to focus its content. Shared header and footer content is edited in the separate fragment documents.</p>
+<p class="note">
+<strong>Service data:</strong> Forms Accordion, Table News Archive, and Prior Auth Lookup currently read bundled sample JSON in every environment. Authors cannot connect a real service by adding a table row.</p>
+<label for="block-filter">Filter blocks by name, purpose, or option</label>
+<input id="block-filter" type="search" placeholder="Try accordion, image, or bordered" aria-describedby="block-count">
+<p id="block-count" role="status">34 blocks</p>
+<div class="catalog-index">
+<a href="#block-hero-welcome">Hero welcome</a>
+<a href="#block-hero-banner">Hero banner</a>
+<a href="#block-cards-icon-links">Cards icon links</a>
+<a href="#block-cards-featured">Cards featured</a>
+<a href="#block-cards-promo">Cards promo</a>
+<a href="#block-cards-resource-grid">Cards resource grid</a>
+<a href="#block-cards-topics">Cards topics</a>
+<a href="#block-columns-link-lists">Columns link lists</a>
+<a href="#block-columns-content">Columns content</a>
+<a href="#block-columns-doc-library">Columns doc library</a>
+<a href="#block-accordion-doc-links">Accordion doc links</a>
+<a href="#block-cta-footer-banner">CTA footer banner</a>
+<a href="#block-pdf-list">PDF list</a>
+<a href="#block-more-resources">More resources</a>
+<a href="#block-prior-auth-lookup">Prior auth lookup</a>
+<a href="#block-forms-accordion">Forms accordion</a>
+<a href="#block-table-news-archive">Table news archive</a>
+<a href="#block-search">Search</a>
+<a href="#block-accordion">Accordion</a>
+<a href="#block-cards">Cards</a>
+<a href="#block-columns">Columns</a>
+<a href="#block-hero">Hero</a>
+<a href="#block-carousel">Carousel</a>
+<a href="#block-tabs">Tabs</a>
+<a href="#block-table">Table</a>
+<a href="#block-quote">Quote</a>
+<a href="#block-fragment">Fragment</a>
+<a href="#block-embed">Embed</a>
+<a href="#block-video">Video</a>
+<a href="#block-form">Form</a>
+<a href="#block-header">Header</a>
+<a href="#block-footer">Footer</a>
+<a href="#block-modal">Modal</a>
+<a href="#block-medical-policies-dialog">Medical policies dialog</a>
+</div>
+<article class="block-entry" id="block-hero-welcome">
+<p class="eyebrow">NC page blocks</p>
+<h3>Hero welcome</h3>
+<p>
+<code>hero-welcome</code> · Home-page welcome photograph with a content card over it.</p>
+<div class="block-visuals">
+<h4>Rendered and authoring views</h4>
+<p class="screenshot-note">Rendered with local repository code and existing NC preview content. The DA screenshot shows the corresponding document in Content view; tall blocks may extend below the visible editor area. Select either image to open it at full size.</p>
+<p class="reference-link">Capture source: <a href="https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/home">/north-carolina-provider/home in DA</a>
+</p>
+<div class="screenshot-pair">
+<figure>
+<figcaption>
+<strong>Rendered site block</strong>
+</figcaption>
+<a href="assets/blocks/hero-welcome-rendered.jpg" target="_blank" rel="noopener" aria-label="Open full-size rendered site block for Hero welcome">
+<img src="assets/blocks/hero-welcome-rendered.jpg" width="1280" height="963" loading="lazy" decoding="async" alt="Hero welcome rendered from NC content">
+</a>
+</figure>
+<figure>
+<figcaption>
+<strong>DA Content view</strong>
+</figcaption>
+<a href="assets/blocks/hero-welcome-da.jpg" target="_blank" rel="noopener" aria-label="Open full-size da content view for Hero welcome">
+<img src="assets/blocks/hero-welcome-da.jpg" width="1670" height="1054" loading="lazy" decoding="async" alt="Hero welcome authoring view in da.live">
+</a>
+</figure>
+</div>
+</div>
+
+
+<div class="table-scroll">
+<table class="authoring-example">
+<caption>Authoring table structure</caption>
+<thead>
+<tr>
+<th colspan="1">hero-welcome</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Image: wide welcome photograph</td>
+</tr>
+<tr>
+<td>H1: Welcome!<br>Introductory paragraph.<br>H2: Focused on the health of each member<br>Contact details.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4>Options and variants</h4>
+<p>No named author-selected variants. With an image, the card overlays the photo; without one, the code adds a no-image state.</p>
+<h4>Authoring notes</h4>
+<p>Use one image row and one content row, each with one cell. Keep the image separate from the card content. Keep important subjects clear of the left-hand overlay. The first non-image row supplies the card; extra content rows do not become extra cards.</p>
+<p class="reference-link">Found on 1 indexed NC preview page(s). Example: <a href="https://main--elevance-nc--adobedrago.aem.page/north-carolina-provider/home">/north-carolina-provider/home</a> · <a href="https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/home">Edit in DA</a>
+</p>
+<p class="reference-link">
+<a href="https://github.com/AdobeDrago/elevance/blob/main/blocks/hero-welcome/hero-welcome.js">Implementation</a> · <a href="#block-catalog">Back to catalog</a>
+</p>
+</article>
+<article class="block-entry" id="block-hero-banner">
+<p class="eyebrow">NC page blocks</p>
+<h3>Hero banner</h3>
+<p>
+<code>hero-banner</code> · Interior-page title in a blue bar, with an optional photograph above it.</p>
+<div class="block-visuals">
+<h4>Rendered and authoring views</h4>
+<p class="screenshot-note">Rendered with local repository code and existing NC preview content. The DA screenshot shows the corresponding document in Content view; tall blocks may extend below the visible editor area. Select either image to open it at full size.</p>
+<p class="reference-link">Capture source: <a href="https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/resources">/north-carolina-provider/resources in DA</a>
+</p>
+<div class="screenshot-pair">
+<figure>
+<figcaption>
+<strong>Rendered site block</strong>
+</figcaption>
+<a href="assets/blocks/hero-banner-rendered.jpg" target="_blank" rel="noopener" aria-label="Open full-size rendered site block for Hero banner">
+<img src="assets/blocks/hero-banner-rendered.jpg" width="1280" height="494" loading="lazy" decoding="async" alt="Hero banner rendered from NC content">
+</a>
+</figure>
+<figure>
+<figcaption>
+<strong>DA Content view</strong>
+</figcaption>
+<a href="assets/blocks/hero-banner-da.jpg" target="_blank" rel="noopener" aria-label="Open full-size da content view for Hero banner">
+<img src="assets/blocks/hero-banner-da.jpg" width="1670" height="1054" loading="lazy" decoding="async" alt="Hero banner authoring view in da.live">
+</a>
+</figure>
+</div>
+</div>
+
+
+<div class="table-scroll">
+<table class="authoring-example">
+<caption>Authoring table structure</caption>
+<thead>
+<tr>
+<th colspan="1">hero-banner</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Image: optional wide banner photograph</td>
+</tr>
+<tr>
+<td>H1: Provider Resources</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4>Options and variants</h4>
+<p>Photo and title, or title only. Omit the image row for a title-only banner; no variant label is needed.</p>
+<h4>Authoring notes</h4>
+<p>Use one cell per row and a single page H1. Existing imported pages may put the image in a separate image-only section immediately above the block; the block adopts that image automatically. For new content, keep the image in the block. Only the first non-image row with text supplies the title.</p>
+<p class="reference-link">Found on 47 indexed NC preview page(s). Example: <a href="https://main--elevance-nc--adobedrago.aem.page/north-carolina-provider/archives">/north-carolina-provider/archives</a> · <a href="https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/archives">Edit in DA</a>
+</p>
+<p class="reference-link">
+<a href="https://github.com/AdobeDrago/elevance/blob/main/blocks/hero-banner/hero-banner.js">Implementation</a> · <a href="#block-catalog">Back to catalog</a>
+</p>
+</article>
+<article class="block-entry" id="block-cards-icon-links">
+<p class="eyebrow">NC page blocks</p>
+<h3>Cards icon links</h3>
+<p>
+<code>cards-icon-links</code> · Compact quick-action bar of icons and links, such as the home-page actions.</p>
+<div class="block-visuals">
+<h4>Rendered and authoring views</h4>
+<p class="screenshot-note">Rendered with local repository code and existing NC preview content. The DA screenshot shows the corresponding document in Content view; tall blocks may extend below the visible editor area. Select either image to open it at full size.</p>
+<p class="reference-link">Capture source: <a href="https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/home">/north-carolina-provider/home in DA</a>
+</p>
+<div class="screenshot-pair">
+<figure>
+<figcaption>
+<strong>Rendered site block</strong>
+</figcaption>
+<a href="assets/blocks/cards-icon-links-rendered.jpg" target="_blank" rel="noopener" aria-label="Open full-size rendered site block for Cards icon links">
+<img src="assets/blocks/cards-icon-links-rendered.jpg" width="1280" height="70" loading="lazy" decoding="async" alt="Cards icon links rendered from NC content">
+</a>
+</figure>
+<figure>
+<figcaption>
+<strong>DA Content view</strong>
+</figcaption>
+<a href="assets/blocks/cards-icon-links-da.jpg" target="_blank" rel="noopener" aria-label="Open full-size da content view for Cards icon links">
+<img src="assets/blocks/cards-icon-links-da.jpg" width="1670" height="1054" loading="lazy" decoding="async" alt="Cards icon links authoring view in da.live">
+</a>
+</figure>
+</div>
+</div>
+
+
+<div class="table-scroll">
+<table class="authoring-example">
+<caption>Authoring table structure</caption>
+<thead>
+<tr>
+<th colspan="2">cards-icon-links</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Image: small action icon</td>
+<td>Link: Prior Authorization</td>
+</tr>
+<tr>
+<td>Image: small action icon</td>
+<td>Link: Forms</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4>Options and variants</h4>
+<p>No named variants. The layout adapts to the viewport.</p>
+<h4>Authoring notes</h4>
+<p>Each row is one item: an image-only cell and a linked label cell. Use consistent icon artwork and concise labels. Do not combine the icon with descriptive prose in its image cell. An existing site icon can also be used if the authoring tool supports it.</p>
+<p class="reference-link">Found on 7 indexed NC preview page(s). Example: <a href="https://main--elevance-nc--adobedrago.aem.page/north-carolina-provider/claims">/north-carolina-provider/claims</a> · <a href="https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/claims">Edit in DA</a>
+</p>
+<p class="reference-link">
+<a href="https://github.com/AdobeDrago/elevance/blob/main/blocks/cards-icon-links/cards-icon-links.js">Implementation</a> · <a href="#block-catalog">Back to catalog</a>
+</p>
+</article>
+<article class="block-entry" id="block-cards-featured">
+<p class="eyebrow">NC page blocks</p>
+<h3>Cards featured</h3>
+<p>
+<code>cards-featured</code> · Photo cards for featured topics, arranged in a grid.</p>
+<div class="block-visuals">
+<h4>Rendered and authoring views</h4>
+<p class="screenshot-note">Rendered with local repository code and existing NC preview content. The DA screenshot shows the corresponding document in Content view; tall blocks may extend below the visible editor area. Select either image to open it at full size.</p>
+<p class="reference-link">Capture source: <a href="https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/home">/north-carolina-provider/home in DA</a>
+</p>
+<div class="screenshot-pair">
+<figure>
+<figcaption>
+<strong>Rendered site block</strong>
+</figcaption>
+<a href="assets/blocks/cards-featured-rendered.jpg" target="_blank" rel="noopener" aria-label="Open full-size rendered site block for Cards featured">
+<img src="assets/blocks/cards-featured-rendered.jpg" width="1140" height="690" loading="lazy" decoding="async" alt="Cards featured rendered from NC content">
+</a>
+</figure>
+<figure>
+<figcaption>
+<strong>DA Content view</strong>
+</figcaption>
+<a href="assets/blocks/cards-featured-da.jpg" target="_blank" rel="noopener" aria-label="Open full-size da content view for Cards featured">
+<img src="assets/blocks/cards-featured-da.jpg" width="1670" height="1054" loading="lazy" decoding="async" alt="Cards featured authoring view in da.live">
+</a>
+</figure>
+</div>
+</div>
+
+
+<div class="table-scroll">
+<table class="authoring-example">
+<caption>Authoring table structure</caption>
+<thead>
+<tr>
+<th colspan="2">cards-featured</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Image: pharmacy photograph</td>
+<td>H3: Pharmacy information<br>Short description.<br>Link: View pharmacy information</td>
+</tr>
+<tr>
+<td>Image: care photograph</td>
+<td>H3: Behavioral health<br>Short description.<br>Link: Learn more</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4>Options and variants</h4>
+<p>No named variants. NC styling uses a single column on small screens and a three-column layout at desktop widths.</p>
+<h4>Authoring notes</h4>
+<p>Each row is one card, with an image-only cell followed by a body cell. Keep the heading, description, and destination together. Use comparable image proportions and copy lengths. The NC card styles display links as text with a chevron.</p>
+<p class="reference-link">Found on 1 indexed NC preview page(s). Example: <a href="https://main--elevance-nc--adobedrago.aem.page/north-carolina-provider/home">/north-carolina-provider/home</a> · <a href="https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/home">Edit in DA</a>
+</p>
+<p class="reference-link">
+<a href="https://github.com/AdobeDrago/elevance/blob/main/blocks/cards-featured/cards-featured.js">Implementation</a> · <a href="#block-catalog">Back to catalog</a>
+</p>
+</article>
+<article class="block-entry" id="block-cards-promo">
+<p class="eyebrow">NC page blocks</p>
+<h3>Cards promo</h3>
+<p>
+<code>cards-promo</code> · Large photograph beside a heading, description, and call to action.</p>
+<div class="block-visuals">
+<h4>Rendered and authoring views</h4>
+<p class="screenshot-note">Rendered with local repository code and existing NC preview content. The DA screenshot shows the corresponding document in Content view; tall blocks may extend below the visible editor area. Select either image to open it at full size.</p>
+<p class="reference-link">Capture source: <a href="https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/resources">/north-carolina-provider/resources in DA</a>
+</p>
+<div class="screenshot-pair">
+<figure>
+<figcaption>
+<strong>Rendered site block</strong>
+</figcaption>
+<a href="assets/blocks/cards-promo-rendered.jpg" target="_blank" rel="noopener" aria-label="Open full-size rendered site block for Cards promo">
+<img src="assets/blocks/cards-promo-rendered.jpg" width="1140" height="310" loading="lazy" decoding="async" alt="Cards promo rendered from NC content">
+</a>
+</figure>
+<figure>
+<figcaption>
+<strong>DA Content view</strong>
+</figcaption>
+<a href="assets/blocks/cards-promo-da.jpg" target="_blank" rel="noopener" aria-label="Open full-size da content view for Cards promo">
+<img src="assets/blocks/cards-promo-da.jpg" width="1670" height="1054" loading="lazy" decoding="async" alt="Cards promo authoring view in da.live">
+</a>
+</figure>
+</div>
+</div>
+
+
+<div class="table-scroll">
+<table class="authoring-example">
+<caption>Authoring table structure</caption>
+<thead>
+<tr>
+<th colspan="2">cards-promo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Image: topic photograph</td>
+<td>H2: Topic heading<br>Description paragraph.<br>Standalone bold hyperlink: View details</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4>Options and variants</h4>
+<p>Image side alternates automatically by block order: first promo image right, second image left, then repeat on wide screens. Mobile stacks the content.</p>
+<h4>Authoring notes</h4>
+<p>Use one promo per block when you want the alternating pattern. Each row has an image-only cell and a body cell. The alternation is calculated across blocks on the page, not separately for rows inside one block. Moving a block may change its image side. Use a standalone bold link for a solid CTA on NC.</p>
+<p class="reference-link">Found on 3 indexed NC preview page(s). Example: <a href="https://main--elevance-nc--adobedrago.aem.page/north-carolina-provider/member-eligibility-and-pharmacy">/north-carolina-provider/member-eligibility-and-pharmacy</a> · <a href="https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/member-eligibility-and-pharmacy">Edit in DA</a>
+</p>
+<p class="reference-link">
+<a href="https://github.com/AdobeDrago/elevance/blob/main/blocks/cards-promo/cards-promo.js">Implementation</a> · <a href="#block-catalog">Back to catalog</a>
+</p>
+</article>
+<article class="block-entry" id="block-cards-resource-grid">
+<p class="eyebrow">NC page blocks</p>
+<h3>Cards resource grid</h3>
+<p>
+<code>cards-resource-grid</code> · Text-only resource cards ending in a call-to-action button.</p>
+<div class="block-visuals">
+<h4>Rendered and authoring views</h4>
+<p class="screenshot-note">Rendered with local repository code and existing NC preview content. The DA screenshot shows the corresponding document in Content view; tall blocks may extend below the visible editor area. Select either image to open it at full size.</p>
+<p class="reference-link">Capture source: <a href="https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/resources">/north-carolina-provider/resources in DA</a>
+</p>
+<div class="screenshot-pair">
+<figure>
+<figcaption>
+<strong>Rendered site block</strong>
+</figcaption>
+<a href="assets/blocks/cards-resource-grid-rendered.jpg" target="_blank" rel="noopener" aria-label="Open full-size rendered site block for Cards resource grid">
+<img src="assets/blocks/cards-resource-grid-rendered.jpg" width="1140" height="530" loading="lazy" decoding="async" alt="Cards resource grid rendered from NC content">
+</a>
+</figure>
+<figure>
+<figcaption>
+<strong>DA Content view</strong>
+</figcaption>
+<a href="assets/blocks/cards-resource-grid-da.jpg" target="_blank" rel="noopener" aria-label="Open full-size da content view for Cards resource grid">
+<img src="assets/blocks/cards-resource-grid-da.jpg" width="1670" height="1054" loading="lazy" decoding="async" alt="Cards resource grid authoring view in da.live">
+</a>
+</figure>
+</div>
+</div>
+
+
+<div class="table-scroll">
+<table class="authoring-example">
+<caption>Authoring table structure</caption>
+<thead>
+<tr>
+<th colspan="1">cards-resource-grid</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>H2: Forms<br>Find commonly used forms.<br>Standalone bold hyperlink: View forms</td>
+</tr>
+<tr>
+<td>H2: Training<br>Find training resources.<br>Standalone bold hyperlink: View training</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4>Options and variants</h4>
+<p>No named variants. The desktop layout flows down one column and then the next; mobile uses one stack.</p>
+<h4>Authoring notes</h4>
+<p>Each row is one card with a single content cell. Keep the heading, paragraph, and button together. This is a content grouping, not a live feed. Reorder rows to change the reading order; check the column flow in desktop preview.</p>
+<p class="reference-link">Found on 1 indexed NC preview page(s). Example: <a href="https://main--elevance-nc--adobedrago.aem.page/north-carolina-provider/resources">/north-carolina-provider/resources</a> · <a href="https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/resources">Edit in DA</a>
+</p>
+<p class="reference-link">
+<a href="https://github.com/AdobeDrago/elevance/blob/main/blocks/cards-resource-grid/cards-resource-grid.js">Implementation</a> · <a href="#block-catalog">Back to catalog</a>
+</p>
+</article>
+<article class="block-entry" id="block-cards-topics">
+<p class="eyebrow">NC page blocks</p>
+<h3>Cards topics</h3>
+<p>
+<code>cards-topics</code> · Text-only topic teasers with headings, descriptions, and links.</p>
+<div class="block-visuals">
+<h4>Rendered and authoring views</h4>
+<p class="screenshot-note">No current NC page example was found. These captures show illustrative content rendered by the real block code and its matching local authoring table. The table image is not a screenshot of da.live. Select either image to open it at full size.</p>
+<div class="screenshot-pair">
+<figure>
+<figcaption>
+<strong>Rendered local sample</strong>
+</figcaption>
+<a href="assets/blocks/cards-topics-rendered.jpg" target="_blank" rel="noopener" aria-label="Open full-size rendered local sample for Cards topics">
+<img src="assets/blocks/cards-topics-rendered.jpg" width="1280" height="353" loading="lazy" decoding="async" alt="Cards topics rendered with illustrative content">
+</a>
+</figure>
+<figure>
+<figcaption>
+<strong>Illustrative authoring table</strong>
+</figcaption>
+<a href="assets/blocks/cards-topics-author-sample.jpg" target="_blank" rel="noopener" aria-label="Open full-size illustrative authoring table for Cards topics">
+<img src="assets/blocks/cards-topics-author-sample.jpg" width="1280" height="642" loading="lazy" decoding="async" alt="Cards topics illustrative authoring table, not a DA screenshot">
+</a>
+</figure>
+</div>
+</div>
+
+
+<div class="table-scroll">
+<table class="authoring-example">
+<caption>Authoring table structure</caption>
+<thead>
+<tr>
+<th colspan="1">cards-topics</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>H3: Topic one<br>Brief description.<br>Link: Read more</td>
+</tr>
+<tr>
+<td>H3: Topic two<br>Brief description.<br>Link: Read more</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4>Options and variants</h4>
+<p>No named variants. One column on mobile, two from 600px, three from 900px.</p>
+<h4>Authoring notes</h4>
+<p>Each row is one teaser, usually one cell. This block exists in code but was not routed into the original NC migration. Its styling is structural; review the design before adopting it. Do not substitute it for a resource grid if the approved design requires buttons.</p>
+<p class="reference-link">Not found in the successfully scanned indexed NC preview pages. Available code does not establish live usage or design approval.</p>
+<p class="reference-link">
+<a href="https://github.com/AdobeDrago/elevance/blob/main/blocks/cards-topics/cards-topics.js">Implementation</a> · <a href="#block-catalog">Back to catalog</a>
+</p>
+</article>
+<article class="block-entry" id="block-columns-link-lists">
+<p class="eyebrow">NC page blocks</p>
+<h3>Columns link lists</h3>
+<p>
+<code>columns-link-lists</code> · Two lists of resource links with dividers and chevrons.</p>
+<div class="block-visuals">
+<h4>Rendered and authoring views</h4>
+<p class="screenshot-note">Rendered with local repository code and existing NC preview content. The DA screenshot shows the corresponding document in Content view; tall blocks may extend below the visible editor area. Select either image to open it at full size.</p>
+<p class="reference-link">Capture source: <a href="https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/home">/north-carolina-provider/home in DA</a>
+</p>
+<div class="screenshot-pair">
+<figure>
+<figcaption>
+<strong>Rendered site block</strong>
+</figcaption>
+<a href="assets/blocks/columns-link-lists-rendered.jpg" target="_blank" rel="noopener" aria-label="Open full-size rendered site block for Columns link lists">
+<img src="assets/blocks/columns-link-lists-rendered.jpg" width="1140" height="414" loading="lazy" decoding="async" alt="Columns link lists rendered from NC content">
+</a>
+</figure>
+<figure>
+<figcaption>
+<strong>DA Content view</strong>
+</figcaption>
+<a href="assets/blocks/columns-link-lists-da.jpg" target="_blank" rel="noopener" aria-label="Open full-size da content view for Columns link lists">
+<img src="assets/blocks/columns-link-lists-da.jpg" width="1670" height="1054" loading="lazy" decoding="async" alt="Columns link lists authoring view in da.live">
+</a>
+</figure>
+</div>
+</div>
+
+
+<div class="table-scroll">
+<table class="authoring-example">
+<caption>Authoring table structure</caption>
+<thead>
+<tr>
+<th colspan="2">columns-link-lists</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bulleted list:<br>Link: Forms<br>Link: Prior authorization</td>
+<td>Bulleted list:<br>Link: Claims overview<br>Link: Pharmacy information</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4>Options and variants</h4>
+<p>Column count comes from the number of cells in the first content row. The established NC pattern is two columns.</p>
+<h4>Authoring notes</h4>
+<p>Put one real bulleted list in each cell. Use one link per list item. Place a shared H2 above the block as normal page content. Do not type chevrons or divider lines; styling supplies them. Columns stack on mobile.</p>
+<p class="reference-link">Found on 44 indexed NC preview page(s). Example: <a href="https://main--elevance-nc--adobedrago.aem.page/north-carolina-provider/archives">/north-carolina-provider/archives</a> · <a href="https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/archives">Edit in DA</a>
+</p>
+<p class="reference-link">
+<a href="https://github.com/AdobeDrago/elevance/blob/main/blocks/columns-link-lists/columns-link-lists.js">Implementation</a> · <a href="#block-catalog">Back to catalog</a>
+</p>
+</article>
+<article class="block-entry" id="block-columns-content">
+<p class="eyebrow">NC page blocks</p>
+<h3>Columns content</h3>
+<p>
+<code>columns-content</code> · Prose, headings, lists, or images in adjacent content columns.</p>
+<div class="block-visuals">
+<h4>Rendered and authoring views</h4>
+<p class="screenshot-note">Rendered with local repository code and existing NC preview content. The DA screenshot shows the corresponding document in Content view; tall blocks may extend below the visible editor area. Select either image to open it at full size.</p>
+<p class="reference-link">Capture source: <a href="https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/electronic-data-interchange">/north-carolina-provider/electronic-data-interchange in DA</a>
+</p>
+<div class="screenshot-pair">
+<figure>
+<figcaption>
+<strong>Rendered site block</strong>
+</figcaption>
+<a href="assets/blocks/columns-content-rendered.jpg" target="_blank" rel="noopener" aria-label="Open full-size rendered site block for Columns content">
+<img src="assets/blocks/columns-content-rendered.jpg" width="1140" height="373" loading="lazy" decoding="async" alt="Columns content rendered from NC content">
+</a>
+</figure>
+<figure>
+<figcaption>
+<strong>DA Content view</strong>
+</figcaption>
+<a href="assets/blocks/columns-content-da.jpg" target="_blank" rel="noopener" aria-label="Open full-size da content view for Columns content">
+<img src="assets/blocks/columns-content-da.jpg" width="1670" height="1054" loading="lazy" decoding="async" alt="Columns content authoring view in da.live">
+</a>
+</figure>
+</div>
+</div>
+
+
+<div class="table-scroll">
+<table class="authoring-example">
+<caption>Authoring table structure</caption>
+<thead>
+<tr>
+<th colspan="2">columns-content</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>H2: Left topic<br>Paragraph and bulleted list.</td>
+<td>H2: Right topic<br>Paragraph and links.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4>Options and variants</h4>
+<p>The first content row determines the column-count class. Add matching rows for more bands of columns.</p>
+<h4>Authoring notes</h4>
+<p>Each cell is a column. Keep the same number of cells across rows. Columns stack on smaller screens. Use the page-reference examples below to check current NC usage. Unlike the shared Columns block, it does not add the shared block’s bordered last-column callout.</p>
+<p class="reference-link">Found on 8 indexed NC preview page(s). Example: <a href="https://main--elevance-nc--adobedrago.aem.page/north-carolina-provider/cme">/north-carolina-provider/cme</a> · <a href="https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/cme">Edit in DA</a>
+</p>
+<p class="reference-link">
+<a href="https://github.com/AdobeDrago/elevance/blob/main/blocks/columns-content/columns-content.js">Implementation</a> · <a href="#block-catalog">Back to catalog</a>
+</p>
+</article>
+<article class="block-entry" id="block-columns-doc-library">
+<p class="eyebrow">NC page blocks</p>
+<h3>Columns doc library</h3>
+<p>
+<code>columns-doc-library</code> · Categorized document links in adjacent columns.</p>
+<div class="block-visuals">
+<h4>Rendered and authoring views</h4>
+<p class="screenshot-note">No current NC page example was found. These captures show illustrative content rendered by the real block code and its matching local authoring table. The table image is not a screenshot of da.live. Select either image to open it at full size.</p>
+<div class="screenshot-pair">
+<figure>
+<figcaption>
+<strong>Rendered local sample</strong>
+</figcaption>
+<a href="assets/blocks/columns-doc-library-rendered.jpg" target="_blank" rel="noopener" aria-label="Open full-size rendered local sample for Columns doc library">
+<img src="assets/blocks/columns-doc-library-rendered.jpg" width="1280" height="301" loading="lazy" decoding="async" alt="Columns doc library rendered with illustrative content">
+</a>
+</figure>
+<figure>
+<figcaption>
+<strong>Illustrative authoring table</strong>
+</figcaption>
+<a href="assets/blocks/columns-doc-library-author-sample.jpg" target="_blank" rel="noopener" aria-label="Open full-size illustrative authoring table for Columns doc library">
+<img src="assets/blocks/columns-doc-library-author-sample.jpg" width="1280" height="314" loading="lazy" decoding="async" alt="Columns doc library illustrative authoring table, not a DA screenshot">
+</a>
+</figure>
+</div>
+</div>
+
+
+<div class="table-scroll">
+<table class="authoring-example">
+<caption>Authoring table structure</caption>
+<thead>
+<tr>
+<th colspan="2">columns-doc-library</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>H3: Policies<br>Bulleted list of document links.</td>
+<td>H3: Manuals<br>Bulleted list of document links.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4>Options and variants</h4>
+<p>Column count follows the first content row. No named visual variants.</p>
+<h4>Authoring notes</h4>
+<p>Use category headings and actual lists of descriptive links. Each cell is a category column. This block was deliberately omitted from migrated document-heavy sections in favor of normal page content; it is available in code with structural styling. Obtain a design review before converting existing libraries.</p>
+<p class="reference-link">Not found in the successfully scanned indexed NC preview pages. Available code does not establish live usage or design approval.</p>
+<p class="reference-link">
+<a href="https://github.com/AdobeDrago/elevance/blob/main/blocks/columns-doc-library/columns-doc-library.js">Implementation</a> · <a href="#block-catalog">Back to catalog</a>
+</p>
+</article>
+<article class="block-entry" id="block-accordion-doc-links">
+<p class="eyebrow">NC page blocks</p>
+<h3>Accordion doc links</h3>
+<p>
+<code>accordion-doc-links</code> · Expandable document panels with optional control over link presentation.</p>
+<div class="block-visuals">
+<h4>Rendered and authoring views</h4>
+<p class="screenshot-note">Rendered with local repository code and existing NC preview content. The DA screenshot shows the corresponding document in Content view; tall blocks may extend below the visible editor area. Select either image to open it at full size.</p>
+<p class="reference-link">Capture source: <a href="https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/learn-about-availity">/north-carolina-provider/learn-about-availity in DA</a>
+</p>
+<div class="screenshot-pair">
+<figure>
+<figcaption>
+<strong>Rendered site block</strong>
+</figcaption>
+<a href="assets/blocks/accordion-doc-links-rendered.jpg" target="_blank" rel="noopener" aria-label="Open full-size rendered site block for Accordion doc links">
+<img src="assets/blocks/accordion-doc-links-rendered.jpg" width="1140" height="1256" loading="lazy" decoding="async" alt="Accordion doc links rendered from NC content">
+</a>
+</figure>
+<figure>
+<figcaption>
+<strong>DA Content view</strong>
+</figcaption>
+<a href="assets/blocks/accordion-doc-links-da.jpg" target="_blank" rel="noopener" aria-label="Open full-size da content view for Accordion doc links">
+<img src="assets/blocks/accordion-doc-links-da.jpg" width="1670" height="1054" loading="lazy" decoding="async" alt="Accordion doc links authoring view in da.live">
+</a>
+</figure>
+</div>
+</div>
+
+
+<div class="table-scroll">
+<table class="authoring-example">
+<caption>Authoring table structure</caption>
+<thead>
+<tr>
+<th colspan="3">accordion-doc-links</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Prior authorizations</td>
+<td>Bulleted list of document hyperlinks.</td>
+<td>links</td>
+</tr>
+<tr>
+<td>Training resources</td>
+<td>Standalone document hyperlink.</td>
+<td>buttons</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4>Options and variants</h4>
+<p>Third cell per row: links, buttons, or auto. links forces text links and adds PDF labeling for recognized PDF URLs; buttons styles standalone links as buttons. auto or an empty cell preserves the existing page-level link treatment.</p>
+<h4>Authoring notes</h4>
+<p>Each row is one panel: title, body, optional link style. Put lists and explanatory text in the body. Inline links in sentences remain inline even in buttons mode. Panels start closed and can be opened independently. PDF detection recognizes paths ending in .pdf or -pdf; use a descriptive visible file label as well.</p>
+<p class="reference-link">Found on 3 indexed NC preview page(s). Example: <a href="https://main--elevance-nc--adobedrago.aem.page/north-carolina-provider/learn-about-availity">/north-carolina-provider/learn-about-availity</a> · <a href="https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/learn-about-availity">Edit in DA</a>
+</p>
+<p class="reference-link">
+<a href="https://github.com/AdobeDrago/elevance/blob/main/blocks/accordion-doc-links/accordion-doc-links.js">Implementation</a> · <a href="#block-catalog">Back to catalog</a>
+</p>
+</article>
+<article class="block-entry" id="block-cta-footer-banner">
+<p class="eyebrow">NC page blocks</p>
+<h3>CTA footer banner</h3>
+<p>
+<code>cta-footer-banner</code> · A call-to-action band near the bottom of the page.</p>
+<div class="block-visuals">
+<h4>Rendered and authoring views</h4>
+<p class="screenshot-note">Rendered with local repository code and existing NC preview content. The DA screenshot shows the corresponding document in Content view; tall blocks may extend below the visible editor area. Select either image to open it at full size.</p>
+<p class="reference-link">Capture source: <a href="https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/prior-authorization">/north-carolina-provider/prior-authorization in DA</a>
+</p>
+<div class="screenshot-pair">
+<figure>
+<figcaption>
+<strong>Rendered site block</strong>
+</figcaption>
+<a href="assets/blocks/cta-footer-banner-rendered.jpg" target="_blank" rel="noopener" aria-label="Open full-size rendered site block for CTA footer banner">
+<img src="assets/blocks/cta-footer-banner-rendered.jpg" width="1140" height="176" loading="lazy" decoding="async" alt="CTA footer banner rendered from NC content">
+</a>
+</figure>
+<figure>
+<figcaption>
+<strong>DA Content view</strong>
+</figcaption>
+<a href="assets/blocks/cta-footer-banner-da.jpg" target="_blank" rel="noopener" aria-label="Open full-size da content view for CTA footer banner">
+<img src="assets/blocks/cta-footer-banner-da.jpg" width="1670" height="1054" loading="lazy" decoding="async" alt="CTA footer banner authoring view in da.live">
+</a>
+</figure>
+</div>
+</div>
+
+
+<div class="table-scroll">
+<table class="authoring-example">
+<caption>Authoring table structure</caption>
+<thead>
+<tr>
+<th colspan="1">cta-footer-banner</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Interested in joining our network?</td>
+</tr>
+<tr>
+<td>Learn about joining Healthy Blue.</td>
+</tr>
+<tr>
+<td>Link: Join our network</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4>Options and variants</h4>
+<p>No named variants. A missing link in the third content row means no button is rendered.</p>
+<h4>Authoring notes</h4>
+<p>Use three one-cell content rows: heading text, paragraph content, actual hyperlink. This is part of the page body, separate from the global footer. The current code always renders the heading as H3, including when another heading level was authored. Button styling is applied automatically to the third-row link.</p>
+<p class="reference-link">Found on 2 indexed NC preview page(s). Example: <a href="https://main--elevance-nc--adobedrago.aem.page/north-carolina-provider/prior-authorization">/north-carolina-provider/prior-authorization</a> · <a href="https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/prior-authorization">Edit in DA</a>
+</p>
+<p class="reference-link">
+<a href="https://github.com/AdobeDrago/elevance/blob/main/blocks/cta-footer-banner/cta-footer-banner.js">Implementation</a> · <a href="#block-catalog">Back to catalog</a>
+</p>
+</article>
+<article class="block-entry" id="block-pdf-list">
+<p class="eyebrow">Shared content blocks</p>
+<h3>PDF list</h3>
+<p>
+<code>pdf-list</code> · A vertical list of document download links.</p>
+<div class="block-visuals">
+<h4>Rendered and authoring views</h4>
+<p class="screenshot-note">Rendered with local repository code and existing NC preview content. The DA screenshot shows the corresponding document in Content view; tall blocks may extend below the visible editor area. Select either image to open it at full size.</p>
+<p class="reference-link">Capture source: <a href="https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/home">/north-carolina-provider/home in DA</a>
+</p>
+<div class="screenshot-pair">
+<figure>
+<figcaption>
+<strong>Rendered site block</strong>
+</figcaption>
+<a href="assets/blocks/pdf-list-rendered.jpg" target="_blank" rel="noopener" aria-label="Open full-size rendered site block for PDF list">
+<img src="assets/blocks/pdf-list-rendered.jpg" width="1140" height="56" loading="lazy" decoding="async" alt="PDF list rendered from NC content">
+</a>
+</figure>
+<figure>
+<figcaption>
+<strong>DA Content view</strong>
+</figcaption>
+<a href="assets/blocks/pdf-list-da.jpg" target="_blank" rel="noopener" aria-label="Open full-size da content view for PDF list">
+<img src="assets/blocks/pdf-list-da.jpg" width="1670" height="1054" loading="lazy" decoding="async" alt="PDF list authoring view in da.live">
+</a>
+</figure>
+</div>
+</div>
+
+
+<div class="table-scroll">
+<table class="authoring-example">
+<caption>Authoring table structure</caption>
+<thead>
+<tr>
+<th colspan="1">pdf-list</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Link: Provider manual (PDF)</td>
+</tr>
+<tr>
+<td>Link: Claims guide (PDF)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4>Options and variants</h4>
+<p>No named variants.</p>
+<h4>Authoring notes</h4>
+<p>Each row becomes one list item; its hyperlinks become download links with an accessible PDF-download label and open in a new tab. Non-link text-only rows remain list items. Other prose in a row containing links is not retained. Use this block for PDFs; browser handling of downloads depends on the destination server. NC home currently uses this block.</p>
+<p class="reference-link">Found on 12 indexed NC preview page(s). Example: <a href="https://main--elevance-nc--adobedrago.aem.page/north-carolina-provider/behavioral-health">/north-carolina-provider/behavioral-health</a> · <a href="https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/behavioral-health">Edit in DA</a>
+</p>
+<p class="reference-link">
+<a href="https://github.com/AdobeDrago/elevance/blob/main/blocks/pdf-list/pdf-list.js">Implementation</a> · <a href="#block-catalog">Back to catalog</a>
+</p>
+</article>
+<article class="block-entry" id="block-more-resources">
+<p class="eyebrow">Shared content blocks</p>
+<h3>More resources</h3>
+<p>
+<code>more-resources</code> · Side-by-side resource summaries with headings, descriptions, and arrow links.</p>
+<div class="block-visuals">
+<h4>Rendered and authoring views</h4>
+<p class="screenshot-note">Rendered with local repository code and existing NC preview content. The DA screenshot shows the corresponding document in Content view; tall blocks may extend below the visible editor area. Select either image to open it at full size.</p>
+<p class="reference-link">Capture source: <a href="https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/claims">/north-carolina-provider/claims in DA</a>
+</p>
+<div class="screenshot-pair">
+<figure>
+<figcaption>
+<strong>Rendered site block</strong>
+</figcaption>
+<a href="assets/blocks/more-resources-rendered.jpg" target="_blank" rel="noopener" aria-label="Open full-size rendered site block for More resources">
+<img src="assets/blocks/more-resources-rendered.jpg" width="1140" height="261" loading="lazy" decoding="async" alt="More resources rendered from NC content">
+</a>
+</figure>
+<figure>
+<figcaption>
+<strong>DA Content view</strong>
+</figcaption>
+<a href="assets/blocks/more-resources-da.jpg" target="_blank" rel="noopener" aria-label="Open full-size da content view for More resources">
+<img src="assets/blocks/more-resources-da.jpg" width="1670" height="1054" loading="lazy" decoding="async" alt="More resources authoring view in da.live">
+</a>
+</figure>
+</div>
+</div>
+
+
+<div class="table-scroll">
+<table class="authoring-example">
+<caption>Authoring table structure</caption>
+<thead>
+<tr>
+<th colspan="2">more-resources</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>H3: Resource one<br>Description.<br>Standalone bold hyperlink: Read more</td>
+<td>H3: Resource two<br>Description.<br>Standalone bold hyperlink: Read more</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4>Options and variants</h4>
+<p>No named variants. Each row is a band of resource cards; each cell is one card.</p>
+<h4>Authoring notes</h4>
+<p>Use headings, paragraphs, and a standalone link in each cell. The arrow treatment is applied to links that the page decorator recognized as buttons. On NC, use a standalone bold link to opt into that treatment. The styling is shared, so preview on the intended site.</p>
+<p class="reference-link">Found on 1 indexed NC preview page(s). Example: <a href="https://main--elevance-nc--adobedrago.aem.page/north-carolina-provider/claims">/north-carolina-provider/claims</a> · <a href="https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/claims">Edit in DA</a>
+</p>
+<p class="reference-link">
+<a href="https://github.com/AdobeDrago/elevance/blob/main/blocks/more-resources/more-resources.js">Implementation</a> · <a href="#block-catalog">Back to catalog</a>
+</p>
+</article>
+<article class="block-entry" id="block-prior-auth-lookup">
+<p class="eyebrow">Service and search blocks</p>
+<h3>Prior auth lookup</h3>
+<p>
+<code>prior-auth-lookup</code> · Procedure or drug lookup interface with market, line of business, suggestions, and results.</p>
+<div class="block-visuals">
+<h4>Rendered and authoring views</h4>
+<p class="screenshot-note">Rendered with local repository code and existing NC preview content. The DA screenshot shows the corresponding document in Content view; tall blocks may extend below the visible editor area. Select either image to open it at full size.</p>
+<p class="reference-link">Capture source: <a href="https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/prior-authorization-lookup">/north-carolina-provider/prior-authorization-lookup in DA</a>
+</p>
+<div class="screenshot-pair">
+<figure>
+<figcaption>
+<strong>Rendered site block</strong>
+</figcaption>
+<a href="assets/blocks/prior-auth-lookup-rendered.jpg" target="_blank" rel="noopener" aria-label="Open full-size rendered site block for Prior auth lookup">
+<img src="assets/blocks/prior-auth-lookup-rendered.jpg" width="1140" height="305" loading="lazy" decoding="async" alt="Prior auth lookup rendered from NC content">
+</a>
+</figure>
+<figure>
+<figcaption>
+<strong>DA Content view</strong>
+</figcaption>
+<a href="assets/blocks/prior-auth-lookup-da.jpg" target="_blank" rel="noopener" aria-label="Open full-size da content view for Prior auth lookup">
+<img src="assets/blocks/prior-auth-lookup-da.jpg" width="1670" height="1054" loading="lazy" decoding="async" alt="Prior auth lookup authoring view in da.live">
+</a>
+</figure>
+</div>
+</div>
+
+
+<div class="table-scroll">
+<table class="authoring-example">
+<caption>Authoring table structure</caption>
+<thead>
+<tr>
+<th colspan="2">prior-auth-lookup</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Markets</td>
+<td>North Carolina</td>
+</tr>
+<tr>
+<td>Line of Business</td>
+<td>Bulleted list:<br>Medicaid<br>CFSP</td>
+</tr>
+<tr>
+<td>Drug name, CPT or HCPCS code</td>
+<td>Enter a drug name or procedure code</td>
+</tr>
+<tr>
+<td>Search</td>
+<td>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4>Options and variants</h4>
+<p>No named variants. These four rows are positional: do not reorder them. The line-of-business choices must be real list items.</p>
+<h4>Authoring notes</h4>
+<p>Authors can change the displayed labels, market text, line-of-business list, instruction text, and search button label. Suggestions and results currently come from bundled sample JSON, in every environment. A Data Source row is not read by the current implementation. Market/LOB edits do not configure a real backend or establish valid authorization results. Coordinate production data and clinical review with the service owner before release.</p>
+<p class="reference-link">Found on 1 indexed NC preview page(s). Example: <a href="https://main--elevance-nc--adobedrago.aem.page/north-carolina-provider/prior-authorization-lookup">/north-carolina-provider/prior-authorization-lookup</a> · <a href="https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/prior-authorization-lookup">Edit in DA</a>
+</p>
+<p class="reference-link">
+<a href="https://github.com/AdobeDrago/elevance/blob/main/blocks/prior-auth-lookup/prior-auth-lookup.js">Implementation</a> · <a href="#block-catalog">Back to catalog</a>
+</p>
+</article>
+<article class="block-entry" id="block-forms-accordion">
+<p class="eyebrow">Service and search blocks</p>
+<h3>Forms accordion</h3>
+<p>
+<code>forms-accordion</code> · A categorized forms directory populated by a service helper.</p>
+<div class="block-visuals">
+<h4>Rendered and authoring views</h4>
+<p class="screenshot-note">Rendered with local repository code and existing NC preview content. The DA screenshot shows the corresponding document in Content view; tall blocks may extend below the visible editor area. Select either image to open it at full size.</p>
+<p class="reference-link">Capture source: <a href="https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/forms">/north-carolina-provider/forms in DA</a>
+</p>
+<div class="screenshot-pair">
+<figure>
+<figcaption>
+<strong>Rendered site block</strong>
+</figcaption>
+<a href="assets/blocks/forms-accordion-rendered.jpg" target="_blank" rel="noopener" aria-label="Open full-size rendered site block for Forms accordion">
+<img src="assets/blocks/forms-accordion-rendered.jpg" width="1140" height="507" loading="lazy" decoding="async" alt="Forms accordion rendered from NC content">
+</a>
+</figure>
+<figure>
+<figcaption>
+<strong>DA Content view</strong>
+</figcaption>
+<a href="assets/blocks/forms-accordion-da.jpg" target="_blank" rel="noopener" aria-label="Open full-size da content view for Forms accordion">
+<img src="assets/blocks/forms-accordion-da.jpg" width="1670" height="1054" loading="lazy" decoding="async" alt="Forms accordion authoring view in da.live">
+</a>
+</figure>
+</div>
+</div>
+
+
+<div class="table-scroll">
+<table class="authoring-example">
+<caption>Authoring table structure</caption>
+<thead>
+<tr>
+<th colspan="1">forms-accordion</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+</div>
+<h4>Options and variants</h4>
+<p>No named variants. Insert the named block without content rows; content typed inside it is ignored.</p>
+<h4>Authoring notes</h4>
+<p>Categories are fixed in code: Prior Authorizations, Claims &amp; Billing, Behavioral Health, Pharmacy, Maternal Child Services, and Other Forms. A separate PCP Change Form list follows. Titles, URLs, and categorization currently come from bundled sample JSON, not an author-maintained table or a live service. Request dataset changes from the developer or service owner. Links open in new tabs.</p>
+<p class="reference-link">Found on 1 indexed NC preview page(s). Example: <a href="https://main--elevance-nc--adobedrago.aem.page/north-carolina-provider/forms">/north-carolina-provider/forms</a> · <a href="https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/forms">Edit in DA</a>
+</p>
+<p class="reference-link">
+<a href="https://github.com/AdobeDrago/elevance/blob/main/blocks/forms-accordion/forms-accordion.js">Implementation</a> · <a href="#block-catalog">Back to catalog</a>
+</p>
+</article>
+<article class="block-entry" id="block-table-news-archive">
+<p class="eyebrow">Service and search blocks</p>
+<h3>Table news archive</h3>
+<p>
+<code>table-news-archive</code> · A filterable news-document archive with sorting and Load More.</p>
+<div class="block-visuals">
+<h4>Rendered and authoring views</h4>
+<p class="screenshot-note">Rendered with local repository code and existing NC preview content. The DA screenshot shows the corresponding document in Content view; tall blocks may extend below the visible editor area. Select either image to open it at full size.</p>
+<p class="reference-link">Capture source: <a href="https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/archives">/north-carolina-provider/archives in DA</a>
+</p>
+<div class="screenshot-pair">
+<figure>
+<figcaption>
+<strong>Rendered site block</strong>
+</figcaption>
+<a href="assets/blocks/table-news-archive-rendered.jpg" target="_blank" rel="noopener" aria-label="Open full-size rendered site block for Table news archive">
+<img src="assets/blocks/table-news-archive-rendered.jpg" width="1140" height="698" loading="lazy" decoding="async" alt="Table news archive rendered from NC content">
+</a>
+</figure>
+<figure>
+<figcaption>
+<strong>DA Content view</strong>
+</figcaption>
+<a href="assets/blocks/table-news-archive-da.jpg" target="_blank" rel="noopener" aria-label="Open full-size da content view for Table news archive">
+<img src="assets/blocks/table-news-archive-da.jpg" width="1670" height="1054" loading="lazy" decoding="async" alt="Table news archive authoring view in da.live">
+</a>
+</figure>
+</div>
+</div>
+
+
+<div class="table-scroll">
+<table class="authoring-example">
+<caption>Authoring table structure</caption>
+<thead>
+<tr>
+<th colspan="1">table-news-archive</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+</div>
+<h4>Options and variants</h4>
+<p>No named variants. Insert the named block without content rows; authored archive rows are ignored.</p>
+<h4>Authoring notes</h4>
+<p>The block currently reads bundled sample JSON. Tabs are fixed to All, Provider Newsletter, and Medicaid News. Sort choices are Newest, Oldest, A–Z, and Z–A; the initial view shows ten documents and Load More adds ten. Document titles, dates, URLs, and topic tags come from the dataset. Ask the developer or service owner to change them; editing rows in DA will not update the list.</p>
+<p class="reference-link">Found on 1 indexed NC preview page(s). Example: <a href="https://main--elevance-nc--adobedrago.aem.page/north-carolina-provider/archives">/north-carolina-provider/archives</a> · <a href="https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/archives">Edit in DA</a>
+</p>
+<p class="reference-link">
+<a href="https://github.com/AdobeDrago/elevance/blob/main/blocks/table-news-archive/table-news-archive.js">Implementation</a> · <a href="#block-catalog">Back to catalog</a>
+</p>
+</article>
+<article class="block-entry" id="block-search">
+<p class="eyebrow">Service and search blocks</p>
+<h3>Search</h3>
+<p>
+<code>search</code> · Site search for indexed pages and, on NC, indexed documents.</p>
+<div class="block-visuals">
+<h4>Rendered and authoring views</h4>
+<p class="screenshot-note">Rendered with local repository code and existing NC preview content. The DA screenshot shows the corresponding document in Content view; tall blocks may extend below the visible editor area. Select either image to open it at full size.</p>
+<p class="reference-link">Capture source: <a href="https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/search">/north-carolina-provider/search in DA</a>
+</p>
+<div class="screenshot-pair">
+<figure>
+<figcaption>
+<strong>Rendered site block</strong>
+</figcaption>
+<a href="assets/blocks/search-rendered.jpg" target="_blank" rel="noopener" aria-label="Open full-size rendered site block for Search">
+<img src="assets/blocks/search-rendered.jpg" width="1080" height="560" loading="lazy" decoding="async" alt="Search rendered from NC content">
+</a>
+</figure>
+<figure>
+<figcaption>
+<strong>DA Content view</strong>
+</figcaption>
+<a href="assets/blocks/search-da.jpg" target="_blank" rel="noopener" aria-label="Open full-size da content view for Search">
+<img src="assets/blocks/search-da.jpg" width="1670" height="1054" loading="lazy" decoding="async" alt="Search authoring view in da.live">
+</a>
+</figure>
+</div>
+</div>
+
+
+<div class="table-scroll">
+<table class="authoring-example">
+<caption>Authoring table structure</caption>
+<thead>
+<tr>
+<th colspan="1">search</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Optional hyperlink: /query-index.json</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4>Options and variants</h4>
+<p>Search is the default block. Search (minimal) is a shared compact result style. The NC results page automatically uses the NC layout. The header’s overlay and navigation mode are created by code and are not author-selected variants.</p>
+<h4>Authoring notes</h4>
+<p>Use one search block on a results page. Without a source link it uses /query-index.json. On NC, search offers four content filters, 10/20/30/40/50 results per page, autocomplete, and shareable query URLs. Search starts after at least three non-space characters. Page titles, headings, descriptions, and indexed content affect discoverability. PDFs require entries in the matching document index; upload alone does not add them. Search index and suggestion refreshes are a developer task.</p>
+<p class="reference-link">Found on 1 indexed NC preview page(s). Example: <a href="https://main--elevance-nc--adobedrago.aem.page/north-carolina-provider/search">/north-carolina-provider/search</a> · <a href="https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/search">Edit in DA</a>
+</p>
+<p class="reference-link">
+<a href="https://github.com/AdobeDrago/elevance/blob/main/blocks/search/search.js">Implementation</a> · <a href="#block-catalog">Back to catalog</a>
+</p>
+</article>
+<article class="block-entry" id="block-accordion">
+<p class="eyebrow">Shared content blocks</p>
+<h3>Accordion</h3>
+<p>
+<code>accordion</code> · Expandable general content panels.</p>
+<div class="block-visuals">
+<h4>Rendered and authoring views</h4>
+<p class="screenshot-note">No current NC page example was found. These captures show illustrative content rendered by the real block code and its matching local authoring table. The table image is not a screenshot of da.live. Select either image to open it at full size.</p>
+<div class="screenshot-pair">
+<figure>
+<figcaption>
+<strong>Rendered local sample</strong>
+</figcaption>
+<a href="assets/blocks/accordion-rendered.jpg" target="_blank" rel="noopener" aria-label="Open full-size rendered local sample for Accordion">
+<img src="assets/blocks/accordion-rendered.jpg" width="1280" height="315" loading="lazy" decoding="async" alt="Accordion rendered with illustrative content">
+</a>
+</figure>
+<figure>
+<figcaption>
+<strong>Illustrative authoring table</strong>
+</figcaption>
+<a href="assets/blocks/accordion-author-sample.jpg" target="_blank" rel="noopener" aria-label="Open full-size illustrative authoring table for Accordion">
+<img src="assets/blocks/accordion-author-sample.jpg" width="1280" height="438" loading="lazy" decoding="async" alt="Accordion illustrative authoring table, not a DA screenshot">
+</a>
+</figure>
+</div>
+</div>
+
+
+<div class="table-scroll">
+<table class="authoring-example">
+<caption>Authoring table structure</caption>
+<thead>
+<tr>
+<th colspan="2">accordion</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Panel title</td>
+<td>Paragraphs, lists, and links.</td>
+</tr>
+<tr>
+<td>Another panel</td>
+<td>More content.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4>Options and variants</h4>
+<p>No named variants implemented.</p>
+<h4>Authoring notes</h4>
+<p>Each row has a title cell and a body cell. Panels use native expand/collapse controls and start closed. Several panels can be open at once. Use Accordion Doc Links for the NC document-panel design and per-panel link styles.</p>
+<p class="reference-link">Not found in the successfully scanned indexed NC preview pages. Available code does not establish live usage or design approval.</p>
+<p class="reference-link">
+<a href="https://github.com/AdobeDrago/elevance/blob/main/blocks/accordion/accordion.js">Implementation</a> · <a href="#block-catalog">Back to catalog</a>
+</p>
+</article>
+<article class="block-entry" id="block-cards">
+<p class="eyebrow">Shared content blocks</p>
+<h3>Cards</h3>
+<p>
+<code>cards</code> · A shared card grid for links and optional imagery.</p>
+<div class="block-visuals">
+<h4>Rendered and authoring views</h4>
+<p class="screenshot-note">No current NC page example was found. These captures show illustrative content rendered by the real block code and its matching local authoring table. The table image is not a screenshot of da.live. Select either image to open it at full size.</p>
+<div class="screenshot-pair">
+<figure>
+<figcaption>
+<strong>Rendered local sample</strong>
+</figcaption>
+<a href="assets/blocks/cards-rendered.jpg" target="_blank" rel="noopener" aria-label="Open full-size rendered local sample for Cards">
+<img src="assets/blocks/cards-rendered.jpg" width="1280" height="602" loading="lazy" decoding="async" alt="Cards rendered with illustrative content">
+</a>
+</figure>
+<figure>
+<figcaption>
+<strong>Illustrative authoring table</strong>
+</figcaption>
+<a href="assets/blocks/cards-author-sample.jpg" target="_blank" rel="noopener" aria-label="Open full-size illustrative authoring table for Cards">
+<img src="assets/blocks/cards-author-sample.jpg" width="1280" height="687" loading="lazy" decoding="async" alt="Cards illustrative authoring table, not a DA screenshot">
+</a>
+</figure>
+</div>
+</div>
+
+
+<div class="table-scroll">
+<table class="authoring-example">
+<caption>Authoring table structure</caption>
+<thead>
+<tr>
+<th colspan="2">cards</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Image: optional photograph</td>
+<td>H3: Card heading<br>Description.<br>Link: View details</td>
+</tr>
+<tr>
+<td>Image: optional photograph</td>
+<td>H3: Another heading<br>Description.<br>Link: View details</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4>Options and variants</h4>
+<p>No named variants implemented. Image cells are detected automatically when their only content is a picture.</p>
+<h4>Authoring notes</h4>
+<p>Each row becomes a card. A text-only card can use one cell. The shared styling includes hover elevation and four columns from 900px; its links use a quick-action treatment. Prefer the specific NC cards blocks for the approved featured, promo, icon-bar, or resource-grid layouts.</p>
+<p class="reference-link">Not found in the successfully scanned indexed NC preview pages. Available code does not establish live usage or design approval.</p>
+<p class="reference-link">
+<a href="https://github.com/AdobeDrago/elevance/blob/main/blocks/cards/cards.js">Implementation</a> · <a href="#block-catalog">Back to catalog</a>
+</p>
+</article>
+<article class="block-entry" id="block-columns">
+<p class="eyebrow">Shared content blocks</p>
+<h3>Columns</h3>
+<p>
+<code>columns</code> · Shared content columns, including a bordered final-column callout.</p>
+<div class="block-visuals">
+<h4>Rendered and authoring views</h4>
+<p class="screenshot-note">No current NC page example was found. These captures show illustrative content rendered by the real block code and its matching local authoring table. The table image is not a screenshot of da.live. Select either image to open it at full size.</p>
+<div class="screenshot-pair">
+<figure>
+<figcaption>
+<strong>Rendered local sample</strong>
+</figcaption>
+<a href="assets/blocks/columns-rendered.jpg" target="_blank" rel="noopener" aria-label="Open full-size rendered local sample for Columns">
+<img src="assets/blocks/columns-rendered.jpg" width="1280" height="425" loading="lazy" decoding="async" alt="Columns rendered with illustrative content">
+</a>
+</figure>
+<figure>
+<figcaption>
+<strong>Illustrative authoring table</strong>
+</figcaption>
+<a href="assets/blocks/columns-author-sample.jpg" target="_blank" rel="noopener" aria-label="Open full-size illustrative authoring table for Columns">
+<img src="assets/blocks/columns-author-sample.jpg" width="1280" height="387" loading="lazy" decoding="async" alt="Columns illustrative authoring table, not a DA screenshot">
+</a>
+</figure>
+</div>
+</div>
+
+
+<div class="table-scroll">
+<table class="authoring-example">
+<caption>Authoring table structure</caption>
+<thead>
+<tr>
+<th colspan="2">columns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>H2: Availity access<br>Main content and links.</td>
+<td>H3: Register for free<br>Callout description and link.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4>Options and variants</h4>
+<p>Column count is inferred from cells in the first content row; there are no named author-selected variants.</p>
+<h4>Authoring notes</h4>
+<p>Each cell is a column. On wider screens the first column is wider and the last has a border and background in this project’s shared CSS. Image-only columns move ahead of prose on smaller screens. Use consistent cell counts across rows. Do not assume this is an equal-width generic layout; NC Columns Content provides a different pattern.</p>
+<p class="reference-link">Not found in the successfully scanned indexed NC preview pages. Available code does not establish live usage or design approval.</p>
+<p class="reference-link">
+<a href="https://github.com/AdobeDrago/elevance/blob/main/blocks/columns/columns.js">Implementation</a> · <a href="#block-catalog">Back to catalog</a>
+</p>
+</article>
+<article class="block-entry" id="block-hero">
+<p class="eyebrow">Shared content blocks</p>
+<h3>Hero</h3>
+<p>
+<code>hero</code> · The shared hero pattern with a background photograph and content card.</p>
+<div class="block-visuals">
+<h4>Rendered and authoring views</h4>
+<p class="screenshot-note">No current NC page example was found. These captures show illustrative content rendered by the real block code and its matching local authoring table. The table image is not a screenshot of da.live. Select either image to open it at full size.</p>
+<div class="screenshot-pair">
+<figure>
+<figcaption>
+<strong>Rendered local sample</strong>
+</figcaption>
+<a href="assets/blocks/hero-rendered.jpg" target="_blank" rel="noopener" aria-label="Open full-size rendered local sample for Hero">
+<img src="assets/blocks/hero-rendered.jpg" width="1280" height="730" loading="lazy" decoding="async" alt="Hero rendered with illustrative content">
+</a>
+</figure>
+<figure>
+<figcaption>
+<strong>Illustrative authoring table</strong>
+</figcaption>
+<a href="assets/blocks/hero-author-sample.jpg" target="_blank" rel="noopener" aria-label="Open full-size illustrative authoring table for Hero">
+<img src="assets/blocks/hero-author-sample.jpg" width="1280" height="588" loading="lazy" decoding="async" alt="Hero illustrative authoring table, not a DA screenshot">
+</a>
+</figure>
+</div>
+</div>
+
+
+<div class="table-scroll">
+<table class="authoring-example">
+<caption>Authoring table structure</caption>
+<thead>
+<tr>
+<th colspan="1">hero</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Image: hero photograph</td>
+</tr>
+<tr>
+<td>H1: Page title<br>Introductory paragraph.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4>Options and variants</h4>
+<p>No named variants implemented.</p>
+<h4>Authoring notes</h4>
+<p>Use one image-only row followed by a content row. NC pages should normally use Hero Welcome or Hero Banner. A page with an image before its first H1 may receive a synthetic Hero automatically when no authored hero block is present; using an explicit hero variant avoids ambiguity.</p>
+<p class="reference-link">Not found in the successfully scanned indexed NC preview pages. Available code does not establish live usage or design approval.</p>
+<p class="reference-link">
+<a href="https://github.com/AdobeDrago/elevance/blob/main/blocks/hero/hero.js">Implementation</a> · <a href="#block-catalog">Back to catalog</a>
+</p>
+</article>
+<article class="block-entry" id="block-carousel">
+<p class="eyebrow">Shared content blocks</p>
+<h3>Carousel</h3>
+<p>
+<code>carousel</code> · A manually navigated sequence of image and content slides.</p>
+<div class="block-visuals">
+<h4>Rendered and authoring views</h4>
+<p class="screenshot-note">No current NC page example was found. These captures show illustrative content rendered by the real block code and its matching local authoring table. The table image is not a screenshot of da.live. Select either image to open it at full size.</p>
+<div class="screenshot-pair">
+<figure>
+<figcaption>
+<strong>Rendered local sample</strong>
+</figcaption>
+<a href="assets/blocks/carousel-rendered.jpg" target="_blank" rel="noopener" aria-label="Open full-size rendered local sample for Carousel">
+<img src="assets/blocks/carousel-rendered.jpg" width="1280" height="891" loading="lazy" decoding="async" alt="Carousel rendered with illustrative content">
+</a>
+</figure>
+<figure>
+<figcaption>
+<strong>Illustrative authoring table</strong>
+</figcaption>
+<a href="assets/blocks/carousel-author-sample.jpg" target="_blank" rel="noopener" aria-label="Open full-size illustrative authoring table for Carousel">
+<img src="assets/blocks/carousel-author-sample.jpg" width="1280" height="687" loading="lazy" decoding="async" alt="Carousel illustrative authoring table, not a DA screenshot">
+</a>
+</figure>
+</div>
+</div>
+
+
+<div class="table-scroll">
+<table class="authoring-example">
+<caption>Authoring table structure</caption>
+<thead>
+<tr>
+<th colspan="2">carousel</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Image: slide one photograph</td>
+<td>H2: Slide one<br>Paragraph and link.</td>
+</tr>
+<tr>
+<td>Image: slide two photograph</td>
+<td>H2: Slide two<br>Paragraph and link.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4>Options and variants</h4>
+<p>No named variants implemented. One slide suppresses the previous/next buttons and slide indicators.</p>
+<h4>Authoring notes</h4>
+<p>Each row is one slide: first cell image, second cell content. Use a heading in each slide so the slide can be labeled. Navigation controls are generated automatically. No automatic rotation is implemented. Preview image crops, slide reading order, and links on mobile before use.</p>
+<p class="reference-link">Not found in the successfully scanned indexed NC preview pages. Available code does not establish live usage or design approval.</p>
+<p class="reference-link">
+<a href="https://github.com/AdobeDrago/elevance/blob/main/blocks/carousel/carousel.js">Implementation</a> · <a href="#block-catalog">Back to catalog</a>
+</p>
+</article>
+<article class="block-entry" id="block-tabs">
+<p class="eyebrow">Shared content blocks</p>
+<h3>Tabs</h3>
+<p>
+<code>tabs</code> · Content panels switched by a row of tab buttons.</p>
+<div class="block-visuals">
+<h4>Rendered and authoring views</h4>
+<p class="screenshot-note">No current NC page example was found. These captures show illustrative content rendered by the real block code and its matching local authoring table. The table image is not a screenshot of da.live. Select either image to open it at full size.</p>
+<div class="screenshot-pair">
+<figure>
+<figcaption>
+<strong>Rendered local sample</strong>
+</figcaption>
+<a href="assets/blocks/tabs-rendered.jpg" target="_blank" rel="noopener" aria-label="Open full-size rendered local sample for Tabs">
+<img src="assets/blocks/tabs-rendered.jpg" width="1280" height="380" loading="lazy" decoding="async" alt="Tabs rendered with illustrative content">
+</a>
+</figure>
+<figure>
+<figcaption>
+<strong>Illustrative authoring table</strong>
+</figcaption>
+<a href="assets/blocks/tabs-author-sample.jpg" target="_blank" rel="noopener" aria-label="Open full-size illustrative authoring table for Tabs">
+<img src="assets/blocks/tabs-author-sample.jpg" width="1280" height="435" loading="lazy" decoding="async" alt="Tabs illustrative authoring table, not a DA screenshot">
+</a>
+</figure>
+</div>
+</div>
+
+
+<div class="table-scroll">
+<table class="authoring-example">
+<caption>Authoring table structure</caption>
+<thead>
+<tr>
+<th colspan="2">tabs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Overview</td>
+<td>Overview paragraph and links.</td>
+</tr>
+<tr>
+<td>Resources</td>
+<td>Resource list and links.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4>Options and variants</h4>
+<p>No named variants implemented.</p>
+<h4>Authoring notes</h4>
+<p>Each row is one tab: label in the first cell, panel content in the second. The first tab starts selected. Keep tab names short and distinct, including across multiple tab blocks on a page, because IDs are derived from the names. Use a short set of related topics and check mobile layout.</p>
+<p class="reference-link">Not found in the successfully scanned indexed NC preview pages. Available code does not establish live usage or design approval.</p>
+<p class="reference-link">
+<a href="https://github.com/AdobeDrago/elevance/blob/main/blocks/tabs/tabs.js">Implementation</a> · <a href="#block-catalog">Back to catalog</a>
+</p>
+</article>
+<article class="block-entry" id="block-table">
+<p class="eyebrow">Shared content blocks</p>
+<h3>Table</h3>
+<p>
+<code>table</code> · A conventional data table with optional header and row styling.</p>
+<div class="block-visuals">
+<h4>Rendered and authoring views</h4>
+<p class="screenshot-note">No current NC page example was found. These captures show illustrative content rendered by the real block code and its matching local authoring table. The table image is not a screenshot of da.live. Select either image to open it at full size.</p>
+<div class="screenshot-pair">
+<figure>
+<figcaption>
+<strong>Rendered local sample</strong>
+</figcaption>
+<a href="assets/blocks/table-rendered.jpg" target="_blank" rel="noopener" aria-label="Open full-size rendered local sample for Table">
+<img src="assets/blocks/table-rendered.jpg" width="1280" height="357" loading="lazy" decoding="async" alt="Table rendered with illustrative content">
+</a>
+</figure>
+<figure>
+<figcaption>
+<strong>Illustrative authoring table</strong>
+</figcaption>
+<a href="assets/blocks/table-author-sample.jpg" target="_blank" rel="noopener" aria-label="Open full-size illustrative authoring table for Table">
+<img src="assets/blocks/table-author-sample.jpg" width="1280" height="396" loading="lazy" decoding="async" alt="Table illustrative authoring table, not a DA screenshot">
+</a>
+</figure>
+</div>
+</div>
+
+
+<div class="table-scroll">
+<table class="authoring-example">
+<caption>Authoring table structure</caption>
+<thead>
+<tr>
+<th colspan="2">table</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Document</td>
+<td>Updated</td>
+</tr>
+<tr>
+<td>Provider manual</td>
+<td>October 2026</td>
+</tr>
+<tr>
+<td>Claims guide</td>
+<td>September 2026</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4>Options and variants</h4>
+<p>Table (striped) adds alternating row shading. Table (bordered) adds cell borders. Table (no header) treats every content row as data. Options can be combined, for example Table (striped, bordered).</p>
+<h4>Authoring notes</h4>
+<p>The merged block-name row is separate from the table’s first data row. Unless no header is selected, the first content row becomes the column headings. Keep column counts consistent and use short descriptive headers. Do not use data tables for page layout. The block scrolls horizontally if needed.</p>
+<p class="reference-link">Not found in the successfully scanned indexed NC preview pages. Available code does not establish live usage or design approval.</p>
+<p class="reference-link">
+<a href="https://github.com/AdobeDrago/elevance/blob/main/blocks/table/table.js">Implementation</a> · <a href="#block-catalog">Back to catalog</a>
+</p>
+</article>
+<article class="block-entry" id="block-quote">
+<p class="eyebrow">Shared content blocks</p>
+<h3>Quote</h3>
+<p>
+<code>quote</code> · A quotation with an optional attribution.</p>
+<div class="block-visuals">
+<h4>Rendered and authoring views</h4>
+<p class="screenshot-note">No current NC page example was found. These captures show illustrative content rendered by the real block code and its matching local authoring table. The table image is not a screenshot of da.live. Select either image to open it at full size.</p>
+<div class="screenshot-pair">
+<figure>
+<figcaption>
+<strong>Rendered local sample</strong>
+</figcaption>
+<a href="assets/blocks/quote-rendered.jpg" target="_blank" rel="noopener" aria-label="Open full-size rendered local sample for Quote">
+<img src="assets/blocks/quote-rendered.jpg" width="1280" height="268" loading="lazy" decoding="async" alt="Quote rendered with illustrative content">
+</a>
+</figure>
+<figure>
+<figcaption>
+<strong>Illustrative authoring table</strong>
+</figcaption>
+<a href="assets/blocks/quote-author-sample.jpg" target="_blank" rel="noopener" aria-label="Open full-size illustrative authoring table for Quote">
+<img src="assets/blocks/quote-author-sample.jpg" width="1280" height="316" loading="lazy" decoding="async" alt="Quote illustrative authoring table, not a DA screenshot">
+</a>
+</figure>
+</div>
+</div>
+
+
+<div class="table-scroll">
+<table class="authoring-example">
+<caption>Authoring table structure</caption>
+<thead>
+<tr>
+<th colspan="1">quote</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Quotation text.</td>
+</tr>
+<tr>
+<td>Author name and italicized publication title.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4>Options and variants</h4>
+<p>No named variants implemented.</p>
+<h4>Authoring notes</h4>
+<p>Use one cell per row: quotation first, attribution second. Italicized content in the attribution becomes a citation. Use approved quotations and identify the source. A third content row is not processed.</p>
+<p class="reference-link">Not found in the successfully scanned indexed NC preview pages. Available code does not establish live usage or design approval.</p>
+<p class="reference-link">
+<a href="https://github.com/AdobeDrago/elevance/blob/main/blocks/quote/quote.js">Implementation</a> · <a href="#block-catalog">Back to catalog</a>
+</p>
+</article>
+<article class="block-entry" id="block-fragment">
+<p class="eyebrow">Shared content blocks</p>
+<h3>Fragment</h3>
+<p>
+<code>fragment</code> · Reusable authored content included in multiple pages.</p>
+<div class="block-visuals">
+<h4>Rendered and authoring views</h4>
+<p class="screenshot-note">No current NC page example was found. These captures show illustrative content rendered by the real block code and its matching local authoring table. The table image is not a screenshot of da.live. Select either image to open it at full size.</p>
+<div class="screenshot-pair">
+<figure>
+<figcaption>
+<strong>Rendered local sample</strong>
+</figcaption>
+<a href="assets/blocks/fragment-rendered.jpg" target="_blank" rel="noopener" aria-label="Open full-size rendered local sample for Fragment">
+<img src="assets/blocks/fragment-rendered.jpg" width="1280" height="349" loading="lazy" decoding="async" alt="Fragment rendered with illustrative content">
+</a>
+</figure>
+<figure>
+<figcaption>
+<strong>Illustrative authoring table</strong>
+</figcaption>
+<a href="assets/blocks/fragment-author-sample.jpg" target="_blank" rel="noopener" aria-label="Open full-size illustrative authoring table for Fragment">
+<img src="assets/blocks/fragment-author-sample.jpg" width="1280" height="242" loading="lazy" decoding="async" alt="Fragment illustrative authoring table, not a DA screenshot">
+</a>
+</figure>
+</div>
+</div>
+
+
+<div class="table-scroll">
+<table class="authoring-example">
+<caption>Authoring table structure</caption>
+<thead>
+<tr>
+<th colspan="1">fragment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hyperlink: /fragments/provider-contact</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4>Options and variants</h4>
+<p>No named variants implemented.</p>
+<h4>Authoring notes</h4>
+<p>Author the reusable content in its own DA document, then link to that path without .html or .plain.html. Keep it on the same site when possible. Preview and publish the fragment as well as its consuming pages. Edits affect every page that includes it. Avoid circular includes and do not include the global navigation or footer again in page content.</p>
+<p class="reference-link">Not found in the successfully scanned indexed NC preview pages. Available code does not establish live usage or design approval.</p>
+<p class="reference-link">
+<a href="https://github.com/AdobeDrago/elevance/blob/main/blocks/fragment/fragment.js">Implementation</a> · <a href="#block-catalog">Back to catalog</a>
+</p>
+</article>
+<article class="block-entry" id="block-embed">
+<p class="eyebrow">Shared content blocks</p>
+<h3>Embed</h3>
+<p>
+<code>embed</code> · Embedded third-party content, with an optional click-to-load poster image.</p>
+<div class="block-visuals">
+<h4>Rendered and authoring views</h4>
+<p class="screenshot-note">No current NC page example was found. These captures show illustrative content rendered by the real block code and its matching local authoring table. The table image is not a screenshot of da.live. Select either image to open it at full size.</p>
+<div class="screenshot-pair">
+<figure>
+<figcaption>
+<strong>Rendered local sample</strong>
+</figcaption>
+<a href="assets/blocks/embed-rendered.jpg" target="_blank" rel="noopener" aria-label="Open full-size rendered local sample for Embed">
+<img src="assets/blocks/embed-rendered.jpg" width="1280" height="712" loading="lazy" decoding="async" alt="Embed rendered with illustrative content">
+</a>
+</figure>
+<figure>
+<figcaption>
+<strong>Illustrative authoring table</strong>
+</figcaption>
+<a href="assets/blocks/embed-author-sample.jpg" target="_blank" rel="noopener" aria-label="Open full-size illustrative authoring table for Embed">
+<img src="assets/blocks/embed-author-sample.jpg" width="1280" height="502" loading="lazy" decoding="async" alt="Embed illustrative authoring table, not a DA screenshot">
+</a>
+</figure>
+</div>
+</div>
+
+
+<div class="table-scroll">
+<table class="authoring-example">
+<caption>Authoring table structure</caption>
+<thead>
+<tr>
+<th colspan="1">embed</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hyperlink: approved YouTube, Vimeo, Twitter URL, or another embeddable URL</td>
+</tr>
+<tr>
+<td>Image: optional poster</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4>Options and variants</h4>
+<p>Provider selection is automatic from the URL. With a poster, the embed loads on click; without one, it loads when it enters view. No named variants implemented.</p>
+<h4>Authoring notes</h4>
+<p>Use one destination link. Third-party restrictions may prevent a URL from loading in an iframe. The fallback frame is not a guarantee that a normal web page can be embedded. Use Video for the dedicated video pattern and confirm captions or a transcript are available.</p>
+<p class="reference-link">Not found in the successfully scanned indexed NC preview pages. Available code does not establish live usage or design approval.</p>
+<p class="reference-link">
+<a href="https://github.com/AdobeDrago/elevance/blob/main/blocks/embed/embed.js">Implementation</a> · <a href="#block-catalog">Back to catalog</a>
+</p>
+</article>
+<article class="block-entry" id="block-video">
+<p class="eyebrow">Shared content blocks</p>
+<h3>Video</h3>
+<p>
+<code>video</code> · A YouTube, Vimeo, or direct-file video, optionally with a poster.</p>
+<div class="block-visuals">
+<h4>Rendered and authoring views</h4>
+<p class="screenshot-note">No current NC page example was found. These captures show illustrative content rendered by the real block code and its matching local authoring table. The table image is not a screenshot of da.live. Select either image to open it at full size.</p>
+<div class="screenshot-pair">
+<figure>
+<figcaption>
+<strong>Rendered local sample</strong>
+</figcaption>
+<a href="assets/blocks/video-rendered.jpg" target="_blank" rel="noopener" aria-label="Open full-size rendered local sample for Video">
+<img src="assets/blocks/video-rendered.jpg" width="1280" height="753" loading="lazy" decoding="async" alt="Video rendered with illustrative content">
+</a>
+</figure>
+<figure>
+<figcaption>
+<strong>Illustrative authoring table</strong>
+</figcaption>
+<a href="assets/blocks/video-author-sample.jpg" target="_blank" rel="noopener" aria-label="Open full-size illustrative authoring table for Video">
+<img src="assets/blocks/video-author-sample.jpg" width="1280" height="502" loading="lazy" decoding="async" alt="Video illustrative authoring table, not a DA screenshot">
+</a>
+</figure>
+</div>
+</div>
+
+
+<div class="table-scroll">
+<table class="authoring-example">
+<caption>Authoring table structure</caption>
+<thead>
+<tr>
+<th colspan="1">video</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hyperlink: approved video URL</td>
+</tr>
+<tr>
+<td>Image: optional poster</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4>Options and variants</h4>
+<p>Video (autoplay) requests a muted background-style video, with reduced-motion handling. The default uses playback controls; with a poster, visitors click to start.</p>
+<h4>Authoring notes</h4>
+<p>Use one video link. Direct-file URLs should have a recognizable media extension. Autoplay is subject to browser restrictions and can remove player controls in background mode. Ensure essential information is available as text and provide captions or an accessible equivalent. Preview mobile playback.</p>
+<p class="reference-link">Not found in the successfully scanned indexed NC preview pages. Available code does not establish live usage or design approval.</p>
+<p class="reference-link">
+<a href="https://github.com/AdobeDrago/elevance/blob/main/blocks/video/video.js">Implementation</a> · <a href="#block-catalog">Back to catalog</a>
+</p>
+</article>
+<article class="block-entry" id="block-form">
+<p class="eyebrow">Shared content blocks</p>
+<h3>Form</h3>
+<p>
+<code>form</code> · A form generated from a JSON field definition and submitted to a configured endpoint.</p>
+<div class="block-visuals">
+<h4>Rendered and authoring views</h4>
+<p class="screenshot-note">No current NC page example was found. These captures show illustrative content rendered by the real block code and its matching local authoring table. The table image is not a screenshot of da.live. Select either image to open it at full size.</p>
+<div class="screenshot-pair">
+<figure>
+<figcaption>
+<strong>Rendered local sample</strong>
+</figcaption>
+<a href="assets/blocks/form-rendered.jpg" target="_blank" rel="noopener" aria-label="Open full-size rendered local sample for Form">
+<img src="assets/blocks/form-rendered.jpg" width="1280" height="538" loading="lazy" decoding="async" alt="Form rendered with illustrative content">
+</a>
+</figure>
+<figure>
+<figcaption>
+<strong>Illustrative authoring table</strong>
+</figcaption>
+<a href="assets/blocks/form-author-sample.jpg" target="_blank" rel="noopener" aria-label="Open full-size illustrative authoring table for Form">
+<img src="assets/blocks/form-author-sample.jpg" width="1280" height="316" loading="lazy" decoding="async" alt="Form illustrative authoring table, not a DA screenshot">
+</a>
+</figure>
+</div>
+</div>
+
+
+<div class="table-scroll">
+<table class="authoring-example">
+<caption>Authoring table structure</caption>
+<thead>
+<tr>
+<th colspan="1">form</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hyperlink: same-site /forms/contact.json</td>
+</tr>
+<tr>
+<td>Hyperlink: developer-provided submission endpoint</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4>Options and variants</h4>
+<p>No named block variants. Field types are configured in JSON, not by adding content rows.</p>
+<h4>Authoring notes</h4>
+<p>The block needs a same-origin JSON link ending in .json and a separate submission URL. Field definitions are in a data array and use properties such as Name, Type, Label, Mandatory, Placeholder, Value, Options, Style, and Fieldset. Supported special types include select, heading, plaintext, text-area, toggle, submit, confirmation, fieldset, checkbox, and radio, plus standard HTML input types. Request setup from a developer; this is not the Forms Accordion document directory. Verify validation, successful submission, and confirmation before using a form.</p>
+<p class="reference-link">Not found in the successfully scanned indexed NC preview pages. Available code does not establish live usage or design approval.</p>
+<p class="reference-link">
+<a href="https://github.com/AdobeDrago/elevance/blob/main/blocks/form/form.js">Implementation</a> · <a href="#block-catalog">Back to catalog</a>
+</p>
+</article>
+<article class="block-entry" id="block-header">
+<p class="eyebrow">Automatic and developer managed</p>
+<h3>Header</h3>
+<p>
+<code>header</code> · Global logo, navigation, utility links, text-size controls, and site search.</p>
+<div class="block-visuals">
+<h4>Rendered and authoring views</h4>
+<p class="screenshot-note">Edit the shared navigation fragment shown here. The Header block is created automatically on pages. Select either image to open it at full size.</p>
+<p class="reference-link">Capture source: <a href="https://da.live/edit#/adobedrago/elevance-nc/fragments/nav">/fragments/nav in DA</a>
+</p>
+<div class="screenshot-pair">
+<figure>
+<figcaption>
+<strong>Rendered site block</strong>
+</figcaption>
+<a href="assets/blocks/header-rendered.jpg" target="_blank" rel="noopener" aria-label="Open full-size rendered site block for Header">
+<img src="assets/blocks/header-rendered.jpg" width="1280" height="100" loading="lazy" decoding="async" alt="Header rendered from NC content">
+</a>
+</figure>
+<figure>
+<figcaption>
+<strong>DA Content view</strong>
+</figcaption>
+<a href="assets/blocks/header-da.jpg" target="_blank" rel="noopener" aria-label="Open full-size da content view for Header">
+<img src="assets/blocks/header-da.jpg" width="1670" height="1054" loading="lazy" decoding="async" alt="Header authoring view in da.live">
+</a>
+</figure>
+</div>
+</div>
+
+
+<p class="note">No page-body table is needed. See the shared or automatic behavior instructions.</p>
+<h4>Options and variants</h4>
+<p>NC and default-site presentations are chosen by page theme. Desktop and mobile modes are automatic, not authored variants.</p>
+<h4>Authoring notes</h4>
+<p>Edit the navigation fragment selected by the page’s nav metadata. Do not insert a Header block into page body content. The automatic block belongs outside the main page body. See the shared header instructions above for the required three-section structure.</p>
+<p class="reference-link">Automatic behavior is not counted as an authored block in the page inventory.</p>
+<p class="reference-link">
+<a href="https://github.com/AdobeDrago/elevance/blob/main/blocks/header/header.js">Implementation</a> · <a href="#block-catalog">Back to catalog</a>
+</p>
+</article>
+<article class="block-entry" id="block-footer">
+<p class="eyebrow">Automatic and developer managed</p>
+<h3>Footer</h3>
+<p>
+<code>footer</code> · Global legal statements and utility links from a shared fragment.</p>
+<div class="block-visuals">
+<h4>Rendered and authoring views</h4>
+<p class="screenshot-note">Edit the shared footer fragment shown here. Its authored order is links first, legal text second. Select either image to open it at full size.</p>
+<p class="reference-link">Capture source: <a href="https://da.live/edit#/adobedrago/elevance-nc/fragments/footer">/fragments/footer in DA</a>
+</p>
+<div class="screenshot-pair">
+<figure>
+<figcaption>
+<strong>Rendered site block</strong>
+</figcaption>
+<a href="assets/blocks/footer-rendered.jpg" target="_blank" rel="noopener" aria-label="Open full-size rendered site block for Footer">
+<img src="assets/blocks/footer-rendered.jpg" width="1140" height="432" loading="lazy" decoding="async" alt="Footer rendered from NC content">
+</a>
+</figure>
+<figure>
+<figcaption>
+<strong>DA Content view</strong>
+</figcaption>
+<a href="assets/blocks/footer-da.jpg" target="_blank" rel="noopener" aria-label="Open full-size da content view for Footer">
+<img src="assets/blocks/footer-da.jpg" width="1670" height="1054" loading="lazy" decoding="async" alt="Footer authoring view in da.live">
+</a>
+</figure>
+</div>
+</div>
+
+
+<p class="note">No page-body table is needed. See the shared or automatic behavior instructions.</p>
+<h4>Options and variants</h4>
+<p>NC displays the legal section before the link section. Default-site presentation uses the authored section order.</p>
+<h4>Authoring notes</h4>
+<p>Edit the fragment selected by footer metadata. Do not insert a Footer block into page body content. On NC, a link to get.adobe.com/reader is rendered as the bundled Adobe Reader badge. Footer copy, including the copyright year, comes from the fragment; the year is not updated automatically.</p>
+<p class="reference-link">Automatic behavior is not counted as an authored block in the page inventory.</p>
+<p class="reference-link">
+<a href="https://github.com/AdobeDrago/elevance/blob/main/blocks/footer/footer.js">Implementation</a> · <a href="#block-catalog">Back to catalog</a>
+</p>
+</article>
+<article class="block-entry" id="block-modal">
+<p class="eyebrow">Automatic and developer managed</p>
+<h3>Modal</h3>
+<p>
+<code>modal</code> · A dialog opened from a link to reusable modal content.</p>
+<div class="block-visuals">
+<h4>Rendered and authoring views</h4>
+<p class="screenshot-note">The rendered example is the automatic external-link confirmation. Its DA view shows the Members hyperlink in the shared navigation; there is no standalone Modal table. Select either image to open it at full size.</p>
+<p class="reference-link">Capture source: <a href="https://da.live/edit#/adobedrago/elevance-nc/fragments/nav">/fragments/nav in DA</a>
+</p>
+<div class="screenshot-pair">
+<figure>
+<figcaption>
+<strong>Rendered site block</strong>
+</figcaption>
+<a href="assets/blocks/modal-rendered.jpg" target="_blank" rel="noopener" aria-label="Open full-size rendered site block for Modal">
+<img src="assets/blocks/modal-rendered.jpg" width="1280" height="720" loading="lazy" decoding="async" alt="Modal rendered from NC content">
+</a>
+</figure>
+<figure>
+<figcaption>
+<strong>DA Content view</strong>
+</figcaption>
+<a href="assets/blocks/modal-da.jpg" target="_blank" rel="noopener" aria-label="Open full-size da content view for Modal">
+<img src="assets/blocks/modal-da.jpg" width="1670" height="1054" loading="lazy" decoding="async" alt="Modal authoring view in da.live">
+</a>
+</figure>
+</div>
+</div>
+
+
+<p class="note">No page-body table is needed. See the shared or automatic behavior instructions.</p>
+<h4>Options and variants</h4>
+<p>No author-selected visual variants. The external-link confirmation uses this dialog infrastructure automatically on NC.</p>
+<h4>Authoring notes</h4>
+<p>Create the dialog content as a DA document under /modals/, then use a normal hyperlink to its path, for example /modals/provider-help. The /modals/ path triggers the dialog. Do not insert an empty Modal block: it has no standalone authoring decorator. The dialog includes a close control and dismisses when clicking outside it.</p>
+<p class="reference-link">Automatic behavior is not counted as an authored block in the page inventory.</p>
+<p class="reference-link">
+<a href="https://github.com/AdobeDrago/elevance/blob/main/blocks/modal/modal.js">Implementation</a> · <a href="#block-catalog">Back to catalog</a>
+</p>
+</article>
+<article class="block-entry" id="block-medical-policies-dialog">
+<p class="eyebrow">Automatic and developer managed</p>
+<h3>Medical policies dialog</h3>
+<p>
+<code>medical-policies-dialog</code> · The acknowledgement dialog used with medical-policy content.</p>
+<div class="block-visuals">
+<h4>Rendered and authoring views</h4>
+<p class="screenshot-note">Rendered with local repository code and existing NC preview content. The DA screenshot shows the corresponding document in Content view; tall blocks may extend below the visible editor area. Select either image to open it at full size.</p>
+<p class="reference-link">Capture source: <a href="https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/medical-policies-and-clinical-guidelines">/north-carolina-provider/medical-policies-and-clinical-guidelines in DA</a>
+</p>
+<div class="screenshot-pair">
+<figure>
+<figcaption>
+<strong>Rendered site block</strong>
+</figcaption>
+<a href="assets/blocks/medical-policies-dialog-rendered.jpg" target="_blank" rel="noopener" aria-label="Open full-size rendered site block for Medical policies dialog">
+<img src="assets/blocks/medical-policies-dialog-rendered.jpg" width="1280" height="720" loading="lazy" decoding="async" alt="Medical policies dialog rendered from NC content">
+</a>
+</figure>
+<figure>
+<figcaption>
+<strong>DA Content view</strong>
+</figcaption>
+<a href="assets/blocks/medical-policies-dialog-da.jpg" target="_blank" rel="noopener" aria-label="Open full-size da content view for Medical policies dialog">
+<img src="assets/blocks/medical-policies-dialog-da.jpg" width="1670" height="1054" loading="lazy" decoding="async" alt="Medical policies dialog authoring view in da.live">
+</a>
+</figure>
+</div>
+</div>
+
+
+<div class="table-scroll">
+<table class="authoring-example">
+<caption>Authoring table structure</caption>
+<thead>
+<tr>
+<th colspan="1">medical-policies-dialog</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+</div>
+<h4>Options and variants</h4>
+<p>No named variants. The block opens automatically unless its acknowledgement cookie is already set.</p>
+<h4>Authoring notes</h4>
+<p>The dialog’s wording, Continue/Cancel controls, and cookie behavior are implemented in code. Content typed in the block is discarded. Both buttons set a one-day acknowledgement cookie in the current implementation. Ask the developer and content owner to change approved wording or behavior; do not copy legal text into a table expecting it to override the dialog.</p>
+<p class="reference-link">Found on 1 indexed NC preview page(s). Example: <a href="https://main--elevance-nc--adobedrago.aem.page/north-carolina-provider/medical-policies-and-clinical-guidelines">/north-carolina-provider/medical-policies-and-clinical-guidelines</a> · <a href="https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/medical-policies-and-clinical-guidelines">Edit in DA</a>
+</p>
+<p class="reference-link">
+<a href="https://github.com/AdobeDrago/elevance/blob/main/blocks/medical-policies-dialog/medical-policies-dialog.js">Implementation</a> · <a href="#block-catalog">Back to catalog</a>
+</p>
+</article>
+</section>
+<section id="page-reference">
+<h2>NC page reference</h2>
+<p>Snapshot of 49 successfully scanned NC pages from the preview query index on October 15, 2026. This records authored block names, excluding automatic header/footer/modal behavior. It covers indexed pages, not every DA document, unpublished draft, or shared fragment.</p>
+<div class="table-scroll">
+<table>
+<thead>
+<tr>
+<th>Page</th>
+<th>Authored blocks</th>
+<th>Authoring</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://main--elevance-nc--adobedrago.aem.page/north-carolina-provider/archives">archives</a>
+</td>
+<td>
+<a href="#block-columns-link-lists">columns-link-lists</a>, <a href="#block-hero-banner">hero-banner</a>, <a href="#block-table-news-archive">table-news-archive</a>
+</td>
+<td>
+<a href="https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/archives">Edit in DA</a>
+</td>
+</tr>
+<tr>
+<td>
+<a href="https://main--elevance-nc--adobedrago.aem.page/north-carolina-provider/behavioral-health">behavioral-health</a>
+</td>
+<td>
+<a href="#block-columns-link-lists">columns-link-lists</a>, <a href="#block-hero-banner">hero-banner</a>, <a href="#block-pdf-list">pdf-list</a>
+</td>
+<td>
+<a href="https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/behavioral-health">Edit in DA</a>
+</td>
+</tr>
+<tr>
+<td>
+<a href="https://main--elevance-nc--adobedrago.aem.page/north-carolina-provider/benefits-partners">benefits-partners</a>
+</td>
+<td>
+<a href="#block-columns-link-lists">columns-link-lists</a>, <a href="#block-hero-banner">hero-banner</a>, <a href="#block-pdf-list">pdf-list</a>
+</td>
+<td>
+<a href="https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/benefits-partners">Edit in DA</a>
+</td>
+</tr>
+<tr>
+<td>
+<a href="https://main--elevance-nc--adobedrago.aem.page/north-carolina-provider/care-management">care-management</a>
+</td>
+<td>
+<a href="#block-columns-link-lists">columns-link-lists</a>, <a href="#block-hero-banner">hero-banner</a>
+</td>
+<td>
+<a href="https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/care-management">Edit in DA</a>
+</td>
+</tr>
+<tr>
+<td>
+<a href="https://main--elevance-nc--adobedrago.aem.page/north-carolina-provider/claims">claims</a>
+</td>
+<td>
+<a href="#block-cards-icon-links">cards-icon-links</a>, <a href="#block-columns-link-lists">columns-link-lists</a>, <a href="#block-hero-banner">hero-banner</a>, <a href="#block-more-resources">more-resources</a>
+</td>
+<td>
+<a href="https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/claims">Edit in DA</a>
+</td>
+</tr>
+<tr>
+<td>
+<a href="https://main--elevance-nc--adobedrago.aem.page/north-carolina-provider/claims-submissions-and-disputes">claims-submissions-and-disputes</a>
+</td>
+<td>
+<a href="#block-columns-link-lists">columns-link-lists</a>, <a href="#block-hero-banner">hero-banner</a>, <a href="#block-pdf-list">pdf-list</a>
+</td>
+<td>
+<a href="https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/claims-submissions-and-disputes">Edit in DA</a>
+</td>
+</tr>
+<tr>
+<td>
+<a href="https://main--elevance-nc--adobedrago.aem.page/north-carolina-provider/cme">cme</a>
+</td>
+<td>
+<a href="#block-columns-content">columns-content</a>, <a href="#block-columns-link-lists">columns-link-lists</a>, <a href="#block-hero-banner">hero-banner</a>
+</td>
+<td>
+<a href="https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/cme">Edit in DA</a>
+</td>
+</tr>
+<tr>
+<td>
+<a href="https://main--elevance-nc--adobedrago.aem.page/north-carolina-provider/communications">communications</a>
+</td>
+<td>
+<a href="#block-cards-icon-links">cards-icon-links</a>, <a href="#block-columns-link-lists">columns-link-lists</a>, <a href="#block-hero-banner">hero-banner</a>, <a href="#block-pdf-list">pdf-list</a>
+</td>
+<td>
+<a href="https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/communications">Edit in DA</a>
+</td>
+</tr>
+<tr>
+<td>
+<a href="https://main--elevance-nc--adobedrago.aem.page/north-carolina-provider/condition-care">condition-care</a>
+</td>
+<td>
+<a href="#block-columns-link-lists">columns-link-lists</a>, <a href="#block-hero-banner">hero-banner</a>
+</td>
+<td>
+<a href="https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/condition-care">Edit in DA</a>
+</td>
+</tr>
+<tr>
+<td>
+<a href="https://main--elevance-nc--adobedrago.aem.page/north-carolina-provider/contact-us">contact-us</a>
+</td>
+<td>
+<a href="#block-hero-banner">hero-banner</a>
+</td>
+<td>
+<a href="https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/contact-us">Edit in DA</a>
+</td>
+</tr>
+<tr>
+<td>
+<a href="https://main--elevance-nc--adobedrago.aem.page/north-carolina-provider/early-periodic-screening-diagnostic-treatment">early-periodic-screening-diagnostic-treatment</a>
+</td>
+<td>
+<a href="#block-columns-link-lists">columns-link-lists</a>, <a href="#block-hero-banner">hero-banner</a>
+</td>
+<td>
+<a href="https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/early-periodic-screening-diagnostic-treatment">Edit in DA</a>
+</td>
+</tr>
+<tr>
+<td>
+<a href="https://main--elevance-nc--adobedrago.aem.page/north-carolina-provider/electronic-data-interchange">electronic-data-interchange</a>
+</td>
+<td>
+<a href="#block-columns-content">columns-content</a>, <a href="#block-columns-link-lists">columns-link-lists</a>, <a href="#block-hero-banner">hero-banner</a>, <a href="#block-pdf-list">pdf-list</a>
+</td>
+<td>
+<a href="https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/electronic-data-interchange">Edit in DA</a>
+</td>
+</tr>
+<tr>
+<td>
+<a href="https://main--elevance-nc--adobedrago.aem.page/north-carolina-provider/eligibility-provider-reports">eligibility-provider-reports</a>
+</td>
+<td>
+<a href="#block-columns-link-lists">columns-link-lists</a>, <a href="#block-hero-banner">hero-banner</a>
+</td>
+<td>
+<a href="https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/eligibility-provider-reports">Edit in DA</a>
+</td>
+</tr>
+<tr>
+<td>
+<a href="https://main--elevance-nc--adobedrago.aem.page/north-carolina-provider/enhanced-personal-health-care-program">enhanced-personal-health-care-program</a>
+</td>
+<td>
+<a href="#block-columns-link-lists">columns-link-lists</a>, <a href="#block-hero-banner">hero-banner</a>
+</td>
+<td>
+<a href="https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/enhanced-personal-health-care-program">Edit in DA</a>
+</td>
+</tr>
+<tr>
+<td>
+<a href="https://main--elevance-nc--adobedrago.aem.page/north-carolina-provider/forms">forms</a>
+</td>
+<td>
+<a href="#block-columns-link-lists">columns-link-lists</a>, <a href="#block-forms-accordion">forms-accordion</a>, <a href="#block-hero-banner">hero-banner</a>
+</td>
+<td>
+<a href="https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/forms">Edit in DA</a>
+</td>
+</tr>
+<tr>
+<td>
+<a href="https://main--elevance-nc--adobedrago.aem.page/north-carolina-provider/guide-to-drug-coverage-under-medical-benefit">guide-to-drug-coverage-under-medical-benefit</a>
+</td>
+<td>
+<a href="#block-columns-link-lists">columns-link-lists</a>, <a href="#block-hero-banner">hero-banner</a>, <a href="#block-pdf-list">pdf-list</a>
+</td>
+<td>
+<a href="https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/guide-to-drug-coverage-under-medical-benefit">Edit in DA</a>
+</td>
+</tr>
+<tr>
+<td>
+<a href="https://main--elevance-nc--adobedrago.aem.page/north-carolina-provider/health-education">health-education</a>
+</td>
+<td>
+<a href="#block-columns-link-lists">columns-link-lists</a>, <a href="#block-hero-banner">hero-banner</a>
+</td>
+<td>
+<a href="https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/health-education">Edit in DA</a>
+</td>
+</tr>
+<tr>
+<td>
+<a href="https://main--elevance-nc--adobedrago.aem.page/north-carolina-provider/hedis">hedis</a>
+</td>
+<td>
+<a href="#block-columns-link-lists">columns-link-lists</a>, <a href="#block-hero-banner">hero-banner</a>
+</td>
+<td>
+<a href="https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/hedis">Edit in DA</a>
+</td>
+</tr>
+<tr>
+<td>
+<a href="https://main--elevance-nc--adobedrago.aem.page/north-carolina-provider/home">home</a>
+</td>
+<td>
+<a href="#block-cards-featured">cards-featured</a>, <a href="#block-cards-icon-links">cards-icon-links</a>, <a href="#block-columns-link-lists">columns-link-lists</a>, <a href="#block-hero-welcome">hero-welcome</a>, <a href="#block-pdf-list">pdf-list</a>
+</td>
+<td>
+<a href="https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/home">Edit in DA</a>
+</td>
+</tr>
+<tr>
+<td>
+<a href="https://main--elevance-nc--adobedrago.aem.page/north-carolina-provider/join-our-network">join-our-network</a>
+</td>
+<td>
+<a href="#block-cards-icon-links">cards-icon-links</a>, <a href="#block-columns-content">columns-content</a>, <a href="#block-columns-link-lists">columns-link-lists</a>, <a href="#block-hero-banner">hero-banner</a>
+</td>
+<td>
+<a href="https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/join-our-network">Edit in DA</a>
+</td>
+</tr>
+<tr>
+<td>
+<a href="https://main--elevance-nc--adobedrago.aem.page/north-carolina-provider/learn-about-availity">learn-about-availity</a>
+</td>
+<td>
+<a href="#block-accordion-doc-links">accordion-doc-links</a>, <a href="#block-columns-link-lists">columns-link-lists</a>, <a href="#block-hero-banner">hero-banner</a>, <a href="#block-pdf-list">pdf-list</a>
+</td>
+<td>
+<a href="https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/learn-about-availity">Edit in DA</a>
+</td>
+</tr>
+<tr>
+<td>
+<a href="https://main--elevance-nc--adobedrago.aem.page/north-carolina-provider/manuals-and-guides">manuals-and-guides</a>
+</td>
+<td>
+<a href="#block-columns-link-lists">columns-link-lists</a>, <a href="#block-hero-banner">hero-banner</a>, <a href="#block-pdf-list">pdf-list</a>
+</td>
+<td>
+<a href="https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/manuals-and-guides">Edit in DA</a>
+</td>
+</tr>
+<tr>
+<td>
+<a href="https://main--elevance-nc--adobedrago.aem.page/north-carolina-provider/maternal-child-services">maternal-child-services</a>
+</td>
+<td>
+<a href="#block-columns-link-lists">columns-link-lists</a>, <a href="#block-hero-banner">hero-banner</a>, <a href="#block-pdf-list">pdf-list</a>
+</td>
+<td>
+<a href="https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/maternal-child-services">Edit in DA</a>
+</td>
+</tr>
+<tr>
+<td>
+<a href="https://main--elevance-nc--adobedrago.aem.page/north-carolina-provider/medical-management">medical-management</a>
+</td>
+<td>
+<a href="#block-columns-link-lists">columns-link-lists</a>, <a href="#block-hero-banner">hero-banner</a>
+</td>
+<td>
+<a href="https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/medical-management">Edit in DA</a>
+</td>
+</tr>
+<tr>
+<td>
+<a href="https://main--elevance-nc--adobedrago.aem.page/north-carolina-provider/medical-policies-and-clinical-guidelines">medical-policies-and-clinical-guidelines</a>
+</td>
+<td>
+<a href="#block-accordion-doc-links">accordion-doc-links</a>, <a href="#block-hero-banner">hero-banner</a>, <a href="#block-medical-policies-dialog">medical-policies-dialog</a>
+</td>
+<td>
+<a href="https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/medical-policies-and-clinical-guidelines">Edit in DA</a>
+</td>
+</tr>
+<tr>
+<td>
+<a href="https://main--elevance-nc--adobedrago.aem.page/north-carolina-provider/member-eligibility-and-pharmacy">member-eligibility-and-pharmacy</a>
+</td>
+<td>
+<a href="#block-cards-icon-links">cards-icon-links</a>, <a href="#block-cards-promo">cards-promo</a>, <a href="#block-columns-link-lists">columns-link-lists</a>, <a href="#block-hero-banner">hero-banner</a>
+</td>
+<td>
+<a href="https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/member-eligibility-and-pharmacy">Edit in DA</a>
+</td>
+</tr>
+<tr>
+<td>
+<a href="https://main--elevance-nc--adobedrago.aem.page/north-carolina-provider/patient-care">patient-care</a>
+</td>
+<td>
+<a href="#block-cards-icon-links">cards-icon-links</a>, <a href="#block-cards-promo">cards-promo</a>, <a href="#block-columns-link-lists">columns-link-lists</a>, <a href="#block-hero-banner">hero-banner</a>
+</td>
+<td>
+<a href="https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/patient-care">Edit in DA</a>
+</td>
+</tr>
+<tr>
+<td>
+<a href="https://main--elevance-nc--adobedrago.aem.page/north-carolina-provider/patient-care/critical-incidents">patient-care/critical-incidents</a>
+</td>
+<td>
+<a href="#block-columns-link-lists">columns-link-lists</a>, <a href="#block-hero-banner">hero-banner</a>
+</td>
+<td>
+<a href="https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/patient-care/critical-incidents">Edit in DA</a>
+</td>
+</tr>
+<tr>
+<td>
+<a href="https://main--elevance-nc--adobedrago.aem.page/north-carolina-provider/pharmacy">pharmacy</a>
+</td>
+<td>
+<a href="#block-columns-link-lists">columns-link-lists</a>, <a href="#block-hero-banner">hero-banner</a>, <a href="#block-pdf-list">pdf-list</a>
+</td>
+<td>
+<a href="https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/pharmacy">Edit in DA</a>
+</td>
+</tr>
+<tr>
+<td>
+<a href="https://main--elevance-nc--adobedrago.aem.page/north-carolina-provider/physician-administered-drug-program">physician-administered-drug-program</a>
+</td>
+<td>
+<a href="#block-columns-link-lists">columns-link-lists</a>, <a href="#block-hero-banner">hero-banner</a>
+</td>
+<td>
+<a href="https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/physician-administered-drug-program">Edit in DA</a>
+</td>
+</tr>
+<tr>
+<td>
+<a href="https://main--elevance-nc--adobedrago.aem.page/north-carolina-provider/prior-authorization">prior-authorization</a>
+</td>
+<td>
+<a href="#block-columns-link-lists">columns-link-lists</a>, <a href="#block-cta-footer-banner">cta-footer-banner</a>, <a href="#block-hero-banner">hero-banner</a>
+</td>
+<td>
+<a href="https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/prior-authorization">Edit in DA</a>
+</td>
+</tr>
+<tr>
+<td>
+<a href="https://main--elevance-nc--adobedrago.aem.page/north-carolina-provider/prior-authorization-lookup">prior-authorization-lookup</a>
+</td>
+<td>
+<a href="#block-columns-link-lists">columns-link-lists</a>, <a href="#block-hero-banner">hero-banner</a>, <a href="#block-prior-auth-lookup">prior-auth-lookup</a>
+</td>
+<td>
+<a href="https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/prior-authorization-lookup">Edit in DA</a>
+</td>
+</tr>
+<tr>
+<td>
+<a href="https://main--elevance-nc--adobedrago.aem.page/north-carolina-provider/privacy-policies">privacy-policies</a>
+</td>
+<td>
+<a href="#block-hero-banner">hero-banner</a>
+</td>
+<td>
+<a href="https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/privacy-policies">Edit in DA</a>
+</td>
+</tr>
+<tr>
+<td>
+<a href="https://main--elevance-nc--adobedrago.aem.page/north-carolina-provider/quality-management">quality-management</a>
+</td>
+<td>
+<a href="#block-columns-link-lists">columns-link-lists</a>, <a href="#block-hero-banner">hero-banner</a>
+</td>
+<td>
+<a href="https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/quality-management">Edit in DA</a>
+</td>
+</tr>
+<tr>
+<td>
+<a href="https://main--elevance-nc--adobedrago.aem.page/north-carolina-provider/referrals">referrals</a>
+</td>
+<td>
+<a href="#block-columns-link-lists">columns-link-lists</a>, <a href="#block-hero-banner">hero-banner</a>
+</td>
+<td>
+<a href="https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/referrals">Edit in DA</a>
+</td>
+</tr>
+<tr>
+<td>
+<a href="https://main--elevance-nc--adobedrago.aem.page/north-carolina-provider/reimbursement-policies">reimbursement-policies</a>
+</td>
+<td>
+<a href="#block-accordion-doc-links">accordion-doc-links</a>, <a href="#block-columns-link-lists">columns-link-lists</a>, <a href="#block-cta-footer-banner">cta-footer-banner</a>, <a href="#block-hero-banner">hero-banner</a>
+</td>
+<td>
+<a href="https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/reimbursement-policies">Edit in DA</a>
+</td>
+</tr>
+<tr>
+<td>
+<a href="https://main--elevance-nc--adobedrago.aem.page/north-carolina-provider/reimbursement-policy-definitions">reimbursement-policy-definitions</a>
+</td>
+<td>
+<a href="#block-columns-link-lists">columns-link-lists</a>, <a href="#block-hero-banner">hero-banner</a>
+</td>
+<td>
+<a href="https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/reimbursement-policy-definitions">Edit in DA</a>
+</td>
+</tr>
+<tr>
+<td>
+<a href="https://main--elevance-nc--adobedrago.aem.page/north-carolina-provider/reimbursement-policy-disclaimer">reimbursement-policy-disclaimer</a>
+</td>
+<td>
+<a href="#block-columns-link-lists">columns-link-lists</a>, <a href="#block-hero-banner">hero-banner</a>
+</td>
+<td>
+<a href="https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/reimbursement-policy-disclaimer">Edit in DA</a>
+</td>
+</tr>
+<tr>
+<td>
+<a href="https://main--elevance-nc--adobedrago.aem.page/north-carolina-provider/resource-library">resource-library</a>
+</td>
+<td>
+<a href="#block-columns-content">columns-content</a>, <a href="#block-columns-link-lists">columns-link-lists</a>, <a href="#block-hero-banner">hero-banner</a>
+</td>
+<td>
+<a href="https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/resource-library">Edit in DA</a>
+</td>
+</tr>
+<tr>
+<td>
+<a href="https://main--elevance-nc--adobedrago.aem.page/north-carolina-provider/resources">resources</a>
+</td>
+<td>
+<a href="#block-cards-icon-links">cards-icon-links</a>, <a href="#block-cards-promo">cards-promo</a>, <a href="#block-cards-resource-grid">cards-resource-grid</a>, <a href="#block-columns-link-lists">columns-link-lists</a>, <a href="#block-hero-banner">hero-banner</a>
+</td>
+<td>
+<a href="https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/resources">Edit in DA</a>
+</td>
+</tr>
+<tr>
+<td>
+<a href="https://main--elevance-nc--adobedrago.aem.page/north-carolina-provider/rights-and-responsibilities">rights-and-responsibilities</a>
+</td>
+<td>
+<a href="#block-columns-link-lists">columns-link-lists</a>, <a href="#block-hero-banner">hero-banner</a>
+</td>
+<td>
+<a href="https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/rights-and-responsibilities">Edit in DA</a>
+</td>
+</tr>
+<tr>
+<td>
+<a href="https://main--elevance-nc--adobedrago.aem.page/north-carolina-provider/sbirt">sbirt</a>
+</td>
+<td>
+<a href="#block-columns-content">columns-content</a>, <a href="#block-columns-link-lists">columns-link-lists</a>, <a href="#block-hero-banner">hero-banner</a>
+</td>
+<td>
+<a href="https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/sbirt">Edit in DA</a>
+</td>
+</tr>
+<tr>
+<td>
+<a href="https://main--elevance-nc--adobedrago.aem.page/north-carolina-provider/schedules-registration">schedules-registration</a>
+</td>
+<td>
+<a href="#block-columns-content">columns-content</a>, <a href="#block-columns-link-lists">columns-link-lists</a>, <a href="#block-hero-banner">hero-banner</a>
+</td>
+<td>
+<a href="https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/schedules-registration">Edit in DA</a>
+</td>
+</tr>
+<tr>
+<td>
+<a href="https://main--elevance-nc--adobedrago.aem.page/north-carolina-provider/search">search</a>
+</td>
+<td>
+<a href="#block-search">search</a>
+</td>
+<td>
+<a href="https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/search">Edit in DA</a>
+</td>
+</tr>
+<tr>
+<td>
+<a href="https://main--elevance-nc--adobedrago.aem.page/north-carolina-provider/serving-diverse-populations">serving-diverse-populations</a>
+</td>
+<td>
+<a href="#block-columns-content">columns-content</a>, <a href="#block-columns-link-lists">columns-link-lists</a>, <a href="#block-hero-banner">hero-banner</a>
+</td>
+<td>
+<a href="https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/serving-diverse-populations">Edit in DA</a>
+</td>
+</tr>
+<tr>
+<td>
+<a href="https://main--elevance-nc--adobedrago.aem.page/north-carolina-provider/terms-of-use">terms-of-use</a>
+</td>
+<td>
+<a href="#block-hero-banner">hero-banner</a>
+</td>
+<td>
+<a href="https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/terms-of-use">Edit in DA</a>
+</td>
+</tr>
+<tr>
+<td>
+<a href="https://main--elevance-nc--adobedrago.aem.page/north-carolina-provider/total-member-view">total-member-view</a>
+</td>
+<td>
+<a href="#block-columns-link-lists">columns-link-lists</a>, <a href="#block-hero-banner">hero-banner</a>
+</td>
+<td>
+<a href="https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/total-member-view">Edit in DA</a>
+</td>
+</tr>
+<tr>
+<td>
+<a href="https://main--elevance-nc--adobedrago.aem.page/north-carolina-provider/training-academy">training-academy</a>
+</td>
+<td>
+<a href="#block-columns-link-lists">columns-link-lists</a>, <a href="#block-hero-banner">hero-banner</a>, <a href="#block-pdf-list">pdf-list</a>
+</td>
+<td>
+<a href="https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/training-academy">Edit in DA</a>
+</td>
+</tr>
+<tr>
+<td>
+<a href="https://main--elevance-nc--adobedrago.aem.page/north-carolina-provider/training-resources">training-resources</a>
+</td>
+<td>
+<a href="#block-columns-content">columns-content</a>, <a href="#block-columns-link-lists">columns-link-lists</a>, <a href="#block-hero-banner">hero-banner</a>
+</td>
+<td>
+<a href="https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/training-resources">Edit in DA</a>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="publish">
+<h2>Review and publish</h2>
+<ol>
+<li>Check the page path, one H1, metadata title/description, and NC theme/nav/footer metadata.</li>
+<li>Confirm block names and cell counts. Replace every instructional placeholder with real content. Check that extra rows have not hidden or discarded text.</li>
+<li>Preview desktop and mobile. Check image crops, heading order, buttons, lists, long document titles, and column reading order.</li>
+<li>Test destination links, document availability, navigation menus, accordions, tabs, and any service blocks used on the page. A working sample response is not proof that a production service is connected.</li>
+<li>For a shared fragment change, review the fragment and at least a home and interior page. Preview/publish the fragment itself as well as affected pages according to your team’s release workflow.</li>
+<li>Use the preview and publish actions available to your DA account or Sidekick. Saving content is not the same as publishing it. Confirm the result on the preview host, then the live host after publishing.</li>
+<li>If pages or PDFs should appear in search, verify index visibility after release. Ask the developer to refresh the document/suggestion assets when needed.</li>
+</ol>
+<p>NC preview: <a href="https://main--elevance-nc--adobedrago.aem.page/north-carolina-provider/home">preview home</a>. NC live: <a href="https://main--elevance-nc--adobedrago.aem.live/north-carolina-provider/home">live home</a>. Repository code releases are separate from DA content publication.</p>
+</section>
+<section id="troubleshooting">
+<h2>Troubleshooting and ownership</h2>
+<div class="table-scroll">
+<table>
+<thead>
+<tr>
+<th>Symptom</th>
+<th>Author check</th>
+<th>When to involve a developer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NC block appears unstyled</td>
+<td>Check theme is north-carolina and the block name matches exactly.</td>
+<td>Theme is correct but CSS or the block fails to load.</td>
+</tr>
+<tr>
+<td>Header/footer duplicated</td>
+<td>Remove accidental body copies; check only nav/footer metadata points to the shared fragments.</td>
+<td>Duplicates occur during DA refresh with no body copies. The loader must reuse existing blocks.</td>
+</tr>
+<tr>
+<td>Header sections are mixed up</td>
+<td>Restore the nav fragment’s brand → navigation → tools section order.</td>
+<td>The correct fragment structure still renders incorrectly.</td>
+</tr>
+<tr>
+<td>Footer links/legal order looks wrong</td>
+<td>Author links first, legal second; NC reverses the display order.</td>
+<td>Correct structure is not honored.</td>
+</tr>
+<tr>
+<td>Block missing from the picker</td>
+<td>Copy an approved instance if available.</td>
+<td>Custom registration or a Library entry is needed.</td>
+</tr>
+<tr>
+<td>Text typed in a service block disappears</td>
+<td>Forms Accordion and Table News Archive ignore authored content rows.</td>
+<td>Request changes to the dataset or service configuration.</td>
+</tr>
+<tr>
+<td>Lookup always shows the same examples</td>
+<td>Current lookup uses bundled sample data.</td>
+<td>A real service integration and validation are required.</td>
+</tr>
+<tr>
+<td>PDF missing from search</td>
+<td>Check it is published and the destination opens.</td>
+<td>The preview/live document index and suggestions need updating.</td>
+</tr>
+<tr>
+<td>Button looks like a text link</td>
+<td>On NC, use a bold link alone in a paragraph; check block-specific overrides.</td>
+<td>The supported format still does not render correctly.</td>
+</tr>
+<tr>
+<td>Embedded URL does not display</td>
+<td>Check the URL and approved provider format.</td>
+<td>The provider blocks embedding or needs integration changes.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="reference">
+<h2>Maintenance and technical reference</h2>
+<p>Content authors maintain page copy, links, images, metadata, and shared DA fragments. Developers maintain block implementations, theme styling, editor registration, generated search assets, hardcoded dialogs, and service integrations.</p>
+<p>The site uses one code repository for multiple DA sites. NC styling is scoped by the theme body class; do not copy the NC theme to another site unless that design is intended. There is intentionally no single fstab mount. Content is authored in DA. Any regenerated local migration content must come from the importer; do not hand-edit or delete imported content files.</p>
+<p>The default local NC preview runs on port 3000. Override the port locally if needed. Start it with <code>aem up --port 3000 --url https://main--elevance-nc--adobedrago.aem.page --no-stop-other --no-open</code> from the repository, then open <code>http://localhost:3000/north-carolina-provider/home</code>. Local repository code and the deployed main branch may differ.</p>
+<p>After committing and pushing the documentation, wait for Code Sync to deploy it, then open <code>/docs/author-guide.html</code> on the preview or live site host. Use the <code>.html</code> extension: extensionless paths resolve through DA content. Commit the guide HTML, CSS, JavaScript, and its screenshot assets together.</p>
+<ul>
+<li>
+<a href="https://github.com/AdobeDrago/elevance/blob/main/scripts/scripts.js">Page loading, automatic blocks, and DA preview integration</a>
+</li>
+<li>
+<a href="https://github.com/AdobeDrago/elevance/blob/main/scripts/aem.js">Metadata, button decoration, and block loading</a>
+</li>
+<li>
+<a href="https://github.com/AdobeDrago/elevance/blob/main/scripts/lookup-service.js">Service helper and current sample-data mode</a>
+</li>
+<li>
+<a href="https://github.com/AdobeDrago/elevance/blob/main/blocks/search/README.md">Search operation and index refresh instructions</a>
+</li>
+<li>
+<a href="https://github.com/AdobeDrago/elevance/blob/main/component-definition.json">Checked-in editor component definitions</a>
+</li>
+<li>
+<a href="https://github.com/AdobeDrago/elevance/blob/main/AGENTS.md">Repository and migration conventions</a>
+</li>
+</ul>
+<p>The block examples here follow the JavaScript/CSS implementation when a historical README differs. In particular, CTA Footer Banner currently generates H3, and Prior Auth Lookup does not implement the older proposed Data Source setting. Recheck those entries when their implementations change.</p>
+</section>
+</main>
+</div>
+<footer class="guide-footer">Elevance and Healthy Blue provider sites · Author reference · October 15, 2026</footer>
+
+
+
+
+
+</body>
+</html>
