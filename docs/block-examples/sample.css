@@ -1,0 +1,49 @@
+/* Local documentation fixtures only. */
+body.documentation-sample .sample-label {
+  padding: 16px 24px;
+  border-bottom: 1px solid #c8d9e1;
+  background: #f0f5f8;
+  color: #234351;
+  font: 14px/1.5 system-ui, sans-serif;
+}
+
+body.documentation-sample header[hidden],
+body.documentation-sample footer[hidden] {
+  display: none;
+}
+
+body.documentation-sample:not(.north-carolina) main {
+  width: min(100% - 48px, 1000px);
+  margin: 32px auto;
+}
+
+body.documentation-sample table {
+  width: 100%;
+  border-collapse: collapse;
+  font: 16px/1.5 Arial, sans-serif;
+}
+
+body.documentation-sample td {
+  padding: 16px;
+  vertical-align: top;
+  border: 1px solid #b8b8b8;
+}
+
+body.documentation-sample thead td {
+  background: #eee;
+  text-align: center;
+  font-weight: 700;
+}
+
+body.documentation-sample:not(.north-carolina) table img {
+  width: 100%;
+  max-height: 220px;
+  object-fit: cover;
+}
+
+body.documentation-sample:not(.north-carolina) h1,
+body.documentation-sample:not(.north-carolina) h2,
+body.documentation-sample:not(.north-carolina) h3 {
+  color: #222;
+  font-family: Arial, sans-serif;
+}

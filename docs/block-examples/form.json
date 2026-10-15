@@ -1,0 +1,48 @@
+{
+  "data": [
+    {
+      "Name": "name",
+      "Type": "text",
+      "Label": "Name",
+      "Mandatory": "true",
+      "Placeholder": "Your name",
+      "Value": "",
+      "Options": "",
+      "Style": "",
+      "Fieldset": ""
+    },
+    {
+      "Name": "email",
+      "Type": "email",
+      "Label": "Email",
+      "Mandatory": "true",
+      "Placeholder": "Your email address",
+      "Value": "",
+      "Options": "",
+      "Style": "",
+      "Fieldset": ""
+    },
+    {
+      "Name": "topic",
+      "Type": "select",
+      "Label": "Topic",
+      "Mandatory": "",
+      "Placeholder": "Choose a topic",
+      "Value": "",
+      "Options": "Claims, Prior authorization, Other",
+      "Style": "",
+      "Fieldset": ""
+    },
+    {
+      "Name": "submit",
+      "Type": "submit",
+      "Label": "Send request",
+      "Mandatory": "",
+      "Placeholder": "",
+      "Value": "",
+      "Options": "",
+      "Style": "",
+      "Fieldset": ""
+    }
+  ]
+}
