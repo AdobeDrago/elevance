@@ -185,6 +185,7 @@
 /* Healthy Blue North Carolina site search */
 body.north-carolina main > .section.search-container {
   margin: 0;
+  padding: 0;
 }
 
 body.north-carolina main > .section.search-container > .search-wrapper {
@@ -520,6 +521,7 @@ body.north-carolina main.search-page-main {
 
 body.north-carolina main.search-page-main > .section {
   margin: 0;
+  padding: 0;
 }
 
 body.north-carolina main.search-page-main > .section > .default-content-wrapper {

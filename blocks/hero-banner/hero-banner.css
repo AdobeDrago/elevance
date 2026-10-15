@@ -10,8 +10,9 @@
  */
 
 /* full-bleed: escape the section's max-width/padding wrapper */
-body.north-carolina .hero-banner-container {
-  margin-top: 0;
+body.north-carolina main > .section.hero-banner-container {
+  margin: 0;
+  padding: 0;
 }
 
 body.north-carolina .hero-banner-container .hero-banner-wrapper {
