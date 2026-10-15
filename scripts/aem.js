@@ -600,6 +600,8 @@ function decorateBlocks(main) {
  * @returns {Promise}
  */
 async function loadHeader(header) {
+  // DA preview can call loadPage again while the initial page is still loading.
+  if (header.querySelector(':scope > .header')) return header.querySelector(':scope > .header');
   const headerBlock = buildBlock('header', '');
   header.append(headerBlock);
   decorateBlock(headerBlock);
@@ -612,6 +614,8 @@ async function loadHeader(header) {
  * @returns {Promise}
  */
 async function loadFooter(footer) {
+  // Reuse the current block, including while its fragment is being fetched.
+  if (footer.querySelector(':scope > .footer')) return footer.querySelector(':scope > .footer');
   const footerBlock = buildBlock('footer', '');
   footer.append(footerBlock);
   decorateBlock(footerBlock);

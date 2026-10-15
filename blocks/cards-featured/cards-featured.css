@@ -58,13 +58,18 @@ body.north-carolina .cards-featured .cards-featured-card-body p {
   color: var(--text-color);
 }
 
-/* --- arrow link (EDS auto-decorates <p><a> into p.button-container > a.button;
-       reset it back to the source's underlined text link + chevron) --- */
-body.north-carolina .cards-featured .cards-featured-card-body p.button-container {
-  margin: 35px 0 0;
+body.north-carolina .cards-featured .cards-featured-card-body h3 + p {
+  margin-top: 15px;
 }
 
-body.north-carolina .cards-featured .cards-featured-card-body a.button:any-link {
+/* --- arrow link (source .arrow_link a). Authored as <p><a><u>…</u></a></p>, so EDS
+       may or may not decorate it as p.button-container > a.button — style both
+       as the source's bold underlined text link + chevron --- */
+body.north-carolina .cards-featured .cards-featured-card-body p:has(> a:only-child) {
+  margin-top: 10px;
+}
+
+body.north-carolina .cards-featured .cards-featured-card-body a:any-link {
   display: inline;
   box-sizing: border-box;
   margin: 0;
@@ -73,9 +78,9 @@ body.north-carolina .cards-featured .cards-featured-card-body a.button:any-link 
   border-radius: 0;
   background: none;
   font-family: var(--body-font-family);
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 700;
-  line-height: 1.3;
+  line-height: 20px;
   white-space: normal;
   text-align: left;
   text-overflow: clip;
@@ -93,7 +98,7 @@ body.north-carolina .cards-featured .cards-featured-card-body a.button:any-link:
 }
 
 /* chevron-right after the link text (replaces source fa-chevron-right icon) */
-body.north-carolina .cards-featured .cards-featured-card-body a.button:any-link::after {
+body.north-carolina .cards-featured .cards-featured-card-body a:any-link::after {
   content: '';
   display: inline-block;
   width: 0.45em;
@@ -103,6 +108,11 @@ body.north-carolina .cards-featured .cards-featured-card-body a.button:any-link:
   border-right: 2px solid currentcolor;
   transform: rotate(45deg);
   vertical-align: middle;
+}
+
+/* --- gap between the "Featured resources" title and the cards (source img margin-top) --- */
+body.north-carolina .cards-featured-container .default-content-wrapper + .cards-featured-wrapper {
+  margin-top: 40px;
 }
 
 /* --- responsive: 3 columns on desktop, source column gap ~70px --- */
@@ -117,5 +127,39 @@ body.north-carolina .cards-featured .cards-featured-card-body a.button:any-link:
   body.north-carolina .cards-featured > ul {
     grid-template-columns: repeat(3, 1fr);
     column-gap: 70px;
+  }
+}
+
+/* source type scale + spacing step up at 992px */
+@media (width >= 992px) {
+  body.north-carolina .cards-featured-container .default-content-wrapper + .cards-featured-wrapper {
+    margin-top: 60px;
+  }
+
+  body.north-carolina .cards-featured .cards-featured-card-body {
+    margin-top: 55px;
+  }
+
+  body.north-carolina .cards-featured .cards-featured-card-body h3 {
+    font-size: 36px;
+    line-height: 42px;
+  }
+
+  body.north-carolina .cards-featured .cards-featured-card-body p {
+    font-size: 16px;
+    line-height: 28px;
+  }
+
+  body.north-carolina .cards-featured .cards-featured-card-body h3 + p {
+    margin-top: 20px;
+  }
+
+  body.north-carolina .cards-featured .cards-featured-card-body p:has(> a:only-child) {
+    margin-top: 35px;
+  }
+
+  body.north-carolina .cards-featured .cards-featured-card-body a:any-link {
+    font-size: 18px;
+    line-height: 22px;
   }
 }
