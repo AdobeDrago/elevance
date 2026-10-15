@@ -108,12 +108,20 @@ body.north-carolina .forms-accordion .forms-accordion-link::before {
 }
 
 body.north-carolina .forms-accordion .forms-accordion-pcp {
-  margin-top: 2.5rem;
+  margin-top: 45px;
 }
 
 body.north-carolina .forms-accordion .forms-accordion-pcp h2 {
-  margin-bottom: 1rem;
+  margin: 0;
+  color: var(--heading-color);
+  font-family: var(--heading-font-family);
+  font-size: 32px;
   font-weight: 700;
+  line-height: 38px;
+}
+
+body.north-carolina .forms-accordion .forms-accordion-pcp h2 + * {
+  margin-top: 15px;
 }
 
 body.north-carolina .forms-accordion .forms-accordion-pcp-list {
@@ -131,5 +139,16 @@ body.north-carolina .forms-accordion .forms-accordion-pcp-list li::marker {
 @media (width >= 900px) {
   body.north-carolina .forms-accordion .forms-accordion-item-label {
     font-size: 1.25rem;
+  }
+}
+
+@media (width >= 992px) {
+  body.north-carolina .forms-accordion .forms-accordion-pcp h2 {
+    font-size: 43px;
+    line-height: 50px;
+  }
+
+  body.north-carolina .forms-accordion .forms-accordion-pcp h2 + * {
+    margin-top: 20px;
   }
 }
