@@ -1,0 +1,164 @@
+{
+  "accordion": {
+    "rows": [
+      [
+        "Prior authorization resources",
+        "<p>Find guidance and documents before requesting authorization.</p><ul><li><a href=\"/docs/gpp/example-provider-manual-pdf\">Provider manual (PDF)</a></li><li><a href=\"/docs/gpp/example-claims-guide-pdf\">Claims guide (PDF)</a></li></ul>"
+      ],
+      [
+        "Claims resources",
+        "<p>Review claims guidance and related resources.</p><ul><li><a href=\"/docs/gpp/example-provider-manual-pdf\">Provider manual (PDF)</a></li><li><a href=\"/docs/gpp/example-claims-guide-pdf\">Claims guide (PDF)</a></li></ul>"
+      ]
+    ]
+  },
+  "cards": {
+    "rows": [
+      [
+        "<picture><img src=\"/north-carolina-provider/media_1d9c4ca09e27109698ada2e5b9613049a4f6aedfc.jpg?width=750&format=jpg&optimize=medium\" alt=\"Two people discussing care\" width=\"750\" height=\"440\"></picture>",
+        "<h3>Provider resources</h3><p>Find forms, policies, and training materials.</p><p><strong><a href=\"/north-carolina-provider/resources\">View resources</a></strong></p>"
+      ],
+      [
+        "<picture><img src=\"/north-carolina-provider/media_1d9c4ca09e27109698ada2e5b9613049a4f6aedfc.jpg?width=750&format=jpg&optimize=medium\" alt=\"Two people discussing care\" width=\"750\" height=\"440\"></picture>",
+        "<h3>Member care</h3><p>Find support for caring for Healthy Blue members.</p><p><strong><a href=\"/north-carolina-provider/resources\">View resources</a></strong></p>"
+      ]
+    ]
+  },
+  "cards-topics": {
+    "rows": [
+      [
+        "<h3>Claims and billing</h3><p>Find claims guidance and payment resources.</p><p><strong><a href=\"/north-carolina-provider/resources\">View resources</a></strong></p>"
+      ],
+      [
+        "<h3>Patient care</h3><p>Explore resources for supporting members.</p><p><strong><a href=\"/north-carolina-provider/resources\">View resources</a></strong></p>"
+      ],
+      [
+        "<h3>Training</h3><p>Review available learning opportunities.</p><p><strong><a href=\"/north-carolina-provider/resources\">View resources</a></strong></p>"
+      ]
+    ]
+  },
+  "carousel": {
+    "rows": [
+      [
+        "<picture><img src=\"/north-carolina-provider/media_1d9c4ca09e27109698ada2e5b9613049a4f6aedfc.jpg?width=750&format=jpg&optimize=medium\" alt=\"Two people discussing care\" width=\"750\" height=\"440\"></picture>",
+        "<h3>Provider resources</h3><p>Explore tools for provider teams.</p><p><strong><a href=\"/north-carolina-provider/resources\">View resources</a></strong></p>"
+      ],
+      [
+        "<picture><img src=\"/north-carolina-provider/media_1d9c4ca09e27109698ada2e5b9613049a4f6aedfc.jpg?width=750&format=jpg&optimize=medium\" alt=\"Two people discussing care\" width=\"750\" height=\"440\"></picture>",
+        "<h3>Training opportunities</h3><p>Find provider education and support.</p><p><strong><a href=\"/north-carolina-provider/resources\">View resources</a></strong></p>"
+      ]
+    ]
+  },
+  "columns": {
+    "rows": [
+      [
+        "<h2>Provider resources</h2><p>Find information for supporting our members and administering their benefits.</p><ul><li><a href=\"/docs/gpp/example-provider-manual-pdf\">Provider manual (PDF)</a></li><li><a href=\"/docs/gpp/example-claims-guide-pdf\">Claims guide (PDF)</a></li></ul>",
+        "<h3>Need help?</h3><p>Review contact information and provider support options.</p><p><strong><a href=\"/north-carolina-provider/resources\">View resources</a></strong></p>"
+      ]
+    ]
+  },
+  "columns-doc-library": {
+    "rows": [
+      [
+        "<h3>Policies and guidelines</h3><ul><li><a href=\"/docs/gpp/example-provider-manual-pdf\">Provider manual (PDF)</a></li><li><a href=\"/docs/gpp/example-claims-guide-pdf\">Claims guide (PDF)</a></li></ul>",
+        "<h3>Provider manuals</h3><ul><li><a href=\"/docs/gpp/example-provider-manual-pdf\">Provider manual (PDF)</a></li><li><a href=\"/docs/gpp/example-claims-guide-pdf\">Claims guide (PDF)</a></li></ul>"
+      ]
+    ]
+  },
+  "embed": {
+    "rows": [
+      [
+        "<p><a href=\"https://www.youtube.com/watch?v=example\">Watch the video</a></p>"
+      ],
+      [
+        "<picture><img src=\"/north-carolina-provider/media_1d9c4ca09e27109698ada2e5b9613049a4f6aedfc.jpg?width=750&format=jpg&optimize=medium\" alt=\"Two people discussing care\" width=\"750\" height=\"440\"></picture>"
+      ]
+    ],
+    "note": "Illustrative poster state. No third-party player is loaded for this documentation capture."
+  },
+  "form": {
+    "rows": [
+      [
+        "<p><a href=\"/docs/block-examples/form.json\">Sample form definition</a></p>"
+      ],
+      [
+        "<p><a href=\"/docs/block-examples/not-a-submission-service\">Demonstration endpoint</a></p>"
+      ]
+    ],
+    "note": "Illustrative fields only. No submission service is configured, and no form is submitted."
+  },
+  "fragment": {
+    "rows": [
+      [
+        "<p><a href=\"/docs/block-examples/provider-contact\">Reusable provider contact</a></p>"
+      ]
+    ],
+    "note": "Local reusable fragment sample; not an existing DA fragment."
+  },
+  "hero": {
+    "rows": [
+      [
+        "<picture><img src=\"/north-carolina-provider/media_1d9c4ca09e27109698ada2e5b9613049a4f6aedfc.jpg?width=750&format=jpg&optimize=medium\" alt=\"Two people discussing care\" width=\"750\" height=\"440\"></picture>"
+      ],
+      [
+        "<h1>Provider resources</h1><p>Find guidance, tools, and support for your practice.</p>"
+      ]
+    ]
+  },
+  "quote": {
+    "rows": [
+      [
+        "<p>Clear information helps provider teams find the resources they need.</p>"
+      ],
+      [
+        "<p>Illustrative quotation, <em>Documentation sample</em></p>"
+      ]
+    ]
+  },
+  "table": {
+    "classes": [
+      "striped",
+      "bordered"
+    ],
+    "rows": [
+      [
+        "Document",
+        "Topic"
+      ],
+      [
+        "Provider manual",
+        "Provider guidance"
+      ],
+      [
+        "Claims guide",
+        "Claims and billing"
+      ],
+      [
+        "Training guide",
+        "Provider education"
+      ]
+    ]
+  },
+  "tabs": {
+    "rows": [
+      [
+        "Overview",
+        "<h3>Provider resources</h3><p>Find information for supporting our members.</p>"
+      ],
+      [
+        "Documents",
+        "<h3>Documents and guides</h3><ul><li><a href=\"/docs/gpp/example-provider-manual-pdf\">Provider manual (PDF)</a></li><li><a href=\"/docs/gpp/example-claims-guide-pdf\">Claims guide (PDF)</a></li></ul>"
+      ]
+    ]
+  },
+  "video": {
+    "rows": [
+      [
+        "<p><a href=\"https://www.youtube.com/watch?v=example\">Watch the video</a></p>"
+      ],
+      [
+        "<picture><img src=\"/north-carolina-provider/media_1d9c4ca09e27109698ada2e5b9613049a4f6aedfc.jpg?width=750&format=jpg&optimize=medium\" alt=\"Two people discussing care\" width=\"750\" height=\"440\"></picture>"
+      ]
+    ],
+    "note": "Illustrative poster state. No third-party player is loaded for this documentation capture."
+  }
+}

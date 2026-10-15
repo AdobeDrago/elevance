@@ -6,6 +6,16 @@ This project provides a foundation for starting an AEM Edge Delivery Services pr
 
 This specific repo has been _slightly_ modified to be compatible with DA's live preview.
 
+## Author documentation
+
+See the [site author guide](docs/author-guide.html) for page metadata, shared header
+and footer editing, all 34 blocks and their supported options, authoring table
+examples, and an NC page reference. Browse it locally at
+<http://localhost:3000/docs/author-guide.html> with the development server running.
+After pushing the documentation and deploying it through Code Sync, use
+`/docs/author-guide.html` on the site's preview or live host. Keep the `.html`
+extension; the extensionless route resolves through DA content instead.
+
 ## Getting started
 
 ### 1. Github
@@ -19,6 +29,9 @@ This specific repo has been _slightly_ modified to be compatible with DA's live 
 ### 3. Local development
 1. Clone your new repo to your computer.
 1. Install the AEM CLI using your terminal: `sudo npm install -g @adobe/aem-cli`
-1. Start the AEM CLI: `aem up`.
-1. Open the `{repo}` folder in your favorite code editor and buil something.
+1. Start the NC preview:
+   `aem up --port 3000 --url https://main--elevance-nc--adobedrago.aem.page --no-stop-other`.
+1. Open `http://localhost:3000/north-carolina-provider/home`.
+   Override `--port` locally if another project is using the default port.
+1. Open the `{repo}` folder in your favorite code editor and build something.
 1. **Recommended:** Install common npm packages like linting and testing: `npm i`.
