@@ -7,9 +7,12 @@
  * with a plus/minus-circle toggle over .accordion-content holding
  * div.pdflist links — followed by an "h2 + ul.pdflist" PCP Change Form list).
  *
- * Fetches the GPP forms-library service and buckets documents by the fixed
- * topic list below; whatever has no topic and a title starting with
- * "PCP Change Form" becomes the trailing PCP Change Form list.
+ * Fetches the GPP forms-library service and buckets documents by the topic
+ * list below, mirroring the live site's FormsLibraryComponent: panels follow
+ * the HBNC `formsCategory` order (getMarketLOBs) and only render when they have
+ * documents; documents inside each panel are sorted A→Z by title. Whatever has
+ * no topic and a title starting with "PCP Change Form" becomes the trailing
+ * PCP Change Form list.
  */
 
 import { decorateIcons, sampleRUM } from '../../scripts/aem.js';
@@ -17,14 +20,22 @@ import { fetchFormsData } from '../../scripts/lookup-service.js';
 
 const DOC_BASE_URL = 'https://provider.healthybluenc.com';
 
+// HBNC `formsCategory` from the live getMarketLOBs service, in display order.
 const ACCORDION_TOPICS = [
   'Prior Authorizations',
   'Claims & Billing',
+  'Clinical',
   'Behavioral Health',
   'Pharmacy',
   'Maternal Child Services',
+  'Provider Demographics/Credentialing',
   'Other Forms',
+  'Quality Management',
+  'Disease Management',
+  'Fraud & Grievances',
 ];
+
+const byTitle = (a, b) => a.title.localeCompare(b.title);
 
 function resolveDocUrl(uri) {
   if (!uri) return '#';
@@ -98,12 +109,14 @@ export default async function decorate(block) {
 
   try {
     const data = await fetchFormsData();
-    const docs = data?.AllDocs ?? [];
+    const docs = (data?.AllDocs ?? []).filter((doc) => doc.title);
 
     list.textContent = '';
     ACCORDION_TOPICS.forEach((topic) => {
-      const topicDocs = docs.filter((doc) => Array.isArray(doc.topic) && doc.topic.includes(topic));
-      list.append(buildAccordionItem(topic, topicDocs));
+      const topicDocs = docs
+        .filter((doc) => Array.isArray(doc.topic) && doc.topic.includes(topic))
+        .sort(byTitle);
+      if (topicDocs.length) list.append(buildAccordionItem(topic, topicDocs));
     });
 
     const pcpDocs = docs.filter((doc) => (!doc.topic || doc.topic.length === 0)
