@@ -140,6 +140,12 @@ a:hover {
   color: var(--link-color);
 }
 
+/* NC source `a { text-decoration: underline }`: in-text content links are always
+  underlined. Buttons and link blocks (PDF Lists, link lists) keep their own rules. */
+body.north-carolina main .default-content-wrapper a:any-link:not(.button) {
+  text-decoration: underline;
+}
+
 /* buttons — solid brand blue, subtle radius (matches source CTA) */
 a.button:any-link,
 button {
