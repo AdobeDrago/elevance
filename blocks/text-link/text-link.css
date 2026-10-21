@@ -5,7 +5,8 @@
  */
 
 /* spacing against the surrounding content */
-body.north-carolina main .text-link-wrapper {
+body.north-carolina main .text-link-wrapper,
+body.north-carolina main :not(.default-content-wrapper, .text-link-wrapper) + .text-link-wrapper {
   margin-top: 25px;
 }
 
@@ -67,11 +68,8 @@ body.north-carolina .text-link.chevron a:any-link::after {
 }
 
 @media (width >= 992px) {
-  body.north-carolina main .text-link-wrapper:has(> .text-link.chevron) {
-    margin-top: 35px;
-  }
-
   body.north-carolina main :not(.default-content-wrapper, .text-link-wrapper) + .text-link-wrapper,
+  body.north-carolina main .text-link-wrapper:has(> .text-link.chevron),
   body.north-carolina main .text-link-wrapper + .pdf-list-wrapper .pdf-list,
   body.north-carolina main .text-link-wrapper + .default-content-wrapper:has(> :first-child:not(p, h2)) {
     margin-top: 35px;
