@@ -21,3 +21,13 @@
 body.north-carolina main .pdf-list-wrapper + .default-content-wrapper {
   margin-top: 16px;
 }
+
+body.north-carolina main:has(h1#policies-manuals-and-guides) .pdf-list-wrapper + .default-content-wrapper > p:first-child {
+  margin-top: 41px;
+}
+
+@media (width >= 992px) {
+  body.north-carolina main:has(h1#policies-manuals-and-guides) .pdf-list-wrapper + .default-content-wrapper > p:first-child {
+    margin-top: 51px;
+  }
+}
