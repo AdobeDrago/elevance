@@ -10,15 +10,19 @@
 body.north-carolina .forms-accordion .forms-accordion-item-label {
   display: flex;
   align-items: center;
-  gap: 0.625rem;
   padding: 1rem 0;
   cursor: pointer;
   list-style: none;
-  font-family: var(--heading-font-family);
-  font-size: 1.125rem;
-  font-weight: 700;
-  line-height: 1.5rem;
+  font-family: var(--body-font-family);
+  font-size: 1.375rem;
+  font-weight: 500;
+  line-height: 1.75rem;
   color: var(--heading-color);
+}
+
+/* Source spaces topic rows 32px apart (44px on desktop). */
+body.north-carolina .forms-accordion .forms-accordion-item + .forms-accordion-item {
+  margin-top: 2rem;
 }
 
 body.north-carolina .forms-accordion .forms-accordion-item-label::-webkit-details-marker {
@@ -36,8 +40,8 @@ body.north-carolina .forms-accordion .forms-accordion-item-label::marker {
 body.north-carolina .forms-accordion .forms-accordion-item-icon {
   position: relative;
   flex: 0 0 auto;
-  width: 1.25rem;
-  height: 1.25rem;
+  width: 1.375rem;
+  height: 1.375rem;
   margin-right: 1.5rem;
 }
 
@@ -70,6 +74,10 @@ body.north-carolina .forms-accordion .forms-accordion-item-body {
   padding: 1.4375rem 0 1.375rem 2rem;
 }
 
+body.north-carolina .forms-accordion .forms-accordion-item-body > :first-child {
+  margin-top: -0.125rem;
+}
+
 /* Document links — small red file/PDF icon before the label, shared by the
    accordion panels and the PCP Change Form list below them. */
 body.north-carolina .forms-accordion .forms-accordion-link {
@@ -77,8 +85,8 @@ body.north-carolina .forms-accordion .forms-accordion-link {
   display: inline-block;
   padding-left: 1.875rem;
   color: var(--link-color);
-  font-size: 1rem;
-  line-height: 1.75rem;
+  font-size: 0.875rem;
+  line-height: 1.375rem;
   text-decoration: none;
 }
 
@@ -92,7 +100,7 @@ body.north-carolina .forms-accordion .forms-accordion-link::before {
     content: '';
     position: absolute;
     left: 0;
-    top: 0.1875rem;
+    top: 0;
     width: 0.875rem;
     height: 2rem;
     background-image: url("/icons/pdf_icon.png");
@@ -107,6 +115,12 @@ body.north-carolina .forms-accordion .forms-accordion-link::before {
     line-height: 1.75rem;
 }
 
+/* Intro copy authored in the same section sits 25px (35px desktop) above the topics. */
+body.north-carolina main .default-content-wrapper + .forms-accordion-wrapper {
+  margin-top: 1.5625rem;
+}
+
+/* PCP Change Form heading matches the page's default-content h2. */
 body.north-carolina .forms-accordion .forms-accordion-pcp {
   margin-top: 45px;
 }
@@ -124,10 +138,11 @@ body.north-carolina .forms-accordion .forms-accordion-pcp h2 + * {
   margin-top: 15px;
 }
 
+/* Source list is flush with the content edge: the red bullet hangs outside it. */
 body.north-carolina .forms-accordion .forms-accordion-pcp-list {
   list-style: disc;
   margin: 0;
-  padding: 0 0 0 1.125rem;
+  padding: 0;
   display: flex;
   flex-direction: column;
 }
@@ -136,9 +151,44 @@ body.north-carolina .forms-accordion .forms-accordion-pcp-list li::marker {
   color: #c8102e;
 }
 
+/* --- Desktop --- source title rows are 100px tall (28px text, 37/35px padding),
+   44px apart, with 128px-tall two-link panels. */
 @media (width >= 900px) {
+  body.north-carolina main .default-content-wrapper + .forms-accordion-wrapper {
+    margin-top: 2.1875rem;
+  }
+
+  body.north-carolina .forms-accordion .forms-accordion-item + .forms-accordion-item {
+    margin-top: 2.75rem;
+  }
+
   body.north-carolina .forms-accordion .forms-accordion-item-label {
-    font-size: 1.25rem;
+    padding: 2.3125rem 0 2.1875rem;
+    font-size: 1.75rem;
+  }
+
+  body.north-carolina .forms-accordion .forms-accordion-item-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  body.north-carolina .forms-accordion .forms-accordion-item-body {
+    padding: 2.5rem 0 2.375rem 2.125rem;
+  }
+
+  body.north-carolina .forms-accordion .forms-accordion-item-body > :first-child {
+    margin-top: -0.375rem;
+  }
+
+  body.north-carolina .forms-accordion .forms-accordion-link {
+    font-size: 1rem;
+    line-height: 1.75rem;
+  }
+
+  body.north-carolina .forms-accordion .forms-accordion-pcp h2 {
+    margin-bottom: 1.25rem;
+    font-size: 2.6875rem;
+    line-height: 3.125rem;
   }
 }
 
