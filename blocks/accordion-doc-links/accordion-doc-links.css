@@ -28,7 +28,7 @@ body.north-carolina .accordion-doc-links .accordion-doc-links-item-label {
   padding: 1rem 0;
   cursor: pointer;
   list-style: none;
-  font-family: var(--heading-font-family);
+  font-family: var(--body-font-family);
   font-size: 1.375rem;
   font-weight: 500;
   line-height: 1.25;
@@ -41,10 +41,13 @@ body.north-carolina .accordion-doc-links .accordion-doc-links-item-label:focus-v
   outline-offset: -2px;
 }
 
-/* Authored headings/paragraphs must not shift the text away from the icon's center. */
+/* Authored headings/paragraphs must not shift the text away from the icon's center,
+   nor pick up the base p/heading sizes instead of the title typography. */
 body.north-carolina .accordion-doc-links .accordion-doc-links-item-label > * {
   min-width: 0;
   margin: 0;
+  font: inherit;
+  color: inherit;
 }
 
 body.north-carolina .accordion-doc-links .accordion-doc-links-item-label::-webkit-details-marker {
@@ -132,8 +135,18 @@ body.north-carolina .accordion-doc-links .accordion-doc-links-item-body > :is(p,
   margin-top: -.1875rem;
 }
 
+/* --- Narrow variant --- white card on the grey section (source: section.mp-accordion) --- */
+body.north-carolina .accordion-doc-links.narrow {
+  padding: 1.875rem 1.25rem;
+  background-color: var(--background-color);
+}
+
 /* --- Desktop --- larger title/icon, wider spacing (source @ >= 900px) --- */
 @media (width >= 900px) {
+  body.north-carolina .accordion-doc-links.narrow {
+    padding: 3.75rem 3.125rem;
+  }
+
   body.north-carolina .accordion-doc-links .accordion-doc-links-item + .accordion-doc-links-item {
     margin-top: 1.75rem;
   }
