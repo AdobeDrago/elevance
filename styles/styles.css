@@ -262,6 +262,30 @@ main .section.highlight {
   padding: 40px 0;
 }
 
+/* two-column section (source .content_column_2): one column per h2, stacked below
+   992px with the source's 45px h2 gap; from 992px two top-aligned columns of
+   calc(50% - 45px) with 70px between them */
+body.north-carolina main .two-column-wrapper > .default-content-wrapper + .default-content-wrapper {
+  margin-top: 45px;
+}
+
+@media (width >= 992px) {
+  body.north-carolina main .two-column-wrapper {
+    display: flex;
+    align-items: flex-start;
+    gap: 70px;
+  }
+
+  body.north-carolina main .two-column-wrapper > .default-content-wrapper {
+    flex: 0 0 calc(50% - 45px);
+    min-width: 0;
+  }
+
+  body.north-carolina main .two-column-wrapper > .default-content-wrapper + .default-content-wrapper {
+    margin-top: 0;
+  }
+}
+
 /*
  * north-carolina — base style overrides (repoless multi-site).
  * Scoped to body.north-carolina so they never affect other sites.
@@ -306,6 +330,10 @@ body.north-carolina main .default-content-wrapper > ol {
   margin: 25px 0 0;
 }
 
+body.north-carolina main .default-content-wrapper > p {
+  line-height: 22px;
+}
+
 body.north-carolina main .default-content-wrapper > ul,
 body.north-carolina main .default-content-wrapper > ol {
   padding-left: 0;
@@ -314,6 +342,7 @@ body.north-carolina main .default-content-wrapper > ol {
 body.north-carolina main .default-content-wrapper > ul > li,
 body.north-carolina main .default-content-wrapper > ol > li {
   margin-left: 16px;
+  line-height: 22px;
 }
 
 /* PDF document links get the source site's PDF icon in place of the bullet */
@@ -339,9 +368,15 @@ body.north-carolina main .default-content-wrapper > p + ol {
 }
 
 /* content sharing a section with the hero banner: source gap below the title bar
-   is 35px for a paragraph and 45px for an h2 (`:not(h2) + h2`) */
+   is 25px (35px from 992px) for a paragraph and 45px for an h2 (`:not(h2) + h2`) */
 body.north-carolina main .hero-banner-wrapper + .default-content-wrapper > :first-child {
-  margin-top: 35px;
+  margin-top: 25px;
+}
+
+@media (width >= 992px) {
+  body.north-carolina main .hero-banner-wrapper + .default-content-wrapper > :first-child {
+    margin-top: 35px;
+  }
 }
 
 body.north-carolina main .hero-banner-wrapper + .default-content-wrapper > h2:first-child {
@@ -357,7 +392,18 @@ body.north-carolina main .default-content-wrapper > ol + p {
   margin-top: 19px;
 }
 
-@media (width >= 900px) {
+/* source buttons: `p + .button button` 20px (30px from 992px);
+   `.button + p/ul/ol` 40px (50px from 992px) */
+body.north-carolina main .default-content-wrapper > p + p.button-container {
+  margin-top: 20px;
+}
+
+body.north-carolina main .default-content-wrapper > p.button-container + :is(p:not(.button-container), ul, ol) {
+  margin-top: 40px;
+}
+
+/* source content type: p/li 14/22 below 992px, 16/28 from 992px; h2 32/38 → 43/50 */
+@media (width >= 992px) {
   body.north-carolina main .default-content-wrapper > p,
   body.north-carolina main .default-content-wrapper > ul > li,
   body.north-carolina main .default-content-wrapper > ol > li {
@@ -375,9 +421,16 @@ body.north-carolina main .default-content-wrapper > ol + p {
   }
 
   body.north-carolina main .default-content-wrapper > p + ul,
-  body.north-carolina main .default-content-wrapper > p + ol,
-  body.north-carolina main .default-content-wrapper > p + p.button-container {
+  body.north-carolina main .default-content-wrapper > p + ol {
     margin-top: 35px;
+  }
+
+  body.north-carolina main .default-content-wrapper > p + p.button-container {
+    margin-top: 30px;
+  }
+
+  body.north-carolina main .default-content-wrapper > p.button-container + :is(p:not(.button-container), ul, ol) {
+    margin-top: 50px;
   }
 }
 
@@ -487,6 +540,7 @@ body.north-carolina main .default-content-wrapper a.button:hover,
 body.north-carolina main .default-content-wrapper a.button:focus {
   background-color: var(--brand-blue-dark);
   border-bottom-color: var(--heading-color);
+  text-shadow: 0 1px 1px var(--heading-color);
 }
 
 body.north-carolina main .section.light:has(> .default-content-wrapper > h3:first-child) {
@@ -513,7 +567,8 @@ body.north-carolina main .section.light > .default-content-wrapper:has(> h3:firs
   margin-top: 20px;
 }
 
-@media (width >= 900px) {
+/* source button/CTA sizes switch at 992px */
+@media (width >= 992px) {
   body.north-carolina main .default-content-wrapper a.button:any-link {
     padding: 12px 30px;
     font-size: var(--body-font-size-m);

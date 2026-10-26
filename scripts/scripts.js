@@ -123,6 +123,28 @@ function decorateSections(main) {
 }
 
 /**
+ * Two-column sections (section style `two-column`, source .content_column_2):
+ * every h2 in the default content starts a new column. Each column becomes its own
+ * default-content-wrapper so the regular content styles keep applying.
+ * @param {Element} main The container element
+ */
+function decorateTwoColumnSections(main) {
+  main.querySelectorAll(':scope > .section.two-column > .default-content-wrapper').forEach((wrapper) => {
+    const columns = [];
+    [...wrapper.children].forEach((el) => {
+      if (el.tagName === 'H2' || !columns.length) {
+        const column = document.createElement('div');
+        column.className = 'default-content-wrapper';
+        columns.push(column);
+      }
+      columns[columns.length - 1].append(el);
+    });
+    wrapper.className = 'two-column-wrapper';
+    wrapper.replaceChildren(...columns);
+  });
+}
+
+/**
  * Decorates the main element.
  * @param {Element} main The main element
  */
@@ -139,6 +161,7 @@ export function decorateMain(main) {
   decorateIcons(main);
   buildAutoBlocks(main);
   decorateSections(main);
+  decorateTwoColumnSections(main);
   decorateBlocks(main);
 }
 
