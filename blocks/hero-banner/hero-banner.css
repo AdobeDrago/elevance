@@ -15,6 +15,18 @@ body.north-carolina main > .section.hero-banner-container {
   padding: 0;
 }
 
+/* title shares its section with content: keep the source section's bottom padding
+   (.content_column_1: 40px, 60px from 992px) */
+body.north-carolina main > .section.hero-banner-container:has(> .default-content-wrapper) {
+  padding-bottom: 40px;
+}
+
+@media (width >= 992px) {
+  body.north-carolina main > .section.hero-banner-container:has(> .default-content-wrapper) {
+    padding-bottom: 60px;
+  }
+}
+
 body.north-carolina .hero-banner-container .hero-banner-wrapper {
   max-width: unset;
   padding: 0;
