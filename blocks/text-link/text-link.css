@@ -14,12 +14,20 @@ body.north-carolina main .text-link-wrapper:has(> .text-link.chevron) {
   margin-top: 9.5px;
 }
 
+body.north-carolina main .default-content-wrapper:has(> p:last-child) + .text-link-wrapper:has(> .text-link.chevron) {
+  margin-top: 25px;
+}
+
 body.north-carolina main .text-link-wrapper + .default-content-wrapper {
   margin-top: 25px;
 }
 
 body.north-carolina main .text-link-wrapper + .default-content-wrapper:has(> h2:first-child) {
   margin-top: 45px;
+}
+
+body.north-carolina main .text-link-wrapper + .default-content-wrapper:has(> h3:first-child) {
+  margin-top: 40px;
 }
 
 body.north-carolina main .text-link-wrapper + .pdf-list-wrapper .pdf-list {
@@ -77,6 +85,14 @@ body.north-carolina .text-link.chevron a:any-link::after {
 
   body.north-carolina main .text-link-wrapper:has(> .text-link.chevron) + .pdf-list-wrapper .pdf-list {
     margin-top: 19px;
+  }
+
+  body.north-carolina main .default-content-wrapper:has(> p:last-child) + .text-link-wrapper:has(> .text-link.chevron) {
+    margin-top: 35px;
+  }
+
+  body.north-carolina main .text-link-wrapper + .default-content-wrapper:has(> h3:first-child) {
+    margin-top: 55px;
   }
 
   body.north-carolina .text-link .text-link-item {
