@@ -392,6 +392,15 @@ body.north-carolina main .default-content-wrapper > :not(h3) + h3 {
   margin-top: 40px;
 }
 
+body.north-carolina main .default-content-wrapper > h2 + h3,
+body.north-carolina main .default-content-wrapper > h3 + p {
+  margin-top: 15px;
+}
+
+body.north-carolina main > .section > .default-content-wrapper:first-child > h3:first-child {
+  margin-top: 40px;
+}
+
 @media (width >= 992px) {
   body.north-carolina main .default-content-wrapper > h3 {
     font-size: 36px;
@@ -399,6 +408,19 @@ body.north-carolina main .default-content-wrapper > :not(h3) + h3 {
   }
 
   body.north-carolina main .default-content-wrapper > :not(h3) + h3 {
+    margin-top: 55px;
+  }
+
+  body.north-carolina main .default-content-wrapper > h2 + h3,
+  body.north-carolina main .default-content-wrapper > h3 + p {
+    margin-top: 20px;
+  }
+
+  body.north-carolina main .default-content-wrapper > h3 + :is(ul, ol) {
+    margin-top: 35px;
+  }
+
+  body.north-carolina main > .section > .default-content-wrapper:first-child > h3:first-child {
     margin-top: 55px;
   }
 }
