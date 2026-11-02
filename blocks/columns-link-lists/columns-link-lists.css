@@ -9,11 +9,20 @@
 /* Section spacing (source .tools_resources): 55px top / 40px bottom, 83px / 60px from 992px;
    heading-to-list gap 30px, 50px from 992px */
 body.north-carolina main > .section.columns-link-lists-container {
+  border-bottom: 1px solid #dcdcdc;
   padding: 55px 0 40px;
 }
 
 body.north-carolina .columns-link-lists-container .default-content-wrapper + .columns-link-lists-wrapper {
   margin-top: 30px;
+}
+
+body.north-carolina main > .section:has(> .default-content-wrapper:only-child > h2:only-child):has(+ .columns-link-lists-container) {
+  padding: 55px 0 0;
+}
+
+body.north-carolina main > .section:has(> .default-content-wrapper:only-child > h2:only-child) + .columns-link-lists-container {
+  padding-top: 30px;
 }
 
 @media (width >= 992px) {
@@ -23,6 +32,14 @@ body.north-carolina .columns-link-lists-container .default-content-wrapper + .co
 
   body.north-carolina .columns-link-lists-container .default-content-wrapper + .columns-link-lists-wrapper {
     margin-top: 50px;
+  }
+
+  body.north-carolina main > .section:has(> .default-content-wrapper:only-child > h2:only-child):has(+ .columns-link-lists-container) {
+    padding: 83px 0 0;
+  }
+
+  body.north-carolina main > .section:has(> .default-content-wrapper:only-child > h2:only-child) + .columns-link-lists-container {
+    padding-top: 50px;
   }
 }
 
@@ -50,6 +67,12 @@ body.north-carolina .columns-link-lists .columns-link-lists-col li:last-child {
   border-bottom: 1px solid var(--link-color);
 }
 
+@media (width < 992px) {
+  body.north-carolina .columns-link-lists .columns-link-lists-col:not(:last-child) li:last-child {
+    border-bottom: 0;
+  }
+}
+
 /* Link — text left, chevron pushed to the right edge */
 body.north-carolina .columns-link-lists .columns-link-lists-col li a,
 body.north-carolina .columns-link-lists .columns-link-lists-col li a:any-link {
@@ -59,10 +82,17 @@ body.north-carolina .columns-link-lists .columns-link-lists-col li a:any-link {
   gap: 12px;
   color: var(--link-color);
   font-family: var(--body-font-family);
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 400;
   line-height: 22px;
   text-decoration: none;
+}
+
+@media (width >= 992px) {
+  body.north-carolina .columns-link-lists .columns-link-lists-col li a,
+  body.north-carolina .columns-link-lists .columns-link-lists-col li a:any-link {
+    font-size: 18px;
+  }
 }
 
 body.north-carolina .columns-link-lists .columns-link-lists-col li a:hover,
@@ -84,7 +114,7 @@ body.north-carolina .columns-link-lists .columns-link-lists-col li a::after {
 }
 
 /* Desktop: two columns side by side (source: 536px rows, 68px apart) */
-@media (width >= 900px) {
+@media (width >= 992px) {
   body.north-carolina .columns-link-lists > div {
     flex-direction: row;
     align-items: flex-start;

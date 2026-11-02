@@ -12,8 +12,12 @@ const MOCK_FORMS_DATA_URL = '/scripts/lookup-data/mock-forms-response.json';
 const MOCK_NEWS_ARCHIVE_DATA_URL = '/scripts/lookup-data/mock-news-archives.json';
 
 const FORMS_API_URL = 'https://provider.healthybluenc.com/sites/Satellite?d=Universal&pagename=getdocuments&brand=HBNC&state=&formslibrary=gpp_formslib';
-const SUGGESTION_API_URL = 'https://provider.healthybluenc.com/sites/Satellite?d=Universal&pagename=gbdPro/PlutoServiceProxy&service=cpt&state=NC&lobCode=CFSP&procCode=%250002M%25';
-const SEARCH_API_URL = 'https://provider.healthybluenc.com/sites/Satellite?d=Universal&pagename=gbdPro/PlutoServiceProxy&service=submit&state=NC&lobCode=CFSP&procCode=0002M';
+// Pluto precertification service (source Angular widget): `cpt` lists codes matching
+// `%term%`, `submit` returns the precertification result for one code.
+const PLUTO_API_URL = 'https://provider.healthybluenc.com/sites/Satellite?d=Universal&pagename=gbdPro/PlutoServiceProxy';
+const plutoUrl = (service, { state, lobCode, procCode }) => `${PLUTO_API_URL}&service=${service}`
+  + `&state=${encodeURIComponent(state)}&lobCode=${encodeURIComponent(lobCode)}`
+  + `&procCode=${encodeURIComponent(procCode)}`;
 const NEWS_ARCHIVE_URL = 'https://provider.healthybluenc.com/sites/Satellite?d=Universal&pagename=getdocuments&brand=HBNC&formslibrary=gpp_newsarchives';
 
 // Update once site is live and the mock data URLs are replaced with actual endpoints.
@@ -34,26 +38,32 @@ async function fetchMockJson(url) {
   return res.json();
 }
 
-// provider-lookup: typeahead suggestions for the procedure/drug input
-export function fetchSuggestionData() {
+// prior-auth-lookup: codes whose code or description contains `term`
+// (source service: procCode=%term%)
+export async function fetchSuggestionData({ state = 'NC', lobCode = '', term = '' } = {}) {
   if (!useMock()) {
-    return fetch(SUGGESTION_API_URL).then((res) => {
-      if (!res.ok) throw new Error(`Suggestion data failed to load: ${res.status}`);
-      return res.json();
-    });
+    const res = await fetch(plutoUrl('cpt', { state, lobCode, procCode: `%${term}%` }));
+    if (!res.ok) throw new Error(`Suggestion data failed to load: ${res.status}`);
+    return res.json();
   }
-  return fetchMockJson(MOCK_SUGGESTION_DATA_URL);
+  const needle = term.trim().toLowerCase();
+  const data = await fetchMockJson(MOCK_SUGGESTION_DATA_URL);
+  return data.filter(({ procedureCode, description }) => (
+    `${procedureCode} ${description}`.toLowerCase().includes(needle)
+  ));
 }
 
-// provider-lookup: precertification search results
-export function fetchSearchData() {
+// prior-auth-lookup: precertification result(s) for one code and line of business
+export async function fetchSearchData({ state = 'NC', lobCode = '', procCode = '' } = {}) {
   if (!useMock()) {
-    return fetch(SEARCH_API_URL).then((res) => {
-      if (!res.ok) throw new Error(`Search data failed to load: ${res.status}`);
-      return res.json();
-    });
+    const res = await fetch(plutoUrl('submit', { state, lobCode, procCode }));
+    if (!res.ok) throw new Error(`Search data failed to load: ${res.status}`);
+    return res.json();
   }
-  return fetchMockJson(MOCK_SEARCH_DATA_URL);
+  const data = await fetchMockJson(MOCK_SEARCH_DATA_URL);
+  return data.filter((item) => item.procedureCode === procCode
+    && item.stateAbbreviation === state
+    && item.lineOfBusinessCode === lobCode);
 }
 
 // forms-accordion: GPP forms-library document list
