@@ -1,119 +1,23 @@
-prior-auth-lookup .prior-auth-lookup-container .result-card
 /*
- * prior-auth-lookup — visual design migrated from
- * https://provider.healthybluenc.com/north-carolina-provider/prior-authorization-lookup
- *
- * The block's JS re-creates the source Angular widget's layout (bold labels
- * above each control, a custom button+listbox in place of the native
- * <select>, a plain text input, and a blue-bordered assistive panel with a
- * light hint bar, ending in a compact Search button) using its own
- * kebab-case classes (ps-*, search-panel, primary-btn) rather than the
- * source's literal ant-, uxd- and camelCase ones.
- *
- * Repoless multi-site: EVERY selector scoped under body.north-carolina.
+ * prior-auth-lookup — Prior Authorization lookup tool, scoped to body.north-carolina.
+ * Values extracted from source computed styles / rules:
+ *   https://provider.healthybluenc.com/north-carolina-provider/prior-authorization-lookup
+ *   (Angular precertification widget: .pfSelect/.psButton selects, .ant-text-input field,
+ *   .searchDiv typeahead panel, .primary_btn, .angular-form-content_result card)
  */
 
-body.north-carolina .prior-auth-lookup .prior-auth-lookup-wrapper {
-  margin: initial;
-  margin-top: 24px;
+/* the tool shares the title section with the following content (source: one
+   .content_column_1): no section break between the Search button and the next text */
+body.north-carolina main > .section.hero-banner-container:has(.prior-auth-lookup) {
+  padding-bottom: 0;
 }
 
-body.north-carolina .prior-auth-lookup .angular-form-content {
-  display: block;
-  max-width: 600px;
+body.north-carolina main > .section:has(.prior-auth-lookup) + .section {
+  padding-top: 0;
 }
 
-/* Precertification result card */
-body.north-carolina .prior-auth-lookup-container .result-card {
-  padding: 40px;
-  background-color: #eee;
-  border-radius: 4px;
-  margin-top: 24px;
-}
-
-body.north-carolina .prior-auth-lookup-container .result-card h3 {
-  position: relative;
-  margin: 0 0 32px;
-  padding-bottom: 16px;
-  font-family: var(--heading-font-family);
-  font-size: 28px;
-  font-weight: 400;
-  line-height: 1.2;
-  color: var(--dark-color, var(--text-color));
-}
-
-body.north-carolina .prior-auth-lookup-container .result-card h3::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 48px;
-  height: 4px;
-  background-color: var(--brand-blue);
-}
-
-body.north-carolina .prior-auth-lookup-container .result-card .row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4px 40px;
-  padding: 14px 0;
-  font-size: 16px;
-  line-height: 1.5;
-}
-
-body.north-carolina .prior-auth-lookup-container .result-card .row > div:first-child {
-  flex: 0 0 200px;
-}
-
-body.north-carolina .prior-auth-lookup-container .result-card .row > div:last-child {
-  flex: 1 1 240px;
-  min-width: 0;
-  color: var(--text-color);
-}
-
-body.north-carolina .prior-auth-lookup-container .result-card .result-label {
-  margin: 0;
-  font-weight: 700;
-  color: var(--text-color);
-}
-
-body.north-carolina .prior-auth-lookup-container .result-card .carelonrx {
-  margin: 0;
-}
-
-body.north-carolina .prior-auth-lookup-container .result-card .external-link {
-  color: var(--link-color);
-  text-decoration: underline;
-}
-
-/* Field labels ("Market", "Line of Business", drug name) */
-body.north-carolina .prior-auth-lookup .angular-form-content > div > label {
-  display: block;
-  margin: 20px 0 5px;
-  font-family: var(--body-font-family);
-  font-size: 16px;
-  font-weight: 700;
-  line-height: 20px;
-  color: var(--text-color);
-}
-
-body.north-carolina .prior-auth-lookup .angular-form-content > div > label:first-child {
-  margin-top: 0;
-}
-
-/* Reset the native <fieldset>/<legend> chrome used for the custom selects */
-body.north-carolina .prior-auth-lookup .ps-select {
-  position: relative;
-  width: 100%;
-  max-width: 600px;
-  min-width: 0;
-  margin: 0;
-  padding: 0;
-  border: 0;
-}
-
-body.north-carolina .prior-auth-lookup .ps-select legend {
-  display: none;
+body.north-carolina main > .section:has(.prior-auth-lookup) + .section > .default-content-wrapper:first-child > p:first-child {
+  margin-top: 25px;
 }
 
 body.north-carolina .prior-auth-lookup .sr-only {
@@ -128,226 +32,476 @@ body.north-carolina .prior-auth-lookup .sr-only {
   white-space: nowrap;
 }
 
-/* Select trigger button (Market / Line of Business) */
+/* field labels */
+body.north-carolina .prior-auth-lookup .prior-auth-lookup-form > label {
+  display: block;
+  margin: 20px 0 5px;
+  color: var(--text-color);
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+}
+
+body.north-carolina .prior-auth-lookup .form-item {
+  margin: 0;
+}
+
+/* Market / Line of Business select */
+body.north-carolina .prior-auth-lookup .ps-select {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+}
+
 body.north-carolina .prior-auth-lookup .ps-button {
   box-sizing: border-box;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 8px;
+  justify-content: center;
   width: 100%;
+  height: 39px;
   margin: 0;
-  padding: 8px 16px;
   border: 1px solid #666;
   border-radius: 3px;
-  background-color: var(--background-color);
+  padding: 0;
+  background-color: #fff;
+  color: #666;
   font-family: var(--body-font-family);
   font-size: 16px;
   font-weight: 400;
-  line-height: 1.4;
-  color: #666;
-  text-align: left;
+  line-height: 18px;
+  text-shadow: none;
   cursor: pointer;
 }
 
-body.north-carolina .prior-auth-lookup .ps-button:focus-visible {
-  outline: 2px solid #044661;
-  outline-offset: 2px;
+body.north-carolina .prior-auth-lookup .ps-button:hover,
+body.north-carolina .prior-auth-lookup .ps-button:focus {
+  border-color: #666;
+  background-color: #fff;
+  color: #666;
 }
 
 body.north-carolina .prior-auth-lookup .ps-active-option {
   overflow: hidden;
+  width: calc(100% - 59.2px);
+  color: var(--text-color);
+  font-size: 14px;
+  line-height: 18px;
+  text-align: left;
   white-space: nowrap;
   text-overflow: ellipsis;
 }
 
-/* Chevron — the source's fa-caret-down glyph isn't available (no Font
-   Awesome loaded), so the empty span is drawn as a chevron instead. */
+/* Font Awesome 5 chevron-down, 16px (14 x 16) */
 body.north-carolina .prior-auth-lookup .ps-arrow {
-  flex: 0 0 auto;
-  display: inline-block;
-  width: 8px;
-  height: 8px;
-  margin-top: -3px;
-  border-right: 2px solid var(--brand-blue);
-  border-bottom: 2px solid var(--brand-blue);
-  transform: rotate(45deg);
+  flex: 0 0 14px;
+  height: 16px;
+  background-color: #0b76a1;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3Cpath d='M207.029 381.476 12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z'/%3E%3C/svg%3E") center / 14px 16px no-repeat;
 }
 
-body.north-carolina .prior-auth-lookup .ps-button[aria-expanded="true"] .ps-arrow {
-  margin-top: 3px;
-  transform: rotate(-135deg);
-}
-
-/* Options popup — toggled via the .ps-dropdown[hidden] property in JS */
 body.north-carolina .prior-auth-lookup .ps-dropdown {
   position: absolute;
-  z-index: 20;
-  top: calc(100% + 4px);
+  z-index: 1000;
+  top: 100%;
   left: 0;
-  right: 0;
-  max-height: 260px;
-  margin: 0;
-  padding: 4px 0;
-  overflow-y: auto;
-  border: 1px solid #666;
-  border-radius: 3px;
-  background-color: var(--background-color);
-  box-shadow: 0 4px 10px rgb(0 0 0 / 15%);
+  box-sizing: border-box;
+  width: 100%;
+  border: 1px solid #0b76a1;
+  border-radius: 0 0 5px 5px;
+  background-color: #fff;
+}
+
+body.north-carolina .prior-auth-lookup .ps-dropdown[hidden] {
+  display: none;
 }
 
 body.north-carolina .prior-auth-lookup .ps-option {
   position: absolute;
   width: 1px;
   height: 1px;
+  margin: 0;
   opacity: 0;
 }
 
 body.north-carolina .prior-auth-lookup .ps-label {
   display: block;
-  padding: 8px 16px;
+  box-sizing: border-box;
+  padding: 8px 16px 8px 23px;
+  color: #000;
   font-family: var(--body-font-family);
   font-size: 16px;
-  line-height: 1.4;
-  color: #666;
+  font-weight: 400;
+  line-height: 20px;
   cursor: pointer;
 }
 
-body.north-carolina .prior-auth-lookup .ps-option:checked + .ps-label {
+body.north-carolina .prior-auth-lookup .ps-label:hover,
+body.north-carolina .prior-auth-lookup .ps-option:focus + .ps-label {
   background-color: #044661;
   color: #fff;
 }
 
-/* Drug name / CPT / HCPCS text field */
-body.north-carolina .prior-auth-lookup .angular-form-content .form-item {
+/* drug name / CPT / HCPCS field (source: width 100% + padding, max 600px content) */
+body.north-carolina .prior-auth-lookup .ps-display {
+  box-sizing: content-box;
+  display: block;
   width: 100%;
   max-width: 600px;
+  height: 21px;
   margin: 0;
+  border: 1px solid #666;
+  border-radius: 4px;
+  padding: 8px 16px;
+  background-color: #fff;
+  color: #000;
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  line-height: normal;
+  cursor: default;
 }
 
-body.north-carolina .prior-auth-lookup input[type="text"] {
+body.north-carolina .prior-auth-lookup .ps-display.disabled {
+  opacity: 0.5;
+}
+
+body.north-carolina .prior-auth-lookup input::placeholder {
+  color: #757575;
+  opacity: 1;
+}
+
+/* typeahead panel */
+body.north-carolina .prior-auth-lookup .search-panel {
   box-sizing: border-box;
   width: 100%;
-  padding: 8px 16px;
-  border: 1px solid #666;
-  border-radius: 3px;
-  background-color: var(--background-color);
-  font-family: var(--body-font-family);
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 1.4;
-  color: #666;
-}
-
-body.north-carolina .prior-auth-lookup input#prior-auth-lookup-name-1::placeholder {
-  color: #000;
-}
-
-body.north-carolina .prior-auth-lookup input[type="text"]::placeholder {
-  color: #757575;
-}
-
-body.north-carolina .prior-auth-lookup input[type="text"]:focus {
-  outline: none;
-  border-color: var(--brand-blue);
-  box-shadow: 0 0 0 1px var(--brand-blue);
-}
-
-/* Assistive typeahead panel that opens below the drug-name field */
-body.north-carolina .prior-auth-lookup .search-panel {
   max-width: 600px;
-  margin-top: 10px;
-  padding-right: 57px;
-  border: 1px solid var(--brand-blue);
-  border-radius: 4px;
-  overflow: hidden;
-  box-shadow: 0 0 0 3px rgb(1 107 149 / 12%);
+  margin-top: 8px;
+  border: 1px solid #0b76a1;
+  padding: 16px;
+  background-color: #fff;
+  color: var(--text-color);
 }
 
-body.north-carolina .prior-auth-lookup .search-panel .form-item {
-  max-width: none;
+body.north-carolina .prior-auth-lookup .search-panel[hidden] {
+  display: none;
+}
+
+body.north-carolina .prior-auth-lookup .ps-query {
+  box-sizing: content-box;
+  display: block;
+  width: calc(100% - 29px);
+  height: 16.5px;
+  margin: 5px;
+  border: 1px solid #0b76a1;
+  border-radius: 5px;
   padding: 8px;
-  margin: 14px 0 0 22px;
-}
-
-body.north-carolina .prior-auth-lookup .search-panel input#prior-auth-lookup-code-1 {
-  border: 1px solid var(--brand-blue);
-  border-radius: 4px;
-}
-
-body.north-carolina .prior-auth-lookup .search-panel input[type="text"] {
-  border: none;
-  border-radius: 0;
-}
-
-body.north-carolina .prior-auth-lookup .search-panel input[type="text"]:focus {
-  box-shadow: none;
-}
-
-body.north-carolina .prior-auth-lookup .search-loading {
-  margin: 0 0 18px 29px;
-  padding: 12px 16px;
-  background-color: var(--light-color);
+  background-color: #fff;
   color: var(--text-color);
   font-family: var(--body-font-family);
   font-size: 14px;
-  line-height: 1.4;
+  line-height: normal;
 }
 
-body.north-carolina .prior-auth-lookup .search-suggestions:not(:empty) {
-  max-height: 220px;
-  overflow-y: auto;
-  margin-left: 15px;
+body.north-carolina .prior-auth-lookup .ps-query:focus {
+  outline: 2px solid #007eb3;
+  background: #fff url('/icons/search_blue.svg') no-repeat 98% 5px;
 }
 
-body.north-carolina .prior-auth-lookup .search-panel input#prior-auth-lookup-code-1:focus {
-    background: url("/icons/search_blue.svg") no-repeat 98% 9px;
-}
-
-body.north-carolina .prior-auth-lookup .search-suggestion {
-  width: 100%;
-  margin: 0;
-  border: 0;
-  border-radius: 0;
-  padding: 10px 16px;
-  background: none;
+body.north-carolina .prior-auth-lookup .search-message {
+  margin: 8px;
+  padding: 8px;
+  background-color: #fafafa;
+  color: var(--text-color);
   font-family: var(--body-font-family);
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 1.4;
-  color: var(--text-color);
-  text-align: left;
-  cursor: pointer;
-  display: flex;
-  flex-direction: row;
-  white-space: normal;
-  border-top: 1px solid #0B76A1;
-}
-
-body.north-carolina .prior-auth-lookup .search-suggestion .suggestion-code {
-  margin-right: 36px;
-}
-
-body.north-carolina .prior-auth-lookup .search-suggestion:hover,
-body.north-carolina .prior-auth-lookup .search-suggestion:focus {
-  background-color: var(--light-color);
-  color: var(--text-color);
-}
-
-/* Search button — compact (auto width), matches the source's grey
-   disabled state until the field has a valid value. */
-body.north-carolina .prior-auth-lookup .primary-btn {
-  margin: 20px 0 0;
-  border-radius: 3px;
-  padding: 12px 30px;
   font-size: 16px;
-  font-weight: 400;
+  line-height: 20px;
 }
 
-body.north-carolina .prior-auth-lookup .primary-btn:disabled,
-body.north-carolina .prior-auth-lookup .primary-btn:disabled:hover {
-  border-color: #b2b0b0;
+body.north-carolina .prior-auth-lookup .search-message[hidden] {
+  display: none;
+}
+
+body.north-carolina .prior-auth-lookup .search-result {
+  box-sizing: border-box;
+  overflow-y: auto;
+  max-height: 500px;
+  margin-top: 8px;
+  padding: 8px 0 16px;
+}
+
+body.north-carolina .prior-auth-lookup .search-result:empty {
+  display: none;
+}
+
+body.north-carolina .prior-auth-lookup .search-result-indiv {
+  display: flex;
+  border-top: 1px solid #0b76a1;
+  padding: 16px 8px;
+  color: var(--text-color);
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  line-height: 20px;
+  cursor: pointer;
+}
+
+body.north-carolina .prior-auth-lookup .search-result-indiv > div {
+  box-sizing: border-box;
+  padding: 5px;
+}
+
+/* source columns: code 55.5px (the hyphen wraps under the code), description fills the rest */
+body.north-carolina .prior-auth-lookup .search-result-indiv > div:first-child {
+  flex: 0 0 55.5px;
+  margin-right: 16px;
+  padding-right: 0;
+}
+
+body.north-carolina .prior-auth-lookup .search-result-indiv > div:last-child {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow-wrap: break-word;
+}
+
+body.north-carolina .prior-auth-lookup .search-result-indiv:hover {
+  background-color: #007eb3;
+  color: #fff;
+}
+
+body.north-carolina .prior-auth-lookup .search-result-indiv:focus {
+  outline: 2px solid #007eb3;
+  outline-offset: 0;
+}
+
+/* Search button (source .primary_btn) */
+body.north-carolina .prior-auth-lookup .search-button {
+  box-sizing: border-box;
+  display: inline-block;
+  min-width: 0;
+  margin: 40px 0 50px;
+  border: 0;
+  border-bottom: 2px solid #044661;
+  border-radius: 3px;
+  padding: 10px 25px;
+  background-color: #016b95;
+  color: #fff;
+  font-family: var(--body-font-family);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  text-shadow: 0 1px 1px #044661;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+body.north-carolina .prior-auth-lookup .search-button:hover,
+body.north-carolina .prior-auth-lookup .search-button:focus {
+  border-bottom-color: #023347;
+  background-color: #044661;
+  color: #fff;
+  text-shadow: 0 1px 1px #023347;
+}
+
+body.north-carolina .prior-auth-lookup .search-button:disabled,
+body.north-carolina .prior-auth-lookup .search-button:disabled:hover {
+  border: 2px solid #b2b0b0;
   background-color: #b2b0b0;
   color: #d8d8d8;
-  cursor: not-allowed;
+  text-shadow: none;
+  opacity: 0.5;
+  cursor: default;
+}
+
+/* service error */
+body.north-carolina .prior-auth-lookup .prior-auth-lookup-alert {
+  margin: 0 0 20px;
+  border: 1px solid #ccc;
+  border-left: 5px solid #d20a3c;
+  padding: 10px 7px;
+  color: var(--text-color);
+  font-size: 16px;
+  line-height: 22px;
+}
+
+/* precertification result card (source .angular-form-content_result) */
+body.north-carolina .prior-auth-lookup .prior-auth-lookup-result {
+  margin: 60px 0;
+  padding: 15px 20px 0;
+  background-color: #eee;
+  color: var(--text-color);
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  line-height: 16px;
+}
+
+body.north-carolina .prior-auth-lookup .prior-auth-lookup-result article {
+  overflow: auto;
+}
+
+body.north-carolina .prior-auth-lookup .prior-auth-lookup-result h3 {
+  position: relative;
+  margin: 0 0 32px;
+  padding: 0 0 0 16px;
+  color: var(--heading-color);
+  font-family: var(--heading-font-family);
+  font-size: 28px;
+  font-weight: 300;
+  line-height: 34px;
+}
+
+body.north-carolina .prior-auth-lookup .prior-auth-lookup-result h3::after {
+  position: absolute;
+  top: 6px;
+  left: 0;
+  display: block;
+  width: 2px;
+  height: 18px;
+  background-color: #007eb3;
+  content: '';
+}
+
+body.north-carolina .prior-auth-lookup .prior-auth-lookup-result .row {
+  clear: left;
+  float: left;
+  width: 100%;
+  margin: 0 0 21px;
+}
+
+body.north-carolina .prior-auth-lookup .prior-auth-lookup-result .row:first-of-type {
+  margin-top: 22px;
+}
+
+body.north-carolina .prior-auth-lookup .prior-auth-lookup-result .row:last-of-type {
+  margin-bottom: 14px;
+}
+
+body.north-carolina .prior-auth-lookup .prior-auth-lookup-result .row > div {
+  box-sizing: border-box;
+  float: left;
+}
+
+body.north-carolina .prior-auth-lookup .prior-auth-lookup-result .row > div:first-child {
+  width: 31%;
+  margin-right: 9%;
+}
+
+body.north-carolina .prior-auth-lookup .prior-auth-lookup-result .row > div:last-child {
+  width: 60%;
+  margin-top: -3px;
+  line-height: 26px;
+}
+
+body.north-carolina .prior-auth-lookup .prior-auth-lookup-result label {
+  display: block;
+  margin: 0;
+  color: var(--text-color);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+}
+
+body.north-carolina .prior-auth-lookup .prior-auth-lookup-result .carelonrx {
+  margin: 0;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+body.north-carolina .prior-auth-lookup .prior-auth-lookup-result .carelonrx a:any-link {
+  color: var(--link-color);
+  font-size: 14px;
+  line-height: 22px;
+  text-decoration: underline;
+}
+
+@media (width >= 480px) {
+  body.north-carolina .prior-auth-lookup .prior-auth-lookup-result .row {
+    display: flex;
+  }
+
+  body.north-carolina .prior-auth-lookup .prior-auth-lookup-result .row > div:first-child {
+    padding-right: 8px;
+  }
+
+  body.north-carolina .prior-auth-lookup .prior-auth-lookup-result .row > div:last-child {
+    padding-left: 8px;
+  }
+}
+
+@media (width >= 481px) {
+  body.north-carolina .prior-auth-lookup .prior-auth-lookup-result {
+    padding: 45px 50px 13px;
+  }
+
+  body.north-carolina .prior-auth-lookup .prior-auth-lookup-result .row,
+  body.north-carolina .prior-auth-lookup .prior-auth-lookup-result .row:last-of-type {
+    margin-bottom: 31px;
+  }
+
+  body.north-carolina .prior-auth-lookup .prior-auth-lookup-result .row > div:first-child {
+    width: 30%;
+    margin-right: 45px;
+  }
+
+  body.north-carolina .prior-auth-lookup .prior-auth-lookup-result .row > div:last-child {
+    width: calc(70% - 45px);
+  }
+}
+
+@media (width >= 768px) {
+  body.north-carolina .prior-auth-lookup .prior-auth-lookup-result h3 {
+    margin-bottom: 48px;
+    padding: 0 0 24px;
+  }
+
+  body.north-carolina .prior-auth-lookup .prior-auth-lookup-result h3::after {
+    top: auto;
+    bottom: 0;
+    width: 45px;
+    height: 4px;
+  }
+
+  body.north-carolina .prior-auth-lookup .prior-auth-lookup-result .row > div:first-child {
+    padding-right: 24px;
+  }
+
+  body.north-carolina .prior-auth-lookup .prior-auth-lookup-result .row > div:last-child {
+    padding-left: 24px;
+  }
+}
+
+@media (width >= 801px) {
+  body.north-carolina .prior-auth-lookup .prior-auth-lookup-result .row:first-of-type {
+    margin-top: 40px;
+  }
+}
+
+@media (width >= 992px) {
+  body.north-carolina main > .section:has(.prior-auth-lookup) + .section > .default-content-wrapper:first-child > p:first-child {
+    margin-top: 35px;
+  }
+
+  body.north-carolina .prior-auth-lookup .ps-active-option,
+  body.north-carolina .prior-auth-lookup .ps-query {
+    font-size: 16px;
+  }
+
+  body.north-carolina .prior-auth-lookup .ps-query {
+    height: 19px;
+  }
+
+  body.north-carolina .prior-auth-lookup .search-button {
+    padding: 12px 30px;
+    font-size: 16px;
+  }
+
+  body.north-carolina .prior-auth-lookup .prior-auth-lookup-result h3 {
+    font-size: 36px;
+    line-height: 42px;
+  }
+
+  body.north-carolina .prior-auth-lookup .prior-auth-lookup-result .carelonrx,
+  body.north-carolina .prior-auth-lookup .prior-auth-lookup-result .carelonrx a:any-link {
+    font-size: 16px;
+    line-height: 28px;
+  }
 }

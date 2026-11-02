@@ -13,6 +13,13 @@ export default function decorate(block) {
       col.classList.add('columns-content-col');
       const pic = col.querySelector('picture');
       if (pic && col.children.length === 1) col.classList.add('columns-content-img-col');
+      // paragraphs holding nothing but a link (source <div><a>) get their own spacing
+      col.querySelectorAll(':scope > p').forEach((para) => {
+        const link = para.querySelector(':scope > a:only-child');
+        if (link && para.textContent.trim() === link.textContent.trim()) {
+          para.classList.add('columns-content-link');
+        }
+      });
     });
   });
 }
