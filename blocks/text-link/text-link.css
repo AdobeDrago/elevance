@@ -14,6 +14,11 @@ body.north-carolina main .text-link-wrapper:has(> .text-link.chevron) {
   margin-top: 9.5px;
 }
 
+/* right after a heading: source h2 + p / h2 + .arrow_link 15px (20px from 992px) */
+body.north-carolina main .default-content-wrapper:has(> h2:last-child) + .text-link-wrapper {
+  margin-top: 15px;
+}
+
 body.north-carolina main .text-link-wrapper + .default-content-wrapper {
   margin-top: 25px;
 }
@@ -40,6 +45,11 @@ body.north-carolina .text-link .text-link-item {
 
 body.north-carolina .text-link .text-link-item + .text-link-item {
   margin-top: 25px;
+}
+
+/* source .arrow_link + .arrow_link: 9.5px (15px from 992px) */
+body.north-carolina .text-link.chevron .text-link-item + .text-link-item {
+  margin-top: 9.5px;
 }
 
 body.north-carolina .text-link a:any-link {
@@ -79,6 +89,10 @@ body.north-carolina .text-link.chevron a:any-link::after {
     margin-top: 19px;
   }
 
+  body.north-carolina main .default-content-wrapper:has(> h2:last-child) + .text-link-wrapper {
+    margin-top: 20px;
+  }
+
   body.north-carolina .text-link .text-link-item {
     font-size: 16px;
     line-height: 28px;
@@ -96,5 +110,9 @@ body.north-carolina .text-link.chevron a:any-link::after {
   body.north-carolina .text-link.chevron a:any-link::after {
     width: 10px;
     height: 16px;
+  }
+
+  body.north-carolina .text-link.chevron .text-link-item + .text-link-item {
+    margin-top: 15px;
   }
 }
