@@ -1,24 +1,46 @@
 /*
- * columns-content — structural layout only, scoped to body.north-carolina.
- * Prose content columns: stacked on mobile, side-by-side on desktop.
+ * columns-content — two-up prose content columns, scoped to body.north-carolina.
+ * Values from the source .content_column_2 (e.g. /north-carolina-provider/training-resources):
+ *   - columns start right below the section heading; stacked below 992px, from 992px
+ *     two top-aligned columns of calc(50% - 45px), 70px apart
+ *   - text 14/22, 16/28 from 992px; h3 28/34 → 36/42 (300), h4 22/26 → 28/34 (400)
+ *   - spacing (below 992px / from 992px): h3 40/55 (also the first one in a column),
+ *     h4 35/45, heading + content 15/20, p + p 25, p + PDF list 25/35,
+ *     p + bullet list 0/35, list + PDF list 16, PDF items 12/0 apart
+ *   - link-only paragraphs (source <div><a>) are 22px tall, no gaps
  */
 
 body.north-carolina .columns-content > div {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 0;
 }
 
 body.north-carolina .columns-content img {
   width: 100%;
 }
 
-/* headings follow the source .content_column scale (computed styles) */
+body.north-carolina .columns-content .columns-content-col {
+  min-width: 0;
+  color: var(--text-color);
+}
+
+/* headings */
 body.north-carolina .columns-content .columns-content-col h2 {
   margin: 45px 0 0;
   font-size: 32px;
   font-weight: 700;
   line-height: 38px;
+}
+
+/* an h2 opening a column sits at the top (source :not(h2) + h2 45px only between
+   stacked columns) */
+body.north-carolina .columns-content .columns-content-col > h2:first-child {
+  margin-top: 0;
+}
+
+body.north-carolina .columns-content .columns-content-col + .columns-content-col > h2:first-child {
+  margin-top: 45px;
 }
 
 body.north-carolina .columns-content .columns-content-col h3 {
@@ -35,28 +57,83 @@ body.north-carolina .columns-content .columns-content-col h4 {
   line-height: 26px;
 }
 
+/* body copy */
+body.north-carolina .columns-content .columns-content-col p,
+body.north-carolina .columns-content .columns-content-col li {
+  font-size: 14px;
+  line-height: 22px;
+}
+
+body.north-carolina .columns-content .columns-content-col p {
+  margin: 25px 0 0;
+}
+
+body.north-carolina .columns-content .columns-content-col p a:any-link {
+  text-decoration: underline;
+}
+
+body.north-carolina .columns-content .columns-content-col sup {
+  font-size: 0.65em;
+}
+
+/* link-only paragraph (source <div><a>): one 22px line, no gap */
+body.north-carolina .columns-content .columns-content-col :is(ul, p.columns-content-link) + p.columns-content-link {
+  margin-top: 0;
+}
+
+/* lists */
+body.north-carolina .columns-content .columns-content-col ul {
+  margin: 0;
+  padding: 0;
+}
+
+body.north-carolina .columns-content .columns-content-col li {
+  margin-left: 16px;
+}
+
+/* PDF lists (source ul.pdflist): PDF icon instead of the bullet */
+body.north-carolina .columns-content .columns-content-col li:has(> a[href$='-pdf' i], > a[href$='.pdf' i]) {
+  margin-left: 0;
+  padding-left: 30px;
+  list-style: none;
+  background: url('../../icons/pdf_icon.png') 0 4px / 16px auto no-repeat;
+}
+
+body.north-carolina .columns-content .columns-content-col li:has(> a[href$='-pdf' i], > a[href$='.pdf' i]) + li {
+  margin-top: 12px;
+}
+
+body.north-carolina .columns-content .columns-content-col ul + ul {
+  margin-top: 16px;
+}
+
+body.north-carolina .columns-content .columns-content-col p + ul:has(> li > a[href$='-pdf' i], > li > a[href$='.pdf' i]) {
+  margin-top: 25px;
+}
+
+/* heading + content */
 body.north-carolina .columns-content .columns-content-col :is(h2, h3, h4) + :not(h2, h3, h4) {
   margin-top: 15px;
 }
 
-body.north-carolina .columns-content .columns-content-col > *:first-child {
-  margin-top: 0;
-}
-
-@media (width >= 900px) {
+@media (width >= 992px) {
   body.north-carolina .columns-content > div {
     flex-direction: row;
     align-items: flex-start;
-    gap: 48px;
+    gap: 70px;
   }
 
   body.north-carolina .columns-content .columns-content-col {
-    flex: 1;
+    flex: 0 0 calc(50% - 45px);
   }
 
   body.north-carolina .columns-content .columns-content-col h2 {
     font-size: 43px;
     line-height: 50px;
+  }
+
+  body.north-carolina .columns-content .columns-content-col + .columns-content-col > h2:first-child {
+    margin-top: 0;
   }
 
   body.north-carolina .columns-content .columns-content-col h3 {
@@ -69,6 +146,28 @@ body.north-carolina .columns-content .columns-content-col > *:first-child {
     margin-top: 45px;
     font-size: 28px;
     line-height: 34px;
+  }
+
+  body.north-carolina .columns-content .columns-content-col p,
+  body.north-carolina .columns-content .columns-content-col li {
+    font-size: 16px;
+    line-height: 28px;
+  }
+
+  body.north-carolina .columns-content .columns-content-col p.columns-content-link {
+    line-height: 22px;
+  }
+
+  body.north-carolina .columns-content .columns-content-col li:has(> a[href$='-pdf' i], > a[href$='.pdf' i]) + li {
+    margin-top: 0;
+  }
+
+  body.north-carolina .columns-content .columns-content-col p + ul {
+    margin-top: 35px;
+  }
+
+  body.north-carolina .columns-content .columns-content-col p + ul:has(> li > a[href$='-pdf' i], > li > a[href$='.pdf' i]) {
+    margin-top: 35px;
   }
 
   body.north-carolina .columns-content .columns-content-col :is(h2, h3, h4) + :not(h2, h3, h4) {

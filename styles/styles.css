@@ -262,30 +262,6 @@ main .section.highlight {
   padding: 40px 0;
 }
 
-/* two-column section (source .content_column_2): one column per h2, stacked below
-   992px with the source's 45px h2 gap; from 992px two top-aligned columns of
-   calc(50% - 45px) with 70px between them */
-body.north-carolina main .two-column-wrapper > .default-content-wrapper + .default-content-wrapper {
-  margin-top: 45px;
-}
-
-@media (width >= 992px) {
-  body.north-carolina main .two-column-wrapper {
-    display: flex;
-    align-items: flex-start;
-    gap: 70px;
-  }
-
-  body.north-carolina main .two-column-wrapper > .default-content-wrapper {
-    flex: 0 0 calc(50% - 45px);
-    min-width: 0;
-  }
-
-  body.north-carolina main .two-column-wrapper > .default-content-wrapper + .default-content-wrapper {
-    margin-top: 0;
-  }
-}
-
 /*
  * north-carolina — base style overrides (repoless multi-site).
  * Scoped to body.north-carolina so they never affect other sites.
