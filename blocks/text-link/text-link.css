@@ -14,6 +14,10 @@ body.north-carolina main .text-link-wrapper:has(> .text-link.chevron) {
   margin-top: 9.5px;
 }
 
+body.north-carolina main .default-content-wrapper:has(> h2:last-child) + .text-link-wrapper {
+  margin-top: 15px;
+}
+
 body.north-carolina main .default-content-wrapper:has(> p:last-child) + .text-link-wrapper:has(> .text-link.chevron) {
   margin-top: 25px;
 }
@@ -90,6 +94,10 @@ body.north-carolina .text-link.chevron a:any-link::after {
 
   body.north-carolina main .text-link-wrapper:has(> .text-link.chevron) + .pdf-list-wrapper .pdf-list {
     margin-top: 19px;
+  }
+
+  body.north-carolina main .default-content-wrapper:has(> h2:last-child) + .text-link-wrapper {
+    margin-top: 20px;
   }
 
   body.north-carolina main .default-content-wrapper:has(> p:last-child) + .text-link-wrapper:has(> .text-link.chevron) {
