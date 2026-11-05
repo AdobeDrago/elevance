@@ -27,6 +27,10 @@ body.north-carolina main > .section.hero-banner-container:has(> .default-content
   }
 }
 
+body.north-carolina main > .section.hero-banner-container:has(> .default-content-wrapper):has(+ .columns-content-container) {
+  padding-bottom: 0;
+}
+
 body.north-carolina .hero-banner-container .hero-banner-wrapper {
   max-width: unset;
   padding: 0;
