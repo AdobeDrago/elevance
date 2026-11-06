@@ -1,0 +1,18 @@
+{
+  "variantName": "contact-directory",
+  "baseBlock": "contact-directory",
+  "canonicalModel": "collection",
+  "visualCharacteristics": "Responsive grid of contact cards: label, click-to-call or email link, optional note badge. Compact variant renders a two-column list.",
+  "contentPattern": "One row per contact with three cells: label, phone number or email, optional note.",
+  "usage": {
+    "raw": "Provider and member phone / email directory.",
+    "pagesUsing": [
+      "/drafts/client-demo/contact-directory"
+    ],
+    "reuseCount": 1
+  },
+  "options": ["compact"],
+  "memberVariantIds": [
+    "contact-directory"
+  ]
+}
