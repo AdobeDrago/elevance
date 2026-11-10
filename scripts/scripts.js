@@ -134,6 +134,8 @@ export function decorateMain(main) {
     main.querySelectorAll('a.button:not(.primary, .secondary)').forEach((link) => {
       link.classList.remove('button');
       link.parentElement.classList.remove('button-container');
+      // a paragraph holding nothing but a text link (source <div><a>) keeps its own spacing
+      if (link.parentElement.tagName === 'P') link.parentElement.classList.add('link-container');
     });
   }
   decorateIcons(main);

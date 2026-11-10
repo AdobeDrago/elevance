@@ -27,8 +27,21 @@ body.north-carolina main > .section.hero-banner-container:has(> .default-content
   }
 }
 
-body.north-carolina main > .section.hero-banner-container:has(> .default-content-wrapper):has(+ .columns-content-container) {
+/* columns-content in a plain (non-light) section continues the title section, as in the
+   source's single .content_column_2: the gap above the columns is 25px (60px from 992px)
+   instead of both sections' padding. A light section keeps the full padding. */
+body.north-carolina main > .section.hero-banner-container:has(> .default-content-wrapper):has(+ .columns-content-container:not(.light)) {
   padding-bottom: 0;
+}
+
+body.north-carolina main > .section.hero-banner-container + .section.columns-content-container:not(.light) {
+  padding-top: 25px;
+}
+
+@media (width >= 992px) {
+  body.north-carolina main > .section.hero-banner-container + .section.columns-content-container:not(.light) {
+    padding-top: 60px;
+  }
 }
 
 body.north-carolina .hero-banner-container .hero-banner-wrapper {

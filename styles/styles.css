@@ -378,6 +378,10 @@ body.north-carolina main .default-content-wrapper > p.button-container + :is(p:n
   margin-top: 40px;
 }
 
+body.north-carolina main .default-content-wrapper > p.link-container + :is(ul, ol) {
+  margin-top: 16px;
+}
+
 /* source content type: p/li 14/22 below 992px, 16/28 from 992px; h2 32/38 → 43/50 */
 @media (width >= 992px) {
   body.north-carolina main .default-content-wrapper > p,
@@ -408,6 +412,18 @@ body.north-carolina main .default-content-wrapper > p.button-container + :is(p:n
   body.north-carolina main .default-content-wrapper > p.button-container + :is(p:not(.button-container), ul, ol) {
     margin-top: 50px;
   }
+
+  body.north-carolina main .default-content-wrapper > p.link-container {
+    line-height: 22px;
+  }
+
+  body.north-carolina main .default-content-wrapper > p + p.link-container {
+    margin-top: 35px;
+  }
+
+  body.north-carolina main .default-content-wrapper > p.link-container + :is(ul, ol) {
+    margin-top: 16px;
+  }
 }
 
 /* default-content h3 (source: h3 28/34, 36/42 from 992px; :not(h3) + h3 gets 40px, 55px from 992px) */
@@ -421,8 +437,11 @@ body.north-carolina main .default-content-wrapper > :not(h3) + h3 {
   margin-top: 40px;
 }
 
-body.north-carolina main .default-content-wrapper > h2 + h3,
 body.north-carolina main .default-content-wrapper > h3 + p {
+  margin-top: 15px;
+}
+
+body.north-carolina main > .section:first-child .default-content-wrapper > h2 + h3 {
   margin-top: 15px;
 }
 
@@ -440,8 +459,11 @@ body.north-carolina main > .section > .default-content-wrapper:first-child > h3:
     margin-top: 55px;
   }
 
-  body.north-carolina main .default-content-wrapper > h2 + h3,
   body.north-carolina main .default-content-wrapper > h3 + p {
+    margin-top: 20px;
+  }
+
+  body.north-carolina main > .section:first-child .default-content-wrapper > h2 + h3 {
     margin-top: 20px;
   }
 
@@ -541,27 +563,27 @@ body.north-carolina main .default-content-wrapper a.button:focus {
   text-shadow: 0 1px 1px var(--heading-color);
 }
 
-body.north-carolina main .section.light:has(> .default-content-wrapper > h3:first-child) {
+body.north-carolina main .section.light:has(> .default-content-wrapper:first-child > h3:first-child) {
   padding: 22px 0 25px;
 }
 
-body.north-carolina main .section.light > .default-content-wrapper:has(> h3:first-child) {
+body.north-carolina main .section.light > .default-content-wrapper:first-child:has(> h3:first-child) {
   padding-top: 0;
   padding-bottom: 0;
 }
 
-body.north-carolina main .section.light > .default-content-wrapper:has(> h3:first-child) > h3 {
+body.north-carolina main .section.light > .default-content-wrapper:first-child:has(> h3:first-child) > h3 {
   margin: 0;
   font-size: 22px;
   font-weight: 700;
   line-height: 28px;
 }
 
-body.north-carolina main .section.light > .default-content-wrapper:has(> h3:first-child) > h3 + p {
+body.north-carolina main .section.light > .default-content-wrapper:first-child:has(> h3:first-child) > h3 + p {
   margin-top: 15px;
 }
 
-body.north-carolina main .section.light > .default-content-wrapper:has(> h3:first-child) > p.button-container {
+body.north-carolina main .section.light > .default-content-wrapper:first-child:has(> h3:first-child) > p.button-container {
   margin-top: 20px;
 }
 
@@ -572,20 +594,20 @@ body.north-carolina main .section.light > .default-content-wrapper:has(> h3:firs
     font-size: var(--body-font-size-m);
   }
 
-  body.north-carolina main .section.light:has(> .default-content-wrapper > h3:first-child) {
+  body.north-carolina main .section.light:has(> .default-content-wrapper:first-child > h3:first-child) {
     padding: 45px 0 52px;
   }
 
-  body.north-carolina main .section.light > .default-content-wrapper:has(> h3:first-child) > h3 {
+  body.north-carolina main .section.light > .default-content-wrapper:first-child:has(> h3:first-child) > h3 {
     font-size: 35px;
     line-height: 40px;
   }
 
-  body.north-carolina main .section.light > .default-content-wrapper:has(> h3:first-child) > h3 + p {
+  body.north-carolina main .section.light > .default-content-wrapper:first-child:has(> h3:first-child) > h3 + p {
     margin-top: 20px;
   }
 
-  body.north-carolina main .section.light > .default-content-wrapper:has(> h3:first-child) > p.button-container {
+  body.north-carolina main .section.light > .default-content-wrapper:first-child:has(> h3:first-child) > p.button-container {
     margin-top: 30px;
   }
 }

@@ -173,4 +173,9 @@ body.north-carolina .columns-content .columns-content-col :is(h2, h3, h4) + :not
   body.north-carolina .columns-content .columns-content-col :is(h2, h3, h4) + :not(h2, h3, h4) {
     margin-top: 20px;
   }
+
+  body.north-carolina main .default-content-wrapper:not(:has(> :is(h2, h3):last-child))
+    + .columns-content-wrapper .columns-content-col > h3:first-child {
+    margin-top: 60px;
+  }
 }
