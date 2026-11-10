@@ -25,7 +25,8 @@
         "width": 1280,
         "height": 494,
         "kind": "local-render-of-site-content",
-        "source": "/north-carolina-provider/resources"
+        "source": "/north-carolina-provider/resources",
+        "capturedOn": "2026-11-10"
       },
       "authoring": {
         "file": "assets/blocks/hero-banner-da.jpg",
@@ -121,7 +122,8 @@
         "width": 1140,
         "height": 414,
         "kind": "local-render-of-site-content",
-        "source": "/north-carolina-provider/home"
+        "source": "/north-carolina-provider/home",
+        "capturedOn": "2026-11-10"
       },
       "authoring": {
         "file": "assets/blocks/columns-link-lists-da.jpg",
@@ -135,9 +137,10 @@
       "rendered": {
         "file": "assets/blocks/columns-content-rendered.jpg",
         "width": 1140,
-        "height": 373,
+        "height": 561,
         "kind": "local-render-of-site-content",
-        "source": "/north-carolina-provider/electronic-data-interchange"
+        "source": "/north-carolina-provider/electronic-data-interchange",
+        "capturedOn": "2026-11-10"
       },
       "authoring": {
         "file": "assets/blocks/columns-content-da.jpg",
@@ -167,9 +170,10 @@
       "rendered": {
         "file": "assets/blocks/accordion-doc-links-rendered.jpg",
         "width": 1140,
-        "height": 1256,
+        "height": 1082,
         "kind": "local-render-of-site-content",
-        "source": "/north-carolina-provider/learn-about-availity"
+        "source": "/north-carolina-provider/learn-about-availity",
+        "capturedOn": "2026-11-10"
       },
       "authoring": {
         "file": "assets/blocks/accordion-doc-links-da.jpg",
@@ -182,10 +186,11 @@
     "cta-footer-banner": {
       "rendered": {
         "file": "assets/blocks/cta-footer-banner-rendered.jpg",
-        "width": 1140,
-        "height": 176,
+        "width": 1137,
+        "height": 162,
         "kind": "local-render-of-site-content",
-        "source": "/north-carolina-provider/prior-authorization"
+        "source": "/north-carolina-provider/prior-authorization",
+        "capturedOn": "2026-11-10"
       },
       "authoring": {
         "file": "assets/blocks/cta-footer-banner-da.jpg",
@@ -201,7 +206,8 @@
         "width": 1140,
         "height": 56,
         "kind": "local-render-of-site-content",
-        "source": "/north-carolina-provider/home"
+        "source": "/north-carolina-provider/home",
+        "capturedOn": "2026-11-10"
       },
       "authoring": {
         "file": "assets/blocks/pdf-list-da.jpg",
@@ -231,9 +237,10 @@
       "rendered": {
         "file": "assets/blocks/prior-auth-lookup-rendered.jpg",
         "width": 1140,
-        "height": 305,
+        "height": 368,
         "kind": "local-render-of-site-content",
-        "source": "/north-carolina-provider/prior-authorization-lookup"
+        "source": "/north-carolina-provider/prior-authorization-lookup",
+        "capturedOn": "2026-11-10"
       },
       "authoring": {
         "file": "assets/blocks/prior-auth-lookup-da.jpg",
@@ -546,6 +553,25 @@
         "kind": "da-content-view",
         "source": "https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/medical-policies-and-clinical-guidelines"
       }
+    },
+    "text-link": {
+      "rendered": {
+        "file": "assets/blocks/text-link-rendered.jpg",
+        "width": 1240,
+        "height": 115,
+        "kind": "local-render-of-site-content",
+        "source": "/north-carolina-provider/manuals-and-guides",
+        "capturedOn": "2026-11-10"
+      },
+      "authoring": {
+        "file": "assets/blocks/text-link-author-sample.jpg",
+        "width": 1280,
+        "height": 282,
+        "kind": "illustrative-table",
+        "source": "/docs/block-examples/index.html?block=text-link&view=author",
+        "capturedOn": "2026-11-10"
+      }
     }
-  }
+  },
+  "updatedOn": "2026-11-10"
 }

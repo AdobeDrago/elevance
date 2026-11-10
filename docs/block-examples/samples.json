@@ -160,5 +160,19 @@
       ]
     ],
     "note": "Illustrative poster state. No third-party player is loaded for this documentation capture."
+  },
+  "text-link": {
+    "classes": [
+      "chevron"
+    ],
+    "note": "Add the chevron variant for a bold arrow link; omit it for a plain underlined link.",
+    "rows": [
+      [
+        "<a href=\"/north-carolina-provider/medical-policies-and-clinical-guidelines\">Medical Policies and Clinical UM Guidelines</a>"
+      ],
+      [
+        "<a href=\"/north-carolina-provider/manuals-and-guides\">Provider Manuals and Guides</a>"
+      ]
+    ]
   }
 }

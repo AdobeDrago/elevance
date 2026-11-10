@@ -24,7 +24,7 @@
 <a href="#shared-footer">Footer</a>
 <a href="#shared-content">Shared formatting</a>
 <a href="#recipes">Page patterns</a>
-<a href="#block-catalog">All 34 blocks</a>
+<a href="#block-catalog">All 35 blocks</a>
 <a href="#page-reference">NC page reference</a>
 <a href="#publish">Review and publish</a>
 <a href="#troubleshooting">Troubleshooting</a>
@@ -34,10 +34,10 @@
 <section id="start">
 <p class="eyebrow">Elevance and Healthy Blue provider sites · Author reference</p>
 <h1>Site author guide</h1>
-<p class="lead">Build and maintain provider pages in Document Authoring (DA). This guide explains page setup, shared navigation and footer content, reusable sections, and all 34 block implementations in this repository.</p>
+<p class="lead">Build and maintain provider pages in Document Authoring (DA). This guide explains page setup, shared navigation and footer content, reusable sections, and all 35 block implementations in this repository.</p>
 <p>Detailed examples use the <strong>Healthy Blue North Carolina</strong> site, <code>adobedrago/elevance-nc</code>. The <code>elevance</code> site shares the code but uses its own DA content and default theme. Open <a href="https://da.live/#/adobedrago/elevance">its DA content browser</a> for that site. NC-specific layouts require <code>theme: north-carolina</code>; they are not a design catalog for the other site.</p>
 <p class="note">
-<strong>Reference date: October 15, 2026.</strong> Block behavior follows the current repository implementation. Page examples and usage counts come from the NC preview index at the time of documentation. Code availability, editor-picker availability, and production readiness are separate things.</p>
+<strong>Reference date: October 15, 2026; updated November 10, 2026.</strong> The update adds the <a href="#block-text-link">Text link</a> block, documents the reworked <a href="#block-prior-auth-lookup">Prior auth lookup</a> table, re-captures rendered screenshots for blocks whose styling changed, and refreshes page usage. Block behavior follows the current repository implementation. Page examples and usage counts come from the NC preview index at the time of documentation. Code availability, editor-picker availability, and production readiness are separate things.</p>
 <div class="quick-links">
 <a href="#page-setup">Set up a page</a>
 <a href="#shared-header">Edit navigation</a>
@@ -254,15 +254,15 @@ Claims
 </section>
 <section id="block-catalog">
 <h2>Block catalog</h2>
-<p>All 34 block folders are covered below. “NC page blocks” use the NC theme. Shared blocks are available in code but may have site-specific styling or need design review. Header, footer, and modal are normally created automatically.</p>
+<p>All 35 block folders are covered below. “NC page blocks” use the NC theme. Shared blocks are available in code but may have site-specific styling or need design review. Header, footer, and modal are normally created automatically.</p>
 <p id="screenshot-reference" class="note">
-<strong>Screenshot reference:</strong> Every block includes a rendered capture and an authoring view. Twenty use existing NC content or shared fragments with real DA editor screenshots; fourteen use clearly labeled local samples because no current authored example was found. Rendered captures use the NC theme and local code. Screenshots were taken on October 15, 2026; select an image for full size.</p>
+<strong>Screenshot reference:</strong> Every block includes a rendered capture and an authoring view. Twenty use existing NC content or shared fragments with real DA editor screenshots; fourteen use clearly labeled local samples because no current authored example was found. Text link pairs a capture of real NC content with an illustrative authoring table. Rendered captures use the NC theme and local code. Screenshots were taken on October 15, 2026. Rendered captures for hero banner, columns link lists, columns content, accordion doc links, CTA footer banner, PDF list, prior auth lookup, and text link were retaken on November 10, 2026; select an image for full size.</p>
 <p>In DA’s new authoring interface, choose <strong>Content</strong> to edit block tables and <strong>Layout</strong> to inspect the rendered page. Select a block in the Outline to focus its content. Shared header and footer content is edited in the separate fragment documents.</p>
 <p class="note">
 <strong>Service data:</strong> Forms Accordion, Table News Archive, and Prior Auth Lookup currently read bundled sample JSON in every environment. Authors cannot connect a real service by adding a table row.</p>
 <label for="block-filter">Filter blocks by name, purpose, or option</label>
 <input id="block-filter" type="search" placeholder="Try accordion, image, or bordered" aria-describedby="block-count">
-<p id="block-count" role="status">34 blocks</p>
+<p id="block-count" role="status">35 blocks</p>
 <div class="catalog-index">
 <a href="#block-hero-welcome">Hero welcome</a>
 <a href="#block-hero-banner">Hero banner</a>
@@ -278,6 +278,7 @@ Claims
 <a href="#block-cta-footer-banner">CTA footer banner</a>
 <a href="#block-pdf-list">PDF list</a>
 <a href="#block-more-resources">More resources</a>
+<a href="#block-text-link">Text link</a>
 <a href="#block-prior-auth-lookup">Prior auth lookup</a>
 <a href="#block-forms-accordion">Forms accordion</a>
 <a href="#block-table-news-archive">Table news archive</a>
@@ -784,7 +785,7 @@ Claims
 <strong>Rendered site block</strong>
 </figcaption>
 <a href="assets/blocks/columns-content-rendered.jpg" target="_blank" rel="noopener" aria-label="Open full-size rendered site block for Columns content">
-<img src="assets/blocks/columns-content-rendered.jpg" width="1140" height="373" loading="lazy" decoding="async" alt="Columns content rendered from NC content">
+<img src="assets/blocks/columns-content-rendered.jpg" width="1140" height="561" loading="lazy" decoding="async" alt="Columns content rendered from NC content">
 </a>
 </figure>
 <figure>
@@ -819,7 +820,7 @@ Claims
 <p>The first content row determines the column-count class. Add matching rows for more bands of columns.</p>
 <h4>Authoring notes</h4>
 <p>Each cell is a column. Keep the same number of cells across rows. Columns stack on smaller screens. Use the page-reference examples below to check current NC usage. Unlike the shared Columns block, it does not add the shared block’s bordered last-column callout.</p>
-<p class="reference-link">Found on 8 indexed NC preview page(s). Example: <a href="https://main--elevance-nc--adobedrago.aem.page/north-carolina-provider/cme">/north-carolina-provider/cme</a> · <a href="https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/cme">Edit in DA</a>
+<p class="reference-link">Found on 9 indexed NC preview page(s). Example: <a href="https://main--elevance-nc--adobedrago.aem.page/north-carolina-provider/cme">/north-carolina-provider/cme</a> · <a href="https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/cme">Edit in DA</a>
 </p>
 <p class="reference-link">
 <a href="https://github.com/AdobeDrago/elevance/blob/main/blocks/columns-content/columns-content.js">Implementation</a> · <a href="#block-catalog">Back to catalog</a>
@@ -895,7 +896,7 @@ Claims
 <strong>Rendered site block</strong>
 </figcaption>
 <a href="assets/blocks/accordion-doc-links-rendered.jpg" target="_blank" rel="noopener" aria-label="Open full-size rendered site block for Accordion doc links">
-<img src="assets/blocks/accordion-doc-links-rendered.jpg" width="1140" height="1256" loading="lazy" decoding="async" alt="Accordion doc links rendered from NC content">
+<img src="assets/blocks/accordion-doc-links-rendered.jpg" width="1140" height="1082" loading="lazy" decoding="async" alt="Accordion doc links rendered from NC content">
 </a>
 </figure>
 <figure>
@@ -958,7 +959,7 @@ Claims
 <strong>Rendered site block</strong>
 </figcaption>
 <a href="assets/blocks/cta-footer-banner-rendered.jpg" target="_blank" rel="noopener" aria-label="Open full-size rendered site block for CTA footer banner">
-<img src="assets/blocks/cta-footer-banner-rendered.jpg" width="1140" height="176" loading="lazy" decoding="async" alt="CTA footer banner rendered from NC content">
+<img src="assets/blocks/cta-footer-banner-rendered.jpg" width="1137" height="162" loading="lazy" decoding="async" alt="CTA footer banner rendered from NC content">
 </a>
 </figure>
 <figure>
@@ -998,7 +999,7 @@ Claims
 <p>No named variants. A missing link in the third content row means no button is rendered.</p>
 <h4>Authoring notes</h4>
 <p>Use three one-cell content rows: heading text, paragraph content, actual hyperlink. This is part of the page body, separate from the global footer. The current code always renders the heading as H3, including when another heading level was authored. Button styling is applied automatically to the third-row link.</p>
-<p class="reference-link">Found on 2 indexed NC preview page(s). Example: <a href="https://main--elevance-nc--adobedrago.aem.page/north-carolina-provider/prior-authorization">/north-carolina-provider/prior-authorization</a> · <a href="https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/prior-authorization">Edit in DA</a>
+<p class="reference-link">Found on 7 indexed NC preview page(s). Example: <a href="https://main--elevance-nc--adobedrago.aem.page/north-carolina-provider/prior-authorization">/north-carolina-provider/prior-authorization</a> · <a href="https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/prior-authorization">Edit in DA</a>
 </p>
 <p class="reference-link">
 <a href="https://github.com/AdobeDrago/elevance/blob/main/blocks/cta-footer-banner/cta-footer-banner.js">Implementation</a> · <a href="#block-catalog">Back to catalog</a>
@@ -1120,6 +1121,65 @@ Claims
 <a href="https://github.com/AdobeDrago/elevance/blob/main/blocks/more-resources/more-resources.js">Implementation</a> · <a href="#block-catalog">Back to catalog</a>
 </p>
 </article>
+<article class="block-entry" id="block-text-link">
+<p class="eyebrow">NC page blocks</p>
+<h3>Text link</h3>
+<p>
+<code>text-link</code> · Standalone text links that stay underlined links instead of becoming buttons, with an optional bold chevron style.</p>
+<div class="block-visuals">
+<h4>Rendered and authoring views</h4>
+<p class="screenshot-note">The rendered capture shows existing NC preview content with local repository code: the default style first, then the <code>chevron</code> variant. The table image is an illustrative authoring table, not a screenshot of da.live. Select either image to open it at full size.</p>
+<p class="reference-link">Capture source: <a href="https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/manuals-and-guides">/north-carolina-provider/manuals-and-guides in DA</a>
+</p>
+<div class="screenshot-pair">
+<figure>
+<figcaption>
+<strong>Rendered site block</strong>
+</figcaption>
+<a href="assets/blocks/text-link-rendered.jpg" target="_blank" rel="noopener" aria-label="Open full-size rendered site block for Text link">
+<img src="assets/blocks/text-link-rendered.jpg" width="1240" height="115" loading="lazy" decoding="async" alt="Text link rendered from NC content, default and chevron variants">
+</a>
+</figure>
+<figure>
+<figcaption>
+<strong>Illustrative authoring table</strong>
+</figcaption>
+<a href="assets/blocks/text-link-author-sample.jpg" target="_blank" rel="noopener" aria-label="Open full-size illustrative authoring table for Text link">
+<img src="assets/blocks/text-link-author-sample.jpg" width="1280" height="282" loading="lazy" decoding="async" alt="Text link illustrative authoring table, not a DA screenshot">
+</a>
+</figure>
+</div>
+</div>
+
+
+<div class="table-scroll">
+<table class="authoring-example">
+<caption>Authoring table structure</caption>
+<thead>
+<tr>
+<th colspan="1">text-link (chevron)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hyperlink: Medical Policies and Clinical UM Guidelines</td>
+</tr>
+<tr>
+<td>Optional: another link, or a sentence with inline links</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4>Options and variants</h4>
+<p><code>text-link</code> (no variant) shows an underlined text link. <code>text-link (chevron)</code> shows a bold link followed by a chevron, matching the source site’s arrow links. Each row becomes one paragraph.</p>
+<h4>Authoring notes</h4>
+<p>Use this block for standalone links that need the source site’s link spacing or the bold chevron style. In NC default content, a bold or italic link alone on its line becomes a button. Links inside this block never become buttons, even when they are bold or italic. A row can hold a single link or a sentence with inline links. Spacing around the block is tuned for links between headings, paragraphs, and PDF lists on NC pages. The block is scoped to the NC theme.</p>
+<p class="reference-link">Found on 6 indexed NC preview page(s). Example: <a href="https://main--elevance-nc--adobedrago.aem.page/north-carolina-provider/manuals-and-guides">/north-carolina-provider/manuals-and-guides</a> · <a href="https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/manuals-and-guides">Edit in DA</a>
+</p>
+<p class="reference-link">
+<a href="https://github.com/AdobeDrago/elevance/blob/main/blocks/text-link/text-link.js">Implementation</a> · <a href="#block-catalog">Back to catalog</a>
+</p>
+</article>
 <article class="block-entry" id="block-prior-auth-lookup">
 <p class="eyebrow">Service and search blocks</p>
 <h3>Prior auth lookup</h3>
@@ -1136,7 +1196,7 @@ Claims
 <strong>Rendered site block</strong>
 </figcaption>
 <a href="assets/blocks/prior-auth-lookup-rendered.jpg" target="_blank" rel="noopener" aria-label="Open full-size rendered site block for Prior auth lookup">
-<img src="assets/blocks/prior-auth-lookup-rendered.jpg" width="1140" height="305" loading="lazy" decoding="async" alt="Prior auth lookup rendered from NC content">
+<img src="assets/blocks/prior-auth-lookup-rendered.jpg" width="1140" height="368" loading="lazy" decoding="async" alt="Prior auth lookup rendered from NC content">
 </a>
 </figure>
 <figure>
@@ -1161,16 +1221,16 @@ Claims
 </thead>
 <tbody>
 <tr>
-<td>Markets</td>
+<td>Market</td>
 <td>North Carolina</td>
 </tr>
 <tr>
 <td>Line of Business</td>
-<td>Bulleted list:<br>Medicaid<br>CFSP</td>
+<td>Bulleted list:<br>Medicaid/SCHIP/Family Care<br>CFSP – Healthy Blue Care Together</td>
 </tr>
 <tr>
-<td>Drug name, CPT or HCPCS code</td>
-<td>Enter a drug name or procedure code</td>
+<td>Drug name, CPT/HCPCS Code or Code Description</td>
+<td>Type a drug name, CPT/HCPCS code or code description</td>
 </tr>
 <tr>
 <td>Search</td>
@@ -1181,9 +1241,9 @@ Claims
 </table>
 </div>
 <h4>Options and variants</h4>
-<p>No named variants. These four rows are positional: do not reorder them. The line-of-business choices must be real list items.</p>
+<p>No named variants. These four rows are positional (Market, Line of Business, code field, Search): do not reorder them. The first cell of each row is the label shown on the page. The line-of-business choices must be real list items. The second cell of the code row is the field placeholder.</p>
 <h4>Authoring notes</h4>
-<p>Authors can change the displayed labels, market text, line-of-business list, instruction text, and search button label. Suggestions and results currently come from bundled sample JSON, in every environment. A Data Source row is not read by the current implementation. Market/LOB edits do not configure a real backend or establish valid authorization results. Coordinate production data and clinical review with the service owner before release.</p>
+<p>Market and line-of-business names are matched to service codes: <code>North Carolina</code> → NC, <code>Medicaid/SCHIP/Family Care</code> → CAID, <code>CFSP – Healthy Blue Care Together</code> → CFSP. Spell them exactly as shown. Any other name must carry its code in parentheses, for example <code>Some Plan (CODE)</code>; otherwise lookups return no results. Behavior follows the source widget: the market is preselected; the code field stays disabled until a line of business is chosen; suggestions appear after 3 characters; Search is enabled once a code is picked. Suggestions and results currently come from bundled sample JSON (real responses for a sample of codes) in every environment, because the live service does not allow cross-origin requests. A Data Source row is not read. Coordinate production data and clinical review with the service owner before release.</p>
 <p class="reference-link">Found on 1 indexed NC preview page(s). Example: <a href="https://main--elevance-nc--adobedrago.aem.page/north-carolina-provider/prior-authorization-lookup">/north-carolina-provider/prior-authorization-lookup</a> · <a href="https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/prior-authorization-lookup">Edit in DA</a>
 </p>
 <p class="reference-link">
@@ -2212,7 +2272,7 @@ Claims
 </section>
 <section id="page-reference">
 <h2>NC page reference</h2>
-<p>Snapshot of 49 successfully scanned NC pages from the preview query index on October 15, 2026. This records authored block names, excluding automatic header/footer/modal behavior. It covers indexed pages, not every DA document, unpublished draft, or shared fragment.</p>
+<p>Snapshot of 49 successfully scanned NC pages from the preview query index, refreshed November 10, 2026 (the <code>demo/example1</code> test page is excluded). This records authored block names, excluding automatic header/footer/modal behavior. It covers indexed pages, not every DA document, unpublished draft, or shared fragment.</p>
 <div class="table-scroll">
 <table>
 <thead>
@@ -2459,7 +2519,7 @@ Claims
 <a href="https://main--elevance-nc--adobedrago.aem.page/north-carolina-provider/manuals-and-guides">manuals-and-guides</a>
 </td>
 <td>
-<a href="#block-columns-link-lists">columns-link-lists</a>, <a href="#block-hero-banner">hero-banner</a>, <a href="#block-pdf-list">pdf-list</a>
+<a href="#block-columns-link-lists">columns-link-lists</a>, <a href="#block-hero-banner">hero-banner</a>, <a href="#block-pdf-list">pdf-list</a>, <a href="#block-text-link">text-link</a>
 </td>
 <td>
 <a href="https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/manuals-and-guides">Edit in DA</a>
@@ -2558,7 +2618,7 @@ Claims
 <a href="https://main--elevance-nc--adobedrago.aem.page/north-carolina-provider/prior-authorization">prior-authorization</a>
 </td>
 <td>
-<a href="#block-columns-link-lists">columns-link-lists</a>, <a href="#block-cta-footer-banner">cta-footer-banner</a>, <a href="#block-hero-banner">hero-banner</a>
+<a href="#block-columns-content">columns-content</a>, <a href="#block-columns-link-lists">columns-link-lists</a>, <a href="#block-cta-footer-banner">cta-footer-banner</a>, <a href="#block-hero-banner">hero-banner</a>, <a href="#block-text-link">text-link</a>
 </td>
 <td>
 <a href="https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/prior-authorization">Edit in DA</a>
@@ -2569,7 +2629,7 @@ Claims
 <a href="https://main--elevance-nc--adobedrago.aem.page/north-carolina-provider/prior-authorization-lookup">prior-authorization-lookup</a>
 </td>
 <td>
-<a href="#block-columns-link-lists">columns-link-lists</a>, <a href="#block-hero-banner">hero-banner</a>, <a href="#block-prior-auth-lookup">prior-auth-lookup</a>
+<a href="#block-columns-link-lists">columns-link-lists</a>, <a href="#block-cta-footer-banner">cta-footer-banner</a>, <a href="#block-hero-banner">hero-banner</a>, <a href="#block-prior-auth-lookup">prior-auth-lookup</a>
 </td>
 <td>
 <a href="https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/prior-authorization-lookup">Edit in DA</a>
@@ -2690,7 +2750,7 @@ Claims
 <a href="https://main--elevance-nc--adobedrago.aem.page/north-carolina-provider/schedules-registration">schedules-registration</a>
 </td>
 <td>
-<a href="#block-columns-content">columns-content</a>, <a href="#block-columns-link-lists">columns-link-lists</a>, <a href="#block-hero-banner">hero-banner</a>
+<a href="#block-columns-content">columns-content</a>, <a href="#block-columns-link-lists">columns-link-lists</a>, <a href="#block-cta-footer-banner">cta-footer-banner</a>, <a href="#block-hero-banner">hero-banner</a>, <a href="#block-text-link">text-link</a>
 </td>
 <td>
 <a href="https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/schedules-registration">Edit in DA</a>
@@ -2712,7 +2772,7 @@ Claims
 <a href="https://main--elevance-nc--adobedrago.aem.page/north-carolina-provider/serving-diverse-populations">serving-diverse-populations</a>
 </td>
 <td>
-<a href="#block-columns-content">columns-content</a>, <a href="#block-columns-link-lists">columns-link-lists</a>, <a href="#block-hero-banner">hero-banner</a>
+<a href="#block-columns-content">columns-content</a>, <a href="#block-columns-link-lists">columns-link-lists</a>, <a href="#block-cta-footer-banner">cta-footer-banner</a>, <a href="#block-hero-banner">hero-banner</a>, <a href="#block-text-link">text-link</a>
 </td>
 <td>
 <a href="https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/serving-diverse-populations">Edit in DA</a>
@@ -2745,7 +2805,7 @@ Claims
 <a href="https://main--elevance-nc--adobedrago.aem.page/north-carolina-provider/training-academy">training-academy</a>
 </td>
 <td>
-<a href="#block-columns-link-lists">columns-link-lists</a>, <a href="#block-hero-banner">hero-banner</a>, <a href="#block-pdf-list">pdf-list</a>
+<a href="#block-columns-link-lists">columns-link-lists</a>, <a href="#block-cta-footer-banner">cta-footer-banner</a>, <a href="#block-hero-banner">hero-banner</a>, <a href="#block-pdf-list">pdf-list</a>, <a href="#block-text-link">text-link</a>
 </td>
 <td>
 <a href="https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/training-academy">Edit in DA</a>
@@ -2756,7 +2816,7 @@ Claims
 <a href="https://main--elevance-nc--adobedrago.aem.page/north-carolina-provider/training-resources">training-resources</a>
 </td>
 <td>
-<a href="#block-columns-content">columns-content</a>, <a href="#block-columns-link-lists">columns-link-lists</a>, <a href="#block-hero-banner">hero-banner</a>
+<a href="#block-columns-content">columns-content</a>, <a href="#block-columns-link-lists">columns-link-lists</a>, <a href="#block-cta-footer-banner">cta-footer-banner</a>, <a href="#block-hero-banner">hero-banner</a>, <a href="#block-text-link">text-link</a>
 </td>
 <td>
 <a href="https://da.live/edit#/adobedrago/elevance-nc/north-carolina-provider/training-resources">Edit in DA</a>
@@ -2875,7 +2935,7 @@ Claims
 </section>
 </main>
 </div>
-<footer class="guide-footer">Elevance and Healthy Blue provider sites · Author reference · October 15, 2026</footer>
+<footer class="guide-footer">Elevance and Healthy Blue provider sites · Author reference · Updated November 10, 2026</footer>
 
 
 

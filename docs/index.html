@@ -91,7 +91,7 @@
           <span class="status-badge sb-progress">In progress</span>
         </h2>
         <div class="section-rule"></div>
-        <p>The Elevance EDS project is <strong>set up and ready for content migration</strong>. It uses <strong>two Document Authoring sites &mdash; <code class="code-inline">elevance</code> and <code class="code-inline">elevance-nc</code> &mdash; served from a single GitHub repository</strong> (shared blocks, styles, and scripts). The content mounts, block library, and page-import tooling are all in place. The first page migration &mdash; the <strong>GRS provider</strong> home page (on <code class="code-inline">elevance</code>) &mdash; is planned and in progress. No pages are published to the live environments yet.</p>
+        <p>The project uses <strong>two Document Authoring sites &mdash; <code class="code-inline">elevance</code> and <code class="code-inline">elevance-nc</code> &mdash; served from a single GitHub repository</strong> (shared blocks, styles, and scripts; repoless, no <code class="code-inline">fstab.yaml</code>). The <strong>Healthy Blue NC provider site (<code class="code-inline">elevance-nc</code>) is fully imported</strong>: the home page plus 46 interior pages (47 URLs), with nav and footer fragments, the <code class="code-inline">north-carolina</code> theme, and 35 blocks. It is published to both preview and live, and work is now in <strong>visual-parity QA</strong> &mdash; page-by-page fixes for spacing, link styling, and broken source links tracked in GitHub issues. The <code class="code-inline">elevance</code> (GRS provider) site has a preview home page and an importer, but nothing is published to live yet.</p>
 
         <h3>Shared repository</h3>
         <div class="url-grid">
@@ -149,7 +149,7 @@
 
         <div class="notice info">
           <svg class="notice-icon" width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8zm6.5-.25A.75.75 0 017.25 7h1a.75.75 0 01.75.75v2.75h.25a.75.75 0 010 1.5h-2a.75.75 0 010-1.5h.25v-2h-.25a.75.75 0 01-.75-.75zM8 6a1 1 0 100-2 1 1 0 000 2z"/></svg>
-          <span><strong>Status.</strong> Both sites are bot-protected during setup and share one block library (the AEM Block Collection baseline). Current DA mapping: <code class="code-inline">elevance</code> &rarr; GRS provider (<code class="code-inline">provider.bluemedadvgrhs.com/grs-provider</code>) and <code class="code-inline">elevance-nc</code> &rarr; Healthy Blue NC provider (<code class="code-inline">provider.healthybluenc.com/north-carolina-provider</code>). Other source sites are not yet assigned to a DA site. Per-page migrations reuse existing blocks first, adding styling variants as new page types are brought over. Header/navigation is deferred on the first import pass.</span>
+          <span><strong>Status.</strong> Current DA mapping: <code class="code-inline">elevance</code> &rarr; GRS provider (<code class="code-inline">provider.bluemedadvgrhs.com/grs-provider</code>) and <code class="code-inline">elevance-nc</code> &rarr; Healthy Blue NC provider (<code class="code-inline">provider.healthybluenc.com/north-carolina-provider</code>). Other source sites are not yet assigned to a DA site. Both source sites are bot-protected, so imports rely on cached snapshots. All NC-specific CSS is scoped under <code class="code-inline">body.north-carolina</code> so it doesn't leak into other sites. Data-driven blocks (Prior Auth Lookup, Forms Accordion, Table News Archive) still read bundled sample JSON until real services are connected.</span>
         </div>
       </section>
 
@@ -165,11 +165,18 @@
         <table class="spec-table">
           <thead><tr><th>Date</th><th>Change</th></tr></thead>
           <tbody>
+            <tr><td>2026-11-05</td><td>Fixed column container padding on Schedules and Registration (#101, PR #106)</td></tr>
+            <tr><td>2026-11-04</td><td>Fixed Training Resources section spacing (#95&ndash;#97, PR #99)</td></tr>
+            <tr><td>2026-11-02</td><td>Fixed Prior Auth Lookup styling and search (#84, #88, #90, #91) and Training Academy styling (#92)</td></tr>
+            <tr><td>2026-10-24</td><td>Added <code class="code-inline">text-link</code> block for underlined links (#73, #74); Forms page field order and style (#65, #69); font sizing and white-card look</td></tr>
+            <tr><td>2026-10-15</td><td>Published this docs site and the <a href="author-guide.html">author guide</a>; fixed main-nav fonts, page-title height (#63), and double header/footer</td></tr>
+            <tr><td>2026-10-06&ndash;13</td><td>Visual-parity pass against the live site: buttons, h3 styles, modal, PDF icons, text-size controls</td></tr>
+            <tr><td>2026-09-28&ndash;30</td><td>Added <code class="code-inline">cta-footer-banner</code>, <code class="code-inline">more-resources</code>, and <code class="code-inline">medical-policies-dialog</code> blocks; mocked NC search; news archive reads from an API helper</td></tr>
+            <tr><td>2026-09-23&ndash;24</td><td>NC header, footer, hero banners, PDF list and PDF accordion blocks, Prior Auth Lookup, external-link confirmation</td></tr>
             <tr><td>2026-09-14</td><td>Added 6 blocks and updated the page importer</td></tr>
             <tr><td>2026-09-14</td><td>Updated project metadata</td></tr>
             <tr><td>2026-09-11</td><td>Added <code class="code-inline">header</code> block</td></tr>
             <tr><td>2026-09-11</td><td>Added 5 blocks and updated the page importer</td></tr>
-            <tr><td>2026-09-10</td><td>Added mountpoints configuration to <code class="code-inline">fstab.yaml</code></td></tr>
             <tr><td>2026-09-10</td><td>Initial commit &mdash; AEM Block Collection boilerplate</td></tr>
           </tbody>
         </table>
@@ -192,7 +199,7 @@
             </span>
             <span class="check-body">
               <span class="check-title">Healthy Blue NC provider &mdash; full site <span class="nav-status ns-progress">elevance-nc</span></span>
-              <span class="check-note">Migrate <code class="code-inline">provider.healthybluenc.com/north-carolina-provider</code> and its sections onto the <code class="code-inline">elevance-nc</code> site, inclusive of the 3 API calls: search, form index, and drug lookup. <strong>Search will be mocked up</strong> against this site as part of this pass.</span>
+              <span class="check-note">Migrate <code class="code-inline">provider.healthybluenc.com/north-carolina-provider</code> and its sections onto the <code class="code-inline">elevance-nc</code> site, inclusive of the 3 API calls: search, form index, and drug lookup. <strong>Done:</strong> all 47 pages imported and published; search is mocked; the form index and drug lookup blocks are built on sample JSON. <strong>Remaining:</strong> visual-parity issues from QA, and connecting the real data services.</span>
             </span>
           </li>
           <li class="check-item">
@@ -216,7 +223,7 @@
         </ul>
         <div class="notice tip">
           <svg class="notice-icon" width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8zm6.5-.25A.75.75 0 017.25 7h1a.75.75 0 01.75.75v2.75h.25a.75.75 0 010 1.5h-2a.75.75 0 010-1.5h.25v-2h-.25a.75.75 0 01-.75-.75zM8 6a1 1 0 100-2 1 1 0 000 2z"/></svg>
-          <span><strong>Open items.</strong> Confirm a full site index for Healthy Blue NC (Elevance), and receive the Figma + Word sample. Recurring touchpoint and workshop targeted for the week of October 8&ndash;9 2026.</span>
+          <span><strong>Open items.</strong> About 30 open QA issues on the NC site, mostly link styling, spacing, and 404s or 403s on links that point to the source site (see <a href="https://github.com/AdobeDrago/elevance/issues" target="_blank" rel="noopener">GitHub issues</a>). We still need the Figma + Word sample and a published PA-code dataset for Prior Auth Lookup. New blocks also need to be registered in the DA Library so authors can insert them.</span>
         </div>
       </section>
 
@@ -235,7 +242,7 @@
           <tbody>
             <tr><td>GRS Provider</td><td><code class="code-inline">provider.bluemedadvgrhs.com/grs-provider</code></td><td><code class="code-inline">elevance</code></td><td>8</td></tr>
             <tr><td>Anthem California Medicaid</td><td><code class="code-inline">mss.anthem.com/california-medicaid</code></td><td>TBD</td><td>9</td></tr>
-            <tr><td>Healthy Blue NC Provider</td><td><code class="code-inline">provider.healthybluenc.com/north-carolina-provider</code></td><td><code class="code-inline">elevance-nc</code></td><td>~55</td></tr>
+            <tr><td>Healthy Blue NC Provider</td><td><code class="code-inline">provider.healthybluenc.com/north-carolina-provider</code></td><td><code class="code-inline">elevance-nc</code></td><td>47 imported</td></tr>
             <tr><td>Simply Healthcare (FL DSNP)</td><td><code class="code-inline">choose.simplyhealthcareplans.com/medicare/shp/fl/dsnp/dual-plans/index</code></td><td>TBD</td><td>1</td></tr>
           </tbody>
         </table>
@@ -254,42 +261,57 @@
           Block library
         </h2>
         <div class="section-rule"></div>
-        <p>The 16 blocks currently in <code class="code-inline">/blocks</code>, from the AEM Block Collection baseline. Per-page migrations reuse these first; new styling variants are added as additional page types are brought over. See each block's source for exact behavior.</p>
+        <p>The 35 blocks currently in <code class="code-inline">/blocks</code>: the AEM Block Collection baseline plus NC-specific variants, all scoped under <code class="code-inline">body.north-carolina</code>. For authoring tables, screenshots, and options, see the <a href="author-guide.html">author guide</a>.</p>
 
-        <h3>Layout <span class="group-tag">4 blocks</span></h3>
+        <h3>NC page blocks <span class="group-tag">15 blocks</span></h3>
         <div class="block-grid">
-          <div class="block-card"><div class="block-card-header"><span class="block-card-name">hero</span></div><div class="block-card-desc">Standard page hero/banner.</div></div>
-          <div class="block-card"><div class="block-card-header"><span class="block-card-name">columns</span></div><div class="block-card-desc">Multi-column content layout.</div></div>
-          <div class="block-card"><div class="block-card-header"><span class="block-card-name">cards</span></div><div class="block-card-desc">Card grid for links and quick actions.</div></div>
-          <div class="block-card"><div class="block-card-header"><span class="block-card-name">carousel</span></div><div class="block-card-desc">Rotating content carousel.</div></div>
+          <div class="block-card"><div class="block-card-header"><span class="block-card-name">hero-welcome</span></div><div class="block-card-desc">Home-page welcome photograph with a content card over it.</div></div>
+          <div class="block-card"><div class="block-card-header"><span class="block-card-name">hero-banner</span></div><div class="block-card-desc">Interior-page title in a blue bar, with an optional photograph above it.</div></div>
+          <div class="block-card"><div class="block-card-header"><span class="block-card-name">cards-icon-links</span></div><div class="block-card-desc">Compact quick-action bar of icons and links.</div></div>
+          <div class="block-card"><div class="block-card-header"><span class="block-card-name">cards-featured</span></div><div class="block-card-desc">Photo cards for featured topics, arranged in a grid.</div></div>
+          <div class="block-card"><div class="block-card-header"><span class="block-card-name">cards-promo</span></div><div class="block-card-desc">Large photograph beside a heading, description, and call to action.</div></div>
+          <div class="block-card"><div class="block-card-header"><span class="block-card-name">cards-resource-grid</span></div><div class="block-card-desc">Text-only resource cards ending in a call-to-action button.</div></div>
+          <div class="block-card"><div class="block-card-header"><span class="block-card-name">cards-topics</span></div><div class="block-card-desc">Text-only topic teasers with headings, descriptions, and links.</div></div>
+          <div class="block-card"><div class="block-card-header"><span class="block-card-name">columns-link-lists</span></div><div class="block-card-desc">Two lists of resource links with dividers and chevrons.</div></div>
+          <div class="block-card"><div class="block-card-header"><span class="block-card-name">columns-content</span></div><div class="block-card-desc">Prose, headings, lists, or images in adjacent content columns.</div></div>
+          <div class="block-card"><div class="block-card-header"><span class="block-card-name">columns-doc-library</span></div><div class="block-card-desc">Categorized document links in adjacent columns.</div></div>
+          <div class="block-card"><div class="block-card-header"><span class="block-card-name">accordion-doc-links</span></div><div class="block-card-desc">Expandable document panels with control over link presentation.</div></div>
+          <div class="block-card"><div class="block-card-header"><span class="block-card-name">cta-footer-banner</span></div><div class="block-card-desc">A call-to-action band near the bottom of the page.</div></div>
+          <div class="block-card"><div class="block-card-header"><span class="block-card-name">pdf-list</span></div><div class="block-card-desc">A vertical list of document download links.</div></div>
+          <div class="block-card"><div class="block-card-header"><span class="block-card-name">more-resources</span></div><div class="block-card-desc">Side-by-side resource summaries with arrow links.</div></div>
+          <div class="block-card"><div class="block-card-header"><span class="block-card-name">text-link</span></div><div class="block-card-desc">Standalone text links (optionally with a chevron), kept underlined rather than turned into buttons.</div></div>
         </div>
 
-        <h3>Navigation <span class="group-tag">3 blocks</span></h3>
+        <h3>Interactive / data-driven <span class="group-tag">7 blocks</span></h3>
         <div class="block-grid">
-          <div class="block-card"><div class="block-card-header"><span class="block-card-name">header</span></div><div class="block-card-desc">Site header, including the primary nav.</div></div>
-          <div class="block-card"><div class="block-card-header"><span class="block-card-name">footer</span></div><div class="block-card-desc">Site footer.</div></div>
-          <div class="block-card"><div class="block-card-header"><span class="block-card-name">tabs</span></div><div class="block-card-desc">Tabbed content sections.</div></div>
+          <div class="block-card"><div class="block-card-header"><span class="block-card-name">prior-auth-lookup</span></div><div class="block-card-desc">Procedure or drug lookup with market, line of business, suggestions, and results.</div></div>
+          <div class="block-card"><div class="block-card-header"><span class="block-card-name">forms-accordion</span></div><div class="block-card-desc">A categorized forms directory populated by a service helper.</div></div>
+          <div class="block-card"><div class="block-card-header"><span class="block-card-name">table-news-archive</span></div><div class="block-card-desc">A filterable news-document archive with sorting and Load More.</div></div>
+          <div class="block-card"><div class="block-card-header"><span class="block-card-name">search</span></div><div class="block-card-desc">Site search for indexed pages and, on NC, indexed documents.</div></div>
+          <div class="block-card"><div class="block-card-header"><span class="block-card-name">medical-policies-dialog</span></div><div class="block-card-desc">The acknowledgement dialog used with medical-policy content.</div></div>
+          <div class="block-card"><div class="block-card-header"><span class="block-card-name">form</span></div><div class="block-card-desc">A form generated from a JSON field definition and submitted to an endpoint.</div></div>
+          <div class="block-card"><div class="block-card-header"><span class="block-card-name">modal</span></div><div class="block-card-desc">A dialog opened from a link to reusable modal content.</div></div>
         </div>
 
-        <h3>Content <span class="group-tag">4 blocks</span></h3>
+        <h3>Shared content <span class="group-tag">10 blocks</span></h3>
         <div class="block-grid">
-          <div class="block-card"><div class="block-card-header"><span class="block-card-name">accordion</span></div><div class="block-card-desc">Collapsible content sections, used for FAQs.</div></div>
-          <div class="block-card"><div class="block-card-header"><span class="block-card-name">quote</span></div><div class="block-card-desc">Pull-quote / testimonial block.</div></div>
-          <div class="block-card"><div class="block-card-header"><span class="block-card-name">embed</span></div><div class="block-card-desc">Embedded third-party content (video, social, etc.).</div></div>
-          <div class="block-card"><div class="block-card-header"><span class="block-card-name">video</span></div><div class="block-card-desc">Video player block.</div></div>
+          <div class="block-card"><div class="block-card-header"><span class="block-card-name">hero</span></div><div class="block-card-desc">Shared hero with a background photograph and content card.</div></div>
+          <div class="block-card"><div class="block-card-header"><span class="block-card-name">cards</span></div><div class="block-card-desc">Shared card grid for links and optional imagery.</div></div>
+          <div class="block-card"><div class="block-card-header"><span class="block-card-name">columns</span></div><div class="block-card-desc">Shared content columns, including a bordered callout.</div></div>
+          <div class="block-card"><div class="block-card-header"><span class="block-card-name">accordion</span></div><div class="block-card-desc">Expandable general content panels.</div></div>
+          <div class="block-card"><div class="block-card-header"><span class="block-card-name">tabs</span></div><div class="block-card-desc">Content panels switched by a row of tab buttons.</div></div>
+          <div class="block-card"><div class="block-card-header"><span class="block-card-name">table</span></div><div class="block-card-desc">A conventional data table.</div></div>
+          <div class="block-card"><div class="block-card-header"><span class="block-card-name">carousel</span></div><div class="block-card-desc">A manually navigated sequence of image and content slides.</div></div>
+          <div class="block-card"><div class="block-card-header"><span class="block-card-name">quote</span></div><div class="block-card-desc">A quotation with an optional attribution.</div></div>
+          <div class="block-card"><div class="block-card-header"><span class="block-card-name">embed</span></div><div class="block-card-desc">Embedded third-party content, with optional click-to-load poster.</div></div>
+          <div class="block-card"><div class="block-card-header"><span class="block-card-name">video</span></div><div class="block-card-desc">A YouTube, Vimeo, or direct-file video.</div></div>
         </div>
 
-        <h3>Interactive <span class="group-tag">4 blocks</span></h3>
+        <h3>Global / utility <span class="group-tag">3 blocks</span></h3>
         <div class="block-grid">
-          <div class="block-card"><div class="block-card-header"><span class="block-card-name">modal</span></div><div class="block-card-desc">Modal/dialog overlay.</div></div>
-          <div class="block-card"><div class="block-card-header"><span class="block-card-name">search</span></div><div class="block-card-desc">Site search UI (one of the required API integrations).</div></div>
-          <div class="block-card"><div class="block-card-header"><span class="block-card-name">form</span></div><div class="block-card-desc">Form fields and submission handling.</div></div>
-          <div class="block-card"><div class="block-card-header"><span class="block-card-name">table</span></div><div class="block-card-desc">Standard data table.</div></div>
-        </div>
-
-        <h3>Utility <span class="group-tag">1 block</span></h3>
-        <div class="block-grid">
-          <div class="block-card"><div class="block-card-header"><span class="block-card-name">fragment</span></div><div class="block-card-desc">Reusable content fragment include.</div></div>
+          <div class="block-card"><div class="block-card-header"><span class="block-card-name">header</span></div><div class="block-card-desc">Global logo, navigation, utility links, text-size controls, and search.</div></div>
+          <div class="block-card"><div class="block-card-header"><span class="block-card-name">footer</span></div><div class="block-card-desc">Global legal statements and utility links from a shared fragment.</div></div>
+          <div class="block-card"><div class="block-card-header"><span class="block-card-name">fragment</span></div><div class="block-card-desc">Reusable authored content included in multiple pages.</div></div>
         </div>
       </section>
 
@@ -325,7 +347,7 @@
       <div class="doc-footer">
         <span>Elevance Health EDS Migration docs</span>
         <span>·</span>
-        <span>Updated 2026-09-14</span>
+        <span>Updated 2026-11-10</span>
       </div>
 
     </div>
