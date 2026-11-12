@@ -81,6 +81,11 @@ body.north-carolina .columns-content .columns-content-col :is(ul, p.columns-cont
   margin-top: 0;
 }
 
+body.north-carolina .columns-content .columns-content-col p.columns-content-link:has(.icon-chevron)
+  + p.columns-content-link:has(.icon-chevron) {
+  margin-top: 9.5px;
+}
+
 /* lists */
 body.north-carolina .columns-content .columns-content-col ul {
   margin: 0;
@@ -160,6 +165,19 @@ body.north-carolina .columns-content .columns-content-col :is(h2, h3, h4) + :not
 
   body.north-carolina .columns-content .columns-content-col li:has(> a[href$='-pdf' i], > a[href$='.pdf' i]) + li {
     margin-top: 0;
+  }
+
+  body.north-carolina .columns-content .columns-content-col p.columns-content-link:has(.icon-chevron) {
+    line-height: 28px;
+  }
+
+  body.north-carolina .columns-content .columns-content-col p + p.columns-content-link:has(.icon-chevron) {
+    margin-top: 35px;
+  }
+
+  body.north-carolina .columns-content .columns-content-col p.columns-content-link:has(.icon-chevron)
+    + p.columns-content-link:has(.icon-chevron) {
+    margin-top: 15px;
   }
 
   body.north-carolina .columns-content .columns-content-col p + ul {

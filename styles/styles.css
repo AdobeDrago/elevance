@@ -505,6 +505,40 @@ body.north-carolina .icon.icon-check {
   vertical-align: -2px;
 }
 
+/* `:chevron:` at the end of a link's text (source p.arrow_link with fa-chevron-right):
+   bold 16/20 link (18/22 from 992px) ending in a chevron-right in the link color */
+body.north-carolina main a:any-link:has(> .icon-chevron) {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  text-decoration: underline;
+}
+
+body.north-carolina .icon.icon-chevron {
+  width: 8.75px;
+  height: 14px;
+  margin-left: 0.248em;
+  background-color: currentcolor;
+  mask: url('../icons/chevron.svg') center / 100% 100% no-repeat;
+  vertical-align: -2px;
+}
+
+body.north-carolina .icon.icon-chevron img {
+  display: none;
+}
+
+@media (width >= 992px) {
+  body.north-carolina main a:any-link:has(> .icon-chevron) {
+    font-size: 18px;
+    line-height: 22px;
+  }
+
+  body.north-carolina .icon.icon-chevron {
+    width: 10px;
+    height: 16px;
+  }
+}
+
 /* Arrow links (source p.arrow_link): authored as a heading holding only a link,
    so EDS doesn't turn them into buttons. Bold underlined link + chevron. */
 body.north-carolina main .default-content-wrapper > h4:has(> a:only-child, > strong:only-child > a:only-child) {
