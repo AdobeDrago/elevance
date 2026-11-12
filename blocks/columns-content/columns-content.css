@@ -68,7 +68,7 @@ body.north-carolina .columns-content .columns-content-col p {
   margin: 25px 0 0;
 }
 
-body.north-carolina .columns-content .columns-content-col p a:any-link {
+body.north-carolina .columns-content .columns-content-col p a:any-link:not(.button) {
   text-decoration: underline;
 }
 
@@ -114,6 +114,18 @@ body.north-carolina .columns-content .columns-content-col ul + ul {
 
 body.north-carolina .columns-content .columns-content-col p + ul:has(> li > a[href$='-pdf' i], > li > a[href$='.pdf' i]) {
   margin-top: 25px;
+}
+
+body.north-carolina .columns-content .columns-content-col p + ul.columns-content-link-list {
+  margin-top: 25px;
+}
+
+body.north-carolina .columns-content .columns-content-col ul.columns-content-link-list > li + li {
+  margin-top: 12px;
+}
+
+body.north-carolina .columns-content .columns-content-col ul + p {
+  margin-top: 13px;
 }
 
 /* heading + content */
@@ -171,8 +183,17 @@ body.north-carolina .columns-content .columns-content-col :is(h2, h3, h4) + :not
     line-height: 28px;
   }
 
-  body.north-carolina .columns-content .columns-content-col p + p.columns-content-link:has(.icon-chevron) {
+  body.north-carolina .columns-content .columns-content-col ul + p {
+    margin-top: 19px;
+  }
+
+  /* source `p + div` (link-only paragraph, button): 35px */
+  body.north-carolina .columns-content .columns-content-col p + p:is(.columns-content-link, .button-container) {
     margin-top: 35px;
+  }
+
+  body.north-carolina .columns-content .columns-content-col ul.columns-content-link-list > li + li {
+    margin-top: 0;
   }
 
   body.north-carolina .columns-content .columns-content-col p.columns-content-link:has(.icon-chevron)
@@ -181,6 +202,10 @@ body.north-carolina .columns-content .columns-content-col :is(h2, h3, h4) + :not
   }
 
   body.north-carolina .columns-content .columns-content-col p + ul {
+    margin-top: 35px;
+  }
+
+  body.north-carolina .columns-content .columns-content-col p + ul.columns-content-link-list {
     margin-top: 35px;
   }
 
