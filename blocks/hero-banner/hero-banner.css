@@ -48,6 +48,15 @@ body.north-carolina main > .section.hero-banner-container + .section.columns-con
   }
 }
 
+body.north-carolina main > .section.hero-banner-container + .section.title-continued:not(.light) {
+  padding-top: 16px;
+}
+
+body.north-carolina main > .section.hero-banner-container:not(:has(> .default-content-wrapper))
+  + .section:not(.light):has(> .default-content-wrapper:first-child > h2:first-child) {
+  padding-top: 45px;
+}
+
 body.north-carolina .hero-banner-container .hero-banner-wrapper {
   max-width: unset;
   padding: 0;

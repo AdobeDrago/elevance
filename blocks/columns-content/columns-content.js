@@ -20,6 +20,14 @@ export default function decorate(block) {
           para.classList.add('columns-content-link');
         }
       });
+      // lists whose every item is a single link (source ul.linklist) get their own spacing
+      col.querySelectorAll(':scope > ul').forEach((list) => {
+        const isLinkList = [...list.children].every((li) => {
+          const link = li.querySelector(':scope > a:only-child');
+          return link && li.textContent.trim() === link.textContent.trim();
+        });
+        if (isLinkList) list.classList.add('columns-content-link-list');
+      });
     });
   });
 }

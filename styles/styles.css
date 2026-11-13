@@ -578,7 +578,7 @@ body.north-carolina main .default-content-wrapper > h4:has(> a:only-child, > str
   vertical-align: 2px;
 }
 
-body.north-carolina main .default-content-wrapper a.button:any-link {
+body.north-carolina main :is(.default-content-wrapper, .columns-content-col) a.button:any-link {
   margin: 0;
   border: 0;
   border-bottom: 2px solid var(--brand-blue-dark);
@@ -590,8 +590,8 @@ body.north-carolina main .default-content-wrapper a.button:any-link {
   text-shadow: 0 1px 1px var(--brand-blue-dark);
 }
 
-body.north-carolina main .default-content-wrapper a.button:hover,
-body.north-carolina main .default-content-wrapper a.button:focus {
+body.north-carolina main :is(.default-content-wrapper, .columns-content-col) a.button:hover,
+body.north-carolina main :is(.default-content-wrapper, .columns-content-col) a.button:focus {
   background-color: var(--brand-blue-dark);
   border-bottom-color: var(--heading-color);
   text-shadow: 0 1px 1px var(--heading-color);
@@ -623,7 +623,7 @@ body.north-carolina main .section.light > .default-content-wrapper:first-child:h
 
 /* source button/CTA sizes switch at 992px */
 @media (width >= 992px) {
-  body.north-carolina main .default-content-wrapper a.button:any-link {
+  body.north-carolina main :is(.default-content-wrapper, .columns-content-col) a.button:any-link {
     padding: 12px 30px;
     font-size: var(--body-font-size-m);
   }
