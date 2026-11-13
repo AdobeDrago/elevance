@@ -25,6 +25,10 @@ body.north-carolina main > .section.hero-banner-container:has(> .default-content
   body.north-carolina main > .section.hero-banner-container:has(> .default-content-wrapper) {
     padding-bottom: 60px;
   }
+
+  body.north-carolina main > .section.hero-banner-container .default-content-wrapper > p:has(> strong:only-child) + p.button-container {
+    margin-top: 35px;
+  }
 }
 
 /* columns-content in a plain (non-light) section continues the title section, as in the
