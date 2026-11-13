@@ -17,7 +17,11 @@ body.north-carolina .accordion-doc-links .accordion-doc-links-item.is-animating 
 }
 
 body.north-carolina .accordion-doc-links .accordion-doc-links-item + .accordion-doc-links-item {
-  margin-top: 1.25rem;
+  margin-top: 2rem;
+}
+
+body.north-carolina .default-content-wrapper + .accordion-doc-links-wrapper:has(> .accordion-doc-links:not(.narrow)) {
+  margin-top: 2rem;
 }
 
 /* --- Title (summary) --- flex row: plus-circle icon + dark-blue label --- */
@@ -48,6 +52,11 @@ body.north-carolina .accordion-doc-links .accordion-doc-links-item-label > * {
   margin: 0;
   font: inherit;
   color: inherit;
+}
+
+/* Authored bold inside the title must not override the source's 500 weight. */
+body.north-carolina .accordion-doc-links .accordion-doc-links-item-label :is(strong, b) {
+  font-weight: inherit;
 }
 
 body.north-carolina .accordion-doc-links .accordion-doc-links-item-label::-webkit-details-marker {
@@ -147,13 +156,16 @@ body.north-carolina .accordion-doc-links.narrow {
     padding: 3.75rem 3.125rem;
   }
 
-  body.north-carolina .accordion-doc-links .accordion-doc-links-item + .accordion-doc-links-item {
-    margin-top: 1.75rem;
+  body.north-carolina .accordion-doc-links .accordion-doc-links-item + .accordion-doc-links-item,
+  body.north-carolina .default-content-wrapper + .accordion-doc-links-wrapper:has(> .accordion-doc-links:not(.narrow)) {
+    margin-top: 2.75rem;
   }
 
+  /* Source title row is 100px: 28px line plus ~36px above and below. */
   body.north-carolina .accordion-doc-links .accordion-doc-links-item-label {
-    padding: 1.5rem 0;
+    padding: 2.25rem 0;
     font-size: 1.75rem;
+    line-height: 1.75rem;
   }
 
   body.north-carolina .accordion-doc-links .accordion-doc-links-item-label::before {
