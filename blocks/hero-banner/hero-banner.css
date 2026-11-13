@@ -34,18 +34,23 @@ body.north-carolina main > .section.hero-banner-container:has(> .default-content
   padding-bottom: 0;
 }
 
-body.north-carolina main > .section.hero-banner-container:has(> .default-content-wrapper) + .section.columns-content-container:not(.light) {
+body.north-carolina main > .section.hero-banner-container + .section.columns-content-container:not(.light) {
   padding-top: 25px;
 }
 
 @media (width >= 992px) {
-  body.north-carolina main > .section.hero-banner-container:has(> .default-content-wrapper) + .section.columns-content-container:not(.light) {
+  body.north-carolina main > .section.hero-banner-container + .section.columns-content-container:not(.light) {
     padding-top: 60px;
   }
 }
 
-body.north-carolina main > .section.hero-banner-container:not(:has(> .default-content-wrapper)) + .section.columns-content-container:not(.light) {
+body.north-carolina main > .section.hero-banner-container + .section.title-continued:not(.light) {
   padding-top: 16px;
+}
+
+body.north-carolina main > .section.hero-banner-container:not(:has(> .default-content-wrapper))
+  + .section:not(.light):has(> .default-content-wrapper:first-child > h2:first-child) {
+  padding-top: 45px;
 }
 
 body.north-carolina .hero-banner-container .hero-banner-wrapper {
