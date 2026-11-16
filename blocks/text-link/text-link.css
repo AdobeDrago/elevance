@@ -73,6 +73,10 @@ body.north-carolina .text-link.chevron a:any-link {
   line-height: 20px;
 }
 
+body.north-carolina .text-link.chevron a:any-link:hover {
+  color: var(--link-hover-color);
+}
+
 body.north-carolina .text-link.chevron a:any-link::after {
   display: inline-block;
   width: 8.75px;
