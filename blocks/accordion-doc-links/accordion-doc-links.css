@@ -16,7 +16,7 @@ body.north-carolina .accordion-doc-links .accordion-doc-links-item.is-animating 
   overflow: hidden;
 }
 
-body.north-carolina .accordion-doc-links .accordion-doc-links-item + .accordion-doc-links-item {
+body.north-carolina .accordion-doc-links:not(.narrow) .accordion-doc-links-item + .accordion-doc-links-item {
   margin-top: 2rem;
 }
 
@@ -156,7 +156,7 @@ body.north-carolina .accordion-doc-links.narrow {
     padding: 3.75rem 3.125rem;
   }
 
-  body.north-carolina .accordion-doc-links .accordion-doc-links-item + .accordion-doc-links-item,
+  body.north-carolina .accordion-doc-links:not(.narrow) .accordion-doc-links-item + .accordion-doc-links-item,
   body.north-carolina .default-content-wrapper + .accordion-doc-links-wrapper:has(> .accordion-doc-links:not(.narrow)) {
     margin-top: 2.75rem;
   }
