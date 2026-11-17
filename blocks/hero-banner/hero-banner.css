@@ -52,6 +52,18 @@ body.north-carolina main > .section.hero-banner-container + .section.title-conti
   padding-top: 16px;
 }
 
+body.north-carolina main > .section.hero-banner-container
+  + .section.title-continued:not(.light):has(> .default-content-wrapper:first-child > p:first-child) {
+  padding-top: 25px;
+}
+
+@media (width >= 992px) {
+  body.north-carolina main > .section.hero-banner-container
+    + .section.title-continued:not(.light):has(> .default-content-wrapper:first-child > p:first-child) {
+    padding-top: 35px;
+  }
+}
+
 body.north-carolina main > .section.hero-banner-container:not(:has(> .default-content-wrapper))
   + .section:not(.light):has(> .default-content-wrapper:first-child > h2:first-child) {
   padding-top: 45px;
