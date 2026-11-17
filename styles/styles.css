@@ -597,51 +597,71 @@ body.north-carolina main :is(.default-content-wrapper, .columns-content-col) a.b
   text-shadow: 0 1px 1px var(--heading-color);
 }
 
-body.north-carolina main .section.light:has(> .default-content-wrapper:first-child > h3:first-child) {
+body.north-carolina main .section.light:has(> .default-content-wrapper:first-child > h3:first-child):not(:has(> .default-content-wrapper:first-child > h2)) {
   padding: 22px 0 25px;
 }
 
-body.north-carolina main .section.light > .default-content-wrapper:first-child:has(> h3:first-child) {
+body.north-carolina main .section.light > .default-content-wrapper:first-child:has(> h3:first-child):not(:has(> h2)) {
   padding-top: 0;
   padding-bottom: 0;
 }
 
-body.north-carolina main .section.light > .default-content-wrapper:first-child:has(> h3:first-child) > h3 {
+body.north-carolina main .section.light > .default-content-wrapper:first-child:has(> h3:first-child):not(:has(> h2)) > h3 {
   margin: 0;
   font-size: 22px;
   font-weight: 700;
   line-height: 28px;
 }
 
-body.north-carolina main .section.light > .default-content-wrapper:first-child:has(> h3:first-child) > h3 + p {
+body.north-carolina main .section.light > .default-content-wrapper:first-child:has(> h3:first-child):not(:has(> h2)) > h3 + p {
   margin-top: 15px;
 }
 
-body.north-carolina main .section.light > .default-content-wrapper:first-child:has(> h3:first-child) > p.button-container {
+body.north-carolina main .section.light > .default-content-wrapper:first-child:has(> h3:first-child):not(:has(> h2)) > p.button-container {
   margin-top: 20px;
+}
+
+body.north-carolina main .section.light > .default-content-wrapper:first-child:has(> h3:first-child):has(> h2) > p.link-container a:any-link {
+  text-decoration: underline;
+}
+
+body.north-carolina main .section.light > .default-content-wrapper:first-child:has(> h3:first-child):has(> h2) > h2 + ul {
+  margin-top: 15px;
+}
+
+body.north-carolina main .section.light > .default-content-wrapper:first-child:has(> h3:first-child):has(> h2) > ul > li:has(> a[href$='-pdf' i], > a[href$='.pdf' i]) + li {
+  margin-top: 12px;
 }
 
 /* source button/CTA sizes switch at 992px */
 @media (width >= 992px) {
+  body.north-carolina main .section.light > .default-content-wrapper:first-child:has(> h3:first-child):has(> h2) > h2 + ul {
+    margin-top: 20px;
+  }
+
+  body.north-carolina main .section.light > .default-content-wrapper:first-child:has(> h3:first-child):has(> h2) > ul > li:has(> a[href$='-pdf' i], > a[href$='.pdf' i]) + li {
+    margin-top: 0;
+  }
+
   body.north-carolina main :is(.default-content-wrapper, .columns-content-col) a.button:any-link {
     padding: 12px 30px;
     font-size: var(--body-font-size-m);
   }
 
-  body.north-carolina main .section.light:has(> .default-content-wrapper:first-child > h3:first-child) {
+  body.north-carolina main .section.light:has(> .default-content-wrapper:first-child > h3:first-child):not(:has(> .default-content-wrapper:first-child > h2)) {
     padding: 45px 0 52px;
   }
 
-  body.north-carolina main .section.light > .default-content-wrapper:first-child:has(> h3:first-child) > h3 {
+  body.north-carolina main .section.light > .default-content-wrapper:first-child:has(> h3:first-child):not(:has(> h2)) > h3 {
     font-size: 35px;
     line-height: 40px;
   }
 
-  body.north-carolina main .section.light > .default-content-wrapper:first-child:has(> h3:first-child) > h3 + p {
+  body.north-carolina main .section.light > .default-content-wrapper:first-child:has(> h3:first-child):not(:has(> h2)) > h3 + p {
     margin-top: 20px;
   }
 
-  body.north-carolina main .section.light > .default-content-wrapper:first-child:has(> h3:first-child) > p.button-container {
+  body.north-carolina main .section.light > .default-content-wrapper:first-child:has(> h3:first-child):not(:has(> h2)) > p.button-container {
     margin-top: 30px;
   }
 }
