@@ -29,8 +29,6 @@ A single AEM Edge Delivery Services (EDS / "Franklin" / Helix) codebase that ser
   not in this workspace**; they live in the `elevance-nc` space and are viewable on
   its preview: `https://main--elevance-nc--adobedrago.aem.page/north-carolina-provider/home`.
   Switch the active site (`migration-work/profile.json`) before re-importing NC pages.
-- **Anthem Find Care prototype:** a single draft page, `/drafts/fc-landing`, in the
-  `elevance` space (see §5 and §7). It is not a separate site.
 - There is intentionally **no `fstab.yaml`** — in this repoless multi-site setup
   the active site / content mount is resolved by tooling and per-site config
   (`.migration/project.json`, `migration-work/profile.json`), not by a single
@@ -38,11 +36,6 @@ A single AEM Edge Delivery Services (EDS / "Franklin" / Helix) codebase that ser
 
 > ⚠️ **Both provider source sites are bot-protected.** Scraping/import uses a Bright
 > Data fallback and cached snapshots under `tools/importer/bd-snapshots/`.
->
-> ⚠️ **findcare.anthem.com is an Angular single-page app that answers HTTP 404 on
-> every route** (it still renders in a browser; `/fc-landing` redirects client-side to
-> `/fc-home`). Automated analyzers reject it as an error page, so it is imported from
-> a rendered snapshot: `tools/importer/bd-snapshots/findcare.anthem.com/fc-landing.html`.
 
 ---
 
@@ -52,23 +45,19 @@ A single AEM Edge Delivery Services (EDS / "Franklin" / Helix) codebase that ser
 Because all sites share this one codebase, an unscoped `.hero-banner { … }` rule
 would leak across sites. Scope it: `body.north-carolina .hero-banner { … }`.
 
-- Theme classes in use:
-  | Theme class | Used by |
-  |-------------|---------|
-  | `north-carolina` | Healthy Blue North Carolina site (all NC pages) |
-  | `anthem` | Anthem Find Care prototype (`/drafts/fc-landing`) |
+- The North Carolina site uses the theme class **`north-carolina`** (all NC pages).
 - This applies to **block CSS, base/element overrides, media queries, and
   pseudo-classes** — no exceptions. There must be **zero** unscoped block/element
   selectors for a site.
 - Quick audit (lists files that still have unscoped top-level rules):
   ```bash
   for f in blocks/*/*.css; do
-    n=$(grep -nE '^\s*\.[a-z]' "$f" | grep -vE 'body\.(north-carolina|anthem)' | wc -l)
+    n=$(grep -nE '^\s*\.[a-z]' "$f" | grep -v 'body\.north-carolina' | wc -l)
     [ "$n" -ne 0 ] && echo "UNSCOPED in $f: $n"
   done; echo done
   ```
   (Shared boilerplate blocks predating the multi-site split — the §4a list — are
-  expected to show up here; the **site variants** in §4b–e must all be scoped. The
+  expected to show up here; the **site variants** in §4b–d must all be scoped. The
   single hit in `prior-auth-lookup.css` is a false positive inside a comment.)
 - **Known violations to fix:** `pdf-list`, `medical-policies-dialog` and
   `more-resources` (NC blocks, §4d) have **unscoped** CSS
@@ -79,8 +68,7 @@ would leak across sites. Scope it: `body.north-carolina .hero-banner { … }`.
 ### How the theme class gets onto `<body>`
 Standard EDS mechanism: page **metadata** `theme` → `decorateTemplateAndTheme()`
 in `scripts/aem.js` adds it as a body class. So every NC page's Metadata block
-carries `theme: north-carolina`, and the Anthem prototype carries `theme: anthem`.
-Do not hand-add the class in code.
+carries `theme: north-carolina`. Do not hand-add the class in code.
 
 ---
 
@@ -100,12 +88,6 @@ element overrides (heading weights, body sizing) that tokens alone can't express
 - Heading sizes: xxl 28 / xl 20 / l 28 / m 22 / s 18 / xs 16 (px)
 
 Fonts are loaded in **`head.html`** via Google Fonts (`Roboto` + `Roboto Condensed`).
-
-**Anthem tokens:** _not created yet._ The `anthem` theme currently has only the
-structural CSS of its blocks; the design pass (tokens in `brand.css` under
-`body.anthem`, fonts, base overrides) has not been run. Source observations from the
-page analysis: brand blue `#286ce2` title band, dark-blue `#015a96` buttons, `#333`
-headings, Montserrat headings / Lato body.
 
 To add another site's design: add a new `body.<theme>` token block in `brand.css`
 (+ base overrides in `styles.css`), load its fonts in `head.html`, and give its
@@ -165,14 +147,6 @@ to preview/design against** yet.
 | `medical-policies-dialog` | medical-policies-and-clinical-guidelines | Disclaimer dialog shown once per day (cookie `mpdisclaimer`) | ⚠️ unscoped CSS; no `metadata.json`/`README.md` |
 | `more-resources` | claims | "More resources" card row with arrow links | ⚠️ unscoped CSS; no `metadata.json`/`README.md` |
 
-**e) Anthem prototype blocks** (`body.anthem`-scoped, structural CSS only):
-| Block | Base | Used for |
-|-------|------|----------|
-| `columns-findcare` | columns | Two side-by-side panels: "Log in for Personalized Search" and "Use Member ID for Basic Search". JS turns the right cell's authored text (bold label + italic tooltip, placeholder paragraph, bold radio label, bulleted options, bold Continue link) into an accessible search form. On submit it goes to the Continue link with `memberId` and `accountType` query params (names are assumptions — confirm with the Find Care app). |
-
-The Anthem page also reuses NC's `hero-banner` block for its title band; that block
-has no `body.anthem` styling yet.
-
 ### Interactive blocks run on bundled sample data
 `scripts/lookup-service.js` serves `prior-auth-lookup`, `forms-accordion` and
 `table-news-archive`. It is hard-wired to **mock JSON** in `scripts/lookup-data/`
@@ -191,9 +165,7 @@ are reachable from the EDS domain.
   with a 3-step fallback: `{metadata path}.plain.html` → `/content{metadata
   path}.plain.html` (localhost) → legacy default. NC pages set `nav:
   /fragments/nav` and `footer: /fragments/footer` metadata; the fragments live at
-  `content/fragments/{nav,footer}.plain.html`. The Anthem prototype sets no
-  `nav`/`footer`, so its header and footer render empty (the header logs a load
-  error) until Anthem fragments exist.
+  `content/fragments/{nav,footer}.plain.html`.
 
 ---
 
@@ -204,23 +176,20 @@ Content is NOT authored in this repo — it's imported into DA. The importer liv
 import script.** (Deleting anything under `content/` is disallowed.)
 
 ### Key files
-- `tools/importer/page-templates.json` — the template catalog. Three templates:
+- `tools/importer/page-templates.json` — the template catalog. Two templates:
   | Template | URLs | Blocks mapped | Import script |
   |----------|------|---------------|---------------|
   | `north-carolina-provider` | 1 (NC home) | 4 | `import-north-carolina-provider.js` |
   | `nc-provider-interior` | 47 (consolidated interior template) | 11 | `import-nc-provider-interior.js` |
-  | `anthem-findcare-landing` | 1 (findcare.anthem.com/fc-landing) | 2 (`hero-banner`, `columns-findcare`) | `import-anthem-findcare-landing.js` |
   The grs-provider (Elevance) import, `import-grs-provider.js`, predates the catalog
   and has **no entry** in `page-templates.json`.
 - `tools/importer/parsers/<block>.js` — one parser per block; converts source DOM
   → EDS block table. Signature: `export default function parse(element,{document})`,
   build with `WebImporter.Blocks.createBlock(...)`, then `element.replaceWith(block)`.
-  `anthem-hero-banner.js` is the Anthem parser for the `hero-banner` block; the NC
-  `hero-banner.js` parser is separate and must stay unchanged.
 - `tools/importer/transformers/` — site-wide cleanup (removes header/nav/footer/
-  modals) and section handling, one pair per source site: `healthybluenc-*` (NC),
-  `bluemedadvgrhs-*` (grs-provider), `anthem-findcare-*` (Anthem). Each import
-  script imports only its own site's pair.
+  modals) and section handling, one pair per source site: `healthybluenc-*` (NC) and
+  `bluemedadvgrhs-*` (grs-provider). Each import script imports only its own site's
+  pair.
 - `tools/importer/import-<template>.js` — the per-template import orchestrator
   (bundled to `.bundle.js` before running).
 
@@ -237,22 +206,6 @@ disambiguate. `import-nc-provider-interior.js` therefore:
 
 If a page's blocks look wrong, edit the router logic or that page's entry in
 `ALLOWED_BLOCKS`, then re-bundle + re-import that page (see §6).
-
-### Anthem Find Care import (prototype)
-- `import-anthem-findcare-landing.js` maps `/fc-landing` to **`/drafts/fc-landing`**
-  (`PATH_OVERRIDES`) and injects `title: Find Care` and `theme: anthem` metadata.
-- Because the site returns 404 everywhere, the import runs from the rendered snapshot
-  in `tools/importer/bd-snapshots/findcare.anthem.com/`. The snapshot is used
-  automatically because the active site (`elevance`) is flagged bot-protected. If the
-  live page changes, re-capture the snapshot from a real browser (wait for the
-  "Find Care" H1), strip scripts, and make image URLs absolute.
-- The source's buttons have no real links, so the parser uses **placeholder hrefs**:
-  register → `anthem.com/register`, Log In → `anthem.com/login`, Continue →
-  `findcare.anthem.com/`, Español → `findcare.anthem.com/?lang=es`. "Basic search as a
-  guest" has no link. Replace these before the page goes anywhere public.
-- The member-ID tooltip text comes from the button's `aria-label`; the importer strips
-  that icon-only button, so the parser falls back to a fixed copy of the text.
-- Icons are hotlinked from `findcare.anthem.com/assets/images/common/`.
 
 ---
 
@@ -274,8 +227,6 @@ node "$D/run-bulk-import.js" \
   --import-script tools/importer/import-nc-provider-interior.bundle.js \
   --urls tools/importer/urls-nc-provider-interior.txt --force
 ```
-(Anthem prototype: same commands with `import-anthem-findcare-landing` and
-`urls-anthem-findcare-landing.txt`.)
 
 **Validate content completeness** (source text vs generated HTML):
 ```bash
@@ -288,7 +239,6 @@ With `elevance` active, the NC pages show as "unscored" because their
 **Preview locally** (dev server on :3000; content served under `/content/`):
 ```
 http://localhost:3000/content/grs-provider
-http://localhost:3000/content/drafts/fc-landing
 ```
 NC pages are previewed on the `elevance-nc` site preview instead (see §1).
 
@@ -309,10 +259,6 @@ NC pages are previewed on the `elevance-nc` site preview instead (see §1).
 - Design tokens + all **in-use** NC blocks styled and visually verified (~92–97%).
 - **elevance (grs-provider):** 8 basic pages (home + 7 interior) using generic
   `hero`/`cards`/`columns`; no theme metadata, no design pass.
-- **Anthem Find Care prototype (`/drafts/fc-landing`):** content imported and
-  passing validation (90%); member-ID search form works. **Not styled** (no Anthem
-  tokens), **no header/footer**, placeholder links (§5). Local only — not uploaded to
-  DA or previewed.
 
 ### Demo pages (North Carolina preview)
 Best showcase pages, in a suggested order: `home` (hero, icon bar, feature cards,
@@ -320,23 +266,20 @@ PDF lists, link directory) → `resources` (widest block mix) →
 `prior-authorization-lookup` → `archives` → `forms` →
 `medical-policies-and-clinical-guidelines`; optionally `patient-care`. In the lookup
 tool, choose a line of business first, then click the search box to open the search
-panel. Skip the grs-provider pages and the unstyled Anthem draft.
+panel. Skip the grs-provider pages (unstyled generic blocks).
 
 ### Open follow-ups (non-blocking)
 1. **Interactive blocks use sample data.** Point `scripts/lookup-service.js` at live
    endpoints (or a published JSON) for real prior-auth, forms and news results (§4).
 2. **DA authoring-UI registration** for the new blocks (blocks.json + Library
    panel) via `block-library-creator` — so authors can insert them. Includes the §4d
-   blocks and `columns-findcare`.
+   blocks.
 3. **2 unused blocks** (`cards-topics`, `columns-doc-library`) — decide whether to
    author content into them or retire them.
 4. **Scope the unscoped CSS** in `pdf-list`, `medical-policies-dialog`,
    `more-resources`, and add their missing `metadata.json`/`README.md` (also
    `text-link`).
-5. **Anthem prototype:** run the design pass (`body.anthem` tokens, fonts, styling for
-   `hero-banner` and `columns-findcare`), add Anthem nav/footer fragments, replace the
-   placeholder links and confirm the Continue query parameter names.
-6. **Source drift:** the live source site has changed since scrape (archives feed
+5. **Source drift:** the live source site has changed since scrape (archives feed
    redesigned, some redirects). Cached scrapes are in `tools/importer/bd-snapshots/`.
 
 ---
@@ -355,17 +298,17 @@ scripts/                    aem.js (core, do not fork lightly), scripts.js (auto
 content/                    The elevance DA space (generated — do not hand-edit)
   grs-provider(.plain.html) grs-provider home + 7 interior pages
   fragments/                nav.plain.html, footer.plain.html
-  drafts/                   Draft pages, incl. fc-landing (Anthem prototype)
+  drafts/                   Personal draft/test pages
   docs/library/             Block library sample pages
   media-da/                 Imported images
 docs/                       Static author guide + project overview (author-guide.html, index.html)
 tools/importer/
-  page-templates.json       Template catalog (3 templates)
-  parsers/                  Per-block source→EDS parsers (+ anthem-hero-banner.js)
-  transformers/             healthybluenc-*, bluemedadvgrhs-*, anthem-findcare-* cleanup/sections
+  page-templates.json       Template catalog (2 templates)
+  parsers/                  Per-block source→EDS parsers
+  transformers/             healthybluenc-*, bluemedadvgrhs-* cleanup/sections
   import-*.js(.bundle.js)   Per-template import orchestrators (content-aware router for NC interior)
-  bd-snapshots/             Cached raw HTML for bot-protected / SPA re-imports
-migration-work/             Analysis artifacts from the latest analysis run (currently Anthem fc-landing)
+  bd-snapshots/             Cached raw HTML for bot-protected re-imports
+migration-work/             Analysis artifacts (git-ignored; profile.json = active site)
 .migration/project.json     Project type + per-site config
 ```
 
@@ -378,7 +321,6 @@ migration-work/             Analysis artifacts from the latest analysis run (cur
 - [ ] Regenerate content via the import script — don't hand-edit `content/`.
 - [ ] Re-bundle (`aem-import-bundle.sh`) after editing any `import-*.js` before running.
 - [ ] Both provider source sites are bot-protected → rely on Bright Data / bd-snapshots.
-- [ ] findcare.anthem.com returns 404 on every route → import from its rendered snapshot.
 - [ ] Check which site is active (`migration-work/profile.json`) before importing — `content/` is that site's DA space.
 - [ ] Keep the `buildAutoBlocks` hero guard in `scripts/scripts.js`.
 - [ ] Block CSS from generation is **structural only**; brand styling is a separate design pass.
