@@ -5,6 +5,8 @@ the **repoless multi-site** setup, the **theme-scoped design system**, the **blo
 library**, and the **content-migration pipeline** so you can continue the work
 without re-deriving it.
 
+_Last reviewed: 2026-11-18._
+
 ---
 
 ## 1. What this repo is
@@ -20,14 +22,20 @@ A single AEM Edge Delivery Services (EDS / "Franklin" / Helix) codebase that ser
   |----------|------------------|--------------|---------------------------|
   | `elevance` (aka grs-provider) | adobedrago / elevance | content.da.live/adobedrago/elevance/ | provider.bluemedadvgrhs.com/grs-provider |
   | `elevance-nc` (North Carolina) | adobedrago / elevance-nc | content.da.live/adobedrago/elevance-nc/ | provider.healthybluenc.com/north-carolina-provider |
-- **Active site for recent work:** `elevance-nc` (`migration-work/profile.json`).
+- **Active site in this workspace:** `elevance` (`migration-work/profile.json`).
+  The local `content/` folder is the **`elevance`** DA space — it holds the
+  grs-provider pages, the shared fragments, the block library samples
+  (`content/docs/library/`) and `content/drafts/`. **The 47 North Carolina pages are
+  not in this workspace**; they live in the `elevance-nc` space and are viewable on
+  its preview: `https://main--elevance-nc--adobedrago.aem.page/north-carolina-provider/home`.
+  Switch the active site (`migration-work/profile.json`) before re-importing NC pages.
 - There is intentionally **no `fstab.yaml`** — in this repoless multi-site setup
   the active site / content mount is resolved by tooling and per-site config
   (`.migration/project.json`, `migration-work/profile.json`), not by a single
   `fstab` mountpoint. Do not re-add one.
 
-> ⚠️ **Both source sites are bot-protected.** Scraping/import uses a Bright Data
-> fallback and cached snapshots under `tools/importer/bd-snapshots/`.
+> ⚠️ **Both provider source sites are bot-protected.** Scraping/import uses a Bright
+> Data fallback and cached snapshots under `tools/importer/bd-snapshots/`.
 
 ---
 
@@ -37,20 +45,25 @@ A single AEM Edge Delivery Services (EDS / "Franklin" / Helix) codebase that ser
 Because all sites share this one codebase, an unscoped `.hero-banner { … }` rule
 would leak across sites. Scope it: `body.north-carolina .hero-banner { … }`.
 
-- The North Carolina site uses the theme class **`north-carolina`**.
+- The North Carolina site uses the theme class **`north-carolina`** (all NC pages).
 - This applies to **block CSS, base/element overrides, media queries, and
   pseudo-classes** — no exceptions. There must be **zero** unscoped block/element
   selectors for a site.
-- Quick audit (should print nothing but `0`s):
+- Quick audit (lists files that still have unscoped top-level rules):
   ```bash
   for f in blocks/*/*.css; do
     n=$(grep -nE '^\s*\.[a-z]' "$f" | grep -v 'body\.north-carolina' | wc -l)
     [ "$n" -ne 0 ] && echo "UNSCOPED in $f: $n"
   done; echo done
   ```
-  (Shared boilerplate blocks predating the multi-site split — e.g. `cards`,
-  `columns`, `hero` — may still have `:root`/unscoped rules; the **NC variants**
-  listed in §4 must all be scoped.)
+  (Shared boilerplate blocks predating the multi-site split — the §4a list — are
+  expected to show up here; the **site variants** in §4b–d must all be scoped. The
+  single hit in `prior-auth-lookup.css` is a false positive inside a comment.)
+- **Known violations to fix:** `pdf-list`, `medical-policies-dialog` and
+  `more-resources` (NC blocks, §4d) have **unscoped** CSS
+  (`.pdf-list-wrapper .pdf-list`, `.medical-policies-disclaimer`,
+  `.more-resources.block`). They only render on NC pages today, but must be scoped
+  under `body.north-carolina` before another site uses a block of the same name.
 
 ### How the theme class gets onto `<body>`
 Standard EDS mechanism: page **metadata** `theme` → `decorateTemplateAndTheme()`
@@ -81,45 +94,68 @@ To add another site's design: add a new `body.<theme>` token block in `brand.css
 pages `theme: <theme>` metadata. **Never edit the `:root` defaults for a
 site-specific change.**
 
+### Section styles
+NC pages use the **`light`** section style (grey band) on 45 of 47 pages, set through
+Section Metadata. Its rules live in `styles/styles.css`.
+
 ---
 
 ## 4. Block library
 
-Blocks live in `blocks/`. There are three groups:
+Blocks live in `blocks/`. Most blocks ship `<name>.js`, `<name>.css`,
+`metadata.json` and `README.md`; the exceptions are noted below.
 
 **a) Boilerplate blocks** (from the EDS starter — shared, may be unscoped):
-`accordion, cards, columns, embed, footer, form, fragment, header, hero, modal,
-quote, search, table, tabs, video`.
+`accordion, cards, carousel, columns, embed, footer, form, fragment, header, hero,
+modal, quote, search, table, tabs, video`.
 
 **b) NC home-page variants** (built first, `body.north-carolina`-scoped, styled):
 | Block | Base | Used for |
 |-------|------|----------|
 | `hero-welcome` | hero | Home welcome hero: full-bleed photo + overlaid content card |
-| `cards-icon-links` | cards | Grey quick-action icon+label bar |
+| `cards-icon-links` | cards | Grey quick-action icon+label bar (home + 6 interior pages) |
 | `cards-featured` | cards | 3-up photo feature cards |
-| `columns-link-lists` | columns | "Provider tools & resources" two-column chevron link directory (site-wide) |
+| `columns-link-lists` | columns | "Provider tools & resources" two-column chevron link directory (44 pages) |
 
 **c) NC interior variants** (built for the 46 interior pages):
 | Block | Base | In use? | Used for |
 |-------|------|---------|----------|
-| `hero-banner` | hero | ✅ | Interior page-title banner (photo + solid blue title bar) |
-| `cards-promo` | cards | ✅ | Alternating photo-beside-text promo rows with a button |
-| `accordion-doc-links` | accordion | ✅ | Expand/collapse panels of document/PDF links |
-| `cards-resource-grid` | cards | ✅ | 2-up no-image cards ending in solid-button CTAs |
-| `table-news-archive` | table | ✅ | Filter/sort/paginate news-bulletin feed (client-side JS) |
-| `prior-auth-lookup` | (custom) | ✅ | Interactive Prior-Auth lookup tool (config-driven) |
+| `hero-banner` | hero | ✅ all 47 interior pages | Interior page-title banner (photo + solid blue title bar) |
+| `columns-content` | columns | ✅ 9 pages | Two-up prose content columns (e.g. prior-authorization, training-resources) |
+| `cards-promo` | cards | ✅ 3 pages | Alternating photo-beside-text promo rows with a button |
+| `accordion-doc-links` | accordion | ✅ 3 pages | Expand/collapse panels of document/PDF links |
+| `cards-resource-grid` | cards | ✅ resources | 2-up no-image cards ending in solid-button CTAs |
+| `table-news-archive` | table | ✅ archives | Filter/sort/paginate news-bulletin feed (client-side JS, sample data — see below) |
+| `prior-auth-lookup` | (custom) | ✅ prior-authorization-lookup | Interactive Prior-Auth lookup tool (sample data — see below) |
 | `cards-topics` | cards | ⚠️ built, **unused** | No-image teaser grid (heading+paragraph+arrow link) |
-| `columns-content` | columns | ⚠️ built, **unused** | Two-up prose content columns |
 | `columns-doc-library` | columns | ⚠️ built, **unused** | Categorized multi-column document library |
 
 **About the ⚠️ unused blocks:** their code + CSS exist and are scoped, but no
-imported page currently routes to them (see §5). `columns-doc-library` was
-deliberately dropped from doc-heavy pages in favor of default content (for content
-completeness); `cards-topics`/`columns-content` sections imported cleanly as
-default content. They're available if you later choose to author those sections
-as blocks, but they have **no live content to preview/design against** yet.
+imported page currently uses them. `columns-doc-library` was deliberately dropped
+from doc-heavy pages in favor of default content (for content completeness);
+`cards-topics` sections imported cleanly as default content. They're available if
+you later choose to author those sections as blocks, but they have **no live content
+to preview/design against** yet.
 
-Every block ships `<name>.js`, `<name>.css`, `metadata.json`, `README.md`.
+**d) NC blocks added after the initial migration** (post-handoff fixes; in use):
+| Block | In use on | Used for | Notes |
+|-------|-----------|----------|-------|
+| `pdf-list` | 11 pages (home, manuals-and-guides, maternal-child-services, …) | List of PDF download links (opens in new tab, adds screen-reader text) | ⚠️ unscoped CSS; no `metadata.json`/`README.md` |
+| `text-link` | 9 pages (training-academy, prior-authorization, cme, …) | Paragraphs holding a text link; `chevron` variant = bold link + chevron | no `metadata.json`/`README.md` |
+| `cta-footer-banner` | 9 pages (prior-authorization, training-*, learn-about-availity, …) | Full-width call-to-action band near the page foot (heading, text, button) | |
+| `forms-accordion` | forms | Categorized provider-forms library in collapsible topic sections + "PCP Change Form" list (sample data) | |
+| `medical-policies-dialog` | medical-policies-and-clinical-guidelines | Disclaimer dialog shown once per day (cookie `mpdisclaimer`) | ⚠️ unscoped CSS; no `metadata.json`/`README.md` |
+| `more-resources` | claims | "More resources" card row with arrow links | ⚠️ unscoped CSS; no `metadata.json`/`README.md` |
+
+### Interactive blocks run on bundled sample data
+`scripts/lookup-service.js` serves `prior-auth-lookup`, `forms-accordion` and
+`table-news-archive`. It is hard-wired to **mock JSON** in `scripts/lookup-data/`
+(`mock-suggestion-data.json`, `mock-search-data.json`, `mock-forms-response.json`,
+`mock-news-archives.json`) — `return true; // always use mock for now`. The real
+Healthy Blue endpoints (`FORMS_API_URL`, `PLUTO_API_URL`, `NEWS_ARCHIVE_URL`) are
+defined but unused. Results are therefore a fixed sample (e.g. searching "insulin"
+in the lookup tool returns four CPT codes). Switch to the live endpoints once they
+are reachable from the EDS domain.
 
 ### Two known runtime behaviors worth knowing
 - **`scripts/scripts.js` `buildAutoBlocks`** was patched so the synthetic hero
@@ -141,13 +177,19 @@ import script.** (Deleting anything under `content/` is disallowed.)
 
 ### Key files
 - `tools/importer/page-templates.json` — the template catalog. Two templates:
-  `north-carolina-provider` (home, 4 blocks mapped) and `nc-provider-interior`
-  (47 URLs — the consolidated interior template).
+  | Template | URLs | Blocks mapped | Import script |
+  |----------|------|---------------|---------------|
+  | `north-carolina-provider` | 1 (NC home) | 4 | `import-north-carolina-provider.js` |
+  | `nc-provider-interior` | 47 (consolidated interior template) | 11 | `import-nc-provider-interior.js` |
+  The grs-provider (Elevance) import, `import-grs-provider.js`, predates the catalog
+  and has **no entry** in `page-templates.json`.
 - `tools/importer/parsers/<block>.js` — one parser per block; converts source DOM
   → EDS block table. Signature: `export default function parse(element,{document})`,
   build with `WebImporter.Blocks.createBlock(...)`, then `element.replaceWith(block)`.
-- `tools/importer/transformers/healthybluenc-*.js` — site-wide cleanup (removes
-  header/nav/footer/modals) and section handling.
+- `tools/importer/transformers/` — site-wide cleanup (removes header/nav/footer/
+  modals) and section handling, one pair per source site: `healthybluenc-*` (NC) and
+  `bluemedadvgrhs-*` (grs-provider). Each import script imports only its own site's
+  pair.
 - `tools/importer/import-<template>.js` — the per-template import orchestrator
   (bundled to `.bundle.js` before running).
 
@@ -157,7 +199,7 @@ The source reuses generic wrapper classes (`content_column_1/2/3`) that map to
 disambiguate. `import-nc-provider-interior.js` therefore:
 1. Inspects each `<main>` section's **content** to classify it into a block, AND
 2. Gates that choice against a **per-page allow-list** (`ALLOWED_BLOCKS`, embedded
-   in the script; derived from the per-page analyses in `migration-work/pages/*/`).
+   in the script; derived from the per-page analyses done during migration).
    A block is only applied to a page if it's in that page's allowed set — this
    prevents prose sections from being mis-routed to a block (which drops text).
 3. Injects `theme` / `nav` / `footer` metadata into every page.
@@ -191,60 +233,82 @@ node "$D/run-bulk-import.js" \
 WORKSPACE_PATH="$(pwd)" node "$D/validate-imported-pages.js"
 # writes migration-work/importer/page-validation.json
 ```
+With `elevance` active, the NC pages show as "unscored" because their
+`.plain.html` files aren't in this workspace — that's expected.
 
 **Preview locally** (dev server on :3000; content served under `/content/`):
 ```
-http://localhost:3000/content/north-carolina-provider/home
+http://localhost:3000/content/grs-provider
 ```
-(Body already carries the `north-carolina` class in preview so scoped CSS applies.)
+NC pages are previewed on the `elevance-nc` site preview instead (see §1).
 
 **Lint blocks:** `npx eslint blocks/<name>/<name>.js` (airbnb-base; max-len 100).
 
 ---
 
-## 7. Migration status (as of handoff)
+## 7. Migration status
 
 - **elevance-nc: fully migrated.** Home + 46 interior pages imported (47 URLs);
-  **44/49 pages ≥90% content completeness**. The 5 below-threshold are explained
-  (interactive→static blocks, scorer artifacts, excluded chrome) — not dropped
-  content. See GitHub issues #4–#11 (label `migration`) for the full trail.
+  **44/49 pages ≥90% content completeness** at handoff. The 5 below-threshold are
+  explained (interactive→static blocks, scorer artifacts, excluded chrome) — not
+  dropped content. See GitHub issues #4–#11 (label `migration`) for the full trail.
+  Later fixes (issues #65–#92, merged through PR #98) added the §4d blocks and
+  page-level fixes for prior-authorization, the PA lookup, forms, links and
+  training-academy.
 - Nav + footer fragments migrated to `content/fragments/`.
-- Design tokens + all **in-use** blocks styled and visually verified (~92–97%).
+- Design tokens + all **in-use** NC blocks styled and visually verified (~92–97%).
+- **elevance (grs-provider):** 8 basic pages (home + 7 interior) using generic
+  `hero`/`cards`/`columns`; no theme metadata, no design pass.
+
+### Demo pages (North Carolina preview)
+Best showcase pages, in a suggested order: `home` (hero, icon bar, feature cards,
+PDF lists, link directory) → `resources` (widest block mix) →
+`prior-authorization-lookup` → `archives` → `forms` →
+`medical-policies-and-clinical-guidelines`; optionally `patient-care`. In the lookup
+tool, choose a line of business first, then click the search box to open the search
+panel. Skip the grs-provider pages (unstyled generic blocks).
 
 ### Open follow-ups (non-blocking)
-1. **`prior-auth-lookup` needs a real dataset.** It renders a config shell; wire a
-   published PA-code JSON (`[{code, description, market, lob, paRequired}]`) into
-   the block's `Data Source` row for live results.
+1. **Interactive blocks use sample data.** Point `scripts/lookup-service.js` at live
+   endpoints (or a published JSON) for real prior-auth, forms and news results (§4).
 2. **DA authoring-UI registration** for the new blocks (blocks.json + Library
-   panel) via `block-library-creator` — so authors can insert them.
-3. **3 unused blocks** (`cards-topics`, `columns-content`, `columns-doc-library`) —
-   decide whether to author content into them or retire them.
-4. **Source drift:** the live source site has changed since scrape (archives feed
-   redesigned, some redirects). Cached scrapes are in `migration-work/pages/*/` and
-   `tools/importer/bd-snapshots/`.
+   panel) via `block-library-creator` — so authors can insert them. Includes the §4d
+   blocks.
+3. **2 unused blocks** (`cards-topics`, `columns-doc-library`) — decide whether to
+   author content into them or retire them.
+4. **Scope the unscoped CSS** in `pdf-list`, `medical-policies-dialog`,
+   `more-resources`, and add their missing `metadata.json`/`README.md` (also
+   `text-link`).
+5. **Source drift:** the live source site has changed since scrape (archives feed
+   redesigned, some redirects). Cached scrapes are in `tools/importer/bd-snapshots/`.
 
 ---
 
 ## 8. Directory map
 
 ```
-blocks/                     Block code (see §4). NC variants are body.north-carolina-scoped.
+blocks/                     Block code (see §4). Site variants are body.<theme>-scoped.
 styles/
   brand.css                 Design tokens: :root (elevance) + body.north-carolina (NC)
-  styles.css                Base styles + body.north-carolina overrides
+  styles.css                Base styles + body.north-carolina overrides, section styles
 head.html                   Font loading (Roboto + Roboto Condensed)
 scripts/                    aem.js (core, do not fork lightly), scripts.js (auto-block guard)
-content/                    Imported DA content (generated — do not hand-edit)
-  fragments/                nav.plain.html, footer.plain.html (NC)
-  north-carolina-provider/  47 imported NC pages
-  media-da/                 Imported images (incl. adobedrago/elevance-nc/nav logo)
+  lookup-service.js         Data helpers for prior-auth-lookup / forms-accordion / table-news-archive
+  lookup-data/              Mock JSON those blocks currently use
+content/                    The elevance DA space (generated — do not hand-edit)
+  grs-provider(.plain.html) grs-provider home + 7 interior pages
+  fragments/                nav.plain.html, footer.plain.html
+  drafts/                   Personal draft/test pages
+  docs/library/             Block library sample pages
+  media-da/                 Imported images
+docs/                       Static author guide + project overview (author-guide.html, index.html)
 tools/importer/
   page-templates.json       Template catalog (2 templates)
   parsers/                  Per-block source→EDS parsers
-  transformers/             healthybluenc-* cleanup/sections
-  import-*.js(.bundle.js)   Per-template import orchestrators (content-aware router)
+  transformers/             healthybluenc-*, bluemedadvgrhs-* cleanup/sections
+  import-*.js(.bundle.js)   Per-template import orchestrators (content-aware router for NC interior)
   bd-snapshots/             Cached raw HTML for bot-protected re-imports
-migration-work/             Analysis artifacts (per-page analyses, brand.json, reports)
+migration-work/             Analysis artifacts (git-ignored; profile.json = active site)
 .migration/project.json     Project type + per-site config
 ```
 
@@ -253,11 +317,12 @@ migration-work/             Analysis artifacts (per-page analyses, brand.json, r
 ## 9. Conventions & gotchas checklist
 
 - [ ] New site-specific CSS is scoped under `body.<theme>` (never `:root`, never bare).
-- [ ] New pages carry `theme`, `nav`, `footer` metadata (the router injects these on import).
+- [ ] New pages carry `theme` metadata, plus `nav`/`footer` once the site has fragments (the import scripts inject these).
 - [ ] Regenerate content via the import script — don't hand-edit `content/`.
 - [ ] Re-bundle (`aem-import-bundle.sh`) after editing any `import-*.js` before running.
-- [ ] Both source sites are bot-protected → rely on Bright Data / bd-snapshots.
+- [ ] Both provider source sites are bot-protected → rely on Bright Data / bd-snapshots.
+- [ ] Check which site is active (`migration-work/profile.json`) before importing — `content/` is that site's DA space.
 - [ ] Keep the `buildAutoBlocks` hero guard in `scripts/scripts.js`.
 - [ ] Block CSS from generation is **structural only**; brand styling is a separate design pass.
 - [ ] Run the completeness validator after any re-import; investigate genuine drops (not scorer artifacts).
-```
+- [ ] **Back up `tools/importer/page-templates.json` before running the template classifier** — on this project a failed classify run deleted the file.
