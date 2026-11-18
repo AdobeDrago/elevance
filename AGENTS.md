@@ -102,8 +102,13 @@ Section Metadata. Its rules live in `styles/styles.css`.
 
 ## 4. Block library
 
-Blocks live in `blocks/`. Most blocks ship `<name>.js`, `<name>.css`,
-`metadata.json` and `README.md`; the exceptions are noted below.
+Blocks live in `blocks/`. Every block except `header` and `footer` ships `<name>.js`,
+`<name>.css` and a `metadata.json` spec. Most also ship a `README.md`; the exceptions
+are noted below. The starter blocks and the four §4d blocks marked below got their
+specs on 2026-11-18 (inferred from their code and real usage, in the canonical
+block-metadata shape). Variants an author can choose are listed in the spec's
+`options[]`, e.g. `table` → `striped` / `bordered` / `no-header`, `search` →
+`minimal`, `text-link` → `chevron`.
 
 **a) Boilerplate blocks** (from the EDS starter — shared, may be unscoped):
 `accordion, cards, carousel, columns, embed, footer, form, fragment, header, hero,
@@ -140,12 +145,51 @@ to preview/design against** yet.
 **d) NC blocks added after the initial migration** (post-handoff fixes; in use):
 | Block | In use on | Used for | Notes |
 |-------|-----------|----------|-------|
-| `pdf-list` | 11 pages (home, manuals-and-guides, maternal-child-services, …) | List of PDF download links (opens in new tab, adds screen-reader text) | ⚠️ unscoped CSS; no `metadata.json`/`README.md` |
-| `text-link` | 9 pages (training-academy, prior-authorization, cme, …) | Paragraphs holding a text link; `chevron` variant = bold link + chevron | no `metadata.json`/`README.md` |
+| `pdf-list` | 11 pages (home, manuals-and-guides, maternal-child-services, …) | List of PDF download links (opens in new tab, adds screen-reader text) | ⚠️ unscoped CSS; no `README.md` |
+| `text-link` | 9 pages (training-academy, prior-authorization, cme, …) | Paragraphs holding a text link; `chevron` variant = bold link + chevron | no `README.md` |
 | `cta-footer-banner` | 9 pages (prior-authorization, training-*, learn-about-availity, …) | Full-width call-to-action band near the page foot (heading, text, button) | |
 | `forms-accordion` | forms | Categorized provider-forms library in collapsible topic sections + "PCP Change Form" list (sample data) | |
-| `medical-policies-dialog` | medical-policies-and-clinical-guidelines | Disclaimer dialog shown once per day (cookie `mpdisclaimer`) | ⚠️ unscoped CSS; no `metadata.json`/`README.md` |
-| `more-resources` | claims | "More resources" card row with arrow links | ⚠️ unscoped CSS; no `metadata.json`/`README.md` |
+| `medical-policies-dialog` | medical-policies-and-clinical-guidelines | Disclaimer dialog shown once per day (cookie `mpdisclaimer`) | ⚠️ unscoped CSS; no `README.md` |
+| `more-resources` | claims | "More resources" card row with arrow links | ⚠️ unscoped CSS; no `README.md` |
+
+### DA block library (Library → Blocks)
+Authors insert blocks from the DA editor's **Library → Blocks** panel. The panel reads
+each site's `blocks.json` index, and every index entry points at a sample page.
+
+| | Elevance (`adobedrago/elevance`) | North Carolina (`adobedrago/elevance-nc`) |
+|---|---|---|
+| Index | `/docs/library/blocks.json`, **39 entries** (rebuilt 2026-11-18; ✅ uploaded) | `/library/blocks.json`, 27 entries (not touched) |
+| Sample pages | `/docs/library/blocks/<block>`: 32 regenerated and ✅ uploaded (images in each page's `.<block>/` folder) | `/library/blocks/<block>` |
+| Library config | `Blocks` row already pointed at the index; unchanged | unchanged |
+
+- **Elevance sample format** (block-library-creator / `excat-block-generator` shared
+  format): one section per variant, each holding the block as a div-grid followed by a
+  `library-metadata` (`name` / `description`). Variants come from the spec's
+  `options[]`. Generated samples use `./images/placeholder-{16x9,4x3}.png` from
+  `docs/library/blocks/images/`.
+- **Uploaded form:** at upload, each placeholder went to the page's DA image folder
+  (`docs/library/blocks/.<block>/placeholder-*.png`) and the page links it by full
+  `content.da.live` URL. The local copies use the workspace's usual mirror path
+  (`/media-da/docs/library/blocks/<block>/…`), so they no longer pass the sample
+  validator. Regenerate with block-library-creator to get validator-ready samples
+  again.
+- **Where the sample content came from:**
+  - 13 starter blocks: the earlier Elevance samples (Adobe block collection).
+  - 17 custom blocks: the published NC page that uses each block.
+  - `cards-topics`, `columns-doc-library`: built from their specs and code, since no
+    page uses them.
+- **Custom blocks are listed on Elevance too.** Their Library description says they're
+  styled for the North Carolina theme and render unstyled elsewhere.
+- **Kept as they were:** Breadcrumbs, Code, Form thank you, Fragment include,
+  Metadata, Section Metadata and Modal. They aren't blocks in this code, or (Modal) not
+  authored as a block. Cards and Hero keep their `property: multi` setting.
+- **Location:** the Elevance library stays at `/docs/library/` instead of the add-on's
+  default `/library/`, because the Library config, the Templates and the 7 kept pages
+  already live there.
+- **Checking samples:** validate with
+  `excat-block-generator/scripts/validate-block-sample.js`. It expects
+  `content/library/blocks/`, so copy the samples and specs into a scratch root laid out
+  that way; all 32 generated samples passed before upload.
 
 ### Interactive blocks run on bundled sample data
 `scripts/lookup-service.js` serves `prior-auth-lookup`, `forms-accordion` and
@@ -206,6 +250,41 @@ disambiguate. `import-nc-provider-interior.js` therefore:
 
 If a page's blocks look wrong, edit the router logic or that page's entry in
 `ALLOWED_BLOCKS`, then re-bundle + re-import that page (see §6).
+
+### DA Library page templates
+Authors can start a page from **Library → Templates** in the DA editor. There are four
+templates per site: Home page, Interior overview, Document reference and Content page.
+
+| | Elevance (`adobedrago/elevance`) | North Carolina (`adobedrago/elevance-nc`) |
+|---|---|---|
+| Template pages | `/docs/library/templates/{home-page,interior-overview,document-reference,content-page}` | `/library/templates/{…same names…}` (next to its `/library/blocks.json`) |
+| Templates sheet | `/docs/library/templates.json` | `/library/templates.json` |
+| Library config entry | `Templates` row already existed in the DA site config | ⏳ still to add (see §7) |
+| Status | ✅ uploaded to DA (not previewed/published) | ⏳ script tested; run + upload pending |
+
+- **Generated, not hand-written:** `tools/importer/import-library-templates.js` reads each
+  site's *published* page in authoring form (`<preview host>/<path>.plain.html`; URL lists
+  `urls-library-templates-{elevance,nc}.txt`). It keeps the section and block structure
+  and swaps page copy for placeholders ("Page title", "Section heading", "Link text" →
+  `#`). It also trims repeated items (lists to 3, block rows per `MAX_ROWS`, at most 2
+  H2 groups per section). Images keep their published `aem.page/…/media_*` URLs, so
+  they load in the local preview and in DA alike.
+- **Kept verbatim:** shared site-wide sections — the "Provider tools & resources"
+  directory and the join-network CTA (`columns-link-lists`, `cta-footer-banner` on NC),
+  plus section styles (re-created as Section Metadata from the published section class).
+- **Metadata:** NC templates carry `theme: north-carolina`, `nav`, `footer`; both sites
+  get placeholder `title`/`description`. A normal Metadata table is used — DA inserts it
+  as is (it only converts `template-metadata` tables).
+- **Templates sheet format:** DA sheet rows `{ key: <name shown to authors>, value: <full
+  content.da.live URL of the template page> }` (confirmed in the da-live library code).
+- **Regenerate:** bundle the script, then run it with the site's URL list. Output goes
+  to the active site's `content/`, so run the NC list **only with `elevance-nc` active**.
+  To test NC output from an Elevance workspace, run with
+  `WORKSPACE_PATH=/tmp/<scratch>` so nothing lands in the Elevance content. The
+  completeness scorer flags these pages as low; that's expected, because the copy is
+  replaced on purpose.
+- **Upload:** wrap each `.plain.html` as `<body><header></header><main>…</main>
+  <footer></footer></body>` and POST it to the DA source API; POST the sheet as JSON.
 
 ---
 
@@ -271,16 +350,27 @@ panel. Skip the grs-provider pages (unstyled generic blocks).
 ### Open follow-ups (non-blocking)
 1. **Interactive blocks use sample data.** Point `scripts/lookup-service.js` at live
    endpoints (or a published JSON) for real prior-auth, forms and news results (§4).
-2. **DA authoring-UI registration** for the new blocks (blocks.json + Library
-   panel) via `block-library-creator` — so authors can insert them. Includes the §4d
-   blocks.
+2. **DA block library (§4):**
+   - **Elevance:** done. The 39-entry index and all 32 sample pages are in DA, and
+     every index entry has a page. Remaining: an author check in the DA editor
+     (Library → Blocks → insert a few blocks).
+   - **NC:** its Library lists 27 blocks (`/library/blocks.json` in `elevance-nc`).
+     Check which §4d blocks are missing and refresh it from an `elevance-nc` workspace.
 3. **2 unused blocks** (`cards-topics`, `columns-doc-library`) — decide whether to
    author content into them or retire them.
 4. **Scope the unscoped CSS** in `pdf-list`, `medical-policies-dialog`,
-   `more-resources`, and add their missing `metadata.json`/`README.md` (also
-   `text-link`).
+   `more-resources`, and add their missing `README.md` (also `text-link`). Their
+   `metadata.json` specs now exist.
 5. **Source drift:** the live source site has changed since scrape (archives feed
    redesigned, some redirects). Cached scrapes are in `tools/importer/bd-snapshots/`.
+6. **NC Library templates (§5):** from a workspace on the `elevance-nc` site, run
+   `import-library-templates` with `urls-library-templates-nc.txt`, preview, upload the 4
+   pages to `/library/templates/`, upload `/library/templates.json`, and add a
+   `Templates` row to the NC DA library config (`path:
+   https://content.da.live/adobedrago/elevance-nc/library/templates.json`), keeping
+   the existing `Blocks` row.
+7. **Library templates author check:** in DA, insert each template from
+   Library → Templates on a new page and confirm the blocks and metadata come through.
 
 ---
 
@@ -299,7 +389,7 @@ content/                    The elevance DA space (generated — do not hand-edi
   grs-provider(.plain.html) grs-provider home + 7 interior pages
   fragments/                nav.plain.html, footer.plain.html
   drafts/                   Personal draft/test pages
-  docs/library/             Block library sample pages
+  docs/library/             blocks/ + blocks.json (Library → Blocks, §4); templates/ + templates.json (Library templates, §5)
   media-da/                 Imported images
 docs/                       Static author guide + project overview (author-guide.html, index.html)
 tools/importer/
@@ -307,6 +397,7 @@ tools/importer/
   parsers/                  Per-block source→EDS parsers
   transformers/             healthybluenc-*, bluemedadvgrhs-* cleanup/sections
   import-*.js(.bundle.js)   Per-template import orchestrators (content-aware router for NC interior)
+  import-library-templates.js  Builds DA Library page templates from published pages (§5)
   bd-snapshots/             Cached raw HTML for bot-protected re-imports
 migration-work/             Analysis artifacts (git-ignored; profile.json = active site)
 .migration/project.json     Project type + per-site config

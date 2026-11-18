@@ -1,0 +1,13 @@
+{
+  "variantName": "tabs",
+  "baseBlock": "tabs",
+  "version": "1.0.0",
+  "created": "2026-11-18T19:27:12.260Z",
+  "visualCharacteristics": {
+    "purpose": "tabbed-panels",
+    "imagePattern": "noimg"
+  },
+  "contentPattern": {
+    "structure": "tabbed-panels: one row per tab; cell 1 = tab label, cell 2 = panel content"
+  }
+}

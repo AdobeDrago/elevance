@@ -1,0 +1,21 @@
+{
+  "variantName": "more-resources",
+  "baseBlock": "more-resources",
+  "version": "1.0.0",
+  "created": "2026-11-18T19:27:12.260Z",
+  "visualCharacteristics": {
+    "purpose": "related-resources",
+    "imagePattern": "noimg"
+  },
+  "contentPattern": {
+    "structure": "one row of cards; each cell = heading + description + arrow link (button-container paragraph)",
+    "imageCount": 0
+  },
+  "usage": {
+    "pagesUsing": [
+      "/north-carolina-provider/claims"
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-11-18T19:27:12.260Z"
+  }
+}

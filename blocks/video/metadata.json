@@ -1,0 +1,13 @@
+{
+  "variantName": "video",
+  "baseBlock": "video",
+  "version": "1.0.0",
+  "created": "2026-11-18T19:27:12.260Z",
+  "visualCharacteristics": {
+    "purpose": "video-player",
+    "imagePattern": "optional-poster"
+  },
+  "contentPattern": {
+    "structure": "single cell: optional poster image + a link to the YouTube/Vimeo/MP4 source"
+  }
+}

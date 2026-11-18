@@ -1,0 +1,12 @@
+{
+  "variantName": "modal",
+  "baseBlock": "modal",
+  "version": "1.0.0",
+  "created": "2026-11-18T19:27:12.260Z",
+  "visualCharacteristics": {
+    "purpose": "overlay-dialog"
+  },
+  "contentPattern": {
+    "structure": "not authored as a block: links to /modals/<name> open that fragment in a dialog (createModal/openModal helpers)"
+  }
+}

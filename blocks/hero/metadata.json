@@ -1,0 +1,21 @@
+{
+  "variantName": "hero",
+  "baseBlock": "hero",
+  "version": "1.0.0",
+  "created": "2026-11-18T19:27:12.260Z",
+  "visualCharacteristics": {
+    "purpose": "page-intro",
+    "imagePattern": "img-background"
+  },
+  "contentPattern": {
+    "structure": "row 1 = background image; row 2 = H1 + text + optional CTA links",
+    "imageCount": 1
+  },
+  "usage": {
+    "pagesUsing": [
+      "/grs-provider"
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-11-18T19:27:12.260Z"
+  }
+}

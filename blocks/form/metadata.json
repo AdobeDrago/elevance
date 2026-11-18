@@ -1,0 +1,12 @@
+{
+  "variantName": "form",
+  "baseBlock": "form",
+  "version": "1.0.0",
+  "created": "2026-11-18T19:27:12.260Z",
+  "visualCharacteristics": {
+    "purpose": "data-capture"
+  },
+  "contentPattern": {
+    "structure": "single column rows: link to the form definition sheet (.json) and link to the submit/thank-you target"
+  }
+}
