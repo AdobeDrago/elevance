@@ -159,14 +159,20 @@ each site's `blocks.json` index, and every index entry points at a sample page.
 | | Elevance (`adobedrago/elevance`) | North Carolina (`adobedrago/elevance-nc`) |
 |---|---|---|
 | Index | `/docs/library/blocks.json`, **39 entries** (rebuilt 2026-11-18; ✅ uploaded) | `/library/blocks.json`, 27 entries (not touched) |
-| Sample pages | `/docs/library/blocks/<block>`: 32 regenerated locally; ⏳ the user uploads them with the app's DA upload | `/library/blocks/<block>` |
+| Sample pages | `/docs/library/blocks/<block>`: 32 regenerated and ✅ uploaded (images in each page's `.<block>/` folder) | `/library/blocks/<block>` |
 | Library config | `Blocks` row already pointed at the index; unchanged | unchanged |
 
 - **Elevance sample format** (block-library-creator / `excat-block-generator` shared
   format): one section per variant, each holding the block as a div-grid followed by a
   `library-metadata` (`name` / `description`). Variants come from the spec's
-  `options[]`. Images use `./images/placeholder-{16x9,4x3}.png` from
+  `options[]`. Generated samples use `./images/placeholder-{16x9,4x3}.png` from
   `docs/library/blocks/images/`.
+- **Uploaded form:** at upload, each placeholder went to the page's DA image folder
+  (`docs/library/blocks/.<block>/placeholder-*.png`) and the page links it by full
+  `content.da.live` URL. The local copies use the workspace's usual mirror path
+  (`/media-da/docs/library/blocks/<block>/…`), so they no longer pass the sample
+  validator. Regenerate with block-library-creator to get validator-ready samples
+  again.
 - **Where the sample content came from:**
   - 13 starter blocks: the earlier Elevance samples (Adobe block collection).
   - 17 custom blocks: the published NC page that uses each block.
@@ -183,7 +189,7 @@ each site's `blocks.json` index, and every index entry points at a sample page.
 - **Checking samples:** validate with
   `excat-block-generator/scripts/validate-block-sample.js`. It expects
   `content/library/blocks/`, so copy the samples and specs into a scratch root laid out
-  that way; all 32 pass.
+  that way; all 32 generated samples passed before upload.
 
 ### Interactive blocks run on bundled sample data
 `scripts/lookup-service.js` serves `prior-auth-lookup`, `forms-accordion` and
@@ -345,10 +351,9 @@ panel. Skip the grs-provider pages (unstyled generic blocks).
 1. **Interactive blocks use sample data.** Point `scripts/lookup-service.js` at live
    endpoints (or a published JSON) for real prior-auth, forms and news results (§4).
 2. **DA block library (§4):**
-   - **Elevance:** index done (39 entries). The 32 regenerated sample pages in
-     `docs/library/blocks/` still need uploading with the app's DA upload. Until then,
-     the 19 blocks that are new to Elevance won't insert, and the 13 starter blocks
-     insert their old samples.
+   - **Elevance:** done. The 39-entry index and all 32 sample pages are in DA, and
+     every index entry has a page. Remaining: an author check in the DA editor
+     (Library → Blocks → insert a few blocks).
    - **NC:** its Library lists 27 blocks (`/library/blocks.json` in `elevance-nc`).
      Check which §4d blocks are missing and refresh it from an `elevance-nc` workspace.
 3. **2 unused blocks** (`cards-topics`, `columns-doc-library`) — decide whether to
