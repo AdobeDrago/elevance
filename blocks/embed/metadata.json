@@ -1,0 +1,14 @@
+{
+  "variantName": "embed",
+  "baseBlock": "embed",
+  "version": "1.0.0",
+  "created": "2026-11-18T19:27:12.260Z",
+  "visualCharacteristics": {
+    "purpose": "embedded-media",
+    "imagePattern": "optional-poster"
+  },
+  "contentPattern": {
+    "structure": "single cell: optional poster image + a link to the YouTube/Vimeo/Twitter URL",
+    "buttonCount": 0
+  }
+}

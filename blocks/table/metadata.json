@@ -1,0 +1,28 @@
+{
+  "variantName": "table",
+  "baseBlock": "table",
+  "version": "1.0.0",
+  "created": "2026-11-18T19:27:12.260Z",
+  "visualCharacteristics": {
+    "purpose": "tabular-data",
+    "imagePattern": "noimg"
+  },
+  "contentPattern": {
+    "structure": "row 1 = header cells; following rows = data cells (any number of columns)",
+    "imageCount": 0
+  },
+  "options": [
+    {
+      "class": "striped",
+      "label": "striped"
+    },
+    {
+      "class": "bordered",
+      "label": "bordered"
+    },
+    {
+      "class": "no-header",
+      "label": "no header"
+    }
+  ]
+}

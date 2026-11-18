@@ -1,0 +1,26 @@
+{
+  "variantName": "pdf-list",
+  "baseBlock": "pdf-list",
+  "version": "1.0.0",
+  "created": "2026-11-18T19:27:12.260Z",
+  "visualCharacteristics": {
+    "purpose": "document-downloads",
+    "imagePattern": "noimg",
+    "colorScheme": "light"
+  },
+  "contentPattern": {
+    "structure": "one row per document; the cell holds one or more links to PDF files (rendered as a download list, opens in a new tab)",
+    "imageCount": 0
+  },
+  "usage": {
+    "pagesUsing": [
+      "/north-carolina-provider/home",
+      "/north-carolina-provider/manuals-and-guides",
+      "/north-carolina-provider/maternal-child-services",
+      "/north-carolina-provider/electronic-data-interchange",
+      "/north-carolina-provider/pharmacy"
+    ],
+    "reuseCount": 5,
+    "lastUsed": "2026-11-18T19:27:12.260Z"
+  }
+}

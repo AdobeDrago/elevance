@@ -1,0 +1,12 @@
+{
+  "variantName": "fragment",
+  "baseBlock": "fragment",
+  "version": "1.0.0",
+  "created": "2026-11-18T19:27:12.260Z",
+  "visualCharacteristics": {
+    "purpose": "reusable-content-include"
+  },
+  "contentPattern": {
+    "structure": "single cell: link or path to the fragment document (e.g. /fragments/<name>)"
+  }
+}

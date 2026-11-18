@@ -1,0 +1,14 @@
+{
+  "variantName": "carousel",
+  "baseBlock": "carousel",
+  "version": "1.0.0",
+  "created": "2026-11-18T19:27:12.260Z",
+  "visualCharacteristics": {
+    "purpose": "slideshow",
+    "imagePattern": "img-background"
+  },
+  "contentPattern": {
+    "structure": "one row per slide; cell 1 = image, cell 2 = heading + text + optional link",
+    "imageCount": 1
+  }
+}

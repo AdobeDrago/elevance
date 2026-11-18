@@ -1,0 +1,22 @@
+{
+  "variantName": "cards",
+  "baseBlock": "cards",
+  "version": "1.0.0",
+  "created": "2026-11-18T19:27:12.260Z",
+  "visualCharacteristics": {
+    "purpose": "card-grid",
+    "imagePattern": "img-top"
+  },
+  "contentPattern": {
+    "structure": "one row per card; cell 1 = image (optional), cell 2 = heading + text + optional link",
+    "imageCount": 1
+  },
+  "usage": {
+    "pagesUsing": [
+      "/grs-provider",
+      "/grs-provider/join-the-network"
+    ],
+    "reuseCount": 2,
+    "lastUsed": "2026-11-18T19:27:12.260Z"
+  }
+}

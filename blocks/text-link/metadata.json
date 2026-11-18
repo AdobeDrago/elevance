@@ -1,0 +1,30 @@
+{
+  "variantName": "text-link",
+  "baseBlock": "text-link",
+  "version": "1.0.0",
+  "created": "2026-11-18T19:27:12.260Z",
+  "visualCharacteristics": {
+    "purpose": "inline-text-links",
+    "imagePattern": "noimg"
+  },
+  "contentPattern": {
+    "structure": "one row per paragraph; each cell is a link or text with inline links. chevron variant = bold link followed by a chevron-right",
+    "imageCount": 0
+  },
+  "options": [
+    {
+      "class": "chevron",
+      "label": "chevron"
+    }
+  ],
+  "usage": {
+    "pagesUsing": [
+      "/north-carolina-provider/training-academy",
+      "/north-carolina-provider/prior-authorization",
+      "/north-carolina-provider/cme",
+      "/north-carolina-provider/manuals-and-guides"
+    ],
+    "reuseCount": 4,
+    "lastUsed": "2026-11-18T19:27:12.260Z"
+  }
+}

@@ -2,10 +2,10 @@
   "type": "da",
   "sites": {
     "elevance": {
+      "libraryUrl": "https://main--elevance--adobedrago.aem.page/docs/library/blocks.json",
       "previewOrg": "adobedrago",
       "previewSite": "elevance",
       "contentHostUrl": "https://content.da.live/adobedrago/elevance/",
-      "libraryUrl": "https://main--sta-boilerplate--aemdemos.aem.page/tools/sidekick/library.json",
       "botProtected": true
     },
     "elevance-nc": {

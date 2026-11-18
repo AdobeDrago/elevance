@@ -1,0 +1,14 @@
+{
+  "variantName": "quote",
+  "baseBlock": "quote",
+  "version": "1.0.0",
+  "created": "2026-11-18T19:27:12.260Z",
+  "visualCharacteristics": {
+    "purpose": "pull-quote",
+    "imagePattern": "noimg"
+  },
+  "contentPattern": {
+    "structure": "row 1 = quotation text; optional row 2 = attribution",
+    "imageCount": 0
+  }
+}

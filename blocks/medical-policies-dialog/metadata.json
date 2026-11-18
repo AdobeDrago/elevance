@@ -1,0 +1,19 @@
+{
+  "variantName": "medical-policies-dialog",
+  "baseBlock": "medical-policies-dialog",
+  "version": "1.0.0",
+  "created": "2026-11-18T19:27:12.260Z",
+  "visualCharacteristics": {
+    "purpose": "disclaimer-dialog"
+  },
+  "contentPattern": {
+    "structure": "rows of disclaimer content (headings + paragraphs) shown in a dialog once per day (cookie mpdisclaimer); accept/decline buttons are added by the block"
+  },
+  "usage": {
+    "pagesUsing": [
+      "/north-carolina-provider/medical-policies-and-clinical-guidelines"
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-11-18T19:27:12.260Z"
+  }
+}

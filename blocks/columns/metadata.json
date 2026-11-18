@@ -1,0 +1,19 @@
+{
+  "variantName": "columns",
+  "baseBlock": "columns",
+  "version": "1.0.0",
+  "created": "2026-11-18T19:27:12.260Z",
+  "visualCharacteristics": {
+    "purpose": "side-by-side-content"
+  },
+  "contentPattern": {
+    "structure": "one or more rows, each with 2-3 cells of rich content (text, images, links)"
+  },
+  "usage": {
+    "pagesUsing": [
+      "/grs-provider"
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-11-18T19:27:12.260Z"
+  }
+}
