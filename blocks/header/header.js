@@ -605,12 +605,163 @@ async function decorateDefaultHeader(block, fragment) {
   }
 }
 
+/* ---- Blue Medicare Advantage (grs-provider) header ---- */
+const grsDesktop = window.matchMedia('(min-width: 992px)');
+
+function setGrsItemExpanded(item, expanded) {
+  item.classList.toggle('is-open', expanded);
+  item.querySelector(':scope > .grs-menu-toggle').setAttribute('aria-expanded', expanded);
+}
+
+function closeGrsItems(menu, except = null) {
+  menu.querySelectorAll(':scope > .grs-menu-item.is-open').forEach((item) => {
+    if (item !== except) setGrsItemExpanded(item, false);
+  });
+}
+
+function setGrsMobileMenu(nav, button, expanded) {
+  nav.classList.toggle('is-open', expanded);
+  document.body.classList.toggle('grs-nav-open', expanded);
+  button.setAttribute('aria-expanded', expanded);
+  button.setAttribute('aria-label', expanded ? 'Close navigation' : 'Open navigation');
+  if (!expanded) closeGrsItems(nav.querySelector('.grs-menu'));
+}
+
+function buildGrsSubmenuList(list, className) {
+  const ul = document.createElement('ul');
+  ul.className = className;
+  [...list.children].forEach((source) => {
+    const li = document.createElement('li');
+    const link = source.querySelector(':scope > a, :scope > p > a');
+    if (link) li.append(link);
+    const nested = source.querySelector(':scope > ul');
+    if (nested) li.append(buildGrsSubmenuList(nested, 'grs-subnav'));
+    ul.append(li);
+  });
+  return ul;
+}
+
+function decorateGrsHeader(block, fragment) {
+  const [brand, sections, tools] = [...fragment.children]
+    .map((section) => section.querySelector(':scope > .default-content-wrapper') || section);
+  block.textContent = '';
+  const top = document.createElement('div');
+  top.className = 'grs-header';
+  const logo = brand?.querySelector('a');
+  const label = [...(brand?.querySelectorAll(':scope > p') || [])].find((p) => !p.querySelector('a'));
+  if (logo) {
+    logo.className = 'grs-logo';
+    top.append(logo);
+  }
+  if (label) {
+    label.className = 'grs-brand-label';
+    top.append(label);
+  }
+  const loginLink = tools?.querySelector('a');
+  if (loginLink) {
+    const login = document.createElement('div');
+    login.className = 'grs-login';
+    login.append(loginLink.cloneNode(true));
+    top.append(login);
+  }
+  const hamburger = document.createElement('button');
+  hamburger.type = 'button';
+  hamburger.className = 'grs-hamburger';
+  hamburger.setAttribute('aria-controls', 'nav');
+  top.append(hamburger);
+  const nav = document.createElement('nav');
+  nav.id = 'nav';
+  nav.className = 'grs-nav';
+  nav.setAttribute('aria-label', 'Main navigation');
+  const inner = document.createElement('div');
+  inner.className = 'grs-nav-inner';
+  const menu = document.createElement('ul');
+  menu.className = 'grs-menu';
+  [...(sections?.querySelector(':scope > ul')?.children || [])].forEach((source, index) => {
+    const item = document.createElement('li');
+    item.className = 'grs-menu-item';
+    const toggle = document.createElement('button');
+    toggle.type = 'button';
+    toggle.className = 'grs-menu-toggle';
+    const text = source.querySelector(':scope > p')?.textContent
+      || [...source.childNodes].filter((n) => n.nodeType === Node.TEXT_NODE).map((n) => n.textContent).join('');
+    toggle.textContent = text.trim();
+    item.append(toggle);
+    const list = source.querySelector(':scope > ul');
+    if (list) {
+      const submenu = document.createElement('div');
+      submenu.className = 'grs-submenu';
+      submenu.id = `grs-submenu-${index}`;
+      submenu.append(buildGrsSubmenuList(list, 'grs-submenu-list'));
+      toggle.setAttribute('aria-controls', submenu.id);
+      toggle.setAttribute('aria-expanded', 'false');
+      item.append(submenu);
+      toggle.addEventListener('click', () => {
+        const expanded = item.classList.contains('is-open');
+        closeGrsItems(menu, item);
+        setGrsItemExpanded(item, !expanded);
+      });
+      // desktop: the source opens a dropdown on hover and closes it when the pointer leaves
+      item.addEventListener('mouseenter', () => {
+        if (!grsDesktop.matches) return;
+        closeGrsItems(menu, item);
+        setGrsItemExpanded(item, true);
+      });
+      item.addEventListener('mouseleave', () => {
+        if (grsDesktop.matches) setGrsItemExpanded(item, false);
+      });
+    }
+    menu.append(item);
+  });
+  inner.append(menu);
+
+  const utility = document.createElement('div');
+  utility.className = 'grs-utility';
+  const textSize = createFontSizeControls();
+  // keep the source's spacing: the three A's are separated by spaces
+  [...textSize.children].slice(1).forEach((button) => button.before(' '));
+  utility.append(textSize);
+  if (loginLink) {
+    loginLink.className = 'grs-utility-login';
+    utility.append(loginLink);
+  }
+  inner.append(utility);
+  nav.append(inner);
+
+  hamburger.addEventListener('click', () => {
+    setGrsMobileMenu(nav, hamburger, !nav.classList.contains('is-open'));
+  });
+  setGrsMobileMenu(nav, hamburger, false);
+
+  grsDesktop.addEventListener('change', () => setGrsMobileMenu(nav, hamburger, false));
+  document.addEventListener('click', (e) => {
+    if (grsDesktop.matches && !menu.contains(e.target)) closeGrsItems(menu);
+  });
+  window.addEventListener('keydown', (e) => {
+    if (e.code !== 'Escape') return;
+    const open = menu.querySelector(':scope > .grs-menu-item.is-open');
+    if (open) {
+      setGrsItemExpanded(open, false);
+      open.querySelector('.grs-menu-toggle').focus();
+    } else if (nav.classList.contains('is-open')) {
+      setGrsMobileMenu(nav, hamburger, false);
+      hamburger.focus();
+    }
+  });
+
+  block.append(top, nav);
+}
+
 /**
  * Loads and decorates the header navigation.
  * @param {Element} block The header block element
  */
 export default async function decorate(block) {
   const fragment = await loadNavFragment();
+  if (document.body.classList.contains('grs-provider')) {
+    decorateGrsHeader(block, fragment);
+    return;
+  }
   if (!document.body.classList.contains('north-carolina')) {
     await decorateDefaultHeader(block, fragment);
     return;
