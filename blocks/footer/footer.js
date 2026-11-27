@@ -29,6 +29,30 @@ export default async function decorate(block) {
     if (classes[i]) section.classList.add(classes[i]);
   });
 
+  // Blue Medicare Advantage source: the links sit in two independent columns
+  // (contact + privacy | fraud + terms), each with its own vertical rhythm.
+  if (document.body.classList.contains('grs-provider') && sections[1]) {
+    // the source keeps the copyright and the Availity notice in one paragraph, on two lines;
+    // join them when they are authored as separate paragraphs
+    const [copyright, next] = sections[1].querySelectorAll(':scope > p');
+    if (copyright && next && copyright.textContent.trim().startsWith('©')
+      && !copyright.querySelector('br')) {
+      copyright.append(document.createElement('br'), ...next.childNodes);
+      next.remove();
+    }
+  }
+  if (document.body.classList.contains('grs-provider') && sections[0]) {
+    const items = [...sections[0].children];
+    const half = Math.ceil(items.length / 2);
+    [items.slice(0, half), items.slice(half)].forEach((group) => {
+      if (!group.length) return;
+      const col = document.createElement('div');
+      col.className = 'footer-links-col';
+      col.append(...group);
+      sections[0].append(col);
+    });
+  }
+
   // The Healthy Blue source presents its legal copy before the link list.
   // Keep that content order isolated to the North Carolina theme.
   if (document.body.classList.contains('north-carolina')) {

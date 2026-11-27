@@ -194,3 +194,165 @@ body.north-carolina footer.footer-wrapper .footer-links .adobe-reader-image {
     line-height: 22px;
   }
 }
+
+/* Blue Medicare Advantage (grs-provider) footer */
+body.grs-provider footer.footer-wrapper {
+  box-sizing: border-box;
+  padding: 32px 0;
+  background: linear-gradient(90deg, #004b6b, #007eb3);
+  color: #fff;
+  font-family: var(--body-font-family);
+  font-size: 14px;
+  line-height: 20px;
+}
+
+body.grs-provider footer.footer-wrapper .footer {
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+body.grs-provider footer.footer-wrapper .footer p {
+  margin: 0;
+}
+
+body.grs-provider footer.footer-wrapper .footer p + p {
+  margin-top: 20px;
+}
+
+body.grs-provider footer.footer-wrapper :is(.footer-links, .footer-legal) {
+  box-sizing: border-box;
+  position: relative;
+  margin: 0;
+  border: 0;
+  padding: 0 20px;
+}
+
+body.grs-provider footer.footer-wrapper .footer-links {
+  display: block;
+  gap: 0;
+  padding-bottom: 24px;
+}
+
+body.grs-provider footer.footer-wrapper .footer-links-col:first-child {
+  border-top: 1px solid #fff;
+  padding-top: 32px;
+}
+
+body.grs-provider footer.footer-wrapper .footer-links-col:first-child > p:first-child {
+  white-space: nowrap;
+}
+
+body.grs-provider footer.footer-wrapper .footer-links-col + .footer-links-col {
+  margin-top: 20px;
+}
+
+body.grs-provider footer.footer-wrapper .footer a:any-link {
+  display: inline-block;
+  color: #fff;
+  font-weight: 700;
+  line-height: 30px;
+  text-decoration: none;
+}
+
+body.grs-provider footer.footer-wrapper .footer a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+body.grs-provider footer.footer-wrapper .footer a:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+}
+
+body.grs-provider footer.footer-wrapper .footer-legal {
+  padding-top: 32px;
+  padding-bottom: 40px;
+}
+
+body.grs-provider footer.footer-wrapper .footer-legal::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 20px;
+  right: 20px;
+  border-top: 1px solid #fff;
+}
+
+@media (width >= 480px) {
+  body.grs-provider footer.footer-wrapper {
+    padding: 48px 0;
+    line-height: 24px;
+  }
+
+  body.grs-provider footer.footer-wrapper .footer p + p,
+  body.grs-provider footer.footer-wrapper .footer-links-col + .footer-links-col {
+    margin-top: 24px;
+  }
+
+  body.grs-provider footer.footer-wrapper :is(.footer-links, .footer-legal) {
+    padding-right: 24px;
+    padding-left: 24px;
+  }
+
+  body.grs-provider footer.footer-wrapper .footer-legal {
+    padding-bottom: 48px;
+  }
+
+  body.grs-provider footer.footer-wrapper .footer-legal::before {
+    left: 24px;
+    right: 24px;
+  }
+}
+
+@media (width >= 768px) {
+  body.grs-provider footer.footer-wrapper {
+    padding: 64px 0;
+  }
+
+  body.grs-provider footer.footer-wrapper .footer p + p,
+  body.grs-provider footer.footer-wrapper .footer-links-col + .footer-links-col {
+    margin-top: 32px;
+  }
+
+  body.grs-provider footer.footer-wrapper :is(.footer-links, .footer-legal) {
+    padding-right: 30px;
+    padding-left: 30px;
+  }
+
+  body.grs-provider footer.footer-wrapper .footer-legal {
+    padding-bottom: 56px;
+  }
+
+  body.grs-provider footer.footer-wrapper .footer-legal::before {
+    left: 30px;
+    right: 30px;
+  }
+}
+
+@media (width >= 992px) {
+  body.grs-provider footer.footer-wrapper .footer-links {
+    display: flex;
+    padding-bottom: 96px;
+  }
+
+  body.grs-provider footer.footer-wrapper .footer-links-col,
+  body.grs-provider footer.footer-wrapper .footer-links-col:first-child {
+    box-sizing: content-box;
+    width: calc(33.3333% - 42.6667px);
+    border-top: 0;
+    padding: 0 32px 0 0;
+  }
+
+  body.grs-provider footer.footer-wrapper .footer-links-col + .footer-links-col {
+    margin-top: 0;
+    padding: 0 0 0 32px;
+  }
+}
+
+@media (width >= 1140px) {
+  body.grs-provider footer.footer-wrapper :is(.footer-links, .footer-legal) {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+}
