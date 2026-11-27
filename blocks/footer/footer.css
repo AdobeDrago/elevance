@@ -196,6 +196,9 @@ body.north-carolina footer.footer-wrapper .footer-links .adobe-reader-image {
 }
 
 /* Blue Medicare Advantage (grs-provider) footer */
+
+/* selectors only ever compete with other themes' footer rules (never on the same page) */
+/* stylelint-disable no-descending-specificity */
 body.grs-provider footer.footer-wrapper {
   box-sizing: border-box;
   padding: 32px 0;
@@ -356,3 +359,5 @@ body.grs-provider footer.footer-wrapper .footer-legal::before {
     margin: 0 auto;
   }
 }
+
+/* stylelint-enable no-descending-specificity */
